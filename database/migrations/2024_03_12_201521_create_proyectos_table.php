@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('Tipo_Contratacion', 200)->nullable();
             $table->text('Estado')->nullable();
             $table->string('Subasta', 200)->nullable();
-            $table->datetime('Modalidad')->nullable();
-            $table->datetime('Objeto_Contratacion')->nullable();
-            $table->datetime('Tipo_Componentes')->nullable();
-            $table->datetime('Ejecutado_Por')->nullable();
+            $table->string('Modalidad')->nullable();
+            $table->string('Objeto_Contratacion')->nullable();
+            $table->string('Tipo_Componentes')->nullable();
+            $table->string('Ejecutado_Por')->nullable();
             $table->datetime('Fecha_Hora_Inicio_Programado')->nullable();
             $table->datetime('Fecha_Hora_Fin_Programado')->nullable();
             $table->datetime('Fecha_Hora_Inicio')->nullable();
