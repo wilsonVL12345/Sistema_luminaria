@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('accesorios', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre_Item');
+            $table->unsignedBigInteger(column: 'Id_Lista_accesorios');
+            $table->foreign(columns: 'Id_Lista_accesorios')->references(columns: 'id')
+                ->on(table: 'lista_accesorios');
             $table->integer('Cantidad')->nullable();
             $table->integer('Utilizados')->nullable();
             $table->integer('Disponibles')->nullable();

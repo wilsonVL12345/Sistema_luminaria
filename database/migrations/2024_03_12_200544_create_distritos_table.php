@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->integer('Distrito')->nullable();
             $table->string('Zona_Urbanizacion')->nullable();
-            $table->string('Calle_Avenida')->nullable()->unique();
+            $table->string('Calle_Avenida')->nullable();
 
             $table->timestamps();
         });

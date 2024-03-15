@@ -33,4 +33,8 @@ class accesorio extends Model
     {
         return $this->belongsTo(detalle::class);
     }
+    public function lista_accesorio(): BelongsTo
+    {
+        return $this->belongsTo(lista_accesorio::class);
+    }
 }

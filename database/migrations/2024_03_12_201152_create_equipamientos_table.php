@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('Nombre_Item');
             $table->text('Descripcion');
-            $table->date('fecha_mantenimiento')->nullable();
             $table->string('estado');
 
             $table->unsignedBigInteger(column: 'Distritos_id');

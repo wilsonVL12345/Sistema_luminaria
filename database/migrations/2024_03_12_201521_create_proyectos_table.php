@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('Objeto_Contratacion')->nullable();
             $table->string('Tipo_Componentes')->nullable();
             $table->string('Ejecutado_Por')->nullable();
-            $table->datetime('Fecha_Hora_Inicio_Programado')->nullable();
-            $table->datetime('Fecha_Hora_Fin_Programado')->nullable();
+            $table->datetime('Fecha_Hora_Inicio_Programado');
+            $table->datetime('Fecha_Hora_Fin_Programado');
             $table->datetime('Fecha_Hora_Inicio')->nullable();
             $table->datetime('Fecha_Hora_Fin')->nullable();
             $table->text('Observaciones')->nullable();

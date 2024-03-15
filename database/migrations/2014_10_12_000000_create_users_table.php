@@ -13,16 +13,17 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id'); // Columna autoincrementable y clave primaria
-            $table->string('Nombres', 255)->nullable();
-            $table->string('Paterno', 255)->nullable();
-            $table->string('Materno', 255)->nullable();
-            $table->integer('Ci')->nullable();
-            $table->string('Expedido')->nullable();
-            $table->integer('Celular')->nullable();
-            $table->string('Genero', 10)->nullable();
-            $table->string('Lugar_Designado', 25)->nullable();
-            $table->string('Usuario', 15)->nullable();
-            $table->string('Contraseña', 255)->nullable();
+            $table->string('Nombres', 50);
+            $table->string('Paterno', 50);
+            $table->string('Materno', 50)->nullable();
+            $table->integer('Ci');
+            $table->string('Expedido');
+            $table->integer('Celular');
+            $table->string('Genero', 10);
+            $table->string('cargo', 20);
+            $table->string('Lugar_Designado', 25);
+            $table->string('Usuario', 15);
+            $table->string('Contraseña', 20);
 
             $table->rememberToken();
             $table->timestamps();
