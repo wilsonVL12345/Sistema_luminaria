@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\inspecciones;
 use Illuminate\Http\Request;
 
-class InspeccionesController extends Controller
+class distritoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +33,7 @@ class InspeccionesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(inspecciones $inspecciones)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +41,7 @@ class InspeccionesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(inspecciones $inspecciones)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +49,7 @@ class InspeccionesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, inspecciones $inspecciones)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +57,7 @@ class InspeccionesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(inspecciones $inspecciones)
+    public function destroy(string $id)
     {
         //
     }

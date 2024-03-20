@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\accesorios;
 use Illuminate\Http\Request;
 
-class AccesoriosController extends Controller
+class equipamientoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +33,7 @@ class AccesoriosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(accesorios $accesorios)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +41,7 @@ class AccesoriosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(accesorios $accesorios)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +49,7 @@ class AccesoriosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, accesorios $accesorios)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +57,7 @@ class AccesoriosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(accesorios $accesorios)
+    public function destroy(string $id)
     {
         //
     }

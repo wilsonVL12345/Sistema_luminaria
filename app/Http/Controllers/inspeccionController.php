@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\equipamientos;
 use Illuminate\Http\Request;
 
-class EquipamientosController extends Controller
+class inspeccioneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +33,7 @@ class EquipamientosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(equipamientos $equipamientos)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +41,7 @@ class EquipamientosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(equipamientos $equipamientos)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +49,7 @@ class EquipamientosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, equipamientos $equipamientos)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +57,7 @@ class EquipamientosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(equipamientos $equipamientos)
+    public function destroy(string $id)
     {
         //
     }

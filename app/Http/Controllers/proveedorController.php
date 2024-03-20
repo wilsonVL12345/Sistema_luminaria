@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\lista_accesorios;
 use Illuminate\Http\Request;
 
-class ListaAccesoriosController extends Controller
+class proveedorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +33,7 @@ class ListaAccesoriosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(lista_accesorios $lista_accesorios)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +41,7 @@ class ListaAccesoriosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(lista_accesorios $lista_accesorios)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +49,7 @@ class ListaAccesoriosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, lista_accesorios $lista_accesorios)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +57,7 @@ class ListaAccesoriosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(lista_accesorios $lista_accesorios)
+    public function destroy(string $id)
     {
         //
     }

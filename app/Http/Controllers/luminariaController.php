@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\detalles;
 use Illuminate\Http\Request;
 
-class DetallesController extends Controller
+class luminariaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +33,7 @@ class DetallesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(detalles $detalles)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +41,7 @@ class DetallesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(detalles $detalles)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +49,7 @@ class DetallesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, detalles $detalles)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +57,7 @@ class DetallesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(detalles $detalles)
+    public function destroy(string $id)
     {
         //
     }

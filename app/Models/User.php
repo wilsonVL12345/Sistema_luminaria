@@ -60,6 +60,6 @@ class User extends Authenticatable
     }
     public function inspecciones(): HasMany
     {
-        return $this->hasMany(inspeccione::class);
+        return $this->hasMany(inspeccion::class);
     }
 }

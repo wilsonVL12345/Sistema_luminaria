@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\luminarias;
 use Illuminate\Http\Request;
 
-class LuminariasController extends Controller
+class luminaria_reutilizadaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +33,7 @@ class LuminariasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(luminarias $luminarias)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +41,7 @@ class LuminariasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(luminarias $luminarias)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +49,7 @@ class LuminariasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, luminarias $luminarias)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +57,7 @@ class LuminariasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(luminarias $luminarias)
+    public function destroy(string $id)
     {
         //
     }
