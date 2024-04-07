@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('luminarias_reutilizadas', function (Blueprint $table) {
             $table->bigIncrements('id'); // Columna autoincrementable y clave primaria
-            $table->string('Nombre', 50)->nullable();
-            $table->integer('Cantidad')->nullable();
-            $table->string('Potencia', 10)->nullable();
+            $table->string('Nombre', 50);
+            $table->integer('Cantidad');
+            $table->string('Potencia', 10);
             $table->integer('Utilizados')->nullable();
             $table->integer('Disponibles')->nullable();
             $table->string('Observaciones', 200)->nullable();

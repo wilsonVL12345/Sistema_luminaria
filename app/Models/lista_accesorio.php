@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class lista_accesorio extends Model
 {
@@ -14,4 +15,9 @@ class lista_accesorio extends Model
         'Nombre_Item'
     ];
     protected $primarykey = 'id';
+
+    public function accesorios(): HasMany
+    {
+        return $this->hasMany(accesorio::class);
+    }
 }

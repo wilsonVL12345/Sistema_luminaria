@@ -26,10 +26,13 @@ class User extends Authenticatable
         'Expedido',
         'Celular',
         'Genero',
+        'Cargo',
         'Lugar_Designado',
+        'Estado',
         'Usuario',
         'Contraseña',
     ];
+    protected $primarykey = 'id';
 
     /**
      * The attributes that should be hidden for serialization.

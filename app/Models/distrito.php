@@ -30,6 +30,6 @@ class distrito extends Model
     }
     public function inspecciones(): HasMany
     {
-        return $this->hasMany(inspeccione::class);
+        return $this->hasMany(inspeccion::class);
     }
 }

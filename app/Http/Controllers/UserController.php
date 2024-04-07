@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -11,15 +12,27 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::where('cargo', 'administrador')->get();
+        return view('plantilla.usuarioAdmin', ['user' => $users]);
+    }
+
+    public function jefatura()
+    {
+        $users = User::where('cargo', 'jefatura')->get();
+        return view('plantilla.usuarioJefa', ['user' => $users]);
+    }
+    public function especialista()
+    {
+        $users = User::where('cargo', 'especialista')->get();
+        return view('plantilla.usuarioEspe', ['use' => $users]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return $request->txtnombre;
     }
 
     /**
