@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('Lugar_Designado', 25);
             $table->string('Estado', 20);
             $table->string('Usuario', 15);
-            $table->string('Contraseña', 20);
+            $table->string('Contraseña', 50);
 
             $table->rememberToken();
             $table->timestamps();

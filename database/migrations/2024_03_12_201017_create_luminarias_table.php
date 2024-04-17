@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('Potencia', 40);
             $table->string('Cod_Luminaria', 50)->nullable()->unique();
             $table->string('Lugar_Instalado', 40)->nullable();
+            $table->string('latitud')->nullable();
+            $table->string('longitud')->nullable();
 
 
             $table->unsignedBigInteger(column: 'Proveedores_id');

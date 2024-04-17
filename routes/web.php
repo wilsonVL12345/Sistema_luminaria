@@ -18,7 +18,57 @@ use Illuminate\Routing\Router;
 Route::get('/', function () {
     return view('layout.index');
 });
-Route::get('/proyectos', function () {
+Route::get('/usuario/administrador', function () {
+    return view('plantilla.Usuarios.Administrador');
+});
+Route::get('/usuario/administrador', [UserController::class, 'administrador'])->name('usuario.administrador');
+
+
+Route::get('/usuario/jefatura', function () {
+    return view('plantilla.Usuarios.Jefatura');
+});
+Route::get('/usuario/jefatura', [UserController::class, 'jefatura'])->name('usuario.jefatura');
+
+
+Route::get('/usuario/especialista', function () {
+    return view('plantilla.Usuarios.Especialista');
+});
+Route::get('/usuario/especialista', [UserController::class, 'especialista'])->name('usuario.especialista');
+
+//ruta para agregar un nuevo usuario
+Route::post('/registro/usuario', [UserController::class, 'create'])->name('registro.usuario');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+/* Route::get('/proyectos', function () {
     return view('plantilla.dashProyectos');
 });
 
@@ -100,3 +150,4 @@ Route::get('/login', function () {
 });
 //ruta para agergar nuevo usuario
 Route::post('/usuario/registrar', [UserController::class, 'create'])->name('usuario.registrar');
+  */

@@ -17,6 +17,8 @@ class luminaria extends Model
         'Potencia',
         'Cod_Luminaria',
         'Lugar_Instalado',
+        'latitud',
+        'longitud',
 
         'Proveedores_id'
     ];

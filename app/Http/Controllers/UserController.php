@@ -10,21 +10,21 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function administrador()
     {
         $users = User::where('cargo', 'administrador')->get();
-        return view('plantilla.usuarioAdmin', ['user' => $users]);
+        return view('plantilla.Usuarios.Administrador', ['user' => $users]);
     }
 
     public function jefatura()
     {
         $users = User::where('cargo', 'jefatura')->get();
-        return view('plantilla.usuarioJefa', ['user' => $users]);
+        return view('plantilla.Usuarios.Jefatura', ['user' => $users]);
     }
     public function especialista()
     {
         $users = User::where('cargo', 'especialista')->get();
-        return view('plantilla.usuarioEspe', ['use' => $users]);
+        return view('plantilla.Usuarios.Especialista', ['user' => $users]);
     }
 
     /**
@@ -33,6 +33,15 @@ class UserController extends Controller
     public function create(Request $request)
     {
         return $request->txtnombre;
+        /* txtnombre
+        txtpaterno
+        txtmaterno
+        txtci
+        txtexpedido
+        txtcelular
+        txtgenero
+        txtcargo
+        txtlugarDesignado */
     }
 
     /**
