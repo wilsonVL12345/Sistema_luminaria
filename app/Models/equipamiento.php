@@ -14,14 +14,12 @@ class equipamiento extends Model
     [
         'Nombre_Item',
         'Descripcion',
-        'fecha_mantenimiento',
         'estado',
-
         'Distritos_id'
     ];
     protected $primarykey = 'id';
     public function distrito(): BelongsTo
     {
-        return $this->belongsTo(distrito::class);
+        return $this->belongsTo(distrito::class, 'Distritos_id');
     }
 }

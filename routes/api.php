@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\apiDistritoController;
+use App\Http\Controllers\API\apiEquipamientoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\apiUserController;
@@ -17,5 +19,7 @@ use App\Http\Controllers\API\apiUserController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//rutas para mostrar los datos 
 Route::get('/users', [apiUserController::class, 'index']);
+Route::get('/distritos', [apiDistritoController::class, 'index']);
+Route::get('/equipos/equipamientos', [apiEquipamientoController::class, 'index']);

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\distritoController;
+use App\Http\Controllers\equipamientoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Routing\Router;
@@ -37,6 +39,14 @@ Route::get('/usuario/especialista', [UserController::class, 'especialista'])->na
 
 //ruta para agregar un nuevo usuario
 Route::post('/registro/usuario', [UserController::class, 'create'])->name('registro.usuario');
+//ruta para editar usuario
+Route::post('/editar/usuario', [UserController::class, 'edit'])->name('editar.usuario');
+
+//ruta para ver detalles distritos
+Route::get('/detallesDistritos', [distritoController::class, 'index'])->name('detalles.Distritos');
+
+//ruta para ver detalles equipamientos
+Route::get('equipos/equipamiento', [equipamientoController::class, 'index'])->name('equipos.equipamientos');
 
 
 

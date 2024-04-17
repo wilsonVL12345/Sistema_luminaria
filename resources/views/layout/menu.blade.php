@@ -388,7 +388,7 @@
                 </a>
             </div>
             <div class="menu-item">
-                <a class="menu-link" href="/detallesDistrito">
+                <a class="menu-link" href="/detallesDistritos">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
                         <span class="svg-icon svg-icon-2">

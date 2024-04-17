@@ -32,16 +32,35 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        return $request->txtnombre;
-        /* txtnombre
-        txtpaterno
-        txtmaterno
-        txtci
-        txtexpedido
-        txtcelular
-        txtgenero
-        txtcargo
-        txtlugarDesignado */
+        try {
+            $user = new User();
+            $primera = strtolower(substr($request->txtnombre, 0, 1));
+            $apellido = strtolower($request->txtpaterno);
+            $usuario = $primera . $apellido;
+            $contraseña = $apellido . $request->txtci;
+
+            $user->Nombres = $request->txtnombre;
+            $user->Paterno = $request->txtpaterno;
+            $user->Materno = $request->txtmaterno;
+            $user->Ci = $request->txtci;
+            $user->Expedido = $request->txtexpedido;
+            $user->Celular = $request->txtcelular;
+            $user->Genero = $request->txtgenero;
+            $user->Cargo = $request->txtcargo;
+            $user->Lugar_Designado = $request->txtlugarDesignado;
+            $user->Estado = $request->txtestado;
+            $user->Usuario = $usuario;
+            $user->Contraseña = $contraseña;
+            $user->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Usuario Registrado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Registrar");
+        }
     }
 
     /**
@@ -63,9 +82,31 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request)
     {
-        //
+        try {
+            $user = User::find($request->txtid);
+
+            $user->Nombres = $request->txtnombre;
+            $user->Paterno = $request->txtpaterno;
+            $user->Materno = $request->txtmaterno;
+            $user->Ci = $request->txtci;
+            $user->Expedido = $request->txtexpedido;
+            $user->Celular = $request->txtcelular;
+            $user->Genero = $request->txtgenero;
+            $user->Cargo = $request->txtcargo;
+            $user->Lugar_Designado = $request->txtlugarDesignado;
+            $user->Estado = $request->txtestado;
+            $user->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Usuario Modificado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Modificar");
+        }
     }
 
     /**

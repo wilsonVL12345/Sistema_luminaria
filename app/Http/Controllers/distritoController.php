@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\distrito;
+
+use function PHPUnit\Framework\returnSelf;
 
 class distritoController extends Controller
 {
@@ -11,7 +14,8 @@ class distritoController extends Controller
      */
     public function index()
     {
-        //
+        $distritos = distrito::all();
+        return view('plantilla.DetallesDistritos.Distritos', ['distrito' => $distritos]);
     }
 
     /**

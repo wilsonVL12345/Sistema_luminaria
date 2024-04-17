@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\equipamiento;
 
-class equipamientoController extends Controller
+class apiEquipamientoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,15 +14,7 @@ class equipamientoController extends Controller
     public function index()
     {
         $equipamiento = equipamiento::all();
-        return view('plantilla.Equipos.Equipamiento', ['equipos' => $equipamiento]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return response()->json($equipamiento);
     }
 
     /**
@@ -36,14 +29,6 @@ class equipamientoController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
     {
         //
     }
