@@ -57,16 +57,7 @@
 				<div class="card-body pt-9 pb-0">
 					<div class="margin">
 						<h1>Detalles Administradores</h1>
-						@if (session('correcto'))
-							<div class="alert alert-success">
-								{{session("correcto")}}
-								</div>	
-						@endif
-						@if (session('incorrecto'))
-							<div class="alert alert-danger">
-								{{session("incorrecto")}}
-								</div>	
-						@endif
+						@include('layout.notificacioncrud')
 						<button class="btn btn-success " data-bs-toggle="modal" data-bs-target="#Modalregistrar">Agregar Usuario</button>
 						{{-- modal de registro de usuario  --}}	
 						<div class="modal fade" id="Modalregistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -245,7 +236,7 @@
 													<div class="mb-3">
 														<label for="txtexpedido">Expedido</label>
 														<select type="text" value="{{$item->Expedido}}"name="txtexpedido" id="txtexpedido" >
-															<option value="">S{{$item->Expedido=='">'?'selected':''}}eleccione</option>
+															<option value="">Seleccione</option>
 															<option value="LP"{{$item->Expedido=='LP'?'selected':''}}>La paz</option>
 															<option value="SCZ"{{$item->Expedido=='SCZ'?'selected':''}}>Santa Cruz</option>
 															<option value="CO"{{$item->Expedido=='CO'?'selected':''}}>Cochabamba</option>

@@ -15,15 +15,52 @@ class distritoController extends Controller
     public function index()
     {
         $distritos = distrito::all();
-        return view('plantilla.DetallesDistritos.Distritos', ['distrito' => $distritos]);
+        $listadistrito = distrito::distinct()->get(['Zona_Urbanizacion']);
+        return view('plantilla.DetallesDistritos.Distritos', ['distrito' => $distritos], ['listadistrito' => $listadistrito]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        if ($request->txtagregar === "txtzonaUr") {
+            /* dd($request->txtdistrit, $request->txtzonaUrbx, $request->txtzonaUr); */
+
+            try {
+                $distrito = new distrito();
+                $distrito->Distrito = $request->txtdistrit;
+                $distrito->Zona_Urbanizacion = $request->txtzonaUrbanizacio . $request->txtzonaUr;
+
+                $distrito->save();
+                $sql = true;
+            } catch (\Throwable $th) {
+                $sql = false;
+            }
+            if ($sql == true) {
+                return back()->with("correcto", "Datos Registrado Correctamente");
+            } else {
+                return back()->with("incorrecto", "Error al Registrar");
+            }
+        } else {
+
+
+            try {
+                $distrito = new distrito();
+                $distrito->Distrito = $request->txtdistrito;
+                $distrito->Zona_Urbanizacion = $request->txtzonaUrbanizacion . $request->txtzonaUrb;
+                $distrito->Calle_Avenida = $request->txtavenidacalle . $request->txtavc;
+                $distrito->save();
+                $sql = true;
+            } catch (\Throwable $th) {
+                $sql = false;
+            }
+            if ($sql == true) {
+                return back()->with("correcto", "Datos Registrado Correctamente");
+            } else {
+                return back()->with("incorrecto", "Error al Registrar");
+            }
+        }
     }
 
     /**
@@ -45,9 +82,9 @@ class distritoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request)
     {
-        //
+        $distrito = distrito::find($request->txtid);
     }
 
     /**

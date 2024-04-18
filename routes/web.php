@@ -4,6 +4,7 @@ use App\Http\Controllers\distritoController;
 use App\Http\Controllers\equipamientoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\equipamiento;
 use Illuminate\Routing\Router;
 
 /*
@@ -44,9 +45,17 @@ Route::post('/editar/usuario', [UserController::class, 'edit'])->name('editar.us
 
 //ruta para ver detalles distritos
 Route::get('/detallesDistritos', [distritoController::class, 'index'])->name('detalles.Distritos');
+Route::post('/registro/distrito', [distritoController::class, 'create'])->name('registro.distrito');
+Route::post('/editar/distrito', [distritoController::class, 'edit'])->name('editar.distrito');
+
 
 //ruta para ver detalles equipamientos
 Route::get('equipos/equipamiento', [equipamientoController::class, 'index'])->name('equipos.equipamientos');
+
+//rutar para la parte de equipos equipamientos
+Route::post('/registro/equipamiento', [equipamientoController::class, 'create'])->name('registro.equipamiento');
+Route::post('/editar/equipamiento', [equipamientoController::class, 'edit'])->name('editar.equipamiento');
+
 
 
 
