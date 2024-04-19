@@ -14,7 +14,7 @@ class distritoController extends Controller
      */
     public function index()
     {
-        $distritos = distrito::all();
+        $distritos = Distrito::orderBy('id', 'desc')->get();
         $listadistrito = distrito::distinct()->get(['Zona_Urbanizacion']);
         return view('plantilla.DetallesDistritos.Distritos', ['distrito' => $distritos], ['listadistrito' => $listadistrito]);
     }
@@ -30,7 +30,7 @@ class distritoController extends Controller
             try {
                 $distrito = new distrito();
                 $distrito->Distrito = $request->txtdistrit;
-                $distrito->Zona_Urbanizacion = $request->txtzonaUrbanizacio . $request->txtzonaUr;
+                $distrito->Zona_Urbanizacion = $request->txtzonaUrbx . $request->txtzonaUr;
 
                 $distrito->save();
                 $sql = true;

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\lista_accesorio;
+
+use function PHPSTORM_META\sql_injection_subst;
 
 class lista_accesorioController extends Controller
 {
@@ -11,20 +14,26 @@ class lista_accesorioController extends Controller
      */
     public function index()
     {
-        //
+        $accesorios = Lista_accesorio::orderBy('id', 'desc')->get();
+        return view('plantilla.Equipos.Accesorios', ['accesorio' => $accesorios]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        try {
+            $accesorio = new lista_accesorio();
+            $accesorio->Nombre_Item = $request->txtnombre;
+            $accesorio->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Datos Registrado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Registrar");
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
@@ -41,14 +50,25 @@ class lista_accesorioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request)
     {
-        //
+        try {
+            $lista = lista_accesorio::find($request->txtid);
+            $lista->Nombre_Item = $request->txtnombre;
+            $lista->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Datos Modificado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Modificar");
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
+
     public function update(Request $request, string $id)
     {
         //
@@ -57,8 +77,18 @@ class lista_accesorioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        try {
+            lista_accesorio::destroy($id);
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Datos Eliminado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Eliminar");
+        }
     }
 }

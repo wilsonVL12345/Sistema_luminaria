@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class accesorioController extends Controller
 {
     /**
@@ -11,7 +12,6 @@ class accesorioController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**

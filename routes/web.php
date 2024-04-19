@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\distritoController;
 use App\Http\Controllers\equipamientoController;
+use App\Http\Controllers\inspeccionController;
+use App\Http\Controllers\inspeccioneController;
+use App\Http\Controllers\lista_accesorioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\equipamiento;
@@ -48,9 +51,18 @@ Route::get('/detallesDistritos', [distritoController::class, 'index'])->name('de
 Route::post('/registro/distrito', [distritoController::class, 'create'])->name('registro.distrito');
 Route::post('/editar/distrito', [distritoController::class, 'edit'])->name('editar.distrito');
 
+//ruta para inspecciones
+Route::get('/inspecciones/espera', [inspeccionController::class, 'index'])->name('inspecciones.espera');
 
+//rutas para equipamiento y accesorios
 //ruta para ver detalles equipamientos
 Route::get('equipos/equipamiento', [equipamientoController::class, 'index'])->name('equipos.equipamientos');
+//ruta para lista de accesorios
+Route::get('/equipos/accesorios', [lista_accesorioController::class, 'index'])->name('equipos.accesorios');
+//ruta para registrar ala lista de accesorios
+Route::post('/registro/accesorios', [lista_accesorioController::class, 'create'])->name('registro.accesorios');
+Route::post('/editar/accesorios', [lista_accesorioController::class, 'edit'])->name('editar.accesorios');
+Route::get('/eliminar/accesorios-{id}', [lista_accesorioController::class, 'destroy'])->name('eliminar.accesorios');
 
 //rutar para la parte de equipos equipamientos
 Route::post('/registro/equipamiento', [equipamientoController::class, 'create'])->name('registro.equipamiento');

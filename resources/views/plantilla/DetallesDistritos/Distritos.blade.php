@@ -78,7 +78,6 @@
 												<option value="street">Avenida/Calle</option>
 											  </select>
 											</div>
-										  
 											<div id="form-distritoZonaUrbanizacion" style="display: none;">
 											  <div>
 												<label for="txtdistrit">Distrito:</label>
@@ -107,14 +106,11 @@
 													<option value=""disabled selected>Seleccione</option>
 													<option value="Z. ">Zona</option>
 													<option value="Urb. ">Urbanizacion</option>
-
-													
 												</select>
 												<label for="txtzonaUr"></label>
 												<input type="text" id="txtzonaUr" name="txtzonaUr" >
 											  </div>
 											</div>
-										  
 											<div id="form-distritoZonaUrbanizacionAvenidaCalle" style="display: none;">
 											  <div>
 												<label for="txtdistrito">Distrito:</label>

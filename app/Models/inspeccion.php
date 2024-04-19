@@ -19,7 +19,6 @@ class inspeccion extends Model
         'Foto_Carta',
         'Inspeccion',
         'Observaciones',
-
         'users_id',
         'Distritos_id',
     ];

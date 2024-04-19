@@ -52,4 +52,4 @@ document.getElementById('txtagregar').addEventListener('change', function () {
         document.getElementById('txtavenidacalle').required = false;
         document.getElementById('txtavc').required = false;
     }
-});
+}); 

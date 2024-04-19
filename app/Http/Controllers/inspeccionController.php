@@ -3,15 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\inspeccion;
+use App\Models\distrito;
 
-class inspeccioneController extends Controller
+class inspeccionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $inspeccion = inspeccion::all();
+        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
+        $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
+
+        return view('plantilla.Inspecciones.Espera', ['inspeccion' => $inspeccion, 'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb]);
     }
 
     /**
