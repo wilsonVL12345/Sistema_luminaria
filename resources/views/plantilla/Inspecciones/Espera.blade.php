@@ -125,7 +125,7 @@
 								<th>Nro Sisco</th>
 								<th>Fecha de Inspeccion</th>
 								<th>Carta</th>
-								<th>Estado</th>
+								<th>Empezar</th>
 								<th>Accion</th>
 							</tr>
 							 @foreach ($inspeccion as $item)
@@ -214,7 +214,7 @@
 											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
 											<div class="modal-body">
-												<form action="{{route('editar.inspeccionespera')}}" method="POST">
+												<form action="{{route('empezar.inspeccionespera')}}" method="POST">
 													@csrf
 												<div class="mb-3">
 													<label for="txtid">ID</label>
@@ -222,7 +222,7 @@
 												</div>
 												<div class="mb-3">
 													<label for="txtdistrito">Distrito</label>
-													<input type="text" name="txtdistrito" name="txtdistrito" value="{{$item->distrito->Distrito}}" readonly>
+													<input type="text"  name="txtdistrito" value="{{$item->distrito->Distrito}}" readonly>
 													
 												</div>
 												<div class="mb-3">
@@ -238,27 +238,36 @@
 													<input type="date" id="txtfecha" name="txtfecha" value="{{$item->Fecha_Inspeccion}}" readonly>
 												</div>
 												<div class="mb-3">
-													<label for="txtestado">Estado</label>
-													<select name="txtestado" id="txtestado" >
-														<option value="" disabled selected >Seleccionar</option>
-														<option value="Aprobado">Aprobado</option>
-														<option value="Rechazado">Rechazado</option>
+													<label for="txttipo">Tipo de Inspeccion</label>
+													<select name="txttipo" id="txttipo" required>
+														<option value="" disabled selected >Seleccione</option>
+														<option value="Ampliacion de la red">Ampliacion de la red</option>
+														<option value="Mantenimiento">Mantenimiento</option>
+														<option value="Mejora del Sistema">Mejora del Sistema</option>
+														<option value="Ampliacion de la red y Mantenimiento">Ampliacion de la red y Mantenimiento</option>
+
 													</select>
+
+												</div>
+												<div class="mb-3">
+													<label for="txtdescripcion">Descripcion</label>
+													<br>
+													
+													 <textarea name="txtdescripcion" id="txtdescripcion" rows="7" cols="50"></textarea required > 
 												</div>
 												
-												<div class="form-group">
-													<label for="txttipo">Tipo de Inspeccion</label>
-													<select class="select2" multiple="multiple" data-placeholder="Seleccionar tipo" style="width: 100%;">
-													  <option>Ampliacion de la red</option>
-													  <option>Mantenimiento</option>
-													  <option>Mejora del Sistema</option>
-													 
-													</select>
-												</div>
+												<div class="mb-3">
+													<label for="txtestado">Estado</label>
+													<select name="txtestado" id="txtestado" required >
+														<option value="" disabled selected >Selecionar</option>
+														<option value="Aprobado">Aprobado</option>
+														<option value="Rechazado">Rechazado</option>
 
+													</select>
+												</div>												
 												<div class="modal-footer">
 															<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-															<button type="submit" class="btn btn-primary">Registrar</button>
+															<button type="submit" class="btn btn-primary">Finalizar Inspeccion</button>
 												</div>
 		
 											</form>

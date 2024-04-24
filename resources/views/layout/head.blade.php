@@ -18,10 +18,28 @@
 
 	<script src="https://kit.fontawesome.com/79e95e464b.js" crossorigin="anonymous"></script>
 	
+	
+	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+	<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+	<!--begin::Fonts-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+	<!--end::Fonts-->
+	<!--begin::Page Vendor Stylesheets(used by this page)-->
+	<link href="../assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet"
+	type="text/css" />
+	<link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet"
+	type="text/css" />
+	<!--end::Page Vendor Stylesheets-->
+	<!--begin::Global Stylesheets Bundle(used by all pages)-->
+	<link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<!--end::Global Stylesheets Bundle-->
+	<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 	{{-- adminlte --}}
   <!-- Font Awesome -->
  
-   <link rel="stylesheet" href="../assets/plugin/fontawesome-free/css/all.min.css">
+ {{--   <link rel="stylesheet" href="../assets/plugin/fontawesome-free/css/all.min.css">
   <!-- daterange picker -->
   <link rel="stylesheet" href="../assets/plugin/daterangepicker/daterangepicker.css">
   <!-- iCheck for checkboxes and radio inputs -->
@@ -40,22 +58,4 @@
   <!-- dropzonejs -->
   <link rel="stylesheet" href="../assets/plugin/dropzone/min/dropzone.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css"> 
-  
-	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-	<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
-	<!--begin::Fonts-->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-	<!--end::Fonts-->
-	<!--begin::Page Vendor Stylesheets(used by this page)-->
-	<link href="../assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet"
-		type="text/css" />
-	<link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet"
-		type="text/css" />
-	<!--end::Page Vendor Stylesheets-->
-	<!--begin::Global Stylesheets Bundle(used by all pages)-->
-	<link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-	<!--end::Global Stylesheets Bundle-->
-	<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">  --}}

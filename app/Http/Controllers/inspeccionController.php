@@ -15,7 +15,8 @@ class inspeccionController extends Controller
      */
     public function index()
     {
-        $inspeccion = inspeccion::all();
+        /* $inspeccion = inspeccion::all(); */
+        $inspeccion = inspeccion::where('Inspeccion', 'En espera')->get();
         $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
         $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
 
@@ -34,6 +35,7 @@ class inspeccionController extends Controller
 
             //aqui poner el id del que va a agregar el trabajo
             $fk = 126;
+            $espera = 'En espera';
             //se a create un acceso directo para que pueda acceder a esa carpeta
             $dir = $request->file('imgcarta')->store('public/fileinspecciones');
             $url = Storage::url($dir);
@@ -45,6 +47,7 @@ class inspeccionController extends Controller
             $inspeccion->Nro_Sisco = $request->txtnrosisco;
             $inspeccion->Fecha_Inspeccion = $request->txtfecha;
             $inspeccion->Foto_Carta = $url;
+            $inspeccion->Inspeccion = $espera;
             $inspeccion->users_id = $fk;
             $inspeccion->save();
             $sql = true;
@@ -69,9 +72,26 @@ class inspeccionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function ready(Request $request)
     {
-        //
+        try {
+            $inspe = 'Realizado';
+            $emp = inspeccion::find($request->txtid);
+
+            $emp->Tipo_Inspeccion = $request->txttipo;
+            $emp->Observaciones = $request->txtdescripcion;
+            $emp->Estado = $request->txtestado;
+            $emp->Inspeccion = $inspe;
+            $emp->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Inspeccion realizada con exito");
+        } else {
+            return back()->with("incorrecto", "Error al Inspeccionar");
+        }
     }
 
     /**
