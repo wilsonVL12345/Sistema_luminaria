@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('inspecciones', function (Blueprint $table) {
             $table->id();
             $table->string('Nro_Sisco', 20)->unique();
-            $table->string('Tipo_Inspeccion', 20);
+            $table->string('ZonaUrbanizacion');
+            $table->string('Tipo_Inspeccion', 20)->nullable();
             $table->string('Estado', 20)->nullable();
             $table->date('Fecha_Inspeccion')->nullable();
             $table->text('Foto_Carta')->nullable();

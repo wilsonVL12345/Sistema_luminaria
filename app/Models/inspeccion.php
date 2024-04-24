@@ -13,6 +13,7 @@ class inspeccion extends Model
     protected $fillable =
     [
         'Nro_Sisco',
+        'ZonaUrbanizacion',
         'Tipo_Inspeccion',
         'Estado',
         'Fecha_Inspeccion',
@@ -29,6 +30,6 @@ class inspeccion extends Model
     }
     public function distrito(): BelongsTo
     {
-        return $this->belongsTo(distrito::class);
+        return $this->belongsTo(distrito::class, 'Distritos_id');
     }
 }

@@ -1,3 +1,32 @@
+
+{{-- {{-- adminlte --}}
+ <!-- jQuery -->
+  <script src="../assets/plugin/jquery/jquery.min.js"></script>
+ <!-- Bootstrap 4 -->
+ <script src="../assets/plugin/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <!-- Select2 -->
+ <script src="../assets/plugin/select2/js/select2.full.min.js"></script>
+ <!-- Bootstrap4 Duallistbox -->
+ <script src="../assets/plugin/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+ <!-- InputMask -->
+ <script src="../assets/plugin/moment/moment.min.js"></script>
+ <script src="../assets/plugin/inputmask/jquery.inputmask.min.js"></script>
+ <!-- date-range-picker -->
+ <script src="../assets/plugin/daterangepicker/daterangepicker.js"></script>
+ <!-- bootstrap color picker -->
+ <script src="../assets/plugin/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+ <!-- Tempusdominus Bootstrap 4 -->
+ <script src="../assets/plugin/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+ <!-- Bootstrap Switch -->
+ <script src="../assets/plugin/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+ <!-- BS-Stepper -->
+ <script src="../assets/plugin/bs-stepper/js/bs-stepper.min.js"></script>
+ <!-- dropzonejs -->
+ <script src="../assets/plugin/dropzone/min/dropzone.min.js"></script>
+ <!-- AdminLTE App -->
+ <script src="../assets/dist/js/adminlte.min.js"></script>
+ <!-- AdminLTE for demo purposes -->
+ <script src="../assets/dist/js/demo.js"></script> 
 <!--begin::Javascript-->
 <script>var hostUrl = ".assets/";</script>
 <!--begin::Global Javascript Bundle(used by all pages)-->

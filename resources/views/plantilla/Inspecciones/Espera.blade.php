@@ -65,18 +65,18 @@
 							<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-								<h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Nuevo Accesorio</h1>
+								<h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Nueva Inspeccion</h1>
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									<form action="{{route('registro.accesorios')}}" method="POST">
+									<form action="{{route('registro.inspecciones')}}" method="POST" enctype="multipart/form-data">
 										@csrf
 									<div class="mb-3">
-										<label for="txtdistrito">Distrito</label>
+										<label for="txtdistirto">Distrito</label>
 										<select name="txtdistirto" id="txtdistirto">
 											<option value="" disabled selected >Seleccion</option>
 											@foreach ($listadistrito as $item)
-											<option value="{{$item->Distrito}}">{{$item->Distrito}}</option>
+											<option value="{{$item->id}}">{{$item->Distrito}}</option>
 											@endforeach
 										</select>
 									</div>
@@ -99,7 +99,10 @@
 									</div>
 									<div class="mb-3">
 										<label for="imgcarta">Carta</label>
-										<input type="file" id="imgcarta" name="imgcarta">
+										<input type="file" id="imgcarta" name="imgcarta" accept="image/*">
+										@error('imgcarta')
+											<small class="text-danger">{{$message}}</small>
+										@enderror
 									</div>
 									<div class="modal-footer">
 													<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -117,8 +120,8 @@
 						<table>
 							<tr>
 								<th>Nro</th>
-								<th>Zona/Urbanizacion</th>
 								<th>Distrito</th>
+								<th>Zona/Urbanizacion</th>
 								<th>Nro Sisco</th>
 								<th>Fecha de Inspeccion</th>
 								<th>Carta</th>
@@ -128,27 +131,27 @@
 							 @foreach ($inspeccion as $item)
 							<tr>
 								<td><?php echo $num?></td>
-								<td>{{$item->Distrito_id}}</td>
-								<td>{{$item->Distrito_id}}</td>
+								<td>{{$item->Distrito->Distrito}}</td>
+								<td>{{$item->ZonaUrbanizacion}}</td>
 								<td>{{$item->Nro_Sisco}}</td>
 								<td>{{$item->Fecha_Inspeccion}}</td>
 								<td>
 									<a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#Modaleditarlistaaccesorios{{$item->id}}"><i class="fa-solid fa-image"></i></a>
 								</td>
 								<td>
-									<a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#Modaleditarlistaaccesorios{{$item->id}}"><i class="fa-solid fa-paper-plane"></i></a>
+									<a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#Modalempezarinspeccion{{$item->id}}"><i class="fa-solid fa-paper-plane"></i></a>
 								
 								</td>
 
 								<td>
-									<a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#Modaleditarlistaaccesorios{{$item->id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+									<a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#Modaleditarinspeccion{{$item->id}}"><i class="fa-solid fa-pen-to-square"></i></a>
 									<a href="{{route('eliminar.accesorios',$item->id)}}" class="btn btn-danger" onclick="return res()"><i class="fa-solid fa-delete-left"></i></a>
 								</td>
 								<?php 
 								$num++
 								?>
-									{{-- modal de modificar dator --}}	
-									<div class="modal fade" id="Modaleditarlistaaccesorios{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									{{-- modal de modificar datos --}}	
+									<div class="modal fade" id="Modaleditarinspeccion{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 										<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -156,16 +159,103 @@
 											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 											</div>
 											<div class="modal-body">
-												<form action="{{route('editar.accesorios')}}" method="POST">
+												<form action="{{route('editar.inspeccionespera')}}" method="POST">
 													@csrf
 												<div class="mb-3">
 													<label for="txtid">ID</label>
 													<input type="text" id="txtid" name="txtid" value="{{$item->id}}" readonly>
 												</div>
 												<div class="mb-3">
-													<label for="txtnombre">Nombre del Accesorio</label>
-													<input type="text" id="txtnombre" name="txtnombre" value="{{$item->Nombre_Item}}">
+													<label for="txtdistrito">Distrito</label>
+													<select name="txtdistrito" id="txtdistrito">
+														@foreach ($listadistrito as $ite)
+														<option value="{{$ite->id}}" {{$ite->id == $item->Distritos_id ? 'selected' : ''}}>
+															{{$ite->Distrito}}
+														</option>
+													@endforeach
+													</select>
+													
 												</div>
+												<div class="mb-3">
+													<label for="txtzurb">Zona/Urbanizacion</label>
+													<select name="txtzurb" id="txtzurb">
+														@foreach ($listazonaurb as $it)
+														<option value="{{$it->Zona_Urbanizacion}}" {{$it->Zona_Urbanizacion==$item->ZonaUrbanizacion ? 'selected':''}}>
+															{{$it->Zona_Urbanizacion}}
+														</option>
+														@endforeach
+													</select>
+												</div>
+												<div class="mb-3">
+													<label for="txtsisco">Nro Sisco</label>
+													<input type="text" id="txtsisco" name="txtsisco" value="{{$item->Nro_Sisco}}" >
+												</div>
+												<div class="mb-3">
+													<label for="txtfecha">Fecha</label>
+													<input type="date" id="txtfecha" name="txtfecha" value="{{$item->Fecha_Inspeccion}}" >
+												</div>
+
+												<div class="modal-footer">
+															<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+															<button type="submit" class="btn btn-primary">Registrar</button>
+												</div>
+		
+											</form>
+											</div>
+										</div>
+										</div>
+									</div>
+									{{-- modal Empezar inspeccion  --}}	
+									<div class="modal fade" id="Modalempezarinspeccion{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+											<h1 class="modal-title fs-5" id="exampleModalLabel">Registrar Nuevo Accesorio</h1>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												<form action="{{route('editar.inspeccionespera')}}" method="POST">
+													@csrf
+												<div class="mb-3">
+													<label for="txtid">ID</label>
+													<input type="text" id="txtid" name="txtid" value="{{$item->id}}" readonly>
+												</div>
+												<div class="mb-3">
+													<label for="txtdistrito">Distrito</label>
+													<input type="text" name="txtdistrito" name="txtdistrito" value="{{$item->distrito->Distrito}}" readonly>
+													
+												</div>
+												<div class="mb-3">
+													<label for="txtzurb">Zona/Urbanizacion</label>
+													<input type="text" name="txtzurb" id="txtzurb" value="{{$item->ZonaUrbanizacion}}" readonly>
+												</div>
+												<div class="mb-3">
+													<label for="txtsisco">Nro Sisco</label>
+													<input type="text" id="txtsisco" name="txtsisco" value="{{$item->Nro_Sisco}}"  readonly>
+												</div>
+												<div class="mb-3">
+													<label for="txtfecha">Fecha</label>
+													<input type="date" id="txtfecha" name="txtfecha" value="{{$item->Fecha_Inspeccion}}" readonly>
+												</div>
+												<div class="mb-3">
+													<label for="txtestado">Estado</label>
+													<select name="txtestado" id="txtestado" >
+														<option value="" disabled selected >Seleccionar</option>
+														<option value="Aprobado">Aprobado</option>
+														<option value="Rechazado">Rechazado</option>
+													</select>
+												</div>
+												
+												<div class="form-group">
+													<label for="txttipo">Tipo de Inspeccion</label>
+													<select class="select2" multiple="multiple" data-placeholder="Seleccionar tipo" style="width: 100%;">
+													  <option>Ampliacion de la red</option>
+													  <option>Mantenimiento</option>
+													  <option>Mejora del Sistema</option>
+													 
+													</select>
+												</div>
+
 												<div class="modal-footer">
 															<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 															<button type="submit" class="btn btn-primary">Registrar</button>

@@ -227,19 +227,13 @@
 																						<div class="mb-3">
 																						<label for="txtzonaUrbanizacionm">Zona/Urbanizacion</label>
 																						<br>
-																						<select name="txtzonaUrbanizacionm" id="txtzonaUrbanizacionm" >
-																							<option value="" disabled selected >Elegir</option>
-																							@foreach ($distrito as $item)
-																								<option value="{{$item->Zona_Urbanizacion}}"{{$item->Zona_Urbanizacion==$item->Zona_Urbanizacion ? 'selected' : ''}}>{{$item->Zona_Urbanizacion}}</option>
-																							@endforeach
-																						</select>
+																						<input type="text" name="txtzonaUrbanizacionm" value="{{$item->Zona_Urbanizacion}}">
 																						
 																						</div>
 																						<div class="mb-3">
-																						<label for="txtavenidacallem">Avenida/Calle:</label  >
+																						<label for="txtavc">Avenida/Calle:</label  >
 																						<br>
-																						
-																						<input type="text" id="txtavc" name="txtavc" value="{{$item->Calle_Avenida}}" >
+																						<input type="text" name="txtavc" id="txtavc" value="{{$item->Calle_Avenida}}">
 																						</div>
 																						
 																			

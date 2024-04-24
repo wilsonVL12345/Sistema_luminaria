@@ -15,8 +15,11 @@ class distritoController extends Controller
     public function index()
     {
         $distritos = Distrito::orderBy('id', 'desc')->get();
+
         $listadistrito = distrito::distinct()->get(['Zona_Urbanizacion']);
-        return view('plantilla.DetallesDistritos.Distritos', ['distrito' => $distritos], ['listadistrito' => $listadistrito]);
+        $listacallesav = distrito::distinct()->get(['Calle_Avenida']);
+
+        return view('plantilla.DetallesDistritos.Distritos', ['distrito' => $distritos,  'listadistrito' => $listadistrito, 'listacalles' => $listacallesav]);
     }
 
     /**
@@ -74,17 +77,30 @@ class distritoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Request $request)
     {
-        $distrito = distrito::find($request->txtid);
+        try {
+            $distrito = distrito::find($request->txtid);
+
+            $distrito->Distrito = $request->txtdistritom;
+            $distrito->Zona_Urbanizacion = $request->txtzonaUrbanizacionm;
+            $distrito->Calle_Avenida = $request->txtavc;
+            $distrito->save();
+
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Datos Modificado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Modificar");
+        }
     }
 
     /**

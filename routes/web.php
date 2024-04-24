@@ -53,6 +53,8 @@ Route::post('/editar/distrito', [distritoController::class, 'edit'])->name('edit
 
 //ruta para inspecciones
 Route::get('/inspecciones/espera', [inspeccionController::class, 'index'])->name('inspecciones.espera');
+Route::post('/registro/inspecciones', [inspeccionController::class, 'create'])->name('registro.inspecciones');
+Route::post('/editar/inspeccionespera', [inspeccionController::class, 'edit'])->name('editar.inspeccionespera');
 
 //rutas para equipamiento y accesorios
 //ruta para ver detalles equipamientos

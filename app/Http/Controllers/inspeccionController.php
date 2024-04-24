@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\inspeccion;
 use App\Models\distrito;
 
+use Illuminate\Support\Facades\Storage;
+
 class inspeccionController extends Controller
 {
     /**
@@ -23,9 +25,37 @@ class inspeccionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'imgcarta' => 'required|image|max:8048'
+            ]);
+
+            //aqui poner el id del que va a agregar el trabajo
+            $fk = 126;
+            //se a create un acceso directo para que pueda acceder a esa carpeta
+            $dir = $request->file('imgcarta')->store('public/fileinspecciones');
+            $url = Storage::url($dir);
+
+            $inspeccion = new inspeccion();
+
+            $inspeccion->Distritos_id = $request->txtdistirto;
+            $inspeccion->ZonaUrbanizacion = $request->txtzonaurb;
+            $inspeccion->Nro_Sisco = $request->txtnrosisco;
+            $inspeccion->Fecha_Inspeccion = $request->txtfecha;
+            $inspeccion->Foto_Carta = $url;
+            $inspeccion->users_id = $fk;
+            $inspeccion->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Datos Registrado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Registrar");
+        }
     }
 
     /**
@@ -47,9 +77,25 @@ class inspeccionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request)
     {
-        //
+        try {
+            $inspe = inspeccion::find($request->txtid);
+
+            $inspe->Distritos_id = $request->txtdistrito;
+            $inspe->ZonaUrbanizacion = $request->txtzurb;
+            $inspe->Nro_Sisco = $request->txtsisco;
+            $inspe->Fecha_Inspeccion = $request->txtfecha;
+            $inspe->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Datos Modificado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Modificar");
+        }
     }
 
     /**

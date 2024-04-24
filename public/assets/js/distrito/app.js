@@ -10,46 +10,48 @@ function manejarCambioTipoUbicacion() {
     } else if (zonaUrbanizacionAvenidaCalle === 'street') {
         camposDistritoZonaUrbanizacion.style.display = 'none';
         camposDistritoZonaUrbanizacionaAvenidaCalle.style.display = 'block';
-
     }
     else {
         camposDistritoZonaUrbanizacion.style.display = 'none';
         camposDistritoZonaUrbanizacionaAvenidaCalle.style.display = 'none';
     }
-
-
 }
 const tipoUbicacionSelect = document.getElementById('txtagregar');
 
 // Agregar el event listener al cambio de selección
 tipoUbicacionSelect.addEventListener('change', manejarCambioTipoUbicacion);
 
-
-
 //script para que  sea obligatorio llenar los campo en la vista distrito
 document.getElementById('txtagregar').addEventListener('change', function () {
     var option = this.value;
+    let txtdistrit = document.getElementById('txtdistrit');
+    let txtzonaUrbx = document.getElementById('txtzonaUrbx');
+    let txtzonaUr = document.getElementById('txtzonaUr');
+    let txtdistrito = document.getElementById('txtdistrito');
+    let txtzonaUrbanizacion = document.getElementById('txtzonaUrbanizacion');
+    let txtavenidacalle = document.getElementById('txtavenidacalle');
+    let txtavc = document.getElementById('txtavc');
 
     // Habilitar o deshabilitar los campos requeridos según la opción seleccionada
     if (option === 'txtzonaUr') {
-        document.getElementById('txtdistrit').required = true;
-        document.getElementById('txtzonaUrbx').required = true;
-        document.getElementById('txtzonaUr').required = true;
+        txtdistrit.required = true;
+        txtzonaUrbx.required = true;
+        txtzonaUr.required = true;
 
     } else {
-        document.getElementById('txtdistrit').required = false;
-        document.getElementById('txtzonaUrbx').required = false;
-        document.getElementById('txtzonaUr').required = false;
+        txtdistrit.required = false;
+        txtzonaUrbx.required = false;
+        txtzonaUr.required = false;
     }
     if (option === 'street') {
-        document.getElementById('txtdistrito').required = true;
-        document.getElementById('txtzonaUrbanizacion').required = true;
-        document.getElementById('txtavenidacalle').required = true;
-        document.getElementById('txtavc').required = true;
+        txtdistrito.required = true;
+        txtzonaUrbanizacion.required = true;
+        txtavenidacalle.required = true;
+        txtavc.required = true;
     } else {
-        document.getElementById('txtdistrito').required = false;
-        document.getElementById('txtzonaUrbanizacion').required = false;
-        document.getElementById('txtavenidacalle').required = false;
-        document.getElementById('txtavc').required = false;
+        txtdistrito.required = false;
+        txtzonaUrbanizacion.required = false;
+        txtavenidacalle.required = false;
+        txtavc.required = false;
     }
 }); 
