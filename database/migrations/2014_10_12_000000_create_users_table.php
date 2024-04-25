@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('Cargo', 20);
             $table->string('Lugar_Designado', 25);
             $table->string('Estado', 20);
-            $table->string('Usuario', 15);
-            $table->string('Contraseña', 50);
+            $table->string('Usuario');
+            $table->string('Contraseña');
 
             $table->rememberToken();
             $table->timestamps();

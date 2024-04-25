@@ -51,15 +51,14 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Wrapper-->
 					<div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="../../demo1/dist/index.html" action="#">
+						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="../../demo1/dist/index.html" action="{{route('inicia-sesion')}}" method="POST">
+							@csrf
 							<!--begin::Heading-->
 							<div class="text-center mb-10">
 								<!--begin::Title-->
 								<h1 class="text-dark mb-3">Unidad de Luminarias</h1>
 								<!--end::Title-->
 								<!--begin::Link-->
-								<div class="text-gray-400 fw-bold fs-4">New Here?
-								<a href="../../demo1/dist/authentication/layouts/basic/sign-up.html" class="link-primary fw-bolder">Create an Account</a></div>
 								<!--end::Link-->
 							</div>
 							<!--begin::Heading-->
@@ -69,7 +68,7 @@ License: For each use you must have a valid license purchased only from above li
 								<label class="form-label fs-6 fw-bolder text-dark">Usuario</label>
 								<!--end::Label-->
 								<!--begin::Input-->
-								<input class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off" />
+								<input class="form-control form-control-lg form-control-solid" type="text" name="txtusuario" autocomplete="off" required />
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->
@@ -81,12 +80,11 @@ License: For each use you must have a valid license purchased only from above li
 									<label class="form-label fw-bolder text-dark fs-6 mb-0">Contraseña</label>
 									<!--end::Label-->
 									<!--begin::Link-->
-									<a href="../../demo1/dist/authentication/layouts/basic/password-reset.html" class="link-primary fs-6 fw-bolder">Olvidaste tu Contraseña ?</a>
 									<!--end::Link-->
 								</div>
 								<!--end::Wrapper-->
 								<!--begin::Input-->
-								<input class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off" />
+								<input class="form-control form-control-lg form-control-solid" type="password" name="txtcontraseña" autocomplete="off" />
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->
@@ -98,11 +96,7 @@ License: For each use you must have a valid license purchased only from above li
 									<span class="indicator-progress">Please wait...
 									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 								</button>
-								<!--end::Submit button-->
-								<!--begin::Separator-->
-								<div class="text-center text-muted text-uppercase fw-bolder mb-5">or</div>
-								<!--end::Separator-->
-								<!--begin::Google link-->
+								
 								
 							</div>
 							<!--end::Actions-->

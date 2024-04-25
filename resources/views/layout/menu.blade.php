@@ -415,7 +415,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <a class="menu-link" href="/login">
+                <a class="menu-link" href="{{route('logout')}}">
                     <span class="menu-icon">
                        
                     </span>

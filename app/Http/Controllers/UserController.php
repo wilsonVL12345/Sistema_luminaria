@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -32,6 +34,7 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
+
         try {
             $user = new User();
             $primera = strtolower(substr($request->txtnombre, 0, 1));
@@ -50,7 +53,7 @@ class UserController extends Controller
             $user->Lugar_Designado = $request->txtlugarDesignado;
             $user->Estado = $request->txtestado;
             $user->Usuario = $usuario;
-            $user->Contraseña = $contraseña;
+            $user->Contraseña = Hash::make($contraseña);
             $user->save();
             $sql = true;
         } catch (\Throwable $th) {

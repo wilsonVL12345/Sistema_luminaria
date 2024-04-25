@@ -3,12 +3,13 @@
 use App\Http\Controllers\distritoController;
 use App\Http\Controllers\equipamientoController;
 use App\Http\Controllers\inspeccionController;
-use App\Http\Controllers\inspeccioneController;
+
 use App\Http\Controllers\lista_accesorioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\equipamiento;
 use Illuminate\Routing\Router;
+use App\Http\Controllers\logincontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,24 +22,38 @@ use Illuminate\Routing\Router;
 |
 */
 
+Route::view('/usuario/administrador', "plantilla.Usuarios.Administrador")->middleware('Auth')->name('usuario.administrador');
+Route::view('/usuario/jefatura', "plantilla.Usuarios.Especialista")->middleware('Auth')->name('usuario.jefatura');
+Route::view('/usuario/especialista', "plantilla.Usuarios.Jefatura")->middleware('Auth')->name('usuario.especialista');
+Route::view('/login', "plantilla.login")->name('login');
+
+Route::post('/inicia-sesion', [logincontroller::class, 'login'])->name('inicia-sesion');
+Route::get('/logout', [logincontroller::class, 'logout'])->name('logout');
+
+
 Route::get('/', function () {
     return view('layout.index');
 });
-Route::get('/usuario/administrador', function () {
+Route::view('/index', 'layout.index')->middleware('auth')->name('index');
+/* Route::get('/usuario/administrador', function () {
     return view('plantilla.Usuarios.Administrador');
-});
+}); */
 Route::get('/usuario/administrador', [UserController::class, 'administrador'])->name('usuario.administrador');
 
 
-Route::get('/usuario/jefatura', function () {
-    return view('plantilla.Usuarios.Jefatura');
-});
+/* Route::get('/usuario/jefatura', function () {
+     return view('plantilla.Usuarios.Jefatura');}); */
+
 Route::get('/usuario/jefatura', [UserController::class, 'jefatura'])->name('usuario.jefatura');
 
 
-Route::get('/usuario/especialista', function () {
+/* Route::get('/usuario/especialista', function () {
     return view('plantilla.Usuarios.Especialista');
-});
+}); */
+
+
+
+
 Route::get('/usuario/especialista', [UserController::class, 'especialista'])->name('usuario.especialista');
 
 //ruta para agregar un nuevo usuario
