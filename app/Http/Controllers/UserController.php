@@ -35,12 +35,14 @@ class UserController extends Controller
     public function create(Request $request)
     {
 
+
         try {
             $user = new User();
             $primera = strtolower(substr($request->txtnombre, 0, 1));
             $apellido = strtolower($request->txtpaterno);
             $usuario = $primera . $apellido;
-            $contraseña = $apellido . $request->txtci;
+            $contrase = $apellido . $request->txtci;
+
 
             $user->Nombres = $request->txtnombre;
             $user->Paterno = $request->txtpaterno;
@@ -53,8 +55,9 @@ class UserController extends Controller
             $user->Lugar_Designado = $request->txtlugarDesignado;
             $user->Estado = $request->txtestado;
             $user->Usuario = $usuario;
-            $user->Contraseña = Hash::make($contraseña);
+            $user->Password = ($contrase);
             $user->save();
+
             $sql = true;
         } catch (\Throwable $th) {
             $sql = false;
@@ -66,9 +69,7 @@ class UserController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         //

@@ -31,7 +31,7 @@ class User extends Authenticatable
         'Lugar_Designado',
         'Estado',
         'Usuario',
-        'Contraseña',
+        'Password',
     ];
 
 

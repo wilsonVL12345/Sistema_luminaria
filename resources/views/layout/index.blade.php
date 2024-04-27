@@ -1,6 +1,13 @@
+<?php
+session_start();
+
+	if (empty($_SESSION["id"])) {
+    return redirect()->route('login');
+}
+
+?>
+
 <!DOCTYPE html>
-
-
 <html lang="en">
 <head>
 @include('layout.head')
@@ -110,7 +117,7 @@
 						<!--begin::Mobile logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 							<a href="../../demo1/dist/index.html" class="d-lg-none">
-								<img alt="Logo" src="assets/media/logos/trace.svg" class="h-30px" />
+								<img alt="Logo" src="assets/media/logos/gamea.svg" class="h-40px" />
 							</a>
 							<div>
 								<H3>UNIDAD DE ALUMBRADO PUBLICO</H3>
@@ -136,7 +143,14 @@ id="#kt_header_menu" data-kt-menu="true">
 
 {{-- la parte de arriba todo  --}}
 
+<div class="text-white bg-success p-2">
+	<?php
+	
+echo $_SESSION["id"],"  ",$_SESSION["nombre"],"  ",$_SESSION["paterno"],"  ",$_SESSION["lugarDesignado"],"  ",$_SESSION["cargo"];
 
+?>
+
+</div>
 
 
 </div>

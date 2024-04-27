@@ -127,20 +127,20 @@
 											<label for="txtlugarDesignado" class="form-label">Lugar Designado</label>
 											<select type="text" name="txtlugarDesignado" id="txtlugarDesignado">
 												<option value="">Seleccion</option>
-												<option value="Distrito 1">Distrito 1</option> 
-												<option value="Distrito 2">Distrito 2</option> 
-												<option value="Distrito 3">Distrito 3</option> 
-												<option value="Distrito 4">Distrito 4</option> 
-												<option value="Distrito 5">Distrito 5</option> 
-												<option value="Distrito 6">Distrito 6</option> 
-												<option value="Distrito 7">Distrito 7</option> 
-												<option value="Distrito 8">Distrito 8</option> 
-												<option value="Distrito 9">Distrito 9</option> 
-												<option value="Distrito 10">Distrito 10</option> 
-												<option value="Distrito 11">Distrito 11</option> 
-												<option value="Distrito 12">Distrito 12</option> 
-												<option value="Distrito 13">Distrito 13</option> 
-												<option value="Distrito 14">Distrito 14</option> 
+												<option value="1">Distrito 1</option> 
+												<option value="2">Distrito 2</option> 
+												<option value="3">Distrito 3</option> 
+												<option value="4">Distrito 4</option> 
+												<option value="5">Distrito 5</option> 
+												<option value="6">Distrito 6</option> 
+												<option value="7">Distrito 7</option> 
+												<option value="8">Distrito 8</option> 
+												<option value="9">Distrito 9</option> 
+												<option value="10">Distrito 10</option> 
+												<option value="11">Distrito 11</option> 
+												<option value="12">Distrito 12</option> 
+												<option value="13">Distrito 13</option> 
+												<option value="14">Distrito 14</option> 
 												<option value="Alcaldia">Alcaldia</option> 
 
 											</select>

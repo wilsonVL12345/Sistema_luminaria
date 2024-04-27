@@ -34,7 +34,7 @@ Route::get('/logout', [logincontroller::class, 'logout'])->name('logout');
 Route::get('/', function () {
     return view('layout.index');
 });
-Route::view('/index', 'layout.index')->middleware('auth')->name('index');
+Route::view('/index', 'layout.index')->name('index');
 /* Route::get('/usuario/administrador', function () {
     return view('plantilla.Usuarios.Administrador');
 }); */
