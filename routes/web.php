@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Models\equipamiento;
 use Illuminate\Routing\Router;
 use App\Http\Controllers\logincontroller;
+use App\Http\Controllers\proyectoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,9 @@ use App\Http\Controllers\logincontroller;
 |
 */
 
-Route::view('/usuario/administrador', "plantilla.Usuarios.Administrador")->middleware('Auth')->name('usuario.administrador');
-Route::view('/usuario/jefatura', "plantilla.Usuarios.Especialista")->middleware('Auth')->name('usuario.jefatura');
-Route::view('/usuario/especialista', "plantilla.Usuarios.Jefatura")->middleware('Auth')->name('usuario.especialista');
+Route::view('/usuario/administrador', "plantilla.Usuarios.Administrador")->name('usuario.administrador');
+Route::view('/usuario/jefatura', "plantilla.Usuarios.Especialista")->name('usuario.jefatura');
+Route::view('/usuario/especialista', "plantilla.Usuarios.Jefatura")->name('usuario.especialista');
 Route::view('/login', "plantilla.login")->name('login');
 
 Route::post('/inicia-sesion', [logincontroller::class, 'login'])->name('inicia-sesion');
@@ -71,6 +72,8 @@ Route::get('/inspecciones/espera', [inspeccionController::class, 'index'])->name
 Route::post('/registro/inspecciones', [inspeccionController::class, 'create'])->name('registro.inspecciones');
 Route::post('/editar/inspeccionespera', [inspeccionController::class, 'edit'])->name('editar.inspeccionespera');
 Route::post('/empezar/inspeccionespera', [inspeccionController::class, 'ready'])->name('empezar.inspeccionespera');
+Route::get('/inspecciones/realizadas', [inspeccionController::class, 'realizadas'])->name('inspecciones.espera');
+
 
 
 //rutas para equipamiento y accesorios
@@ -83,12 +86,14 @@ Route::post('/registro/accesorios', [lista_accesorioController::class, 'create']
 Route::post('/editar/accesorios', [lista_accesorioController::class, 'edit'])->name('editar.accesorios');
 Route::get('/eliminar/accesorios-{id}', [lista_accesorioController::class, 'destroy'])->name('eliminar.accesorios');
 
+
 //rutar para la parte de equipos equipamientos
 Route::post('/registro/equipamiento', [equipamientoController::class, 'create'])->name('registro.equipamiento');
 Route::post('/editar/equipamiento', [equipamientoController::class, 'edit'])->name('editar.equipamiento');
 
 
-
+//rutas para proyectos
+Route::get('/proyectos/luminariasRetiradas', [proyectoController::class, 'index'])->name('proyectos.luminariasretiradas');
 
 
 

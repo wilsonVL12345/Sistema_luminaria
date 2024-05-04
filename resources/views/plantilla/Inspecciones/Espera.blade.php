@@ -234,10 +234,6 @@
 													<input type="text" id="txtsisco" name="txtsisco" value="{{$item->Nro_Sisco}}"  readonly>
 												</div>
 												<div class="mb-3">
-													<label for="txtfecha">Fecha</label>
-													<input type="date" id="txtfecha" name="txtfecha" value="{{$item->Fecha_Inspeccion}}" readonly>
-												</div>
-												<div class="mb-3">
 													<label for="txttipo">Tipo de Inspeccion</label>
 													<select name="txttipo" id="txttipo" required>
 														<option value="" disabled selected >Seleccione</option>
@@ -245,15 +241,19 @@
 														<option value="Mantenimiento">Mantenimiento</option>
 														<option value="Mejora del Sistema">Mejora del Sistema</option>
 														<option value="Ampliacion de la red y Mantenimiento">Ampliacion de la red y Mantenimiento</option>
-
+														
 													</select>
-
+													
+												</div>
+												
+													<label for="txtfecha">Fecha</label>
+													<input type="date" id="txtfecha" name="txtfecha" value="{{$item->Fecha_Inspeccion}}" readonly>
 												</div>
 												<div class="mb-3">
 													<label for="txtdescripcion">Descripcion</label>
 													<br>
 													
-													 <textarea name="txtdescripcion" id="txtdescripcion" rows="7" cols="50"></textarea required > 
+													 <textarea  name="txtdescripcion" id="txtdescripcion" rows="7" cols="50"></textarea required > 
 												</div>
 												
 												<div class="mb-3">

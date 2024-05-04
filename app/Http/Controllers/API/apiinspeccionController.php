@@ -1,31 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\proyecto;
-use App\Models\distrito;
+use App\Models\inspeccion;
 
-class proyectoController extends Controller
+class apiinspeccionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $proyecto = proyecto::all();
-        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
-        return view('plantilla.Proyectos.ProyectosLumRetiradas', ['proyecto' => $proyecto, 'listadistritos' => $listadistrito]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function realizado()
     {
-        //
+        $inspeccion = inspeccion::where('Inspeccion', 'Realizado')->get();
+        return response()->json($inspeccion);
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -38,14 +31,6 @@ class proyectoController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
     {
         //
     }

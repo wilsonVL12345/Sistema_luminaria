@@ -1,10 +1,9 @@
 <?php
-session_start();
 
-	if (empty($_SESSION["id"])) {
-    return redirect()->route('login');
+
+	if (empty(session()->get('id'))) {
+      return redirect('/login');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -117,7 +116,7 @@ session_start();
 						<!--begin::Mobile logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 							<a href="../../demo1/dist/index.html" class="d-lg-none">
-								<img alt="Logo" src="assets/media/logos/gamea.svg" class="h-40px" />
+								<img alt="Logo gamea" src="../assets/media/logos/gamea.svg" class="h-40px" />
 							</a>
 							<div>
 								<H3>UNIDAD DE ALUMBRADO PUBLICO</H3>
@@ -146,9 +145,19 @@ id="#kt_header_menu" data-kt-menu="true">
 <div class="text-white bg-success p-2">
 	<?php
 	
-echo $_SESSION["id"],"  ",$_SESSION["nombre"],"  ",$_SESSION["paterno"],"  ",$_SESSION["lugarDesignado"],"  ",$_SESSION["cargo"];
-
+/* echo $_SESSION["id"],"  ",$_SESSION["nombre"],"  ",$_SESSION["paterno"],"  ",$_SESSION["lugarDesignado"],"  ",$_SESSION["cargo"];
+ */
+ 
 ?>
+@php
+$id=session('id');
+$nombres=session('nombres');
+$paterno=session('paterno');
+$lugarDesignado=session('lugarDesignado');
+$cargo=session('cargo');
+@endphp
+<p>nombre :{{$nombres}}  paterno :{{$paterno}} </p>
+<p>lugarDesignado :{{$lugarDesignado}}  cargo :{{$cargo}} </p>
 
 </div>
 

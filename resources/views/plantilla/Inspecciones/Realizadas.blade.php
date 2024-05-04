@@ -57,6 +57,44 @@
 				<div class="card-body pt-9 pb-0">
 					<div class="card-body pt-9 pb-0">
 						<div class="margin">
+							<h1>Lista de Zonas y Urbanizaciones Inspeccionadas</h1>
+							
+							<br>
+							<?php
+							$con=1;
+							?>
+							<table>
+								<tr>
+									<th>Nro</th>
+									<th>Distrito</th>
+									<th>Zona</th>
+									<th>Nro Sisco</th>
+									<th>Tipo de Inspeccion</th>
+									<th>Estado</th>
+									<th>Fecha de Inspeccion</th>
+									<th>Carta</th>
+									<th>Inspector</th>
+								</tr>
+								@foreach ($inspeccion as $item)
+								<tr>
+									<td><?php echo $con?></td>
+									<td>{{$item->distrito->Distrito}}</td>
+									<td>{{$item->ZonaUrbanizacion}}</td>
+									<td>{{$item->Nro_Sisco}}</td>
+									<td>{{$item->Tipo_Inspeccion}}</td>
+									<td>{{$item->Estado}}</td>
+									<td>{{$item->Fecha_Inspeccion}}</td>
+									<td>
+										<a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#Modaleditarlistaaccesorios{{$item->id}}"><i class="fa-solid fa-image"></i></a>
+									</td>
+									<td>{{$item->user->Nombres}}</td>
+										
+								</tr>
+								<?php
+								$con++;
+								?>
+								@endforeach
+							</table>
 							
 						</div>
 					</div>
@@ -64,7 +102,7 @@
 			</div>
 			<div class="card mb-5 mb-xl-10">
 				<div class="card-body pt-9 pb-0">
-					<h1>Agendar Trabajo</h1>
+					<h1>Mas detalles</h1>
 						
 					</div>
 				</div>

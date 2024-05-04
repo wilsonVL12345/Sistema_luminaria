@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\apiDistritoController;
 use App\Http\Controllers\API\apiEquipamientoController;
+use App\Http\Controllers\API\apiinspeccionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\apiUserController;
@@ -23,3 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/users', [apiUserController::class, 'index']);
 Route::get('/distritos', [apiDistritoController::class, 'index']);
 Route::get('/equipos/equipamientos', [apiEquipamientoController::class, 'index']);
+Route::get('/inspeccion/realizado', [apiinspeccionController::class, 'realizado']);

@@ -26,7 +26,7 @@ class inspeccion extends Model
     protected $primarykey = 'id';
     public function user(): BelongsTo
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(user::class, 'users_id');
     }
     public function distrito(): BelongsTo
     {

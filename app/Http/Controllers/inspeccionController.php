@@ -8,6 +8,8 @@ use App\Models\distrito;
 
 use Illuminate\Support\Facades\Storage;
 
+
+
 class inspeccionController extends Controller
 {
     /**
@@ -81,7 +83,9 @@ class inspeccionController extends Controller
             $emp->Tipo_Inspeccion = $request->txttipo;
             $emp->Observaciones = $request->txtdescripcion;
             $emp->Estado = $request->txtestado;
+            $emp->Fecha_Inspeccion = now()->format('Y-m-d');
             $emp->Inspeccion = $inspe;
+            $emp->users_id = session("id");
             $emp->save();
             $sql = true;
         } catch (\Throwable $th) {
@@ -118,9 +122,12 @@ class inspeccionController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    public function realizadas(Request $request)
+    {
+        $inspeccion = inspeccion::where('Inspeccion', 'Realizado')->get();
+        return view('plantilla.Inspecciones.Realizadas', ['inspeccion' => $inspeccion]);
+    }
+
     public function update(Request $request, string $id)
     {
         //
