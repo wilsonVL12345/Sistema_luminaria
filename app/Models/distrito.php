@@ -32,4 +32,8 @@ class distrito extends Model
     {
         return $this->hasMany(inspeccion::class);
     }
+    public function datos_luminaria_retiradas(): HasMany
+    {
+        return $this->hasMany(datos_luminaria_retirada::class);
+    }
 }

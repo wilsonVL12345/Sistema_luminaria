@@ -35,9 +35,7 @@ return new class extends Migration
             $table->foreign(columns: 'Luminarias_id')->references(columns: 'id')
                 ->on(table: 'luminarias');
 
-            $table->unsignedBigInteger(column: 'Luminarias_Reutilizadas_id');
-            $table->foreign(columns: 'Luminarias_Reutilizadas_id')->references(columns: 'id')
-                ->on(table: 'luminarias_reutilizadas');
+
 
 
             $table->unsignedBigInteger(column: 'Users_id');

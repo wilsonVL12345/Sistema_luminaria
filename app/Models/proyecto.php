@@ -29,7 +29,7 @@ class proyecto extends Model
 
         'Accesorios_id',
         'Luminarias_id',
-        'Luminarias_Reutilizadas_id',
+
         'Users_id',
         'Distritos_id'
     ];
@@ -46,10 +46,7 @@ class proyecto extends Model
     {
         return $this->belongsTo(user::class);
     }
-    public function luminarias_reutilizadas(): HasMany
-    {
-        return $this->hasMany(luminarias_reutilizada::class);
-    }
+
     public function distrito(): BelongsTo
     {
         return $this->belongsTo(distrito::class);

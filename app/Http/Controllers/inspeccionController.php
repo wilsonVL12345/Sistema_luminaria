@@ -81,7 +81,7 @@ class inspeccionController extends Controller
             $emp = inspeccion::find($request->txtid);
 
             $emp->Tipo_Inspeccion = $request->txttipo;
-            $emp->Observaciones = $request->txtdescripcion;
+            $emp->Detalles = $request->txtdescripcion;
             $emp->Estado = $request->txtestado;
             $emp->Fecha_Inspeccion = now()->format('Y-m-d');
             $emp->Inspeccion = $inspe;

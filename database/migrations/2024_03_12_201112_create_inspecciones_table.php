@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('Fecha_Inspeccion')->nullable();
             $table->text('Foto_Carta')->nullable();
             $table->string('Inspeccion', 50)->nullable();
-            $table->string('Observaciones', 200)->nullable();
+            $table->string('Detalles', 200)->nullable();
 
             $table->unsignedBigInteger(column: 'users_id');
             $table->foreign(columns: 'users_id')->references(columns: 'id')

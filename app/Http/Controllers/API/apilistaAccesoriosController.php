@@ -1,25 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\lista_accesorio;
 
-class luminaria_reutilizadaController extends Controller
+class apilistaAccesoriosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $listaAccesorios = Lista_accesorio::orderBy('id', 'desc')->get();
+        return response()->json($listaAccesorios);
     }
 
     /**
@@ -34,14 +29,6 @@ class luminaria_reutilizadaController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
     {
         //
     }

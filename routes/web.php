@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Models\equipamiento;
 use Illuminate\Routing\Router;
 use App\Http\Controllers\logincontroller;
+use App\Http\Controllers\luminaria_retiradasController;
 use App\Http\Controllers\proyectoController;
 
 /*
@@ -92,9 +93,9 @@ Route::post('/registro/equipamiento', [equipamientoController::class, 'create'])
 Route::post('/editar/equipamiento', [equipamientoController::class, 'edit'])->name('editar.equipamiento');
 
 
-//rutas para proyectos
-Route::get('/proyectos/luminariasRetiradas', [proyectoController::class, 'index'])->name('proyectos.luminariasretiradas');
-
+//rutas para luminarias retiradas
+Route::get('/proyectos/luminariasRetiradas', [luminaria_retiradasController::class, 'index'])->name('proyectos.luminariasretiradas');
+Route::post('/registro/retirados', [luminaria_retiradasController::class, 'create'])->name('registro.retirados');
 
 
 

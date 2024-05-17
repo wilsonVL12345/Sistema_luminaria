@@ -19,7 +19,7 @@ class inspeccion extends Model
         'Fecha_Inspeccion',
         'Foto_Carta',
         'Inspeccion',
-        'Observaciones',
+        'Detalles',
         'users_id',
         'Distritos_id',
     ];

@@ -20,6 +20,7 @@
 <script src="../assets/js/distrito/app.js"></script>
 <script src="../assets/js/equipos/app.js"></script>
 <script src="../assets/js/inspeccion/realizado.js"></script>
+<script src="../assets/js/proyectos/proyecto.js"></script>
 
 
 {{-- {{-- adminlte --}}
