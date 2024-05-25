@@ -156,7 +156,7 @@
 									</div>
 									</div>
 								</div>
-							<h1>Lista de Zonas y Urbanizaciones Inspeccionadas</h1>
+							<h1>Proyectos Pendintes Almacen</h1>
 							@include('layout.notificacioncrud')
 							<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >Agregar Nuevo</button>
 							<br>
@@ -166,16 +166,37 @@
 							<table>
 								<tr>
 									<th>Nro</th>
+									<th>Cuce-Proyecto</th>
 									<th>Distrito</th>
 									<th>Zona</th>
-									<th>Nro Sisco</th>
-									<th>Tipo de Inspeccion</th>
+									<th>Fecha Programada</th>
+									<th>Tipo de Contratacion</th>
+									
 									<th>Estado</th>
-									<th>Fecha de Inspeccion</th>
-									<th>Carta</th>
-									<th>Inspector</th>
+									<th>Subasta</th>
+									<th>Detalles</th>
+									<th>Ejecutar</th>
 								</tr>
-								
+								@foreach ($proyecto as $item)
+									<tr>
+									<td><?php echo $con;?></td>
+									<td>{{$item->Cuce_Cod}}</td>
+									<td>{{$item->distrito->Distrito}}</td>
+									<td>{{$item->Zona}}</td>
+									<td>{{$item->Fecha_Programada}}</td>
+									<td>{{$item->Tipo_Contratacion}}</td>
+									<td>{{$item->Estado}}</td>
+									<td>{{$item->Subasta}}</td>
+
+									<td>
+										<button class="btn btn-success">mostrar</button>
+									</td>
+									<td>
+										<button class="btn btn-success">Instalar</button>
+									</td>
+									</tr>
+									<?php $con++;?>
+								@endforeach
 							</table>
 							
 						</div>

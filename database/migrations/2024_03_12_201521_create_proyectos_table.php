@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('Objeto_Contratacion')->nullable();
             $table->string('Tipo_Componentes')->nullable();
             $table->string('Ejecutado_Por')->nullable();
-            $table->datetime('Fecha_Programada')->nullable();
-            $table->datetime('Fecha_Ejecuta')->nullable();
+            $table->date('Fecha_Programada')->nullable();
+            $table->date('Fecha_Ejecuta')->nullable();
             $table->text('Observaciones')->nullable();
 
             $table->unsignedBigInteger(column: 'Users_id');
