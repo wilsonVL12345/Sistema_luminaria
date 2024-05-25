@@ -16,7 +16,7 @@ class lista_luminarias_retirada extends Model
         'Reutilizables',
         'NoReutilizables',
         'Observaciones',
-        'lista_luminaria_id'
+        'datos_luminaria_id'
     ];
     protected $primarykey = 'id';
 

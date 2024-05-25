@@ -21,11 +21,12 @@
 <script src="../assets/js/equipos/app.js"></script>
 <script src="../assets/js/inspeccion/realizado.js"></script>
 <script src="../assets/js/proyectos/proyecto.js"></script>
+<script src="../assets/js/selecMultiple.js"></script>
 
 
-{{-- {{-- adminlte --}}
- <!-- jQuery -->
-  {{-- <script src="../assets/plugin/jquery/jquery.min.js"></script>
+ {{-- adminlte --}}
+  <!-- jQuery -->
+   <script src="../assets/plugin/jquery/jquery.min.js"></script>
  <!-- Bootstrap 4 -->
  <script src="../assets/plugin/bootstrap/js/bootstrap.bundle.min.js"></script>
  <!-- Select2 -->
@@ -50,4 +51,4 @@
  <!-- AdminLTE App -->
  <script src="../assets/dist/js/adminlte.min.js"></script>
  <!-- AdminLTE for demo purposes -->
- <script src="../assets/dist/js/demo.js"></script>  --}}
+ <script src="../assets/dist/js/demo.js"></script> 

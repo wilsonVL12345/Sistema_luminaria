@@ -12,12 +12,14 @@ class accesorio extends Model
     protected $table = 'accesorios';
     protected $fillable =
     [
-        'Nombre_Item',
+        'Id_Lista_accesorios',
         'Cantidad',
         'Utilizados',
         'Disponibles',
         'Observaciones',
-        'Proveedores_id'
+        'Proveedores_id',
+        'Proyectos_id',
+        'Detalles_id'
     ];
     protected $primarykey = 'id';
 

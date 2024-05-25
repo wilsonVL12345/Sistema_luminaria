@@ -11,7 +11,10 @@ use App\Models\equipamiento;
 use Illuminate\Routing\Router;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\luminaria_retiradasController;
+use App\Http\Controllers\proveedorController;
 use App\Http\Controllers\proyectoController;
+use App\Models\proveedor;
+use Illuminate\Routing\RouteRegistrar;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,7 +100,14 @@ Route::post('/editar/equipamiento', [equipamientoController::class, 'edit'])->na
 Route::get('/proyectos/luminariasRetiradas', [luminaria_retiradasController::class, 'index'])->name('proyectos.luminariasretiradas');
 Route::post('/registro/retirados', [luminaria_retiradasController::class, 'create'])->name('registro.retirados');
 
-
+//rutas proyectos
+// para lo que es almacen
+Route::get('/proyectos/almacen', [proyectoController::class, 'index'])->name('proyectos.almacen');
+Route::post('/registro/almacen', [proyectoController::class, 'create'])->name('registro.almacen');
+//para lo que es proveedores
+Route::get('/proyectos/proveedores', [proveedorController::class, 'index'])->name('proyectos.proveedores');
+Route::post('/registro/proveedor', [proveedorController::class, 'create'])->name('registro.proveedor');
+Route::post('/editar/proveedor', [proveedorController::class, 'edit'])->name('editar.proveedor');
 
 
 

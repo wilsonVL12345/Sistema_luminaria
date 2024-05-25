@@ -58,16 +58,7 @@
 					<div class="card-body pt-9 pb-0">
 						<div class="margin">
 							<h1>Detalles Especialistas</h1>
-							@if (session('correcto'))
-								<div class="alert alert-success">
-									{{session("correcto")}}
-									</div>	
-							@endif
-							@if (session('incorrecto'))
-								<div class="alert alert-danger">
-									{{session("incorrecto")}}
-									</div>	
-							@endif
+							@include('layout.notificacioncrud')
 							<button class="btn btn-success " data-bs-toggle="modal" data-bs-target="#Modalregistrar">Agregar Usuario</button>
 							{{-- modal de registro de usuario  --}}	
 							<div class="modal fade" id="Modalregistrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

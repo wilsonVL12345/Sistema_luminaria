@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('Nombre_de_Empresa', 100)->unique();
             $table->text('Descripcion')->nullable();
-            $table->string('Cod_Proyecto', 50)->nullable()->unique();
-            $table->string('Tipo_de_Componentes', 100)->nullable();
-            $table->date('Fecha_de_proyecto')->nullable();
+            $table->number('Cantidad', 10)->nullable();
+
             $table->timestamps();
         });
     }

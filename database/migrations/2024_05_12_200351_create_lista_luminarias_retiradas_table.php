@@ -18,10 +18,10 @@ return new class extends Migration
 
             $table->integer('Reutilizables')->nullable();
             $table->integer('NoReutilizables')->nullable();
-            $table->string('Observaciones', 200)->nullable()->default('ninguno');
+            $table->string('Observaciones')->nullable()->default('Ninguno');
 
-            $table->unsignedBigInteger(column: 'lista_luminaria_id');
-            $table->foreign(columns: 'lista_luminaria_id')->references(columns: 'id')
+            $table->unsignedBigInteger(column: 'datos_luminaria_id');
+            $table->foreign(columns: 'datos_luminaria_id')->references(columns: 'id')
                 ->on(table: 'datos_luminaria_retiradas');    //onDelete(action:'cascada'); si en caso se elimina algo en la tabla padre, se eliminara todo referido a esa fila
 
             $table->timestamps();

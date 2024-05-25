@@ -14,9 +14,9 @@ class proveedor extends Model
     [
         'Nombre_de_Empresa',
         'Descripcion',
-        'Cod_Proyecto',
-        'Tipo_de_Componentes',
-        'Fecha_de_proyecto'
+        'Cantidad',
+        'created_at'
+
     ];
     protected $primarykey = 'id';
 

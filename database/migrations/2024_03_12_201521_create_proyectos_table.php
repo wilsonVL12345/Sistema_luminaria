@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
             $table->string('Cuce_Cod')->unique();
+            $table->string('Zona')->nullable();
             $table->string('Tipo_Contratacion', 200)->nullable();
             $table->text('Estado')->nullable();
             $table->string('Subasta', 200)->nullable();
@@ -21,22 +22,9 @@ return new class extends Migration
             $table->string('Objeto_Contratacion')->nullable();
             $table->string('Tipo_Componentes')->nullable();
             $table->string('Ejecutado_Por')->nullable();
-            $table->datetime('Fecha_Hora_Inicio_Programado');
-            $table->datetime('Fecha_Hora_Fin_Programado');
-            $table->datetime('Fecha_Hora_Inicio')->nullable();
-            $table->datetime('Fecha_Hora_Fin')->nullable();
+            $table->datetime('Fecha_Programada')->nullable();
+            $table->datetime('Fecha_Ejecuta')->nullable();
             $table->text('Observaciones')->nullable();
-
-            $table->unsignedBigInteger(column: 'Accesorios_id');
-            $table->foreign(columns: 'Accesorios_id')->references(columns: 'id')
-                ->on(table: 'accesorios');
-
-            $table->unsignedBigInteger(column: 'Luminarias_id');
-            $table->foreign(columns: 'Luminarias_id')->references(columns: 'id')
-                ->on(table: 'luminarias');
-
-
-
 
             $table->unsignedBigInteger(column: 'Users_id');
             $table->foreign(columns: 'Users_id')->references(columns: 'id')

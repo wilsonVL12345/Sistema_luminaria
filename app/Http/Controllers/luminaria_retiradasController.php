@@ -77,7 +77,7 @@ class luminaria_retiradasController extends Controller
                 $listaretirados->Reutilizables = $reutilizable;
                 $listaretirados->NoReutilizables = $noreutilizable;
                 $listaretirados->Observaciones = $observacion;
-                $listaretirados->lista_luminaria_id = $datosrecuperad;
+                $listaretirados->datos_luminaria_id = $datosrecuperad;
                 $listaretirados->save();
             }
         }

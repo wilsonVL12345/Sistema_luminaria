@@ -19,7 +19,8 @@ class luminaria extends Model
         'Lugar_Instalado',
         'latitud',
         'longitud',
-
+        'Proyectos_id',
+        'Detalles_id',
         'Proveedores_id'
     ];
     protected $primarykey = 'id';

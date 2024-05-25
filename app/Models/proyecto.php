@@ -14,6 +14,7 @@ class proyecto extends Model
     protected $fillable =
     [
         'Cuce_Cod',
+        'Zona',
         'Tipo_Contratacion',
         'Estado',
         'Subasta',
@@ -21,14 +22,10 @@ class proyecto extends Model
         'Objeto_Contratacion',
         'Tipo_Componentes',
         'Ejecutado_Por',
-        'Fecha_Hora_Inicio_Programado',
-        'Fecha_Hora_Fin_Programado',
-        'Fecha_Hora_Inicio',
-        'Fecha_Hora_Fin',
+        'Fecha',
+        'Fecha_Programada',
+        'Fecha_Ejecutada',
         'Observaciones',
-
-        'Accesorios_id',
-        'Luminarias_id',
 
         'Users_id',
         'Distritos_id'
@@ -49,6 +46,10 @@ class proyecto extends Model
 
     public function distrito(): BelongsTo
     {
-        return $this->belongsTo(distrito::class);
+        return $this->belongsTo(distrito::class, 'Distritos_id');
+    }
+    public function luminarias_reutilizadas(): HasMany
+    {
+        return $this->hasMany(luminarias_reutilizada::class);
     }
 }

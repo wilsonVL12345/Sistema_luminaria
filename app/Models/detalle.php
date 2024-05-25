@@ -24,8 +24,6 @@ class detalle extends Model
         'Estado',
         'Observaciones',
 
-        'Accesorios_id',
-        'Luminarias_id',
         'Users_id',
         'Distritos_id'
     ];
