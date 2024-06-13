@@ -1,5 +1,5 @@
 
-//esta parte de codigo es para  proyectos luminaria retiradas
+//esta parte de codigo es para  proyectos luminaria retiradas---------------------------------------------------------------------
 let luminariasCount = 1;
 function agregarLuminaria() {
     const container = document.createElement('div');
@@ -52,7 +52,7 @@ function eliminarLuminaria(button) {
     container.parentNode.removeChild(container);
 }
 
-/* para la parte de proyectos almacen ---------------------------------------------------------------------------*/
+// para la parte de proyectos almacen -------------------------------------------------------------------------------------------------
 let accesoriosCount = 1;
 function agregarAccesorio() {
     const container2 = document.createElement('div');
@@ -135,44 +135,7 @@ function eliminarAccesorio(button) {
     const container2 = button.parentNode;
     container2.parentNode.removeChild(container2);
 }
-/* para la parte de proyectos almacen */
-let reacondicionadasCount = 1;
-function agregarReacondicionadas() {
-    const container3 = document.createElement('div');
-    container3.innerHTML = `
-    <div class="mb-3">
-            <div class="mb-3">
-            <h3>Luminaria Reacondicionada</h3>
-            <label for="txtnombre">Nombre Item</label>
-			<input type="text" name="camponombre[${reacondicionadasCount}][txtnombre]" id="txtnombre" required>
-            <br>
-			<label for="txtcant">Cantidad</label>
-			<input type="number" name="campocant[${reacondicionadasCount}][txtcant]" id="txtcant" required>
-            <br>	
-            
-            <br>
-			<label for="txtobser">Observaciones</label>
-			<input type="text" name="campoobser[${reacondicionadasCount}][txtobser]" id="txtobser" >
-			</div>
-            <button type="button"  class="btn btn-danger"  onclick="eliminarReacondicionados(this)">Eliminar</button>
-            `
-        ;
-    /* document.querySelector('form').insertBefore(container3, document.querySelector('button[type="submit"]'));
-    luminariasCount++; */
-    const form = document.getElementById('formproyecto');
-    const submitbutton = form.querySelector('#formproyecto[type="submit"]');
-    if (form.container3, submitbutton) {
-        form.insertBefore(container3, submitbutton);
-    } else {
-        form.appendChild(container3);
-    }
-    reacondicionadasCount++;
-}
-function eliminarReacondicionados(button) {
-    const container3 = button.parentNode;
-    container3.parentNode.removeChild(container3);
-}
-/* para la parte de proyectos almacenar  luminarias*/
+/* para la parte de proyectos almacenar  luminarias----------------------------*/
 let lumCount = 1;
 function agregarluminarialed() {
     const container4 = document.createElement('div');
@@ -247,5 +210,85 @@ function eliminarlumin(button) {
     container4.parentNode.removeChild(container4);
 }
 
+/* para la parte de proyectos almacenar  luminarias----------------------------*/
+let reuCount = 1;
+function agregarReacondicionadas() {
+    const container5 = document.createElement('div');
+    container5.innerHTML = `
+    <div class="mb-3">
+            <div class="mb-3">
+            <h3>Luminaria LED</h3>
+            <label for="txtnom">Nombre Item</label>
+			<input type="text" name="camponom[${reuCount}][txtnom]" id="txtnom" required>
+            <br>
+            <br>
+			<label for="txtcant">Cantidad</label>
+			<input type="text" name="campocant[${reuCount}][txtcant]" id="txtcant" required>
+            <br>
+			<label for="txtobs">Observacion</label>
+			<input type="text" name="campoobs[${reuCount}][txtobs]" id="txtobs" required>
+            
 
+        
+
+            <button type="button"  class="btn btn-danger"  onclick="eliminarlumin(this)">Eliminar</button >
+            `
+        ;
+
+    /* document.querySelector('form').insertBefore(container5, document.querySelector('button[type="submit"]'));
+    luminariasCount++; */
+    /*  document.getElementById('formproyecto').insertBefore(container5, document.querySelector('#formproyecto button[type="submit"]')); */
+    const form = document.getElementById('formproyecto');
+    const submitbutton = form.querySelector('#formproyecto[type="submit"]');
+    if (form.container5, submitbutton) {
+        form.insertBefore(container5, submitbutton);
+    } else {
+        form.appendChild(container5);
+    }
+    lumCount++;
+
+}
+function eliminarlumin(button) {
+    const container5 = button.parentNode;
+    container5.parentNode.removeChild(container5);
+}
+
+/* para la seleccion de zonas o urbanizaciones  actualizacion de datos -------------------------------------------------------------------------*/
+
+/* document.addEventListener('DOMContentLoaded', function () {
+    const distritoSelect = document.getElementById('txtdistrito');
+    const zonaUrbanizacionSelect = document.getElementById('txtzona');
+    /* la falla que tubimos es que en la ruta tienes que agregar /api para  que se valla a la ruta de la api */
+/* fetch('/api/distritos')
+    .then(Response => Response.json())
+    .then(data => {
+
+        // Obtener el último select creado dentro del nuevo contenedor
+
+        function actualizarZonasUrbanizaciones() {
+            const distritoSeleccionado = distritoSelect.value;
+
+            zonaUrbanizacionSelect.innerHTML = '<option value="" disabled selected>Elegir</option>';
+
+            data.forEach(distrito => {
+                if (distrito.id == distritoSeleccionado) {
+                    const option = document.createElement('option');
+                    option.value = distrito.Zona_Urbanizacion;
+                    option.text = distrito.Zona_Urbanizacion;
+                    zonaUrbanizacionSelect.add(option);
+                }
+                console.log(distrito.id);
+            });
+        }
+        /*  console.log(data); */
+/* distritoSelect.addEventListener('change', actualizarZonasUrbanizaciones);
+actualizarZonasUrbanizaciones();
+})
+
+.catch(error => {
+console.error('Error al obtener los datos de los accesorios:', error);
+});
+
+
+}); */
 

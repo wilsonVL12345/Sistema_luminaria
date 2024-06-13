@@ -4,22 +4,30 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\distrito;
+use App\Models\luminaria;
+use App\Models\accesorio;
+use App\Models\luminarias_reutilizada;
 
-class apiDistritoController extends Controller
+class apiProyectoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function lum()
     {
-        $distritos = Distrito::select('Distrito', 'Zona_Urbanizacion')
-            ->where('Zona_Urbanizacion', '<>', '')
-            ->distinct('Zona_Urbanizacion')
-            ->orderBy('distrito', 'desc')
-            ->get();
-        /* $distritos = distrito::whereBetween('id', [1000, 1013])->get(); */
-        return response()->json($distritos);
+        $luminaria = luminaria::all();
+        return response()->json($luminaria);
+    }
+    public function acces()
+    {
+        $accesorio = accesorio::all();
+        return response()->json($accesorio);
+    }
+    public function reuu($id)
+    {
+
+        $reutilizada = luminarias_reutilizada::where('Proyectos_id', $id)->get();
+        return response()->json($reutilizada);
     }
 
     /**

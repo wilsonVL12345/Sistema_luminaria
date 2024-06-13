@@ -22,11 +22,9 @@ class proyecto extends Model
         'Objeto_Contratacion',
         'Tipo_Componentes',
         'Ejecutado_Por',
-        'Fecha',
         'Fecha_Programada',
         'Fecha_Ejecutada',
         'Observaciones',
-
         'Users_id',
         'Distritos_id'
     ];

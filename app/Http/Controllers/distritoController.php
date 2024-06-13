@@ -14,12 +14,19 @@ class distritoController extends Controller
      */
     public function index()
     {
-        $distritos = Distrito::orderBy('id', 'desc')->get();
-
+        /* $distritos = Distrito::orderBy('id', 'desc')->get(); */
+        $tododistritos = Distrito::orderBy('id', 'desc')
+            ->where('Zona_Urbanizacion', '<>', '')
+            ->get();
+        $distritos = distrito::whereBetween('id', [1000, 1013])->get();
         $listadistrito = distrito::distinct()->get(['Zona_Urbanizacion']);
         $listacallesav = distrito::distinct()->get(['Calle_Avenida']);
 
-        return view('plantilla.DetallesDistritos.Distritos', ['distrito' => $distritos,  'listadistrito' => $listadistrito, 'listacalles' => $listacallesav]);
+        return view('plantilla.DetallesDistritos.Distritos', [
+            'tododistritos' => $tododistritos,
+            'listadistrito' => $listadistrito, 'listacalles' => $listacallesav,
+            'distrito' => $distritos
+        ]);
     }
 
     /**

@@ -68,30 +68,27 @@
                                 <th>Zona</th>
                                 <th>Nro Sisco</th>
                                 <th>Tipo de Trabajo</th>
-								<th>Puntos</th>
                                 <th>Fecha de Atencion</th>
                                 <th>Carta</th>
                                 <th>Observaciones</th>
-                                <th>Datos </th>
+                                <th>Trabajo</th>
                             </tr>
-                            @foreach ($detallesrealizados as $itemtrab)
+                            @foreach ($detall as $itemtrab)
                                <tr>
                                 <th><?php echo $num;?></th>
                                 <td>{{$itemtrab->distrito->Distrito}}</td>
                                 <td>{{$itemtrab->Zona}}</td>
                                 <td>{{$itemtrab->Nro_Sisco}}</td>
                                 <td>{{$itemtrab->Tipo_Trabajo}}</td>
-								<td>{{$itemtrab->Puntos}}</td>
                                 <td>{{ \Carbon\Carbon::parse($itemtrab->Fecha_Hora_Inicio_Programado)->format('Y-m-d') }}</td>
                                 <td>
                                     <a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#Modaleditarlistaaccesorios"><i class="fa-solid fa-image"></i></a>
                                 </td>
                                 <td>{{$itemtrab->Observaciones}}</td>
                                 <td>
-                                    <a href="" class="btn btn-warning btn-sm" 
-										>
-										<i class="fa-regular fa-eye"></i>
-									</a>	
+                                    <a href="/ejecutar/trabajo/{{$itemtrab->id}}" class="btn btn-warning btn-sm" ><i class="fa-solid fa-paper-plane"></i></a>
+                                    
+
                                 </td>
                                </tr>
                                <?php  $num++;?>

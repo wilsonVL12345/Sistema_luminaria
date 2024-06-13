@@ -32,7 +32,9 @@
 				<div class="aside-logo flex-column-auto" id="kt_aside_logo">
 					<!--begin::Logo-->
 					<a href="/index">
-						<img alt="Logo" src="../assets/media/logos/trace.svg" class="h-70px logo" />
+						{{-- <img alt="Logo" src="../assets/media/logos/trace.svg" class="h-70px logo" /> --}}
+						<img alt="Logo" src="{{ asset('assets/media/logos/trace.svg') }}" class="h-70px logo" />
+
 						
 					</a>
 					<!--end::Logo-->
@@ -116,7 +118,7 @@
 						<!--begin::Mobile logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 							<a href="../../demo1/dist/index.html" class="d-lg-none">
-								<img alt="Logo gamea" src="../assets/media/logos/gamea.svg" class="h-40px" />
+								<img alt="Logo gamea" src="{{asset('assets/media/logos/gamea.svg')}}" class="h-40px" />
 							</a>
 							<div>
 								<H3>UNIDAD DE ALUMBRADO PUBLICO</H3>

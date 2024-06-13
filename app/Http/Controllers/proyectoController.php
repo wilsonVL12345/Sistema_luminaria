@@ -8,6 +8,7 @@ use App\Models\distrito;
 use App\Models\accesorio;
 use App\Models\luminarias_reutilizada;
 use App\Models\luminaria;
+use Illuminate\Foundation\Console\ViewMakeCommand;
 
 class proyectoController extends Controller
 {
@@ -16,10 +17,19 @@ class proyectoController extends Controller
      */
     public function index()
     {
+        $today = now()->toDateString();
         $proyecto = proyecto::all();
+        $reutilizadas = luminarias_reutilizada::all();
+        $accesorio = accesorio::all();
+        $luminaria = luminaria::all();
         $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
         $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
-        return view('plantilla.Proyectos.proyectosAlmacen', ['proyecto' => $proyecto, 'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb]);
+        return view('plantilla.Proyectos.proyectosAlmacen', [
+            'proyecto' => $proyecto,
+            'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb,
+            'reutilizada' => $reutilizadas, 'accesorio' => $accesorio, 'luminaria' => $luminaria, 'today' => $today
+
+        ]);
     }
 
     /**
@@ -31,6 +41,7 @@ class proyectoController extends Controller
         if (!empty($request->campocod) || !empty($request->camponombre) || !empty($request->campocomponentes)) {
             try {
                 $sinDetalle = 1;
+                $cero = 0;
                 $espera = 'En espera';
 
                 $proy = new proyecto();
@@ -63,6 +74,7 @@ class proyectoController extends Controller
                         $nuevoAccesorio->Disponibles = $acceCantidad[$key]['txtcantidad'];
                         $nuevoAccesorio->Proveedores_id = $acceproveedor[$key]['txtproveedo'];
                         $nuevoAccesorio->Proyectos_id = $idProyecto;
+                        $nuevoAccesorio->Utilizados = $cero;
                         $nuevoAccesorio->Detalles_id = $sinDetalle;
 
                         $nuevoAccesorio->Observaciones = $acceObservaciones[$key]['txtobservaciones'];
@@ -71,16 +83,18 @@ class proyectoController extends Controller
                 }
 
                 /* variables de Luminarias Reutilizada */
-                $reuNombre = $request->camponombre;
+                $reuNombre = $request->camponom;
                 $reuCant = $request->campocant;
-                $reuObser = $request->campoobser;
+                $reuObser = $request->campoobs;
                 if (!empty($reuNombre)) {
                     foreach ($reuNombre as $key => $value) {
 
                         $nuevoReutilizado = new luminarias_reutilizada();
-                        $nuevoReutilizado->Nombre_Item = $reuNombre[$key]['txtnombre'];
+                        $nuevoReutilizado->Nombre_Item = $reuNombre[$key]['txtnom'];
                         $nuevoReutilizado->Cantidad = $reuCant[$key]['txtcant'];
-                        $nuevoReutilizado->Observaciones = $reuObser[$key]['txtobser'];
+                        $nuevoReutilizado->Disponibles = $reuCant[$key]['txtcant'];
+                        $nuevoReutilizado->Observaciones = $reuObser[$key]['txtobs'];
+                        $nuevoReutilizado->Utilizados = $cero;
                         $nuevoReutilizado->Proyectos_id = $idProyecto;
                         $nuevoReutilizado->save();
                     }
@@ -122,17 +136,20 @@ class proyectoController extends Controller
     }
 
 
-    public function store(Request $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $detItem = proyecto::find($id);
+
+        $detReutilizada = luminarias_reutilizada::where('Proyectos_id', $id)->get();
+        $detAccesorio = accesorio::where('Proyectos_id', $id)->get();
+        $detLuminarias = luminaria::where('Proyectos_id', $id)->get();
+
+        return view('plantilla.Proyectos.proyectosAlmacen', compact('detItem', 'detReutilizada', 'detAccesorio', 'detLuminarias'));
     }
 
     /**
@@ -142,6 +159,16 @@ class proyectoController extends Controller
     {
         //
     }
+    //emvia todos los datos necesarios para luminarias reutilizadas con su fk
+    public function reu($id)
+    {
+        $proyec = proyecto::find($id);
+        $reutilizada = luminarias_reutilizada::where('Proyectos_id', $id)->get();
+        $accesorios = accesorio::where('Proyectos_id', $id)->get();
+        $luminaria = luminaria::where('Proyectos_id', $id)->get();
+
+        return view('plantilla.Proyectos.proyectoDetalles', compact('luminaria', 'accesorios', 'reutilizada', 'proyec'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -150,7 +177,53 @@ class proyectoController extends Controller
     {
         //
     }
+    //esta parte se encarga de emviar todos los datos necesarios para dar con la ejecucion de los proyectos de almacen
+    public function ejecutarProyectodatos($id)
+    {
+        $ejecProyecto = proyecto::find($id);
+        $ejecAccesorios = accesorio::where('Proyectos_id', $id)->get();
+        $ejecReutilizados = luminarias_reutilizada::where('Proyectos_id', $id)->get();
+        $ejecLuminarias = luminaria::where('Proyectos_id', $id)->get();
 
+        $zonaUrbSelecionada = $ejecProyecto->Zona;
+        $calleAv = distrito::where('Zona_Urbanizacion', $zonaUrbSelecionada)->get();
+
+        return view('plantilla.Proyectos.almacenEjecutarProyecto', compact('ejecProyecto', 'ejecAccesorios', 'ejecReutilizados', 'ejecLuminarias', 'calleAv'));
+    }
+    //en esta parte registra todo el trabajo hecho   en proyecto almacen
+    public function registrarTrabajo(Request $request, $idp)
+    {
+        $fin = 'Finalizado';
+        try {
+            $regisProyectoEjec = proyecto::find($idp);
+            $regisProyectoEjec->Ejecutado_Por = $request->txtejec;
+            $regisProyectoEjec->Fecha_Ejecutada = $request->txtfecha;
+            $regisProyectoEjec->Estado = $fin;
+            $regisProyectoEjec->save();
+
+            foreach ($request->input('utilizadoacc') as $id => $utilizadoacc) {
+                $regisaccesorio = accesorio::find($id);
+                if ($regisaccesorio) {
+                    if ($utilizadoacc <= $regisaccesorio->Disponibles && $utilizadoacc > 0) {
+
+                        $regisaccesorio->Utilizados = $regisaccesorio->Utilizados + $utilizadoacc;
+                        $regisaccesorio->Disponibles = $regisaccesorio->Cantidad - $regisaccesorio->Utilizados;
+                        $regisaccesorio->save();
+                        $sql = true;
+                    } else {
+                        $sql = false;
+                    }
+                }
+            }
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return redirect(route('proyectos.almacen'))->with("correcto", "Datos registrados Correctamente");
+        } else {
+            return redirect(route('proyectos.almacen'))->with("incorrecto", "Error al registrar Datos invalidos");
+        }
+    }
     /**
      * Remove the specified resource from storage.
      */

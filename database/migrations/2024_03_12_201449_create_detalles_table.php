@@ -21,9 +21,10 @@ return new class extends Migration
             $table->datetime('Fecha_Hora_Inicio_Programado');
             $table->datetime('Fecha_Hora_Fin_Programado');
             $table->datetime('Fecha_Hora_Inicio')->nullable();
-            $table->datetime('Fehca_Hora_Fin')->nullable();
+            $table->datetime('Fecha_Hora_Fin')->nullable();
             $table->string('Estado', 20)->nullable();
-            $table->string('Observaciones', 200)->nullable();
+            $table->string('Observaciones')->nullable();
+            $table->string('Detalles')->nullable();
 
             $table->unsignedBigInteger(column: 'Users_id');
             $table->foreign(columns: 'Users_id')->references(columns: 'id')

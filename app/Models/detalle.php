@@ -14,16 +14,18 @@ class detalle extends Model
     protected $fillable =
     [
         'Nro_Sisco',
+
+        'Zona',
         'Tipo_Trabajo',
         'Foto_Carta',
         'Puntos',
         'Fecha_Hora_Inicio_Programado',
         'Fecha_Hora_Fin_Programado',
         'Fecha_Hora_Inicio',
-        'Fehca_Hora_Fin',
+        'Fecha_Hora_Fin',
         'Estado',
         'Observaciones',
-
+        'Detalles',
         'Users_id',
         'Distritos_id'
     ];
@@ -42,6 +44,6 @@ class detalle extends Model
     }
     public function distrito(): BelongsTo
     {
-        return $this->belongsTo(distrito::class);
+        return $this->belongsTo(distrito::class, 'Distritos_id');
     }
 }

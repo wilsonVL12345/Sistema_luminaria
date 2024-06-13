@@ -54,4 +54,5 @@ document.getElementById('txtagregar').addEventListener('change', function () {
         txtavenidacalle.required = false;
         txtavc.required = false;
     }
-}); 
+});
+

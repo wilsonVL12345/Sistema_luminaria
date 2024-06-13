@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\detalleController;
 use App\Http\Controllers\distritoController;
 use App\Http\Controllers\equipamientoController;
 use App\Http\Controllers\inspeccionController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\proveedorController;
 use App\Http\Controllers\proyectoController;
 use App\Models\proveedor;
 use Illuminate\Routing\RouteRegistrar;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,13 +106,31 @@ Route::post('/registro/retirados', [luminaria_retiradasController::class, 'creat
 // para lo que es almacen
 Route::get('/proyectos/almacen', [proyectoController::class, 'index'])->name('proyectos.almacen');
 Route::post('/registro/almacen', [proyectoController::class, 'create'])->name('registro.almacen');
+Route::get('/detallesAccesorios/almacen/{id}', [proyectoController::class, 'reu'])->name('detallesAccesorios.almacen');
+Route::get('/detallesAccesorios/almacen', [proyectoController::class, 'reu'])->name('detallesAccesorios.almacendatos');
+Route::get('/datos/ejecutar/{id}', [proyectoController::class, 'ejecutarProyectodatos'])->name('datos.ejecutar');
+Route::post('/registrar/trabajoEjecutado/{id}', [proyectoController::class, 'registrarTrabajo'])->name('registrar.trabajoejecutado');
+
+
+
 //para lo que es proveedores
 Route::get('/proyectos/proveedores', [proveedorController::class, 'index'])->name('proyectos.proveedores');
 Route::post('/registro/proveedor', [proveedorController::class, 'create'])->name('registro.proveedor');
 Route::post('/editar/proveedor', [proveedorController::class, 'edit'])->name('editar.proveedor');
 
+//rutar para agendar trabajos
+Route::get('/agendar', [detalleController::class, 'agendar'])->name('agendar');
+Route::post('/agendar/trabajo', [detalleController::class, 'create'])->name('agendar.trabajo');
+
+//ruta para ver los detalles generales de los trabajos
+Route::get('/detalles/espera', [detalleController::class, 'index'])->name('detalles.espera');
+Route::get('/detalles/realizados', [detalleController::class, 'realizados'])->name('detalles.realizados');
 
 
+//rutas  para realizar trabajo
+Route::get('/ejecutar/trabajo/{id}', [detalleController::class, 'ejecutar'])->name('ejecutar.trabajo');
+Route::get('/pendiente/trabajo', [detalleController::class, 'pendiente'])->name('pendiente.trabajo');
+Route::post('/store/trabajo/{id}', [detalleController::class, 'storeTrabajo'])->name('store.trabajo');
 
 
 

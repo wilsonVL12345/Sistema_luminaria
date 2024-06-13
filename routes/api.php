@@ -5,6 +5,7 @@ use App\Http\Controllers\API\apiEquipamientoController;
 use App\Http\Controllers\API\apiinspeccionController;
 use App\Http\Controllers\API\apilistaAccesoriosController;
 use App\Http\Controllers\API\apiProveedorController;
+use App\Http\Controllers\API\apiProyectoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\apiUserController;
@@ -24,8 +25,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 //rutas para mostrar los datos 
 Route::get('/users', [apiUserController::class, 'index']);
+
 Route::get('/distritos', [apiDistritoController::class, 'index']);
+
 Route::get('/equipos/equipamientos', [apiEquipamientoController::class, 'index']);
+
 Route::get('/inspeccion/realizado', [apiinspeccionController::class, 'realizado']);
+
 Route::get('/lista/accesorios', [apilistaAccesoriosController::class, 'index']);
+
 Route::get('/lista/proveedor', [apiProveedorController::class, 'index']);
+//ruta para apis de proyecto
+Route::get('/datosreutilizados/proyecto/{proyecto}', [apiProyectoController::class, 'reu']);
+Route::get('/datosluminaria/proyecto', [apiProyectoController::class, 'lum']);
+Route::get('/datosaccesorios/proyecto', [apiProyectoController::class, 'acces']);

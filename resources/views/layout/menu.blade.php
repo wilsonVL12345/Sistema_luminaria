@@ -112,7 +112,7 @@
                 </div>
             </div>
             <div class="menu-item">
-                <a class="menu-link" href="/agendar">
+                <a class="menu-link" href="/pendiente/trabajo">
                     <span class="menu-icon">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
                         <span class="svg-icon svg-icon-2">
@@ -210,19 +210,19 @@
                 <div class="menu-sub menu-sub-accordion menu-active-bg">
                     
                     <div class="menu-item">
-                        <a class="menu-link" href="/detalles/realizados">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Trabajos Realizados</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
                         <a class="menu-link" href="/detalles/espera">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
                             <span class="menu-title">Trabajos en Espera</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="/detalles/realizados">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Trabajos Realizados</span>
                         </a>
                     </div>
                     

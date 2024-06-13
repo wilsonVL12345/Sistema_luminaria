@@ -26,7 +26,7 @@ class luminaria extends Model
     protected $primarykey = 'id';
     public function proveedor(): BelongsTo
     {
-        return $this->belongsTo(proveedor::class);
+        return $this->belongsTo(proveedor::class, 'Proveedores_id');
     }
     public function proyecto(): BelongsTo
     {

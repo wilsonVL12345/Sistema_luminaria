@@ -2,19 +2,14 @@
 
 @section('contenido')
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-	<!--begin::Toolbar-->
 	<div class="toolbar" id="kt_toolbar">
-		<!--begin::Container-->
 		<div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-			<!--begin::Page title-->
 			<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
 				<!--begin::Title-->
 				<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Administradores</h1>
-				<!--end::Title-->
-				<!--begin::Separator-->
+				
 				<span class="h-20px border-gray-300 border-start mx-4"></span>
-				<!--end::Separator-->
-				<!--begin::Breadcrumb-->
+				
 				<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">
@@ -78,25 +73,26 @@
 												<option value="street">Avenida/Calle</option>
 											  </select>
 											</div>
+											 {{-- para la seleccion de Zona/Urbanizacion --}}
 											<div id="form-distritoZonaUrbanizacion" style="display: none;">
 											  <div>
 												<label for="txtdistrit">Distrito:</label>
 												<select name="txtdistrit" id="txtdistrit"  >
 												<option value="" disabled selected>Seleccion</option>
-												<option value="1">Distrito 1</option> 
-												<option value="2">Distrito 2</option> 
-												<option value="3">Distrito 3</option> 
-												<option value="4">Distrito 4</option> 
-												<option value="5">Distrito 5</option> 
-												<option value="6">Distrito 6</option> 
-												<option value="7">Distrito 7</option> 
-												<option value="8">Distrito 8</option> 
-												<option value="9">Distrito 9</option> 
-												<option value="10">Distrito 10</option> 
-												<option value="11">Distrito 11</option> 
-												<option value="12">Distrito 12</option> 
-												<option value="13">Distrito 13</option> 
-												<option value="14">Distrito 14</option> 
+												<option value="1"> 1</option> 
+												<option value="2"> 2</option> 
+												<option value="3"> 3</option> 
+												<option value="4"> 4</option> 
+												<option value="5"> 5</option> 
+												<option value="6"> 6</option> 
+												<option value="7"> 7</option> 
+												<option value="8"> 8</option> 
+												<option value="9"> 9</option> 
+												<option value="10"> 10</option> 
+												<option value="11"> 11</option> 
+												<option value="12"> 12</option> 
+												<option value="13"> 13</option> 
+												<option value="14"> 14</option> 
 												</select>
 											  </div>
 											  <div>
@@ -111,25 +107,26 @@
 												<input type="text" id="txtzonaUr" name="txtzonaUr" >
 											  </div>
 											</div>
+											{{-- para la seleccion de Avenida/Calle --}}
 											<div id="form-distritoZonaUrbanizacionAvenidaCalle" style="display: none;">
 											  <div>
 												<label for="txtdistrito">Distrito:</label>
 												<select name="txtdistrito" id="txtdistrito" >
 													<option value=""disabled selected>Seleccion</option>
-													<option value="1">Distrito 1</option> 
-													<option value="2">Distrito 2</option> 
-													<option value="3">Distrito 3</option> 
-													<option value="4">Distrito 4</option> 
-													<option value="5">Distrito 5</option> 
-													<option value="6">Distrito 6</option> 
-													<option value="7">Distrito 7</option> 
-													<option value="8">Distrito 8</option> 
-													<option value="9">Distrito 9</option> 
-													<option value="10">Distrito 10</option> 
-													<option value="11">Distrito 11</option> 
-													<option value="12">Distrito 12</option> 
-													<option value="13">Distrito 13</option> 
-													<option value="14">Distrito 14</option> 
+													<option value="1"> 1</option> 
+													<option value="2"> 2</option> 
+													<option value="3"> 3</option> 
+													<option value="4"> 4</option> 
+													<option value="5"> 5</option> 
+													<option value="6"> 6</option> 
+													<option value="7"> 7</option> 
+													<option value="8"> 8</option> 
+													<option value="9"> 9</option> 
+													<option value="10"> 10</option> 
+													<option value="11"> 11</option> 
+													<option value="12"> 12</option> 
+													<option value="13"> 13</option> 
+													<option value="14"> 14</option> 
 													</select>
 											  </div>
 											  <div>
@@ -176,7 +173,7 @@
 															<th>Avenida/Calle</th>
 															<th>Accion</th>
 														</tr>
-														@foreach ($distrito as $item)
+														@foreach ($tododistritos as $item)
 														<tr>
 															<td><?php echo $num?></td>
 															<td>{{$item->Distrito}}</td>

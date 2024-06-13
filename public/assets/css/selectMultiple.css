@@ -45,3 +45,28 @@
     background-color: #007bff;
     color: white;
 }
+
+
+/* para las tablas */
+
+/* table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+thead {
+    background-color: #f2f2f2;
+} */

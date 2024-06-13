@@ -12,9 +12,11 @@ class luminarias_reutilizada extends Model
     protected $table = 'Luminarias_Reutilizadas';
     protected $fillable =
     [
-        'id',
+
         'Nombre_Item',
         'Cantidad',
+        'Disponibles',
+        'Utilizados',
         'Observaciones',
         'Proyectos_id'
 
@@ -22,6 +24,6 @@ class luminarias_reutilizada extends Model
     protected $primarykey = 'id';
     public function proyecto(): BelongsTo
     {
-        return $this->belongsTo(proyecto::class);
+        return $this->belongsTo(proyecto::class, 'Proyectos_id');
     }
 }

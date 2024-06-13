@@ -36,9 +36,9 @@ class inspeccionController extends Controller
             ]);
 
             //aqui poner el id del que va a agregar el trabajo
-            $fk = 126;
+            $fk = session('id');
             $espera = 'En espera';
-            //se a create un acceso directo para que pueda acceder a esa carpeta
+            //se a creado un acceso directo para que pueda acceder a esa carpeta
             $dir = $request->file('imgcarta')->store('public/fileinspecciones');
             $url = Storage::url($dir);
 

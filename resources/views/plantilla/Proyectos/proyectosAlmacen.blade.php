@@ -2,57 +2,31 @@
 
 @section('contenido')
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-	<!--begin::Toolbar-->
 	<div class="toolbar" id="kt_toolbar">
-		<!--begin::Container-->
 		<div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-			<!--begin::Page title-->
 			<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-				<!--begin::Title-->
 				<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Administradores</h1>
-				<!--end::Title-->
-				<!--begin::Separator-->
 				<span class="h-20px border-gray-300 border-start mx-4"></span>
-				<!--end::Separator-->
-				<!--begin::Breadcrumb-->
 				<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">
 						<a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
 					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
 					<li class="breadcrumb-item">
 						<span class="bullet bg-gray-300 w-5px h-2px"></span>
 					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">Account</li>
-					<!--end::Item-->
-					<!--begin::Item-->
 					<li class="breadcrumb-item">
 						<span class="bullet bg-gray-300 w-5px h-2px"></span>
 					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
 					<li class="breadcrumb-item text-dark">Security</li>
-					<!--end::Item-->
 				</ul>
-				<!--end::Breadcrumb-->
 			</div>
-			<!--end::Page title-->
-			<!--begin::Actions-->
-		
 		</div>
-		<!--end::Container-->
 	</div>
-	<!--end::Toolbar-->
-	<!--begin::Post-->
 	{{-- todo el lugar que te interesa --}}
 	<div class="post d-flex flex-column-fluid" id="kt_post">
 		<!--begin::Container-->
 		<div id="kt_content_container" class="container-xxl">
-			<!--begin::Navbar-->
 			<div class="card mb-5 mb-xl-10">
 				<div class="card-body pt-9 pb-0">
 					<div class="card-body pt-9 pb-0">
@@ -60,10 +34,10 @@
 							<!-- Button trigger modal -->
 								
 								
-								<!-- Modal -->
+								<!-- Modal registro  proyecto -->
 								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
-									<div class="modal-content">
+									 <div class="modal-content">
 										<div class="modal-header">
 										<h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Proyecto</h1>
 										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -83,12 +57,13 @@
 												</select>
 												
 												<br>
-												<label for="txtzona">Zona</label>
+												<label for="txtzona">Zona/Urb</label>
 												<select name="txtzona" id="txtzona" required>
-													<option value="" disabled selected >Seleccione</option>
+													<option value="" disabled selected >Seleccioneee</option>
 													@foreach ($listazonaurb as $ite)
 														<option value="{{$ite->Zona_Urbanizacion}}">{{$ite->Zona_Urbanizacion}}</option>
-													@endforeach
+														
+														@endforeach
 												</select>
 												<br>
 												<label for="txttipo">Tipo de Contratacion</label>
@@ -124,7 +99,7 @@
 														<div class="selected-options" id="selected-options">
 															<!-- Opciones seleccionadas aparecerán aquí -->
 														</div>
-														<input type="text" id="states" placeholder="Seleccione..." >
+														<input type="text" id="states" placeholder="Seleccione..." readonly>
 														<ul class="options-list" id="options-list"  >
 															<li onclick="selectOption('Accesorios')" >Accesorios</li>
 															<li onclick="selectOption('Lum. Reacondicionadas')">Lum. Reacondicionadas</li>
@@ -135,12 +110,9 @@
 													<input type="hidden" name="selectedStates" id="selectedStates">
 												</div>
 												<br>
+												
 												<br>
-												<br>
-												<br>
-												<br>
-												<br>
-											</div>
+											 </div>
 
 												<h3>Agregar</h3>
 												<button  type="button" class="btn btn-dark" id="btnAccesorio" onclick="agregarAccesorio()"  style="display: none;">Accesorios</button>
@@ -153,7 +125,7 @@
 												</div>
 											</form>
 										</div>
-									</div>
+									  </div>
 									</div>
 								</div>
 							<h1>Proyectos Pendintes Almacen</h1>
@@ -179,25 +151,30 @@
 								</tr>
 								@foreach ($proyecto as $item)
 									<tr>
-									<td><?php echo $con;?></td>
-									<td>{{$item->Cuce_Cod}}</td>
-									<td>{{$item->distrito->Distrito}}</td>
-									<td>{{$item->Zona}}</td>
-									<td>{{$item->Fecha_Programada}}</td>
-									<td>{{$item->Tipo_Contratacion}}</td>
-									<td>{{$item->Estado}}</td>
-									<td>{{$item->Subasta}}</td>
+										<td><?php echo $con;?></td>
+										<td>{{$item->Cuce_Cod}}</td>
+										<td>{{$item->distrito->Distrito}}</td>
+										<td>{{$item->Zona}}</td>
+										<td>{{$item->Fecha_Programada}}</td>
+										<td>{{$item->Tipo_Contratacion}}</td>
+										<td>{{$item->Estado}}</td>
+										<td>{{$item->Subasta}}</td>
 
-									<td>
-										<button class="btn btn-success">mostrar</button>
-									</td>
-									<td>
-										<button class="btn btn-success">Instalar</button>
-									</td>
+										<td>
+											<a href="{{url('/detallesAccesorios/almacen/'.$item->id) }}" class="btn btn-warning btn-sm" 
+												>
+												<i class="fa-regular fa-eye"></i>
+											</a>								
+										</td>
+										<td>
+											<a href="{{url('/datos/ejecutar/'.$item->id) }}" class="btn btn-warning btn-sm" ><i class="fa-solid fa-paper-plane"></i></a>
+										</td>
+										
 									</tr>
 									<?php $con++;?>
 								@endforeach
 							</table>
+							
 							
 						</div>
 					</div>
@@ -207,16 +184,16 @@
 				<div class="card-body pt-9 pb-0">
 					<h1>Mas detalles</h1>
 						
-					</div>
 				</div>
 			</div>
+		</div>
 		
 		
 			
 		
-		</div>
+	</div>
 		<!--end::Container-->
-	</div> 
-	
 </div> 
+	
+
 @endsection
