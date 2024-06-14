@@ -70,7 +70,7 @@
 							</div>
 							<div class="mb-3">
 								<label for="txtcantidadlum">Cantidad Luminarias</label>
-								<input type="text" id="txtcantidadlum" name="txtcantidadlum">
+								<input type="text" id="txtcantidadlum" name="txtcantidadlum" required>
 							</div>
 								<div class="col-md-6">
 									<label for="">Tipo de Luminarias</label>
@@ -89,11 +89,11 @@
 								</div>
 							<div class="mb-3">
 								<label for="txtfechainicioej">Fecha y Hora de Inicio</label>
-								<input type="datetime-local" id="txtfechainicioej" name="txtfechainicioej">
+								<input type="datetime-local" id="txtfechainicioej" name="txtfechainicioej" required>
 							</div>
 							<div class="mb-3">
 								<label for="txttechafinej">Fecha y Hora de Finalizacion</label>
-								<input type="datetime-local" id="txttechafinej" name="txttechafinej">
+								<input type="datetime-local" id="txttechafinej" name="txttechafinej" required>
 							</div>
 							<div class="mb-3">
 								<button  type="button" id="btnmante" onclick="agregarMantenimiento()" >Mantenimiento</button>

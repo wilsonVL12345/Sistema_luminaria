@@ -65,7 +65,7 @@
 
 									<div class="mb-3">
 										<label for="txtdistirto">Distrito</label>
-										<select name="txtdistirto" id="txtdistirto">
+										<select name="txtdistirto" id="txtdistirto" required>
 											<option value="" disabled selected >Seleccion</option>
 											@foreach ($listadistrito as $item)
 											<option value="{{$item->id}}">{{$item->Distrito}}</option>
@@ -74,7 +74,7 @@
 									</div>
 									<div class="mb-3">
 										<label for="txtzonaurb">Zona/Urbanizacion</label>
-										<select name="txtzonaurb" id="txtzonaurb">
+										<select name="txtzonaurb" id="txtzonaurb" required>
 											<option value="" disabled selected >Seleccione</option>
 											@foreach ($listazonaurb as $ite)
 												<option value="{{$ite->Zona_Urbanizacion}}">{{$ite->Zona_Urbanizacion}}</option>
@@ -83,11 +83,11 @@
 									</div>
 									<div class="mb-3">
 										<label for="txtnrosisco">Nro Sisco</label>
-										<input type="text" id="txtnrosisco" name="txtnrosisco">
+										<input type="text" id="txtnrosisco" name="txtnrosisco"required>
 									</div>
 									<div class="mb-3">
 										<label for="txtfechainiciop">Fecha y Hora de Inicio</label>
-										<input type="datetime-local" id="txtfechainiciop" name="txtfechainiciop">
+										<input type="datetime-local" id="txtfechainiciop" name="txtfechainiciop" required>
 									</div>
 									<div class="mb-3">
 										<label for="txtfechafinp">Fecha y Hora de Finalizacion</label>
@@ -107,9 +107,9 @@
 											</ul>
 										</div>
 										<!-- Campo oculto para almacenar los valores seleccionados -->
-										<input type="hidden" name="selectedStates" id="selectedStates">
+										<input type="hidden" name="selectedStates" id="selectedStates" required>
 									</div>
-									<!-- Campo adicional que aparecerá cuando se seleccione "Apoyo Carro Canasta" -->
+									<!-- Campo adicional que aparecerá cuando se seleccione "Apoyo Carro Canasta" ---------------------------->
 									<div class="col-md-6" id="apoyo-distrito" style="display: none;">
 										<label for="txtapoyo">Apoyo a Distrito</label>
 										<select name="" id="txtapoyo">
@@ -138,7 +138,6 @@
 										<textarea name="txtobservacion" id="txtobservacion" cols="40" rows="5"></textarea>
 									</div>
 									<div class="modal-footer">
-													<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 													<button type="submit" class="btn btn-primary">Registrar</button>
 									</div>
 

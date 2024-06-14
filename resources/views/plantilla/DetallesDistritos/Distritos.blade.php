@@ -205,20 +205,20 @@
 																						<label for="txtdistritom">Distrito:</label>
 																						<select name="txtdistritom" id="txtdistritom" >
 																							<option value=""disabled selected>Seleccion</option>
-																							<option value="1"{{$item->Distrito== '1' ? 'selected' : ''}}>Distrito 1</option> 
-																							<option value="2"{{$item->Distrito== '2' ? 'selected' : ''}}>Distrito 2</option> 
-																							<option value="3"{{$item->Distrito== '3' ? 'selected' : ''}}>Distrito 3</option> 
-																							<option value="4"{{$item->Distrito== '4' ? 'selected' : ''}}>Distrito 4</option> 
-																							<option value="5"{{$item->Distrito== '5' ? 'selected' : ''}}>Distrito 5</option> 
-																							<option value="6"{{$item->Distrito== '6' ? 'selected' : ''}}>Distrito 6</option> 
-																							<option value="7"{{$item->Distrito== '7' ? 'selected' : ''}}>Distrito 7</option> 
-																							<option value="8"{{$item->Distrito== '8' ? 'selected' : ''}}>Distrito 8</option> 
-																							<option value="9"{{$item->Distrito== '9' ? 'selected' : ''}}>Distrito 9</option> 
-																							<option value="10"{{$item->Distrito== '10' ? 'selected' : ''}}>Distrito 10</option> 
-																							<option value="11"{{$item->Distrito== '11' ? 'selected' : ''}}>Distrito 11</option> 
-																							<option value="12"{{$item->Distrito== '12' ? 'selected' : ''}}>Distrito 12</option> 
-																							<option value="13"{{$item->Distrito== '13' ? 'selected' : ''}}>Distrito 13</option> 
-																							<option value="14"{{$item->Distrito== '14' ? 'selected' : ''}}>Distrito 14</option> 
+																							<option value="1"{{$item->Distrito== '1' ? 'selected' : ''}}> 1</option> 
+																							<option value="2"{{$item->Distrito== '2' ? 'selected' : ''}}> 2</option> 
+																							<option value="3"{{$item->Distrito== '3' ? 'selected' : ''}}> 3</option> 
+																							<option value="4"{{$item->Distrito== '4' ? 'selected' : ''}}> 4</option> 
+																							<option value="5"{{$item->Distrito== '5' ? 'selected' : ''}}> 5</option> 
+																							<option value="6"{{$item->Distrito== '6' ? 'selected' : ''}}> 6</option> 
+																							<option value="7"{{$item->Distrito== '7' ? 'selected' : ''}}> 7</option> 
+																							<option value="8"{{$item->Distrito== '8' ? 'selected' : ''}}> 8</option> 
+																							<option value="9"{{$item->Distrito== '9' ? 'selected' : ''}}> 9</option> 
+																							<option value="10"{{$item->Distrito== '10' ? 'selected' : ''}}> 10</option> 
+																							<option value="11"{{$item->Distrito== '11' ? 'selected' : ''}}> 11</option> 
+																							<option value="12"{{$item->Distrito== '12' ? 'selected' : ''}}> 12</option> 
+																							<option value="13"{{$item->Distrito== '13' ? 'selected' : ''}}> 13</option> 
+																							<option value="14"{{$item->Distrito== '14' ? 'selected' : ''}}> 14</option> 
 																							</select>
 																						</div>
 																						<div class="mb-3">

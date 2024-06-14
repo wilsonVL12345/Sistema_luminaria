@@ -275,20 +275,20 @@
 															<label for="txtlugarDesignado" class="form-label">Lugar Designado</label>
 															<select type="text" value="{{$item->Lugar_Designado}}"name="txtlugarDesignado" id="txtlugarDesignado">
 																<option value="">Seleccion</option>
-																<option value="Distrito 1"{{$item->Lugar_Designado == 'Distrito 1' ? 'selected' : ''}}>Distrito 1</option> 
-																<option value="Distrito 2"{{$item->Lugar_Designado == 'Distrito 2' ? 'selected' : ''}}>Distrito 2</option> 
-																<option value="Distrito 3"{{$item->Lugar_Designado == 'Distrito 3' ? 'selected' : ''}}>Distrito 3</option> 
-																<option value="Distrito 4"{{$item->Lugar_Designado == 'Distrito 4' ? 'selected' : ''}}>Distrito 4</option> 
-																<option value="Distrito 5"{{$item->Lugar_Designado == 'Distrito 5' ? 'selected' : ''}}>Distrito 5</option> 
-																<option value="Distrito 6"{{$item->Lugar_Designado == 'Distrito 6' ? 'selected' : ''}}>Distrito 6</option> 
-																<option value="Distrito 7"{{$item->Lugar_Designado == 'Distrito 7' ? 'selected' : ''}}>Distrito 7</option> 
-																<option value="Distrito 8"{{$item->Lugar_Designado == 'Distrito 8' ? 'selected' : ''}}>Distrito 8</option> 
-																<option value="Distrito 9"{{$item->Lugar_Designado == 'Distrito 9' ? 'selected' : ''}}>Distrito 9</option> 
-																<option value="Distrito 10"{{$item->Lugar_Designado == 'Distrito 10' ? 'selected' : ''}}>Distrito 10</option> 
-																<option value="Distrito 11"{{$item->Lugar_Designado == 'Distrito 11' ? 'selected' : ''}}>Distrito 11</option> 
-																<option value="Distrito 12"{{$item->Lugar_Designado == 'Distrito 12' ? 'selected' : ''}}>Distrito 12</option> 
-																<option value="Distrito 13"{{$item->Lugar_Designado == 'Distrito 13' ? 'selected' : ''}}>Distrito 13</option> 
-																<option value="Distrito 14"{{$item->Lugar_Designado == 'Distrito 14' ? 'selected' : ''}}>Distrito 14</option> 
+																<option value="1"{{$item->Lugar_Designado == '1' ? 'selected' : ''}}>1</option> 
+																<option value="2"{{$item->Lugar_Designado == '2' ? 'selected' : ''}}>2</option> 
+																<option value="3"{{$item->Lugar_Designado == '3' ? 'selected' : ''}}>3</option> 
+																<option value="4"{{$item->Lugar_Designado == '4' ? 'selected' : ''}}>4</option> 
+																<option value="5"{{$item->Lugar_Designado == '5' ? 'selected' : ''}}>5</option> 
+																<option value="6"{{$item->Lugar_Designado == '6' ? 'selected' : ''}}>6</option> 
+																<option value="7"{{$item->Lugar_Designado == '7' ? 'selected' : ''}}>7</option> 
+																<option value="8"{{$item->Lugar_Designado == '8' ? 'selected' : ''}}>8</option> 
+																<option value="9"{{$item->Lugar_Designado == '9' ? 'selected' : ''}}>9</option> 
+																<option value="10"{{$item->Lugar_Designado == '10' ? 'selected' : ''}}>10</option> 
+																<option value="11"{{$item->Lugar_Designado == '11' ? 'selected' : ''}}>11</option> 
+																<option value="12"{{$item->Lugar_Designado == '12' ? 'selected' : ''}}>12</option> 
+																<option value="13"{{$item->Lugar_Designado == '13' ? 'selected' : ''}}>13</option> 
+																<option value="14"{{$item->Lugar_Designado == '14' ? 'selected' : ''}}>14</option> 
 																<option value="Alcaldia"{{$item->Lugar_Designado == 'Alcaldia' ? 'selected' : ''}}>Alcaldia</option> 
 										
 															</select>

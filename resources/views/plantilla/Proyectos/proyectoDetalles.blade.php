@@ -77,6 +77,7 @@
                                 <input type="text" name="txtobjeto" id="txtobjeto" value="{{$proyec->Objeto_Contratacion}}" readonly >
                                 <label for="txtcomponentes">Tipo de Componentes</label>
                                 <input type="text" name="txtcomponentes" id="txtcomponentes" value="{{$proyec->Tipo_Componentes}}" readonly >
+								<br>
                                 <label for="txtfecha">Fecha Programada</label>
                                 <input type="text" name="txtfecha" id="txtfecha" value="{{$proyec->Fecha_Programada}}" readonly >
                             </form>

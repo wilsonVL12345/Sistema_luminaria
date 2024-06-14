@@ -16,7 +16,9 @@ class detalleController extends Controller
     {
 
         $detalles = detalle::where('Estado', 'En Espera')->get();
-        return view('plantilla.DetallesGenerales.Espera', compact('detalles'));
+        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
+        $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
+        return view('plantilla.DetallesGenerales.Espera', compact('detalles', 'listadistrito', 'listazonaurb'));
     }
     public function realizados()
     {
@@ -140,9 +142,42 @@ class detalleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request)
     {
-        //
+        $mnotificar = '';
+
+        if ($request->mrnotificar == 'on') {
+            $mnotificar = 'NOTIFICADO!!!';
+        }
+        try {
+            $editdetall = detalle::find($request->txtid);
+
+            $editdetall->Distritos_id = $request->mtxtdistirto;
+            $editdetall->Zona = $request->mtxtzonaurb;
+            $editdetall->Nro_Sisco = $request->mtxtnrosisco;
+            $editdetall->Fecha_Hora_Inicio_Programado = $request->mtxtfechainiciop;
+            $editdetall->Fecha_Hora_Fin_Programado = $request->mtxtfechafinp;
+            if ($request->mselectedStates) {
+                $editdetall->Tipo_Trabajo = $request->mselectedStates;
+            }
+            if ($request->mimgcarta) {
+                $dirr = $request->file('mimgcarta')->store('public/fileagendar');
+                $murl = Storage::url($dirr);
+                $editdetall->Foto_Carta = $request->$murl;
+            }
+            if ($request->mrnotificar || $request->mtxtobservacion) {
+                $editdetall->Observaciones = $request->mrnotificar . ' ' . $request->mtxtobservacion;
+            }
+            $editdetall->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Dato Modificado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Modificar los datos");
+        }
     }
 
     /**
@@ -159,5 +194,11 @@ class detalleController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    //funciona para la parte de consultas luminarias -------------------------------------------------------------------------------------v
+    public function datosatencion()
+    {
+        $datosatencion = detalle::all();
+        return view('plantilla.Consultas.Atencion', [$datosatencion]);
     }
 }

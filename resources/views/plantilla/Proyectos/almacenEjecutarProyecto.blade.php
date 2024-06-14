@@ -66,7 +66,7 @@
                                 <label for="txtzona">zona</label>
                                 <input type="text" name="txtzona" id="txtzona" value="{{$ejecProyecto->Zona}}" readonly >
                                 <label for="txtejec">Ejecutado Por</label>
-                                <select name="txtejec" id="txtejec">
+                                <select name="txtejec" id="txtejec" required>
                                     <option value="" disabled selected >Seleccione...</option>
                                     <option value="GAMEA">GAMEA</option>
                                     <option value="Externo">Externo</option>
@@ -78,7 +78,7 @@
                                 <input type="text" name="txtcomponentes" id="txtcomponentes" size="30" value="{{$ejecProyecto->Tipo_Componentes}}" readonly >
                                 <br>
                                 <label for="txtfecha">Fecha de Instalacion</label>
-                                <input type="date" name="txtfecha" id="txtfecha" >
+                                <input type="date" name="txtfecha" id="txtfecha" required >
                             {{-- </form> --}}
 								
 							<h1>luminarias Reacondicionadas</h1>
@@ -94,19 +94,19 @@
 									<th>Cantidad</th>
 									<th>Disponibles</th>
 									<th>Utilizados</th>
-									<th>Observaciones</th>
+									
 								</tr>
-                                    @foreach ($ejecReutilizados as $item)
+                                    @foreach ($ejecReutilizados as $itemr)
 									<tr>
 										<td><?php echo $con;?></td>
-										<td>{{$item->Nombre_Item}}</td>
-										<td>{{$item->Cantidad}}</td>
-										<td>{{$item->Disponibles}}</td>
+										<td>{{$itemr->Nombre_Item}}</td>
+										<td>{{$itemr->Cantidad}}</td>
+										<td>{{$itemr->Disponibles}}</td>
 										<td>
-                                            <input type="number" name="utilizadosreu[{{$item->id}}]" id="">
+                                            <input type="number" name="utilizadosreu[{{$itemr->id}}]" id="">
                                             
                                         </td>
-										<td>{{$item->Observaciones}}</td>
+										
                                         
 									</tr>
 									<?php $con++;?>
@@ -142,7 +142,7 @@
                                     <td>{{$itemacc->Disponibles}}</td>
                                     <td>{{$itemacc->Observaciones}}</td>
                                     <td>
-                                        <input type="number" name="utilizadoacc[{{$itemacc->id}}]" id="" placeholder="0">
+                                        <input type="number" name="utilizadoacc[{{$itemacc->id}}]" id="" placeholder=0>
                                     </td>
 
                                 </tr>
@@ -191,8 +191,10 @@
                             @else
                             <h5>No hay luminarias LED en este Proyecto</h5>
                         @endif
-
-                        <button type="submit">Registrar</button>
+                            <div class="modal-footer">
+                               {{--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button> --}}
+                                <button type="submit" class="btn btn-primary">Registrar</button>
+                            </div>
                     </form>
 						</div>
 					</div>

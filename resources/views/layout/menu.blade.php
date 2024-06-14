@@ -260,6 +260,14 @@
                         </a>
                     </div>
                     <div class="menu-item">
+                        <a class="menu-link" href="/proyectos/ObrasEjecutadas">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Obras Ejecutadas</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
                         <a class="menu-link" href="/proyectos/luminariasRetiradas">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
@@ -275,14 +283,7 @@
                             <span class="menu-title">Proveedores</span>
                         </a>
                     </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="/proyectos/ObrasEjecutadas">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Obras Ejecutadas</span>
-                        </a>
-                    </div>
+                    
                     
                     
                 </div>

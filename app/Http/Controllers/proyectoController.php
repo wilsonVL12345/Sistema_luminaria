@@ -18,7 +18,8 @@ class proyectoController extends Controller
     public function index()
     {
         $today = now()->toDateString();
-        $proyecto = proyecto::all();
+        $proyecto = proyecto::where('Estado', 'En espera')
+            ->orderBy('id', 'desc')->get();
         $reutilizadas = luminarias_reutilizada::all();
         $accesorio = accesorio::all();
         $luminaria = luminaria::all();
@@ -194,39 +195,79 @@ class proyectoController extends Controller
     public function registrarTrabajo(Request $request, $idp)
     {
         $fin = 'Finalizado';
+
+        $regisProyectoEjec = proyecto::find($idp);
+        $regisProyectoEjec->Ejecutado_Por = $request->txtejec . ' ' . session('paterno') . ' ' . session('nombres');
+        $regisProyectoEjec->Fecha_Ejecutada = $request->txtfecha;
+        $regisProyectoEjec->Estado = $fin;
+        $regisProyectoEjec->save();
         try {
-            $regisProyectoEjec = proyecto::find($idp);
-            $regisProyectoEjec->Ejecutado_Por = $request->txtejec;
-            $regisProyectoEjec->Fecha_Ejecutada = $request->txtfecha;
-            $regisProyectoEjec->Estado = $fin;
-            $regisProyectoEjec->save();
-
-            foreach ($request->input('utilizadoacc') as $id => $utilizadoacc) {
-                $regisaccesorio = accesorio::find($id);
-                if ($regisaccesorio) {
-                    if ($utilizadoacc <= $regisaccesorio->Disponibles && $utilizadoacc > 0) {
-
-                        $regisaccesorio->Utilizados = $regisaccesorio->Utilizados + $utilizadoacc;
-                        $regisaccesorio->Disponibles = $regisaccesorio->Cantidad - $regisaccesorio->Utilizados;
-                        $regisaccesorio->save();
-                        $sql = true;
-                    } else {
-                        $sql = false;
+            if ($request->utilizadosreu) {
+                # code...
+                foreach ($request->input('utilizadosreu') as $id => $utilizadosreu) {
+                    $regisrea = luminarias_reutilizada::find($id);
+                    if ($regisrea) {
+                        if ($utilizadosreu <= $regisrea->Disponibles && $utilizadosreu > 0) {
+                            $regisrea->Utilizados = $regisrea->Utilizados + $utilizadosreu;
+                            $regisrea->Disponibles = $regisrea->Cantidad - $regisrea->Utilizados;
+                            $regisrea->save();
+                        }
                     }
                 }
             }
+            if ($request->utilizadoacc) {
+                foreach ($request->input('utilizadoacc') as $id => $utilizadoacc) {
+                    $regisaccesorio = accesorio::find($id);
+                    if ($regisaccesorio) {
+                        if ($utilizadoacc <= $regisaccesorio->Disponibles && $utilizadoacc > 0) {
+
+                            $regisaccesorio->Utilizados = $regisaccesorio->Utilizados + $utilizadoacc;
+                            $regisaccesorio->Disponibles = $regisaccesorio->Cantidad - $regisaccesorio->Utilizados;
+                            $regisaccesorio->save();
+                        }
+                    }
+                }
+            }
+            if ($request->lugarlum) {
+                foreach ($request->input('lugarlum') as $id => $lugarlum) {
+                    $regisled = luminaria::find($id);
+                    if ($regisled) {
+                        if ($lugarlum) {
+                            $regisled->Lugar_Instalado = $lugarlum;
+                            $regisled->save();
+                        }
+                    }
+                }
+            }
+            $sql = true;
         } catch (\Throwable $th) {
             $sql = false;
         }
         if ($sql == true) {
-            return redirect(route('proyectos.almacen'))->with("correcto", "Datos registrados Correctamente");
+            return redirect(route('proyectos.ObrasEjecutadas'))->with("correcto", "Datos registrados Correctamente");
         } else {
-            return redirect(route('proyectos.almacen'))->with("incorrecto", "Error al registrar Datos invalidos");
+            return back()->with("incorrecto", "Error al registrar Datos invalidos");
         }
     }
-    /**
-     * Remove the specified resource from storage.
-     */
+    //proyecto obras ejecutadas  funciones---------------------------------------------------------------------------------------------------------
+    public function datosObras()
+    {
+        $proyectoObras = proyecto::where('Estado', 'Finalizado')
+            ->orderBy('id', 'desc')
+            ->get();
+        $reutilizadas = luminarias_reutilizada::all();
+        $accesorio = accesorio::all();
+        $luminaria = luminaria::all();
+        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
+        $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
+        return view('plantilla.Proyectos.proyectosObrasEjecutadas', [
+            'proyectoObras' => $proyectoObras,
+            'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb,
+            'reutilizada' => $reutilizadas, 'accesorio' => $accesorio, 'luminaria' => $luminaria
+
+        ]);
+    }
+
     public function destroy(string $id)
     {
         //

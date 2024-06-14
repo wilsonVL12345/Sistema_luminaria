@@ -210,15 +210,15 @@ function eliminarlumin(button) {
     container4.parentNode.removeChild(container4);
 }
 
-/* para la parte de proyectos almacenar  luminarias----------------------------*/
+/* para la parte de proyectos almacenar  luminarias  reacondicionadas----------------------------*/
 let reuCount = 1;
 function agregarReacondicionadas() {
     const container5 = document.createElement('div');
     container5.innerHTML = `
     <div class="mb-3">
             <div class="mb-3">
-            <h3>Luminaria LED</h3>
-            <label for="txtnom">Nombre Item</label>
+            <h3>Luminaria Reacondicionadas</h3>
+            <label for="txtnom">Nombre Items</label>
 			<input type="text" name="camponom[${reuCount}][txtnom]" id="txtnom" required>
             <br>
             <br>
@@ -226,10 +226,8 @@ function agregarReacondicionadas() {
 			<input type="text" name="campocant[${reuCount}][txtcant]" id="txtcant" required>
             <br>
 			<label for="txtobs">Observacion</label>
-			<input type="text" name="campoobs[${reuCount}][txtobs]" id="txtobs" required>
-            
-
-        
+			<input type="text" name="campoobs[${reuCount}][txtobs]" id="txtobs" >
+            <br>
 
             <button type="button"  class="btn btn-danger"  onclick="eliminarlumin(this)">Eliminar</button >
             `

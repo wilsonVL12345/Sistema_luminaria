@@ -144,24 +144,21 @@ id="#kt_header_menu" data-kt-menu="true">
 
 {{-- la parte de arriba todo  --}}
 
-<div class="text-white bg-success p-2">
-	<?php
+{{-- <div class="text-white bg-success p-2">
 	
-/* echo $_SESSION["id"],"  ",$_SESSION["nombre"],"  ",$_SESSION["paterno"],"  ",$_SESSION["lugarDesignado"],"  ",$_SESSION["cargo"];
- */
- 
-?>
-@php
+	
 $id=session('id');
 $nombres=session('nombres');
 $paterno=session('paterno');
 $lugarDesignado=session('lugarDesignado');
 $cargo=session('cargo');
-@endphp
+
+<div class="user">	
 <p>nombre :{{$nombres}}  paterno :{{$paterno}} </p>
 <p>lugarDesignado :{{$lugarDesignado}}  cargo :{{$cargo}} </p>
-
 </div>
+
+</div> --}}
 
 
 </div>
@@ -2282,7 +2279,22 @@ $cargo=session('cargo');
 								</div>
 								<!--end::Header menu toggle-->
 							</div> --}}
-							<!--end::Toolbar wrapper-->
+							
+
+							<div class="d-flex align-items-stretch flex-shrink-0">
+								<?php
+								$id=session('id');
+							$nombres=session('nombres');
+							$paterno=session('paterno');
+							$lugarDesignado=session('lugarDesignado');
+							$cargo=session('cargo');
+							?>
+							<div class="user">	
+							<p>{{$nombres}}  {{$paterno}} </p>
+							<p>{{$lugarDesignado}}  {{$cargo}} </p>
+							</div>
+								
+							</div>
 						</div>
 						<!--end::Wrapper-->
 					</div>

@@ -45,22 +45,15 @@ Route::view('/index', 'layout.index')->name('index');
 /* Route::get('/usuario/administrador', function () {
     return view('plantilla.Usuarios.Administrador');
 }); */
+//rutas para la parte de usuarios ----------------------------------------------------------------------------------------------------
 Route::get('/usuario/administrador', [UserController::class, 'administrador'])->name('usuario.administrador');
-
-
 /* Route::get('/usuario/jefatura', function () {
      return view('plantilla.Usuarios.Jefatura');}); */
-
 Route::get('/usuario/jefatura', [UserController::class, 'jefatura'])->name('usuario.jefatura');
-
 
 /* Route::get('/usuario/especialista', function () {
     return view('plantilla.Usuarios.Especialista');
 }); */
-
-
-
-
 Route::get('/usuario/especialista', [UserController::class, 'especialista'])->name('usuario.especialista');
 
 //ruta para agregar un nuevo usuario
@@ -68,12 +61,15 @@ Route::post('/registro/usuario', [UserController::class, 'create'])->name('regis
 //ruta para editar usuario
 Route::post('/editar/usuario', [UserController::class, 'edit'])->name('editar.usuario');
 
-//ruta para ver detalles distritos
+//rutas para consultas----------------------------------------------------------------------------------------------------
+Route::get('/consultas/atencion', [detalleController::class, 'datosatencion'])->name('consultas.atencion');
+
+//ruta para ver detalles distritos----------------------------------------------------------------------
 Route::get('/detallesDistritos', [distritoController::class, 'index'])->name('detalles.Distritos');
 Route::post('/registro/distrito', [distritoController::class, 'create'])->name('registro.distrito');
 Route::post('/editar/distrito', [distritoController::class, 'edit'])->name('editar.distrito');
 
-//ruta para inspecciones
+//ruta para inspecciones----------------------------------------------------------------------------------------------------
 Route::get('/inspecciones/espera', [inspeccionController::class, 'index'])->name('inspecciones.espera');
 Route::post('/registro/inspecciones', [inspeccionController::class, 'create'])->name('registro.inspecciones');
 Route::post('/editar/inspeccionespera', [inspeccionController::class, 'edit'])->name('editar.inspeccionespera');
@@ -82,7 +78,7 @@ Route::get('/inspecciones/realizadas', [inspeccionController::class, 'realizadas
 
 
 
-//rutas para equipamiento y accesorios
+//rutas para equipamiento y accesorios--------------------------------------------------------------------------------
 //ruta para ver detalles equipamientos
 Route::get('equipos/equipamiento', [equipamientoController::class, 'index'])->name('equipos.equipamientos');
 //ruta para lista de accesorios
@@ -102,7 +98,7 @@ Route::post('/editar/equipamiento', [equipamientoController::class, 'edit'])->na
 Route::get('/proyectos/luminariasRetiradas', [luminaria_retiradasController::class, 'index'])->name('proyectos.luminariasretiradas');
 Route::post('/registro/retirados', [luminaria_retiradasController::class, 'create'])->name('registro.retirados');
 
-//rutas proyectos
+//rutas proyectos  ---------------------------------------------------------------------------------------------------------
 // para lo que es almacen
 Route::get('/proyectos/almacen', [proyectoController::class, 'index'])->name('proyectos.almacen');
 Route::post('/registro/almacen', [proyectoController::class, 'create'])->name('registro.almacen');
@@ -111,26 +107,28 @@ Route::get('/detallesAccesorios/almacen', [proyectoController::class, 'reu'])->n
 Route::get('/datos/ejecutar/{id}', [proyectoController::class, 'ejecutarProyectodatos'])->name('datos.ejecutar');
 Route::post('/registrar/trabajoEjecutado/{id}', [proyectoController::class, 'registrarTrabajo'])->name('registrar.trabajoejecutado');
 
+Route::get('/proyectos/ObrasEjecutadas', [proyectoController::class, 'datosObras'])->name('proyectos.ObrasEjecutadas');
 
 
-//para lo que es proveedores
+//para lo que es proveedores---------------------------------------------------------------------------------------------------------
 Route::get('/proyectos/proveedores', [proveedorController::class, 'index'])->name('proyectos.proveedores');
 Route::post('/registro/proveedor', [proveedorController::class, 'create'])->name('registro.proveedor');
 Route::post('/editar/proveedor', [proveedorController::class, 'edit'])->name('editar.proveedor');
 
-//rutar para agendar trabajos
+//rutar para agendar trabajos---------------------------------------------------------------------------------------------------------
 Route::get('/agendar', [detalleController::class, 'agendar'])->name('agendar');
 Route::post('/agendar/trabajo', [detalleController::class, 'create'])->name('agendar.trabajo');
 
-//ruta para ver los detalles generales de los trabajos
+//ruta para ver los detalles generales de los trabajos------------------------------------------------------------------------------------------
 Route::get('/detalles/espera', [detalleController::class, 'index'])->name('detalles.espera');
 Route::get('/detalles/realizados', [detalleController::class, 'realizados'])->name('detalles.realizados');
 
 
-//rutas  para realizar trabajo
+//rutas  para  detalles en espera,realizar trabajo------------------------------------------------------------------------------------------
 Route::get('/ejecutar/trabajo/{id}', [detalleController::class, 'ejecutar'])->name('ejecutar.trabajo');
 Route::get('/pendiente/trabajo', [detalleController::class, 'pendiente'])->name('pendiente.trabajo');
 Route::post('/store/trabajo/{id}', [detalleController::class, 'storeTrabajo'])->name('store.trabajo');
+Route::post('/edit/espera', [detalleController::class, 'edit'])->name('edit.espera');
 
 
 

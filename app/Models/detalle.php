@@ -14,7 +14,6 @@ class detalle extends Model
     protected $fillable =
     [
         'Nro_Sisco',
-
         'Zona',
         'Tipo_Trabajo',
         'Foto_Carta',
