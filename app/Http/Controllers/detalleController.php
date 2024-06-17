@@ -6,6 +6,7 @@ use App\Models\accesorio;
 use Illuminate\Http\Request;
 use App\Models\detalle;
 use App\Models\distrito;
+use App\Models\proyecto;
 use Illuminate\Foundation\Console\ViewMakeCommand;
 use Illuminate\Support\Facades\Storage;
 

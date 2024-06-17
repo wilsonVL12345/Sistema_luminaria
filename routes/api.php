@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\apiDetalleController;
 use App\Http\Controllers\API\apiDistritoController;
 use App\Http\Controllers\API\apiEquipamientoController;
 use App\Http\Controllers\API\apiinspeccionController;
@@ -26,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //rutas para mostrar los datos 
 Route::get('/users', [apiUserController::class, 'index']);
 
-Route::get('/distritos', [apiDistritoController::class, 'index']);
+Route::get('/apidistritos', [apiDistritoController::class, 'index']);
 
 Route::get('/equipos/equipamientos', [apiEquipamientoController::class, 'index']);
 
@@ -39,3 +40,5 @@ Route::get('/lista/proveedor', [apiProveedorController::class, 'index']);
 Route::get('/datosreutilizados/proyecto/{proyecto}', [apiProyectoController::class, 'reu']);
 Route::get('/datosluminaria/proyecto', [apiProyectoController::class, 'lum']);
 Route::get('/datosaccesorios/proyecto', [apiProyectoController::class, 'acces']);
+
+Route::get('/atencion/apidetall', [apiDetalleController::class, 'infoatencion']);

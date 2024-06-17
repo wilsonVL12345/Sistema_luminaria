@@ -40,6 +40,10 @@
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <!--end::Page Vendors Javascript-->
 <!--begin::Page Custom Javascript(used by this page)-->
+<script src="{{ asset('assets/js/ejecutarTrabajo/Empezar.js') }}"></script>
+<script src="{{ asset('assets/js/consultaAtencion/atencion.js') }}"></script>
+
+
 <script src="{{ asset('assets/js/widgets.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/custom/widgets.js') }}"></script>
 <script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>
@@ -60,7 +64,6 @@
 <script src="{{ asset('assets/js/distrito/actualizacionzona.js') }}"></script>
 <script src="{{ asset('assets/js/detallesGenerales/ejecutarApoyo.js') }}"></script>
 <script src="{{ asset('assets/js/agendar/formulario.js') }}"></script>
-<script src="{{ asset('assets/js/ejecutarTrabajo/Empezar.js') }}"></script>
 
 
 

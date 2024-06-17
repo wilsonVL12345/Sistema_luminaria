@@ -31,12 +31,11 @@
 				<!--begin::Brand-->
 				<div class="aside-logo flex-column-auto" id="kt_aside_logo">
 					<!--begin::Logo-->
-					<a href="/index">
-						{{-- <img alt="Logo" src="../assets/media/logos/trace.svg" class="h-70px logo" /> --}}
-						<img alt="Logo" src="{{ asset('assets/media/logos/trace.svg') }}" class="h-70px logo" />
-
 						
-					</a>
+							<a href="/index">
+						<img alt="Logo" src="{{ asset('assets/media/logos/trace.svg') }}" class="h-70px logo loguito " />
+							</a>
+					
 					<!--end::Logo-->
 					<!--begin::Aside toggler-->
 					<div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
@@ -2389,8 +2388,8 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-											<img src="assets/media/avatars/300-14.jpg" alt="img" />
-										</div>
+{{-- 											<img src="assets/media/avatars/300-14.jpg" alt="img" />
+ --}}										</div>
 										<!--end::User-->
 									</div>
 									<!--end::Description-->
@@ -2415,13 +2414,13 @@ $cargo=session('cargo');
 										<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px">
-												<img src="assets/media/avatars/300-2.jpg" alt="img" />
-											</div>
+{{-- 												<img src="assets/media/avatars/300-2.jpg" alt="img" />
+ --}}											</div>
 											<!--end::User-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px">
-												<img src="assets/media/avatars/300-14.jpg" alt="img" />
-											</div>
+{{-- 												<img src="assets/media/avatars/300-14.jpg" alt="img" />
+ --}}											</div>
 											<!--end::User-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px">
@@ -2459,8 +2458,8 @@ $cargo=session('cargo');
 										<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px">
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px">
-												<img src="assets/media/avatars/300-20.jpg" alt="img" />
-											</div>
+{{-- 												<img src="assets/media/avatars/300-20.jpg" alt="img" />
+ --}}											</div>
 											<!--end::User-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px">
@@ -2527,8 +2526,8 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
-											<img src="assets/media/avatars/300-1.jpg" alt="img" />
-										</div>
+{{-- 											<img src="assets/media/avatars/300-1.jpg" alt="img" />
+ --}}										</div>
 										<!--end::User-->
 									</div>
 									<!--end::Description-->
@@ -2578,8 +2577,8 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
-											<img src="assets/media/avatars/300-23.jpg" alt="img" />
-										</div>
+{{-- 											<img src="assets/media/avatars/300-23.jpg" alt="img" />
+ --}}										</div>
 										<!--end::User-->
 									</div>
 									<!--end::Description-->
@@ -2590,9 +2589,9 @@ $cargo=session('cargo');
 									<div
 										class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-5">
 										<!--begin::Item-->
-										<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
+										<div class="d-flex flex-aligns-center pe-10 pe-lg-20">									
 											<!--begin::Icon-->
-											<img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" />
+											{{-- <img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" /> --}}
 											<!--end::Icon-->
 											<!--begin::Info-->
 											<div class="ms-1 fw-bold">
@@ -2612,8 +2611,7 @@ $cargo=session('cargo');
 										<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
 											<!--begin::Icon-->
 											<img alt="../../demo1/dist/apps/projects/project.html" class="w-30px me-3"
-												src="assets/media/svg/files/doc.svg" />
-											<!--end::Icon-->
+{{-- 												src="assets/media/svg/files/doc.svg" />--}}											<!--end::Icon-->
 											<!--begin::Info-->
 											<div class="ms-1 fw-bold">
 												<!--begin::Desc-->
@@ -2631,9 +2629,9 @@ $cargo=session('cargo');
 										<div class="d-flex flex-aligns-center">
 											<!--begin::Icon-->
 											<img alt="../../demo1/dist/apps/projects/project.html" class="w-30px me-3"
-												src="assets/media/svg/files/css.svg" />
-											<!--end::Icon-->
-											<!--begin::Info-->
+												{{-- src="assets/media/svg/files/css.svg" />  --}}
+											
+											{{-- begin::Info --}}
 											<div class="ms-1 fw-bold">
 												<!--begin::Desc-->
 												<a href="#" class="fs-6 text-hover-primary fw-bolder">Finance
@@ -2643,7 +2641,7 @@ $cargo=session('cargo');
 												<div class="text-gray-400">20mb</div>
 												<!--end::Number-->
 											</div>
-											<!--end::Icon-->
+											
 										</div>
 										<!--end::Item-->
 									</div>
@@ -2696,8 +2694,8 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-											<img src="assets/media/avatars/300-14.jpg" alt="img" />
-										</div>
+{{-- 											<img src="assets/media/avatars/300-14.jpg" alt="img" />
+ --}}										</div>
 										<!--end::User-->
 									</div>
 									<!--end::Description-->
@@ -2746,8 +2744,8 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
-											<img src="assets/media/avatars/300-2.jpg" alt="img" />
-										</div>
+{{-- 											<img src="assets/media/avatars/300-2.jpg" alt="img" />
+ --}}										</div>
 										<!--end::User-->
 									</div>
 									<!--end::Description-->

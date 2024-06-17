@@ -1,24 +1,25 @@
-let countTrabajo = 1;
-function agregarMantenimiento() {
-    console.log('creamos la funcion');
+/* let countTrabajo = 1;
+function agrega() {
+
+
     const contenedor = document.createElement('div');
     contenedor.innerHTML = ` <div class="mb-3">
-    <label for="txtitem" class="form-label">Nombre Item</label>
-            <select type="text" id="txtitem" name="campoitem[${countTrabajo}][txtitem]" class="form-select" required>
-            <option value="" disabled selected >Seleccione</option>
-            </select>
-            </div>
-            
-            <div class="mb-3">
-            <label for="txtnoreutilizables" class="form-label">No Reutilizables</label>
-            <input type="number" id="txtnoreutilizables" name="camponoreutilizables[${countTrabajo}][txtnoreutilizables]" required>
-            </div>
-            <div class="mb-3">
-            <label for="txtobservaciones" class="form-label">Observaciones</label>
-            <input type="text" id="txtobservaciones" name="campoobservaciones[${countTrabajo}][txtobservaciones]" placeholder="ninguna" >
-            </div>
-            <button type="button" onclick="eliminarMante(this)">Eliminar</button>
-            `;
+     <label for="txtitem" class="form-label">Nombre Item</label>
+             <select type="text" id="txtitem" name="campoitem[${countTrabajo}][txtitem]" class="form-select" required>
+             <option value="" disabled selected >Seleccione</option>
+             </select>
+             </div>
+             
+             <div class="mb-3">
+             <label for="txtnoreutilizables" class="form-label">No Reutilizables</label>
+             <input type="number" id="txtnoreutilizables" name="camponoreutilizables[${countTrabajo}][txtnoreutilizables]" required>
+             </div>
+             <div class="mb-3">
+             <label for="txtobservaciones" class="form-label">Observaciones</label>
+             <input type="text" id="txtobservaciones" name="campoobservaciones[${countTrabajo}][txtobservaciones]" placeholder="ninguna" >
+             </div>
+             <button type="button" onclick="eliminarMante(this)">Eliminar</button>
+             `;
     document.getElementById('mantenimientoContainer').appendChild(contenedor);
     countTrabajo++;
 
@@ -42,4 +43,6 @@ function agregarMantenimiento() {
 function eliminarMante(button) {
     const contenedor = button.parentNode;
     contenedor.parentNode.removeChild(contenedor);
+
 }
+ */

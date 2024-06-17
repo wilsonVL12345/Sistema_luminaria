@@ -58,28 +58,37 @@ class luminaria_retiradasController extends Controller
 
         $datosrecuperad = $datosrecuperado->id;
         /*  var_dump($request->all()); */
+        try {
+            for ($i = 0; $i < count($nombre_item); $i++) {
+                $nombre =  $nombre_item[$i]['txtitem'];
+                $reutilizable = $reutilizables[$i]['txtreutilizables'];
+                $noreutilizable = $noreutilizables[$i]['txtnoreutilizables'];
+                $observacion = $observaciones[$i]['txtobservaciones'];
+                $cantidad = $reutilizable + $noreutilizable;
 
-        for ($i = 0; $i < count($nombre_item); $i++) {
-            $nombre =  $nombre_item[$i]['txtitem'];
-            $reutilizable = $reutilizables[$i]['txtreutilizables'];
-            $noreutilizable = $noreutilizables[$i]['txtnoreutilizables'];
-            $observacion = $observaciones[$i]['txtobservaciones'];
-            $cantidad = $reutilizable + $noreutilizable;
+                //validacion decampos vacios
+                if (empty($nombre) || empty($reutilizable) || empty($noreutilizable)) {
+                    continue;
+                } else {
+                    $listaretirados = new lista_luminarias_retirada();
 
-            //validacion decampos vacios
-            if (empty($nombre) || empty($reutilizable) || empty($noreutilizable)) {
-                continue;
-            } else {
-                $listaretirados = new lista_luminarias_retirada();
-
-                $listaretirados->Nombre = $nombre;
-                $listaretirados->Cantidad = $cantidad;
-                $listaretirados->Reutilizables = $reutilizable;
-                $listaretirados->NoReutilizables = $noreutilizable;
-                $listaretirados->Observaciones = $observacion;
-                $listaretirados->datos_luminaria_id = $datosrecuperad;
-                $listaretirados->save();
+                    $listaretirados->Nombre = $nombre;
+                    $listaretirados->Cantidad = $cantidad;
+                    $listaretirados->Reutilizables = $reutilizable;
+                    $listaretirados->NoReutilizables = $noreutilizable;
+                    $listaretirados->Observaciones = $observacion;
+                    $listaretirados->datos_luminaria_id = $datosrecuperad;
+                    $listaretirados->save();
+                }
             }
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Luminarias Retiradas  Registrado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Registrar Luminarias Retiradas");
         }
     }
 

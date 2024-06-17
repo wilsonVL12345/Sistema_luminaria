@@ -96,7 +96,7 @@
 								<input type="datetime-local" id="txttechafinej" name="txttechafinej" required>
 							</div>
 							<div class="mb-3">
-								<button  type="button" id="btnmante" onclick="agregarMantenimiento()" >Mantenimiento</button>
+								<button  type="button" id="btnmante" onclick="agrega()" >Componenetes Mante</button>
 							</div>
 
 							<div id="mantenimientoContainer">

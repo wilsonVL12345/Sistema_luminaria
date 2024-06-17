@@ -99,9 +99,9 @@
 											<div class="selected-options" id="selected-options">
 												<!-- Opciones seleccionadas aparecerán aquí -->
 											</div>
-											<input type="text" id="states" placeholder="Seleccione..." >
+											<input type="text" id="states" placeholder="Seleccione..." readonly >
 											<ul class="options-list" id="options-list"  >
-												<li onclick="selectOption('Mantenimiento'); seleccion('Mantenimiento');" >Mantenimiento</li>
+												<li onclick="selectOption('Mantenimiento')" >Mantenimiento</li>
 												<li onclick="selectOption('Instalacion'); seleccion ('Instalacion');">Instalacion</li>
 												<li onclick="selectOption('Apoyo Carro Canasta'); seleccion ('Apoyo');" >Apoyo Carro Canasta</li>
 											</ul>

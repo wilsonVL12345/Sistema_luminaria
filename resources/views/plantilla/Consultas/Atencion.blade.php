@@ -58,18 +58,22 @@
 					<div class="margin">
 						<h1>Consultas Atencion </h1>
 						<div class="cuadro">
-							<select name="txtbuscarpor" id="txtbuscarpor" >
-								<option value="" disabled selected >Buscar Por:</option>
-								<option value="Nro_Sisco" >Numero Sisco</option>
-								<option value="Cuce_Cod" >Numero Cuce</option>
-							</select>
-							<input type="text" name="txtbuscar" id="txtbuscar" placeholder="buscar...">
-							<button>Buscar</button>
+							
+								
+								<select name="txtbuscarpor" id="txtbuscarpor"  required>
+									<option value="" disabled selected >Buscar Por:</option>
+									<option value="Nro_Sisco" >Numero Sisco</option>
+									<option value="Cuce_Cod" >Numero Cuce</option>
+								</select>
+								<input type="text" name="txtbuscar" id="txtbuscar" placeholder="buscar..." required>
+								<button  id="btnbuscar" >Buscar</button>
+								
 							
 							<div class="informacion">
-
+								
 							</div>
 						</div>
+						
 					</div>
 					
 				</div>

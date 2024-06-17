@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* const distritos = ($distrito); */
 
     /* la falla que tubimos es que en la ruta tienes que agregar /api para  que se valla a la ruta de la api */
-    fetch('/api/distritos')
+    fetch('/api/apidistritos')
         .then(Response => Response.json())
         .then(data => {
 
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
 
         .catch(error => {
-            console.error('Error al obtener los datos de los accesorios:', error);
+            console.error('Error al obtener los datos de los distritos:', error);
         });
 
 
