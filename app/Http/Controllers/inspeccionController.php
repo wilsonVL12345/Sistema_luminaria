@@ -30,6 +30,8 @@ class inspeccionController extends Controller
      */
     public function create(Request $request)
     {
+
+
         try {
             $request->validate([
                 'imgcarta' => 'required|image|max:8048'
@@ -41,12 +43,11 @@ class inspeccionController extends Controller
             //se a creado un acceso directo para que pueda acceder a esa carpeta
             $dir = $request->file('imgcarta')->store('public/fileinspecciones');
             $url = Storage::url($dir);
-
             $inspeccion = new inspeccion();
 
+            $inspeccion->Nro_Sisco = $request->txtnrosisco;
             $inspeccion->Distritos_id = $request->txtdistirto;
             $inspeccion->ZonaUrbanizacion = $request->txtzonaurb;
-            $inspeccion->Nro_Sisco = $request->txtnrosisco;
             $inspeccion->Fecha_Inspeccion = $request->txtfecha;
             $inspeccion->Foto_Carta = $url;
             $inspeccion->Inspeccion = $espera;

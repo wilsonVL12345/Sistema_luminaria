@@ -2629,9 +2629,9 @@ $cargo=session('cargo');
 										<div class="d-flex flex-aligns-center">
 											<!--begin::Icon-->
 											<img alt="../../demo1/dist/apps/projects/project.html" class="w-30px me-3"
-												{{-- src="assets/media/svg/files/css.svg" />  --}}
-											
-											{{-- begin::Info --}}
+												 src="assets/media/svg/files/css.svg" /> 
+											<!--end::Icon-->
+											<!--begin::Info-->
 											<div class="ms-1 fw-bold">
 												<!--begin::Desc-->
 												<a href="#" class="fs-6 text-hover-primary fw-bolder">Finance
@@ -2641,7 +2641,7 @@ $cargo=session('cargo');
 												<div class="text-gray-400">20mb</div>
 												<!--end::Number-->
 											</div>
-											
+											<!--end::Icon-->
 										</div>
 										<!--end::Item-->
 									</div>
@@ -2758,10 +2758,7 @@ $cargo=session('cargo');
 										<!--begin::Item-->
 										<div class="overlay me-10">
 											<!--begin::Image-->
-											<div class="overlay-wrapper">
-												<img alt="img" class="rounded w-150px"
-													src="assets/media/stock/600x400/img-29.jpg" />
-											</div>
+											
 											<!--end::Image-->
 											<!--begin::Link-->
 											<div class="overlay-layer bg-dark bg-opacity-10 rounded">
@@ -2773,10 +2770,7 @@ $cargo=session('cargo');
 										<!--begin::Item-->
 										<div class="overlay me-10">
 											<!--begin::Image-->
-											<div class="overlay-wrapper">
-												<img alt="img" class="rounded w-150px"
-													src="assets/media/stock/600x400/img-31.jpg" />
-											</div>
+											
 											<!--end::Image-->
 											<!--begin::Link-->
 											<div class="overlay-layer bg-dark bg-opacity-10 rounded">
@@ -2788,10 +2782,7 @@ $cargo=session('cargo');
 										<!--begin::Item-->
 										<div class="overlay">
 											<!--begin::Image-->
-											<div class="overlay-wrapper">
-												<img alt="img" class="rounded w-150px"
-													src="assets/media/stock/600x400/img-40.jpg" />
-											</div>
+											
 											<!--end::Image-->
 											<!--begin::Link-->
 											<div class="overlay-layer bg-dark bg-opacity-10 rounded">
@@ -2898,10 +2889,7 @@ $cargo=session('cargo');
 										<div class="text-muted me-2 fs-7">Placed at 5:05 AM by</div>
 										<!--end::Info-->
 										<!--begin::User-->
-										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
-											data-bs-boundary="window" data-bs-placement="top" title="Robert Rich">
-											<img src="assets/media/avatars/300-4.jpg" alt="img" />
-										</div>
+										
 										<!--end::User-->
 									</div>
 									<!--end::Description-->

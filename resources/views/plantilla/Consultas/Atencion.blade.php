@@ -66,13 +66,25 @@
 									<option value="Cuce_Cod" >Numero Cuce</option>
 								</select>
 								<input type="text" name="txtbuscar" id="txtbuscar" placeholder="buscar..." required>
-								<button  id="btnbuscar" >Buscar</button>
+								<button  id="btnbuscar" onclick="buscarinfo()">Buscar</button>
 								
 							
 							<div class="informacion">
 								
 							</div>
 						</div>
+						<div class="form-group">
+							<label>Multiplee</label>
+							<select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+							  <option>Alabama</option>
+							  <option>Alaska</option>
+							  <option>California</option>
+							  <option>Delaware</option>
+							  <option>Tennessee</option>
+							  <option>Texas</option>
+							  <option>Washington</option>
+							</select>
+						  </div>
 						
 					</div>
 					

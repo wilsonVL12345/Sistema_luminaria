@@ -1,39 +1,28 @@
-//para la seleccion de zonas/urbanizaciones  de vista  nuevo distritos
-document.addEventListener('DOMContentLoaded', function () {
-    const distritoSelect = document.getElementById('txtdistrito');
-    const zonaUrbanizacionSelect = document.getElementById('txtzonaUrbanizacion');
-    /* const distritos = ($distrito); */
+$(document).ready(function () {
+    const $distritoSelect = $('#txtdistrito');
+    const $zonaUrbanizacionSelect = $('#txtzonaUrbanizacion');
 
-    /* la falla que tubimos es que en la ruta tienes que agregar /api para  que se valla a la ruta de la api */
-    fetch('/api/apidistritos')
-        .then(Response => Response.json())
-        .then(data => {
-
-            // Obtener el último select creado dentro del nuevo contenedor
-
+    $.ajax({
+        url: '/api/apidistritos',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
             function actualizarZonasUrbanizaciones() {
-                const distritoSeleccionado = distritoSelect.value;
+                const distritoSeleccionado = $distritoSelect.val();
+                $zonaUrbanizacionSelect.empty().append('<option value="">Seleccione...</option>');
 
-                zonaUrbanizacionSelect.innerHTML = '<option value="" disabled selected>Elegir</option>';
+                const zonasUrbanizaciones = data.filter(item => item.Distrito == distritoSeleccionado);
 
-                data.forEach(distrito => {
-                    if (distrito.Distrito == distritoSeleccionado) {
-                        const option = document.createElement('option');
-                        option.value = distrito.Zona_Urbanizacion;
-                        option.text = distrito.Zona_Urbanizacion;
-                        zonaUrbanizacionSelect.add(option);
-                    }
-                    console.log(distrito.id);
+                $.each(zonasUrbanizaciones, function (index, item) {
+                    $zonaUrbanizacionSelect.append(`<option value="${item.Zona_Urbanizacion}">${item.Zona_Urbanizacion}</option>`);
                 });
             }
-            /*  console.log(data); */
-            distritoSelect.addEventListener('change', actualizarZonasUrbanizaciones);
-            actualizarZonasUrbanizaciones();
-        })
 
-        .catch(error => {
+            $distritoSelect.on('change', actualizarZonasUrbanizaciones);
+            actualizarZonasUrbanizaciones(); // Inicializar las zonas/urbanizaciones al cargar el modal
+        },
+        error: function (xhr, status, error) {
             console.error('Error al obtener los datos de los distritos:', error);
-        });
-
-
-}); 
+        }
+    });
+});

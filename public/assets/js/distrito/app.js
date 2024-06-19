@@ -1,3 +1,8 @@
+// Usar jQuery para manejar cambios en un select de Select2
+$('.form-select').select2();
+$('.form-select').on('change', function (e) {
+    manejarCambioTipoUbicacion(); // Llamada a tu función existente
+});
 // Función para manejar el cambio de selección entre Zona/Urbanización y Avenida/Calle
 function manejarCambioTipoUbicacion() {
     const zonaUrbanizacionAvenidaCalle = document.getElementById('txtagregar').value;
@@ -22,7 +27,7 @@ const tipoUbicacionSelect = document.getElementById('txtagregar');
 tipoUbicacionSelect.addEventListener('change', manejarCambioTipoUbicacion);
 
 //script para que  sea obligatorio llenar los campo en la vista distrito
-document.getElementById('txtagregar').addEventListener('change', function () {
+/* document.getElementById('txtagregar').addEventListener('change', function () {
     var option = this.value;
     let txtdistrit = document.getElementById('txtdistrit');
     let txtzonaUrbx = document.getElementById('txtzonaUrbx');
@@ -54,5 +59,40 @@ document.getElementById('txtagregar').addEventListener('change', function () {
         txtavenidacalle.required = false;
         txtavc.required = false;
     }
-});
+}); */
 
+
+$('#txtagregar').on('change', function () {
+    var option = $(this).val();
+
+    var txtdistrit = $('#txtdistrit');
+    var txtzonaUrbx = $('#txtzonaUrbx');
+    var txtzonaUr = $('#txtzonaUr');
+    var txtdistrito = $('#txtdistrito');
+    var txtzonaUrbanizacion = $('#txtzonaUrbanizacion');
+    var txtavenidacalle = $('#txtavenidacalle');
+    var txtavc = $('#txtavc');
+
+    // Habilitar o deshabilitar los campos requeridos según la opción seleccionada
+    if (option === 'txtzonaUr') {
+        txtdistrit.prop('required', true);
+        txtzonaUrbx.prop('required', true);
+        txtzonaUr.prop('required', true);
+    } else {
+        txtdistrit.prop('required', false);
+        txtzonaUrbx.prop('required', false);
+        txtzonaUr.prop('required', false);
+    }
+
+    if (option === 'street') {
+        txtdistrito.prop('required', true);
+        txtzonaUrbanizacion.prop('required', true);
+        txtavenidacalle.prop('required', true);
+        txtavc.prop('required', true);
+    } else {
+        txtdistrito.prop('required', false);
+        txtzonaUrbanizacion.prop('required', false);
+        txtavenidacalle.prop('required', false);
+        txtavc.prop('required', false);
+    }
+});

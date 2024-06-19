@@ -52,6 +52,7 @@ class lista_accesorioController extends Controller
      */
     public function edit(Request $request)
     {
+
         try {
             $lista = lista_accesorio::find($request->txtid);
             $lista->Nombre_Item = $request->txtnombre;

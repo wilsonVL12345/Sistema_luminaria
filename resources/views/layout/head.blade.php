@@ -17,64 +17,55 @@
 
 	<script src="https://kit.fontawesome.com/79e95e464b.js" crossorigin="anonymous"></script>
 	
-	
-	{{-- <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-	<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
-	<!--begin::Fonts-->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-	<!--end::Fonts-->
-	<!--begin::Page Vendor Stylesheets(used by this page)-->
-	<link href="../assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet"
-	type="text/css" />
-	<link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet"
-	type="text/css" />
-	<!--end::Page Vendor Stylesheets-->
-	<!--begin::Global Stylesheets Bundle(used by all pages)-->
-	<link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-	<!--end::Global Stylesheets Bundle-->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-	<link rel="stylesheet" href="../assets/css/selectMultiple.css">
-	 --}}
-	 <!-- En la vista -->
-<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+
+<!-- Scripts al final del head o antes del cierre del body -->
+{{-- <script src="/assets/js/jquery-3.7.1.min.js"></script>
+
+ <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 <link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}" />
 <!--begin::Fonts-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 <!--end::Fonts-->
-<!--begin::Page Vendor Stylesheets(used by this page)-->
-<link href="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
-<!--end::Page Vendor Stylesheets-->
+
+<!-- Select2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
 <!--begin::Global Stylesheets Bundle(used by all pages)-->
 <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 <!--end::Global Stylesheets Bundle-->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+<!--begin::Page Vendor Stylesheets(used by this page)-->
+<link href="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+<!--end::Page Vendor Stylesheets-->
+
+<!--begin::Custom Stylesheets-->
 <link rel="stylesheet" href="{{ asset('assets/css/selectMultiple.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/index/principal.css') }}">
+<!--end::Custom Stylesheets-->
 
+<!-- Cargar Bootstrap desde una fuente -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 
-	{{-- adminlte --}}
-  <!-- Font Awesome -->
- 
-  {{--  <link rel="stylesheet" href="../assets/plugin/fontawesome-free/css/all.min.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="../assets/plugin/daterangepicker/daterangepicker.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="../assets/plugin/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Bootstrap Color Picker -->
-  <link rel="stylesheet" href="../assets/plugin/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../assets/plugin/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="../assets/plugin/select2/css/select2.min.css">
-  <link rel="stylesheet" href="../assets/plugin/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-  <!-- Bootstrap4 Duallistbox -->
-  <link rel="stylesheet" href="../assets/plugin/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
-  <!-- BS Stepper -->
-  <link rel="stylesheet" href="../assets/plugin/bs-stepper/css/bs-stepper.min.css">
-  <!-- dropzonejs -->
-  <link rel="stylesheet" href="../assets/plugin/dropzone/min/dropzone.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../assets/dist/css/adminlte.min.css">  --}}
+ --}}
+  <!-- Select2 CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Cargar Bootstrap desde una fuente -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+  
+  <!--begin::Global Stylesheets Bundle(used by all pages)-->
+  <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+  <!--end::Global Stylesheets Bundle-->
+
+  <!--begin::Page Vendor Stylesheets(used by this page)-->
+  <link href="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+  <!--end::Page Vendor Stylesheets-->
+
+  <!--begin::Custom Stylesheets-->
+  <link rel="stylesheet" href="{{ asset('assets/css/selectMultiple.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/index/principal.css') }}">
+  <!--end::Custom Stylesheets-->
