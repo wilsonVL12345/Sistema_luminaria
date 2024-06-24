@@ -2,6 +2,9 @@
 // Main init file of global bootstrap and theme functions, mixins, variables and config
 //
 
+// Definir tus variables personalizadas (si las tienes)
+$theme-colors-rgb: (
+); // Define esta variable según tus necesidades
 
 // Custom functions & mixins
 @import "base/functions";
@@ -12,6 +15,10 @@
 // Custom variables
 @import "components/variables.custom";
 @import "components/variables";
+
+// Import Bootstrap
+@import "bootstrap/scss/bootstrap";
+
 
 // Bootstrap initializaton
 @import "bootstrap/scss/functions";
@@ -25,3 +32,5 @@
 // Custom layout variables
 @import "layout/variables";
 @import "layout/docs/variables";
+// Importar otros archivos SCSS
+@import "style";

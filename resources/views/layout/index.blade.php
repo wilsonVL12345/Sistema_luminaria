@@ -61,7 +61,7 @@
 
 
 				{{-- esta parte llama a lo que es el menu principal --}}
-				@include('../layout.menu')
+				@include('...layout.menu')
 
 				<!--begin::Footer-->
 				{{-- <div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
@@ -316,7 +316,7 @@ $cargo=session('cargo');
 															class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-6.jpg" alt="" />
+																<img src="/assets/media/avatars/300-6.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -334,7 +334,7 @@ $cargo=session('cargo');
 															class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-2.jpg" alt="" />
+																<img src="/assets/media/avatars/300-2.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -352,7 +352,7 @@ $cargo=session('cargo');
 															class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-9.jpg" alt="" />
+																<img src="/assets/media/avatars/300-9.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -370,7 +370,7 @@ $cargo=session('cargo');
 															class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-14.jpg" alt="" />
+																<img src="/assets/media/avatars/300-14.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -388,7 +388,7 @@ $cargo=session('cargo');
 															class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-11.jpg" alt="" />
+																<img src="/assets/media/avatars/300-11.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -412,7 +412,7 @@ $cargo=session('cargo');
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
 																	<img class="w-20px h-20px"
-																		src="assets/media/svg/brand-logos/volicity-9.svg"
+																		src="/assets/media/svg/brand-logos/volicity-9.svg"
 																		alt="" />
 																</span>
 															</div>
@@ -433,7 +433,7 @@ $cargo=session('cargo');
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
 																	<img class="w-20px h-20px"
-																		src="assets/media/svg/brand-logos/tvit.svg"
+																		src="/assets/media/svg/brand-logos/tvit.svg"
 																		alt="" />
 																</span>
 															</div>
@@ -455,7 +455,7 @@ $cargo=session('cargo');
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
 																	<img class="w-20px h-20px"
-																		src="assets/media/svg/misc/infography.svg"
+																		src="/assets/media/svg/misc/infography.svg"
 																		alt="" />
 																</span>
 															</div>
@@ -477,7 +477,7 @@ $cargo=session('cargo');
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
 																	<img class="w-20px h-20px"
-																		src="assets/media/svg/brand-logos/leaf.svg"
+																		src="/assets/media/svg/brand-logos/leaf.svg"
 																		alt="" />
 																</span>
 															</div>
@@ -498,7 +498,7 @@ $cargo=session('cargo');
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
 																	<img class="w-20px h-20px"
-																		src="assets/media/svg/brand-logos/tower.svg"
+																		src="/assets/media/svg/brand-logos/tower.svg"
 																		alt="" />
 																</span>
 															</div>
@@ -1573,7 +1573,7 @@ $cargo=session('cargo');
 													<!--begin::Illustration-->
 													<div class="text-center px-4">
 														<img class="mw-100 mh-200px" alt="image"
-															src="assets/media/illustrations/sketchy-1/1.png" />
+															src="/assets/media/illustrations/sketchy-1/1.png" />
 													</div>
 													<!--end::Illustration-->
 												</div>
@@ -2043,7 +2043,7 @@ $cargo=session('cargo');
 									<div class="cursor-pointer symbol symbol-30px symbol-md-40px"
 										data-kt-menu-trigger="click" data-kt-menu-attach="parent"
 										data-kt-menu-placement="bottom-end">
-										<img src="assets/media/avatars/300-1.jpg" alt="user" />
+										<img src="/assets/media/avatars/300-1.jpg" alt="user" />
 									</div>
 									<!--begin::User account menu-->
 									<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px"
@@ -2053,7 +2053,7 @@ $cargo=session('cargo');
 											<div class="menu-content d-flex align-items-center px-3">
 												<!--begin::Avatar-->
 												<div class="symbol symbol-50px me-5">
-													<img alt="Logo" src="assets/media/avatars/300-1.jpg" />
+													<img alt="Logo" src="/assets/media/avatars/300-1.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Username-->
@@ -2163,7 +2163,7 @@ $cargo=session('cargo');
 													<span
 														class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
 														<img class="w-15px h-15px rounded-1 ms-2"
-															src="assets/media/flags/united-states.svg"
+															src="/assets/media/flags/united-states.svg"
 															alt="" /></span></span>
 											</a>
 											<!--begin::Menu sub-->
@@ -2174,7 +2174,7 @@ $cargo=session('cargo');
 														class="menu-link d-flex px-5 active">
 														<span class="symbol symbol-20px me-4">
 															<img class="rounded-1"
-																src="assets/media/flags/united-states.svg" alt="" />
+																src="/assets/media/flags/united-states.svg" alt="" />
 														</span>English</a>
 												</div>
 												<!--end::Menu item-->
@@ -2183,7 +2183,7 @@ $cargo=session('cargo');
 													<a href="../../demo1/dist/account/settings.html"
 														class="menu-link d-flex px-5">
 														<span class="symbol symbol-20px me-4">
-															<img class="rounded-1" src="assets/media/flags/spain.svg"
+															<img class="rounded-1" src="/assets/media/flags/spain.svg"
 																alt="" />
 														</span>Spanish</a>
 												</div>
@@ -2193,7 +2193,7 @@ $cargo=session('cargo');
 													<a href="../../demo1/dist/account/settings.html"
 														class="menu-link d-flex px-5">
 														<span class="symbol symbol-20px me-4">
-															<img class="rounded-1" src="assets/media/flags/germany.svg"
+															<img class="rounded-1" src="/assets/media/flags/germany.svg"
 																alt="" />
 														</span>German</a>
 												</div>
@@ -2203,7 +2203,7 @@ $cargo=session('cargo');
 													<a href="../../demo1/dist/account/settings.html"
 														class="menu-link d-flex px-5">
 														<span class="symbol symbol-20px me-4">
-															<img class="rounded-1" src="assets/media/flags/japan.svg"
+															<img class="rounded-1" src="/assets/media/flags/japan.svg"
 																alt="" />
 														</span>Japanese</a>
 												</div>
@@ -2213,7 +2213,7 @@ $cargo=session('cargo');
 													<a href="../../demo1/dist/account/settings.html"
 														class="menu-link d-flex px-5">
 														<span class="symbol symbol-20px me-4">
-															<img class="rounded-1" src="assets/media/flags/france.svg"
+															<img class="rounded-1" src="/assets/media/flags/france.svg"
 																alt="" />
 														</span>French</a>
 												</div>
@@ -2388,7 +2388,7 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-{{-- 											<img src="assets/media/avatars/300-14.jpg" alt="img" />
+{{-- 											<img src="/assets/media/avatars/300-14.jpg" alt="img" />
  --}}										</div>
 										<!--end::User-->
 									</div>
@@ -2414,12 +2414,12 @@ $cargo=session('cargo');
 										<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px">
-{{-- 												<img src="assets/media/avatars/300-2.jpg" alt="img" />
+{{-- 												<img src="/assets/media/avatars/300-2.jpg" alt="img" />
  --}}											</div>
 											<!--end::User-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px">
-{{-- 												<img src="assets/media/avatars/300-14.jpg" alt="img" />
+{{-- 												<img src="/assets/media/avatars/300-14.jpg" alt="img" />
  --}}											</div>
 											<!--end::User-->
 											<!--begin::User-->
@@ -2458,7 +2458,7 @@ $cargo=session('cargo');
 										<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px">
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px">
-{{-- 												<img src="assets/media/avatars/300-20.jpg" alt="img" />
+{{-- 												<img src="/assets/media/avatars/300-20.jpg" alt="img" />
  --}}											</div>
 											<!--end::User-->
 											<!--begin::User-->
@@ -2526,7 +2526,7 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
-{{-- 											<img src="assets/media/avatars/300-1.jpg" alt="img" />
+{{-- 											<img src="/assets/media/avatars/300-1.jpg" alt="img" />
  --}}										</div>
 										<!--end::User-->
 									</div>
@@ -2577,7 +2577,7 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
-{{-- 											<img src="assets/media/avatars/300-23.jpg" alt="img" />
+{{-- 											<img src="/assets/media/avatars/300-23.jpg" alt="img" />
  --}}										</div>
 										<!--end::User-->
 									</div>
@@ -2591,7 +2591,7 @@ $cargo=session('cargo');
 										<!--begin::Item-->
 										<div class="d-flex flex-aligns-center pe-10 pe-lg-20">									
 											<!--begin::Icon-->
-											{{-- <img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" /> --}}
+											{{-- <img alt="" class="w-30px me-3" src="/assets/media/svg/files/pdf.svg" /> --}}
 											<!--end::Icon-->
 											<!--begin::Info-->
 											<div class="ms-1 fw-bold">
@@ -2611,7 +2611,7 @@ $cargo=session('cargo');
 										<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
 											<!--begin::Icon-->
 											<img alt="../../demo1/dist/apps/projects/project.html" class="w-30px me-3"
-{{-- 												src="assets/media/svg/files/doc.svg" />--}}											<!--end::Icon-->
+{{-- 												src="/assets/media/svg/files/doc.svg" />--}}											<!--end::Icon-->
 											<!--begin::Info-->
 											<div class="ms-1 fw-bold">
 												<!--begin::Desc-->
@@ -2629,7 +2629,7 @@ $cargo=session('cargo');
 										<div class="d-flex flex-aligns-center">
 											<!--begin::Icon-->
 											<img alt="../../demo1/dist/apps/projects/project.html" class="w-30px me-3"
-												 src="assets/media/svg/files/css.svg" /> 
+												 src="/assets/media/svg/files/css.svg" /> 
 											<!--end::Icon-->
 											<!--begin::Info-->
 											<div class="ms-1 fw-bold">
@@ -2694,7 +2694,7 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-{{-- 											<img src="assets/media/avatars/300-14.jpg" alt="img" />
+{{-- 											<img src="/assets/media/avatars/300-14.jpg" alt="img" />
  --}}										</div>
 										<!--end::User-->
 									</div>
@@ -2744,7 +2744,7 @@ $cargo=session('cargo');
 										<!--begin::User-->
 										<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
 											data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
-{{-- 											<img src="assets/media/avatars/300-2.jpg" alt="img" />
+{{-- 											<img src="/assets/media/avatars/300-2.jpg" alt="img" />
  --}}										</div>
 										<!--end::User-->
 									</div>

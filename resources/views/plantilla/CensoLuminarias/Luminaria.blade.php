@@ -51,7 +51,7 @@ License: For each use you must have a valid license purchased only from above li
 					<div class="aside-logo flex-column-auto" id="kt_aside_logo">
 						<!--begin::Logo-->
 						<a href="../../demo1/dist/index.html">
-							<img alt="Logo" src="assets/media/logos/trace.svg" class="h-70px logo" />
+							<img alt="Logo" src="/assets/media/logos/trace.svg" class="h-70px logo" />
 						</a>
 						<!--end::Logo-->
 						<!--begin::Aside toggler-->
@@ -80,7 +80,7 @@ License: For each use you must have a valid license purchased only from above li
                                     data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
                                     data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
                                     <!--begin::Menu-->
-                                    @include('../layout.menu')
+                                    @include('...layout.menu')
                                     <!--end::Menu-->
                                 </div>
                                 <!--end::Aside Menu-->
@@ -124,7 +124,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Mobile logo-->
 							<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 								<a href="../../demo1/dist/index.html" class="d-lg-none">
-									<img alt="Logo" src="assets/media/logos/logo-2.svg" class="h-30px" />
+									<img alt="Logo" src="/assets/media/logos/logo-2.svg" class="h-30px" />
 								</a>
 							</div>
 							<!--end::Mobile logo-->
@@ -231,26 +231,26 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Global Javascript Bundle(used by all pages)-->
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
-		<script src="assets/js/scripts.bundle.js"></script>
+		<script src="/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Page Vendors Javascript(used by this page)-->
-		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<script src="/assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Page Vendors Javascript-->
 		<!--begin::Page Custom Javascript(used by this page)-->
-		<script src="assets/js/custom/account/security/security-summary.js"></script>
-		<script src="assets/js/custom/account/security/license-usage.js"></script>
-		<script src="assets/js/widgets.bundle.js"></script>
-		<script src="assets/js/custom/widgets.js"></script>
-		<script src="assets/js/custom/apps/chat/chat.js"></script>
-		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
-		<script src="assets/js/custom/utilities/modals/offer-a-deal/type.js"></script>
-		<script src="assets/js/custom/utilities/modals/offer-a-deal/details.js"></script>
-		<script src="assets/js/custom/utilities/modals/offer-a-deal/finance.js"></script>
-		<script src="assets/js/custom/utilities/modals/offer-a-deal/complete.js"></script>
-		<script src="assets/js/custom/utilities/modals/offer-a-deal/main.js"></script>
-		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		<script src="/assets/js/custom/account/security/security-summary.js"></script>
+		<script src="/assets/js/custom/account/security/license-usage.js"></script>
+		<script src="/assets/js/widgets.bundle.js"></script>
+		<script src="/assets/js/custom/widgets.js"></script>
+		<script src="/assets/js/custom/apps/chat/chat.js"></script>
+		<script src="/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+		<script src="/assets/js/custom/utilities/modals/create-app.js"></script>
+		<script src="/assets/js/custom/utilities/modals/offer-a-deal/type.js"></script>
+		<script src="/assets/js/custom/utilities/modals/offer-a-deal/details.js"></script>
+		<script src="/assets/js/custom/utilities/modals/offer-a-deal/finance.js"></script>
+		<script src="/assets/js/custom/utilities/modals/offer-a-deal/complete.js"></script>
+		<script src="/assets/js/custom/utilities/modals/offer-a-deal/main.js"></script>
+		<script src="/assets/js/custom/utilities/modals/users-search.js"></script>
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
 	</body>
