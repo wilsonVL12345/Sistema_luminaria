@@ -120,7 +120,9 @@
 								<img alt="Logo gamea" src="{{asset('assets/media/logos/gamea.svg')}}" class="h-40px" />
 							</a>
 							<div>
-								<H3>UNIDAD DE ALUMBRADO PUBLICO</H3>
+								<H3>	DIRECCION DE ALUMBRADO PUBLICO</H3>
+								<br>
+								<h4>UNIDAD OPERATIVA DE ALUMBRADO PUBLICO</h4>
 							</div>
 						</div>
 						<!--end::Mobile logo-->

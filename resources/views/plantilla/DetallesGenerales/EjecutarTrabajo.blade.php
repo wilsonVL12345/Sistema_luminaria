@@ -69,7 +69,7 @@
 								<input type="text" id="txtz" name="txtz" value="{{$trabajo->Zona}}" readonly>
 							</div>
 							<div class="mb-3">
-								<label for="txtcantidadlum">Cantidad Luminarias</label>
+								<label for="txtcantidadlum">Cantidad de Puntos</label>
 								<input type="text" id="txtcantidadlum" name="txtcantidadlum" required>
 							</div>
 								<div class="col-md-6">

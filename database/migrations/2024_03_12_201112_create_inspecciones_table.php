@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('Foto_Carta')->nullable();
             $table->string('Inspeccion', 50)->nullable();
             $table->string('Detalles', 200)->nullable();
-
+            $table->string('Inspector', 100)->nullable();
             $table->unsignedBigInteger(column: 'users_id');
             $table->foreign(columns: 'users_id')->references(columns: 'id')
                 ->on(table: 'users')->onDelete(action: 'cascade');

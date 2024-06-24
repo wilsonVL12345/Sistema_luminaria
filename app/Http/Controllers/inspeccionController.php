@@ -104,6 +104,7 @@ class inspeccionController extends Controller
      */
     public function edit(Request $request)
     {
+
         try {
             $inspe = inspeccion::find($request->txtid);
 
@@ -111,6 +112,7 @@ class inspeccionController extends Controller
             $inspe->ZonaUrbanizacion = $request->txtzurb;
             $inspe->Nro_Sisco = $request->txtsisco;
             $inspe->Fecha_Inspeccion = $request->txtfecha;
+
             $inspe->save();
             $sql = true;
         } catch (\Throwable $th) {

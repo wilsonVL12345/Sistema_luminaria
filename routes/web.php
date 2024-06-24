@@ -88,7 +88,7 @@ Route::get('/equipos/accesorios', [lista_accesorioController::class, 'index'])->
 //ruta para registrar ala lista de accesorios
 Route::post('/registro/accesorios', [lista_accesorioController::class, 'create'])->name('registro.accesorios');
 Route::post('/editar/accesorios', [lista_accesorioController::class, 'edit'])->name('editar.accesorios');
-Route::get('/eliminar/accesorios-{id}', [lista_accesorioController::class, 'destroy'])->name('eliminar.accesorios');
+Route::get('/eliminar/accesorios/{id}', [lista_accesorioController::class, 'destroy'])->name('eliminar.accesorios');
 
 
 //rutar para la parte de equipos equipamientos

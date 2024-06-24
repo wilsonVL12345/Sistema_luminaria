@@ -74,7 +74,7 @@
 
 												</select>
 
-												<label for="dtfecha">Fecha Programada</label>
+												<label for="dtfecha">Fecha de Adquisicion</label>
 												<input type="date" name="dtfecha" id="dtfecha">
 												<br>
 												<label for="txtmodalidad">Modalidad</label>
@@ -91,7 +91,7 @@
 												</select>
 												<br>
 												<div id="check">
-													<label for="txttiposcomponentes">Tipos de Componentes</label>
+													<label for="txttiposcomponentes">Materiales Electricos</label>
 												<br>
 												
 												 <div class="col-md-6">
@@ -236,7 +236,7 @@
 									<th>Cuce-Proyecto</th>
 									<th>Distrito</th>
 									<th>Zona</th>
-									<th>Fecha Programada</th>
+									<th>Fecha de Adquisicion</th>
 									<th>Tipo de Contratacion</th>
 									
 									<th>Estado</th>

@@ -114,7 +114,7 @@
 										</div>
 
 										<button type="button" onclick="agregarLuminaria()">Agregar Componentes Retirados</button> <br>
-										<button type="submit" >guardar accesorios</button>
+										<button type="submit"  style="display: none;" >guardar accesorios</button>
 										
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

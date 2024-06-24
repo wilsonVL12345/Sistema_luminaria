@@ -20,6 +20,7 @@ class inspeccion extends Model
         'Foto_Carta',
         'Inspeccion',
         'Detalles',
+        'Inspector',
         'users_id',
         'Distritos_id',
     ];

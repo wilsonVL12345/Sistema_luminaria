@@ -80,14 +80,22 @@ class lista_accesorioController extends Controller
      */
     public function destroy($id)
     {
+
         try {
-            lista_accesorio::destroy($id);
-            $sql = true;
+            $accedestroy = lista_accesorio::find($id);
+            if ($accedestroy) {
+
+                lista_accesorio::destroy("$id");
+                $sql = true;
+                return back()->with("correcto", "Datos Eliminados Correctamente");
+            } else {
+                return back()->with("incorrecto", "Registro no encontrado");
+            }
         } catch (\Throwable $th) {
             $sql = false;
         }
         if ($sql == true) {
-            return back()->with("correcto", "Datos Eliminado Correctamente");
+            return back()->with("correcto", "Datos Eliminados Correctamente");
         } else {
             return back()->with("incorrecto", "Error al Eliminar");
         }
