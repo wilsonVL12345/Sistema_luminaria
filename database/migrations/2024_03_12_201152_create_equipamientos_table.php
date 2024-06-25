@@ -22,7 +22,7 @@ return new class extends Migration
                 ->on(table: 'distritos')->onDelete(action: 'cascade');
 
             $table->timestamps();
-            $table->softDeletes();
+            // $table->softDeletes();
         });
     }
 

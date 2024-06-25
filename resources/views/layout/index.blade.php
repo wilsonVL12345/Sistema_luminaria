@@ -3061,6 +3061,7 @@ $cargo=session('cargo');
 	<!--end::Scrolltop-->
 	
 	@include('layout.script')
+	
 </body>
 <!--end::Body-->
 

@@ -128,7 +128,9 @@ class inspeccionController extends Controller
     public function realizadas(Request $request)
     {
         $inspeccion = inspeccion::where('Inspeccion', 'Realizado')->get();
-        return view('plantilla.Inspecciones.Realizadas', ['inspeccion' => $inspeccion]);
+        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
+        $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
+        return view('plantilla.Inspecciones.Realizadas', ['inspeccion' => $inspeccion, 'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb]);
     }
 
     public function update(Request $request, string $id)
