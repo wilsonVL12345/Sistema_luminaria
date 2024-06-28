@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('distritos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('Distrito')->nullable();
-
+        Schema::create('urbanizacions', function (Blueprint $table) {
+            $table->id();
+            $table->integer('Nrodistrito');
+            $table->string('nombre_urbanizacion');
+            $table->text('lng')->nullable();
+            $table->text('lat')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('distritos');
+        Schema::dropIfExists('urbanizacions');
     }
 };

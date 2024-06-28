@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Nombre_de_Empresa', 100)->unique();
             $table->text('Descripcion')->nullable();
-            $table->number('Cantidad', 10)->nullable();
+            $table->integer('Cantidad', 10)->nullable();
 
             $table->timestamps();
         });

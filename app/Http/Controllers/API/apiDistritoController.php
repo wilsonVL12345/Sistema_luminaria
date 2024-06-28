@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\distrito;
+use App\Models\urbanizacion;
 
 class apiDistritoController extends Controller
 {
@@ -13,13 +14,9 @@ class apiDistritoController extends Controller
      */
     public function index()
     {
-        $distritos = Distrito::select('Distrito', 'Zona_Urbanizacion')
-            ->where('Zona_Urbanizacion', '<>', '')
-            ->distinct('Zona_Urbanizacion')
-            ->orderBy('distrito', 'desc')
-            ->get();
+        $urb = urbanizacion::all();
         /* $distritos = distrito::whereBetween('id', [1000, 1013])->get(); */
-        return response()->json($distritos);
+        return response()->json($urb);
     }
 
     /**

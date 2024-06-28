@@ -12,28 +12,24 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function administrador()
+    public function users()
     {
-        $users = User::where('cargo', 'administrador')->get();
-        return view('plantilla.Usuarios.Administrador', ['user' => $users]);
+        $users = User::all();
+        return view('plantilla.Usuarios.usuarios', ['user' => $users]);
     }
 
-    public function jefatura()
-    {
-        $users = User::where('cargo', 'jefatura')->get();
-        return view('plantilla.Usuarios.Jefatura', ['user' => $users]);
-    }
-    public function especialista()
-    {
-        $users = User::where('cargo', 'especialista')->get();
-        return view('plantilla.Usuarios.Especialista', ['user' => $users]);
-    }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create(Request $request)
     {
+        if ($request->txtestado) {
+            $estado = 'Activo';
+        } else {
+            $estado = 'Bloqueado';
+        }
 
 
         try {
@@ -53,7 +49,7 @@ class UserController extends Controller
             $user->Genero = $request->txtgenero;
             $user->Cargo = $request->txtcargo;
             $user->Lugar_Designado = $request->txtlugarDesignado;
-            $user->Estado = $request->txtestado;
+            $user->Estado = $estado;
             $user->Usuario = $usuario;
             $user->Password = $contrase;
             $user->save();
@@ -70,17 +66,25 @@ class UserController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function bloquear($id)
     {
-        //
+        $bloq = 'Bloqueado';
+        $userbloquear = User::find($id);
+        $userbloquear->Estado = $bloq;
+        $userbloquear->save();
+        return back()->with("incorrecto", "Usuario Bloqueado Correctamente");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function desbloquear($id)
     {
-        //
+        $desbloq = 'Activo';
+        $userdesbloquear = User::find($id);
+        $userdesbloquear->Estado = $desbloq;
+        $userdesbloquear->save();
+        return back()->with("correcto", "Usuario Desbloqueado Correctamente");
     }
 
     /**

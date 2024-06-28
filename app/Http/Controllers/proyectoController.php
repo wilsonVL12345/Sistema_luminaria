@@ -8,6 +8,7 @@ use App\Models\distrito;
 use App\Models\accesorio;
 use App\Models\luminarias_reutilizada;
 use App\Models\luminaria;
+use App\Models\urbanizacion;
 use Illuminate\Foundation\Console\ViewMakeCommand;
 
 class proyectoController extends Controller
@@ -23,8 +24,8 @@ class proyectoController extends Controller
         $reutilizadas = luminarias_reutilizada::all();
         $accesorio = accesorio::all();
         $luminaria = luminaria::all();
-        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
-        $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
+        $listadistrito = distrito::all();
+        $listazonaurb = urbanizacion::all();
         return view('plantilla.Proyectos.proyectosAlmacen', [
             'proyecto' => $proyecto,
             'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb,

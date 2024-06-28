@@ -21,9 +21,6 @@ return new class extends Migration
             $table->integer('Disponibles')->nullable();
             $table->string('Observaciones', 200)->nullable();
 
-            $table->unsignedBigInteger(column: 'Proveedores_id');
-            $table->foreign(columns: 'Proveedores_id')->references(columns: 'id')
-                ->on(table: 'proveedores')->onDelete(action: 'cascade');
 
             $table->unsignedBigInteger(column: 'Proyectos_id');
             $table->foreign(columns: 'Proyectos_id')->references(columns: 'id')

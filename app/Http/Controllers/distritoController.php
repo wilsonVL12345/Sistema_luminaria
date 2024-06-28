@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\distrito;
-
+use App\Models\urbanizacion;
 use function PHPUnit\Framework\returnSelf;
 
 class distritoController extends Controller
@@ -15,16 +15,16 @@ class distritoController extends Controller
     public function index()
     {
         /* $distritos = Distrito::orderBy('id', 'desc')->get(); */
-        $tododistritos = Distrito::orderBy('id', 'desc')
-            ->where('Zona_Urbanizacion', '<>', '')
+        $todoUrban = urbanizacion::orderBy('id', 'desc')
+            ->where('nombre_urbanizacion', '<>', '')
             ->get();
-        $distritos = distrito::whereBetween('id', [1000, 1013])->get();
-        $listadistrito = distrito::distinct()->get(['Zona_Urbanizacion']);
-        $listacallesav = distrito::distinct()->get(['Calle_Avenida']);
+        $distritos = distrito::all();
+        $listadistrito = urbanizacion::distinct()->get(['nombre_urbanizacion']);
+
 
         return view('plantilla.DetallesDistritos.Distritos', [
-            'tododistritos' => $tododistritos,
-            'listadistrito' => $listadistrito, 'listacalles' => $listacallesav,
+            'todoUrban' => $todoUrban,
+            'listadistrito' => $listadistrito,
             'distrito' => $distritos
         ]);
     }
@@ -34,42 +34,21 @@ class distritoController extends Controller
      */
     public function create(Request $request)
     {
-        if ($request->txtagregar === "txtzonaUr") {
-            /* dd($request->txtdistrit, $request->txtzonaUrbx, $request->txtzonaUr); */
-
-            try {
-                $distrito = new distrito();
-                $distrito->Distrito = $request->txtdistrit;
-                $distrito->Zona_Urbanizacion = $request->txtzonaUrbx . $request->txtzonaUr;
-
-                $distrito->save();
-                $sql = true;
-            } catch (\Throwable $th) {
-                $sql = false;
-            }
-            if ($sql == true) {
-                return back()->with("correcto", "Datos Registrado Correctamente");
-            } else {
-                return back()->with("incorrecto", "Error al Registrar");
-            }
+        // dd($request->all());
+        /* dd($request->all()); */
+        try {
+            $newUrb = new urbanizacion();
+            $newUrb->Nrodistrito = $request->txtdistrit;
+            $newUrb->nombre_urbanizacion = $request->txtzonaUrba;
+            $newUrb->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Datos Registrado Correctamente");
         } else {
-
-
-            try {
-                $distrito = new distrito();
-                $distrito->Distrito = $request->txtdistrito;
-                $distrito->Zona_Urbanizacion = $request->txtzonaUrbanizacion . $request->txtzonaUrb;
-                $distrito->Calle_Avenida = $request->txtavenidacalle . $request->txtavc;
-                $distrito->save();
-                $sql = true;
-            } catch (\Throwable $th) {
-                $sql = false;
-            }
-            if ($sql == true) {
-                return back()->with("correcto", "Datos Registrado Correctamente");
-            } else {
-                return back()->with("incorrecto", "Error al Registrar");
-            }
+            return back()->with("incorrecto", "Error al Registrar");
         }
     }
 
@@ -92,12 +71,12 @@ class distritoController extends Controller
     public function edit(Request $request)
     {
         try {
-            $distrito = distrito::find($request->txtid);
+            $urba = urbanizacion::find($request->txtid);
 
-            $distrito->Distrito = $request->txtdistritom;
-            $distrito->Zona_Urbanizacion = $request->txtzonaUrbanizacionm;
-            $distrito->Calle_Avenida = $request->txtavc;
-            $distrito->save();
+            $urba->Nrodistrito = $request->txtdistritom;
+            $urba->nombre_urbanizacion = $request->txtzonaUrbanizacionm;
+
+            $urba->save();
 
             $sql = true;
         } catch (\Throwable $th) {

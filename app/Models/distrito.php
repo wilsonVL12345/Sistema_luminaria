@@ -11,9 +11,9 @@ class distrito extends Model
     use HasFactory;
     protected $table = 'distritos';
     protected $filable = [
+
         'Distrito',
-        'Zona_Urbanizacion',
-        'Calle_Avenida'
+
     ];
     protected $primarykey = 'id';
     public function equipamientos(): HasMany

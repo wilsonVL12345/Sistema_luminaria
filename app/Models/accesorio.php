@@ -17,16 +17,13 @@ class accesorio extends Model
         'Utilizados',
         'Disponibles',
         'Observaciones',
-        'Proveedores_id',
+
         'Proyectos_id',
         'Detalles_id'
     ];
     protected $primarykey = 'id';
 
-    public function proveedor(): BelongsTo
-    {
-        return $this->belongsTo(proveedor::class);
-    }
+
     public function proyecto(): BelongsTo
     {
         return $this->belongsTo(proyecto::class);

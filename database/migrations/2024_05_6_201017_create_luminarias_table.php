@@ -22,9 +22,6 @@ return new class extends Migration
             $table->string('longitud')->nullable();
 
 
-            $table->unsignedBigInteger(column: 'Proveedores_id');
-            $table->foreign(columns: 'Proveedores_id')->references(columns: 'id')
-                ->on(table: 'proveedores')->onDelete(action: 'cascade');    //onDelete(action:'cascada'); si en caso se elimina algo en la tabla padre, se eliminara todo referido a esa fila
 
             $table->unsignedBigInteger(column: 'Proyectos_id');
             $table->foreign(columns: 'Proyectos_id')->references(columns: 'id')

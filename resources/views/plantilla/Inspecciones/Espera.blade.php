@@ -96,116 +96,7 @@
 										
 										<!--begin::Toolbar-->
 										<div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
-											<!--begin::Filter-->
-											{{-- <button type="button" class="btn btn-light-primary me-3"
-												data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-												<!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-												<span class="svg-icon svg-icon-2">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-														viewBox="0 0 24 24" fill="none">
-														<path
-															d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z"
-															fill="currentColor" />
-													</svg>
-												</span>
-												<!--end::Svg Icon-->Filter</button>
-											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px"
-												data-kt-menu="true" id="kt-toolbar-filter">
-												<!--begin::Header-->
-												<div class="px-7 py-5">
-													<div class="fs-4 text-dark fw-bolder">Filter Options</div>
-												</div>
-												<!--end::Header-->
-												<!--begin::Separator-->
-												<div class="separator border-gray-200"></div>
-												<!--end::Separator-->
-												<!--begin::Content-->
-												<div class="px-7 py-5">
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fs-5 fw-bold mb-3">Month:</label>
-														<!--end::Label-->
-														<!--begin::Input-->
-														<select class="form-select form-select-solid fw-bolder"
-															data-kt-select2="true" data-placeholder="Select option"
-															data-allow-clear="true"
-															data-kt-customer-table-filter="month"
-															data-dropdown-parent="#kt-toolbar-filter">
-															<option></option>
-															<option value="aug">August</option>
-															<option value="sep">September</option>
-															<option value="oct">October</option>
-															<option value="nov">November</option>
-															<option value="dec">December</option>
-														</select>
-														<!--end::Input-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Input group-->
-													<div class="mb-10">
-														<!--begin::Label-->
-														<label class="form-label fs-5 fw-bold mb-3">Payment
-															Type:</label>
-														<!--end::Label-->
-														<!--begin::Options-->
-														<div class="d-flex flex-column flex-wrap fw-bold"
-															data-kt-customer-table-filter="payment_type">
-															<!--begin::Option-->
-															<label
-																class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
-																<input class="form-check-input" type="radio"
-																	name="payment_type" value="all" checked="checked" />
-																<span class="form-check-label text-gray-600">All</span>
-															</label>
-															<!--end::Option-->
-															<!--begin::Option-->
-															<label
-																class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
-																<input class="form-check-input" type="radio"
-																	name="payment_type" value="visa" />
-																<span class="form-check-label text-gray-600">Visa</span>
-															</label>
-															<!--end::Option-->
-															<!--begin::Option-->
-															<label
-																class="form-check form-check-sm form-check-custom form-check-solid mb-3">
-																<input class="form-check-input" type="radio"
-																	name="payment_type" value="mastercard" />
-																<span
-																	class="form-check-label text-gray-600">Mastercard</span>
-															</label>
-															<!--end::Option-->
-															<!--begin::Option-->
-															<label
-																class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="radio"
-																	name="payment_type" value="american_express" />
-																<span class="form-check-label text-gray-600">American
-																	Express</span>
-															</label>
-															<!--end::Option-->
-														</div>
-														<!--end::Options-->
-													</div>
-													<!--end::Input group-->
-													<!--begin::Actions-->
-													<div class="d-flex justify-content-end">
-														<button type="reset"
-															class="btn btn-light btn-active-light-primary me-2"
-															data-kt-menu-dismiss="true"
-															data-kt-customer-table-filter="reset">Reset</button>
-														<button type="submit" class="btn btn-primary"
-															data-kt-menu-dismiss="true"
-															data-kt-customer-table-filter="filter">Apply</button>
-													</div>
-													<!--end::Actions-->
-												</div>
-												<!--end::Content-->
-											</div> --}}
-											<!--end::Menu 1-->
-											<!--end::Filter-->
+											
 											<!--begin::Export-->
 											<button type="button" class="btn btn-light-primary me-3"
 												data-bs-toggle="modal" data-bs-target="#kt_customers_export_modal">
@@ -446,7 +337,7 @@
 																	<!--end::Heading-->
 																	<!--begin::Input group-->
 																	<div>
-																		<input type="text" id="txtid" name="txtid" style="display: none;" value="{{$item->id}}"> 
+																		<input type="text" id="txtid" name="txtid" style="display: none;" value="{{$item->id}}" readonly> 
 																	</div>
 																	<div class="d-flex flex-column mb-8 fv-row">
 																		<!--begin::Label-->
@@ -455,33 +346,29 @@
 																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
 																		</label>
 																		<!--end::Label-->
-																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" value="{{$item->Nro_Sisco}}" required/>
+																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" value="{{$item->Nro_Sisco}}" readonly/>
 																	</div>
 																	<!--end::Input group-->
 																	<!--begin::Input group-->
 																	<div class="row g-9 mb-8">
 																		<!--begin::Col-->
 																		<div class="col-md-6 fv-row">
-																			<label class="required fs-6 fw-bold mb-2">Distrito</label>
-																			<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Seleccione..." name="txtdistrito" id="txtdistrito" required>
-																				<option value="" disabled selected >Seleccione...</option>
-																				@foreach ($listadistrito as $ite)
-																				<option value="{{$ite->id}}" {{$ite->id == $item->Distritos_id ? 'selected' : ''}}>
-																					{{$ite->Distrito}}
-																				</option>
-																			@endforeach
-																			</select>
+																			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+																				<span class="required">Distrito</span>
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
+																			</label>
+																			<!--end::Label-->
+																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtdistrito" value="{{$item->distrito->Distrito}}" readonly/>
 																		</div>
+																		
 																		<div class="col-md-6 fv-row">
-																			<label class="required fs-6 fw-bold mb-2">Zona/Urbanizacion</label>
-																			<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Seleccione..." name="txtzurb" id="txtzurb" required>
-																				<option value="" disabled selected >Seleccione...</option>
-																				@foreach ($listazonaurb as $it)
-																				<option value="{{$it->Zona_Urbanizacion}}" {{$it->Zona_Urbanizacion==$item->ZonaUrbanizacion ? 'selected':''}}>
-																					{{$it->Zona_Urbanizacion}}
-																				</option>
-																				@endforeach
-																			</select>
+																			<!--begin::Label-->
+																			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+																				<span class="required">Urbanizacion</span>
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
+																			</label>
+																			<!--end::Label-->
+																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtzurbanizacion" value="{{$item->ZonaUrbanizacion}}" readonly/>
 																		</div>
 						
 																		<!--end::Col-->
@@ -492,7 +379,7 @@
 																		<!--begin::Col-->
 																		<div class="col-md-6 fv-row">
 																			<label class="required fs-6 fw-bold mb-2">Foto de la Carta</label>
-																			<input type="file" id="imgcarta"  name="imgcarta" accept="image/*" class="form-control">
+																			<input type="file" id="imgcartaa"  name="imgcartaa" accept="image/*" class="form-control">
 																			@error('imgcarta')
 																				<small class="text-danger">{{$message}}</small>
 																			@enderror
@@ -568,47 +455,76 @@
 															<!--begin::Modal body-->
 															<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
 																<!--begin:Form-->
-																<form id="kt_modal_new_target_form" class="form" action="#">
+																<form id="kt_modal_new_target_form" class="form" action="{{route('empezar.inspeccionespera')}}" method="POST">
+																	@csrf
 																	<!--begin::Heading-->
 																	<div class="mb-13 text-center">
 																		<!--begin::Title-->
-																		<h1 class="mb-3">Set First Target</h1>
+																		<h1 class="mb-3">Inspeccion</h1>
 																		<!--end::Title-->
 																		<!--begin::Description-->
-																		<div class="text-muted fw-bold fs-5">If you need more info, please check
-																		<a href="#" class="fw-bolder link-primary">Project Guidelines</a>.</div>
+																		<div class="text-muted fw-bold fs-5">Iniciando la Inspeccion
+																		.</div>
 																		<!--end::Description-->
 																	</div>
 																	<!--end::Heading-->
+																	
 																	<!--begin::Input group-->
-																	<div class="d-flex flex-column mb-8 fv-row">
-																		<!--begin::Label-->
+																	<div class="row g-9 mb-8">
+																		<!--begin::Col-->
+																		<input type="text" id="txtid" name="txtid" value="{{$item->id}}" style="display: none;" readonly>
+																		<div class="col-md-6 fv-row">
+																			<!--begin::Label-->
+																			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+																				<span class="required">Nro Sisco</span>
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
+																			</label>
+																			<!--end::Label-->
+																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" value="{{$item->Nro_Sisco}}" readonly />
+																		</div>
+																		<!--end::Col-->
+																		<!--begin::Col-->
+																		<div class="col-md-6 fv-row">
+																			<!--begin::Label-->
+																			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+																				<span class="required">Distrito</span>
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
+																			</label>
+																			<!--end::Label-->
+																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtdistrito" value="{{$item->distrito->Distrito}}" readonly/>
+																		</div>
+																		<!--end::Col-->
+																	</div>
+																	<div class="row g-9 mb-8">
 																		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-																			<span class="required">Target Title</span>
-																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i>
+																			<span class="required">Urbanizacion</span>
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
 																		</label>
 																		<!--end::Label-->
-																		<input type="text" class="form-control form-control-solid" placeholder="Enter Target Title" name="target_title" />
+																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtzurb" value="{{$item->ZonaUrbanizacion}}" readonly/>
+																	
 																	</div>
 																	<!--end::Input group-->
 																	<!--begin::Input group-->
 																	<div class="row g-9 mb-8">
 																		<!--begin::Col-->
-																		<div class="col-md-6 fv-row">
-																			<label class="required fs-6 fw-bold mb-2">Assign</label>
-																			<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
-																				<option value="">Select user...</option>
-																				<option value="1">Karina Clark</option>
-																				<option value="2">Robert Doe</option>
-																				<option value="3">Niel Owen</option>
-																				<option value="4">Olivia Wild</option>
-																				<option value="5">Sean Bean</option>
-																			</select>
+																			<div class="col-md-6 fv-row">
+																				<label class="required fs-6 fw-bold mb-2">Tipo de Inspeccion</label>
+																				<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="txttipo">
+																					<option value="" >Seleccione...</option>
+																					<option value="Ampliacion de la red">Ampliacion de la red</option>
+																					<option value="Mantenimiento">Mantenimiento</option>
+																					<option value="Mejora del Sistema">Mejora del Sistema</option>
+																					<option value="Ampliacion de la red y Mantenimiento">Ampliacion de la red y Mantenimiento</option>
+																				
+																				</select>
+																		
 																		</div>
 																		<!--end::Col-->
 																		<!--begin::Col-->
+																		<!--begin::Col fe-->
 																		<div class="col-md-6 fv-row">
-																			<label class="required fs-6 fw-bold mb-2">Due Date</label>
+																			<label class="required fs-6 fw-bold mb-2">Fecha de Inspeccion</label>
 																			<!--begin::Input-->
 																			<div class="position-relative d-flex align-items-center">
 																				<!--begin::Icon-->
@@ -623,82 +539,44 @@
 																				<!--end::Svg Icon-->
 																				<!--end::Icon-->
 																				<!--begin::Datepicker-->
-																				<input class="form-control form-control-solid ps-12" placeholder="Select a date" name="due_date" />
+																				<input class="form-control form-control-solid ps-12" type="date" placeholder="Select a date" name="txtfecha" required/>
 																				<!--end::Datepicker-->
 																			</div>
 																			<!--end::Input-->
 																		</div>
 																		<!--end::Col-->
+																		<!--end::Col-->
 																	</div>
 																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="row g-9 mb-8">
+																		<!--begin::Col-->
+																		<div class="col-md-6 fv-row">
+																			<label class="required fs-6 fw-bold mb-2">Estado</label>
+																			<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="txtestado">
+																				<option value=""   >Selecione...</option>
+																				<option value="Aprobado">Aprobado</option>
+																				<option value="Rechazado">Rechazado</option>
+
+																			</select>
+																		</div>
+																		<!--end::Col-->
+																		
+																	</div>
+																	<!--end::Input group-->
+																	
 																	<!--begin::Input group-->
 																	<div class="d-flex flex-column mb-8">
-																		<label class="fs-6 fw-bold mb-2">Target Details</label>
-																		<textarea class="form-control form-control-solid" rows="3" name="target_details" placeholder="Type Target Details"></textarea>
+																		<label class="fs-6 fw-bold mb-2">Descripcion de Inspeccion</label>
+																		<textarea class="form-control form-control-solid" rows="3" name="txtdescripcion" placeholder="Ingrese una breve Descripcion de la Inspeccion"></textarea>
 																	</div>
 																	<!--end::Input group-->
-																	<!--begin::Input group-->
-																	<div class="d-flex flex-column mb-8 fv-row">
-																		<!--begin::Label-->
-																		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
-																			<span class="required">Tags</span>
-																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target priorty"></i>
-																		</label>
-																		<!--end::Label-->
-																		<input class="form-control form-control-solid" value="Important, Urgent" name="tags" />
-																	</div>
-																	<!--end::Input group-->
-																	<!--begin::Input group-->
-																	<div class="d-flex flex-stack mb-8">
-																		<!--begin::Label-->
-																		<div class="me-5">
-																			<label class="fs-6 fw-bold">Adding Users by Team Members</label>
-																			<div class="fs-7 fw-bold text-muted">If you need more info, please check budget planning</div>
-																		</div>
-																		<!--end::Label-->
-																		<!--begin::Switch-->
-																		<label class="form-check form-switch form-check-custom form-check-solid">
-																			<input class="form-check-input" type="checkbox" value="1" checked="checked" />
-																			<span class="form-check-label fw-bold text-muted">Allowed</span>
-																		</label>
-																		<!--end::Switch-->
-																	</div>
-																	<!--end::Input group-->
-																	<!--begin::Input group-->
-																	<div class="mb-15 fv-row">
-																		<!--begin::Wrapper-->
-																		<div class="d-flex flex-stack">
-																			<!--begin::Label-->
-																			<div class="fw-bold me-5">
-																				<label class="fs-6">Notifications</label>
-																				<div class="fs-7 text-muted">Allow Notifications by Phone or Email</div>
-																			</div>
-																			<!--end::Label-->
-																			<!--begin::Checkboxes-->
-																			<div class="d-flex align-items-center">
-																				<!--begin::Checkbox-->
-																				<label class="form-check form-check-custom form-check-solid me-10">
-																					<input class="form-check-input h-20px w-20px" type="checkbox" name="communication[]" value="email" checked="checked" />
-																					<span class="form-check-label fw-bold">Email</span>
-																				</label>
-																				<!--end::Checkbox-->
-																				<!--begin::Checkbox-->
-																				<label class="form-check form-check-custom form-check-solid">
-																					<input class="form-check-input h-20px w-20px" type="checkbox" name="communication[]" value="phone" />
-																					<span class="form-check-label fw-bold">Phone</span>
-																				</label>
-																				<!--end::Checkbox-->
-																			</div>
-																			<!--end::Checkboxes-->
-																		</div>
-																		<!--end::Wrapper-->
-																	</div>
-																	<!--end::Input group-->
+																	
 																	<!--begin::Actions-->
 																	<div class="text-center">
-																		<button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Cancel</button>
+																		<button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Cancelar</button>
 																		<button type="submit" id="kt_modal_new_target_submit" class="btn btn-primary">
-																			<span class="indicator-label">Submit</span>
+																			<span class="indicator-label">Finalizar</span>
 																			<span class="indicator-progress">Please wait...
 																			<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 																		</button>
@@ -790,13 +668,24 @@
 														</select>
 													</div>
 													<div class="col-md-6 fv-row">
-														<label class="required fs-6 fw-bold mb-2">Zona/Urbanizacion</label>
-														<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Seleccione..." name="txtzonaurb" id="txtzonaurb">
-															<option value=""  >Seleccione...</option>
-															@foreach ($listazonaurb as $ite)
-																<option value="{{$ite->Zona_Urbanizacion}}">{{$ite->Zona_Urbanizacion}}</option>
-															@endforeach
+														<label class="fs-6 fw-bold mb-2">
+															<span class="required">Urbanizacion</span>
+															<i class="fas fa-exclamation-circle ms-1 fs-7"
+																data-bs-toggle="tooltip"
+																title="Country of origination"></i>
+														</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<select  aria-label="Select a Country"
+															data-control="select2"
+															data-placeholder="Selec Urb"
+															data-dropdown-parent="#modalRegistroInspeccion"
+															class="form-control form-select-solid fw-bolder" name="txturbs" id="txturbs">
+															<option value="">Seleccion...</option>
+															
+															
 														</select>
+														
 													</div>
 	
 													<!--end::Col-->
@@ -1019,26 +908,10 @@
 
 @endsection
 
-@section('contenido')
-<div class="card mb-5 mb-xl-10">
-	<div class="card-body pt-9 pb-0">
-		<h1>Agendar Trabajo</h1>
-		<h4 class="a">dsfasfasdsdgsd</h4>
-		</div>
-	</div>
-	
-</div>
 
-@endsection
 
-@section('css')
-    <style>
-        .a {
-            background-color: red;
-            color: green;
-        }
-    </style>
-@endsection
+
+
 
 
 

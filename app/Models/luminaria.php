@@ -21,13 +21,10 @@ class luminaria extends Model
         'longitud',
         'Proyectos_id',
         'Detalles_id',
-        'Proveedores_id'
+
     ];
     protected $primarykey = 'id';
-    public function proveedor(): BelongsTo
-    {
-        return $this->belongsTo(proveedor::class, 'Proveedores_id');
-    }
+
     public function proyecto(): BelongsTo
     {
         return $this->belongsTo(proyecto::class);

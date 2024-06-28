@@ -25,6 +25,8 @@ return new class extends Migration
             $table->date('Fecha_Programada')->nullable();
             $table->date('Fecha_Ejecuta')->nullable();
             $table->text('Observaciones')->nullable();
+            $table->string('Proveedor')->nullable();
+
 
             $table->unsignedBigInteger(column: 'Users_id');
             $table->foreign(columns: 'Users_id')->references(columns: 'id')

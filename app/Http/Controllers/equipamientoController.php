@@ -14,8 +14,7 @@ class equipamientoController extends Controller
     public function index()
     {
         $equipamiento = equipamiento::orderBy('Distritos_id', 'asc')->get();
-        $lista = distrito::whereBetween('id', [1000, 1013])
-            ->get();
+        $lista = distrito::all();
 
         return view('plantilla.Equipos.Equipamiento', ['equipos' => $equipamiento], ['lista' => $lista]);
     }

@@ -30,9 +30,10 @@ use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 |
 */
 
-Route::view('/usuario/administrador', "plantilla.Usuarios.Administrador")->name('usuario.administrador');
+/* Route::view('/usuario/administrador', "plantilla.Usuarios.Administrador")->name('usuario.administrador');
 Route::view('/usuario/jefatura', "plantilla.Usuarios.Especialista")->name('usuario.jefatura');
-Route::view('/usuario/especialista', "plantilla.Usuarios.Jefatura")->name('usuario.especialista');
+Route::view('/usuario/especialista', "plantilla.Usuarios.Jefatura")->name('usuario.especialista'); */
+
 Route::view('/login', "plantilla.login")->name('login');
 
 Route::post('/inicia-sesion', [logincontroller::class, 'login'])->name('inicia-sesion');
@@ -46,16 +47,22 @@ Route::view('/index', 'layout.index')->name('index');
 /* Route::get('/usuario/administrador', function () {
     return view('plantilla.Usuarios.Administrador');
 }); */
+
+
 //rutas para la parte de usuarios ----------------------------------------------------------------------------------------------------
-Route::get('/usuario/administrador', [UserController::class, 'administrador'])->name('usuario.administrador');
+Route::get('/usuario/usuarios', [UserController::class, 'users'])->name('usuario.usuarios');
+Route::get('/usuario/bloquear/{id}', [UserController::class, 'bloquear'])->name('usuario.bloquear');
+Route::get('/usuario/desbloquear/{id}', [UserController::class, 'desbloquear'])->name('usuario.bloquear');
+
 /* Route::get('/usuario/jefatura', function () {
      return view('plantilla.Usuarios.Jefatura');}); */
-Route::get('/usuario/jefatura', [UserController::class, 'jefatura'])->name('usuario.jefatura');
+
+/* Route::get('/usuario/jefatura', [UserController::class, 'jefatura'])->name('usuario.jefatura'); */
 
 /* Route::get('/usuario/especialista', function () {
     return view('plantilla.Usuarios.Especialista');
 }); */
-Route::get('/usuario/especialista', [UserController::class, 'especialista'])->name('usuario.especialista');
+/* Route::get('/usuario/especialista', [UserController::class, 'especialista'])->name('usuario.especialista'); */
 
 //ruta para agregar un nuevo usuario
 Route::post('/registro/usuario', [UserController::class, 'create'])->name('registro.usuario');
