@@ -92,20 +92,19 @@ class UserController extends Controller
      */
     public function edit(Request $request)
     {
-        try {
-            $user = User::find($request->txtid);
 
-            $user->Nombres = $request->txtnombre;
-            $user->Paterno = $request->txtpaterno;
-            $user->Materno = $request->txtmaterno;
-            $user->Ci = $request->txtci;
-            $user->Expedido = $request->txtexpedido;
-            $user->Celular = $request->txtcelular;
-            $user->Genero = $request->txtgenero;
-            $user->Cargo = $request->txtcargo;
-            $user->Lugar_Designado = $request->txtlugarDesignado;
-            $user->Estado = $request->txtestado;
-            $user->save();
+        try {
+            $userd = User::find($request->txtid);
+            $userd->Nombres = $request->txtnombre;
+            $userd->Paterno = $request->txtpaterno;
+            $userd->Materno = $request->txtmaterno;
+            $userd->Ci = $request->txtci;
+            $userd->Expedido = $request->txtexpedido;
+            $userd->Celular = $request->txtcelular;
+            $userd->Genero = $request->txtgenero;
+            $userd->Cargo = $request->txtcargo;
+            $userd->Lugar_Designado = $request->txtlugarDesignado;
+            $userd->save();
             $sql = true;
         } catch (\Throwable $th) {
             $sql = false;

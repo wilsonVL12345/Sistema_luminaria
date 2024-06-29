@@ -66,7 +66,7 @@
 									<!--begin::Search-->
 									<div class="d-flex align-items-center position-relative my-1">
 										<span class="svg-icon fs-1 position-absolute ms-4">...</span>
-										<input type="text" data-kt-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search Report" />
+										<input type="text" data-kt-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Buscar Usuarios" />
 									</div>
 									<!--end::Search-->
 									<!--begin::Export buttons-->
@@ -349,7 +349,7 @@
 									<tbody class="fw-semibold text-gray-600">
 										@foreach ($user as $itemus)
 											
-										<tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase">
+										<tr class="text-start text-gray-500 fw-bold fs-7 {{-- text-uppercase --}}">
 											<td>
 												<a href="#" class="text-gray-600 text-hover-primary mb-1">{{$itemus->Nombres}}</a>
 											</td>
@@ -392,7 +392,7 @@
 													<!--begin::Menu item-->
 													
 													<div class="menu-item px-3">
-														<a href="#" data-bs-toggle="modal" data-bs-target="#moraModificarUsuario{{$itemus->id}}"
+														<a href="#" data-bs-toggle="modal" data-bs-target="#modalModificarUsuario{{$itemus->id}}"
 															class="menu-link px-3">Editar</a>
 													</div>
 													<!--end::Menu item-->
@@ -414,16 +414,16 @@
 											<!--end::Action=-->
 
 													<!--begin::Modal - modificar usuarios-->
-												<div class="modal fade" id="moraModificarUsuario{{$itemus->id}}" tabindex="-1" aria-hidden="true">
+												<div class="modal fade" id="modalModificarUsuario{{$itemus->id}}" tabindex="-1" aria-hidden="true">
 													<!--begin::Modal dialog-->
 													<div class="modal-dialog modal-dialog-centered mw-650px">
 														<!--begin::Modal content-->
 														<div class="modal-content">
 															<!--begin::Form-->
-															<form class="form" action="{{route("registro.usuario")}}" id="modadRegistraUsuarios_form" method="POST">
+															<form class="form" action="{{route('editar.usuario')}}" id="modadModificarUsuarios_form" method="POST">
 																@csrf
 																<!--begin::Modal header-->
-																<div class="modal-header" id="modadRegistraUsuarios_header">
+																<div class="modal-header" id="modadModificarUsuarios_header">
 																	<!--begin::Modal title-->
 																	<h2>Modificar Usuario</h2>
 																	<!--end::Modal title-->
@@ -444,8 +444,8 @@
 																<!--begin::Modal body-->
 																<div class="modal-body py-10 px-lg-17">
 																	<!--begin::Scroll-->
-																</div>
-																	<div class="scroll-y me-n7 pe-7" id="modadRegistraUsuarios_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#modadRegistraUsuarios_header" data-kt-scroll-wrappers="#modadRegistraUsuarios_scroll" data-kt-scroll-offset="300px">
+																
+																	<div class="scroll-y me-n7 pe-7" id="modadModificarUsuarios_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#modadRegistraUsuarios_header" data-kt-scroll-wrappers="#modadRegistraUsuarios_scroll" data-kt-scroll-offset="300px">
 																		<!--begin::Notice-->
 																		<!--begin::Notice-->
 																		
@@ -454,6 +454,7 @@
 																		<!--begin::Input group-->
 																		<div class="d-flex flex-column mb-5 fv-row">
 																			<!--begin::Label-->
+																			<input type="" name="txtid" id="txtid" value="{{$itemus->id}}"  style="display: none;">
 																			<label class="required fs-5 fw-bold mb-2">Nombres</label>
 																			<!--end::Label-->
 																			<!--begin::Input-->
@@ -532,20 +533,19 @@
 																			</select>
 																		</div>
 																		<!--end::Input group-->
-																		<div class="col-md-6 fv-row">
-																			<label class="required fs-6 fw-bold mb-2">Cargo</label>
-																			<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="txtcargo" required >
-																				<option value="" >Seleccione...</option>
-																				<option value="Administrador" {{$itemus->Cargo=='Administrador'?'selected':''}}>Administrador</option>
-																				<option value="Coordinador" {{$itemus->Cargo=='Coordinador'?'selected':''}}>Coordinador</option>
-																				<option value="Tecnico" {{$itemus->Cargo=='Tecnico'?'selected':''}}>Tecnico</option>
-																		
-																			</select>
-																	
-																		
-																	
+																		<div class="row mb-5">
+																				<div class="col-md-6 fv-row">
+																					<label class="required fs-6 fw-bold mb-2">Cargo</label>
+																					<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="txtcargo" required >
+																						<option value="" >Seleccione...</option>
+																						<option value="Administrador" {{$itemus->Cargo=='Administrador'?'selected':''}}>Administrador</option>
+																						<option value="Coordinador" {{$itemus->Cargo=='Coordinador'?'selected':''}}>Coordinador</option>
+																						<option value="Tecnico" {{$itemus->Cargo=='Tecnico'?'selected':''}}>Tecnico</option>
+																				
+																					</select>
+																				</div>
 																					<!--begin::Input group-->
-																				<div class="d-flex flex-column mb-5 fv-row">
+																				<div class="col-md-6 fv-row">
 																					<label class="required fs-6 fw-bold mb-2">Responsable de</label>
 																							<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="txtlugarDesignado" required >
 																								<option value="" >Seleccione...</option>
@@ -572,6 +572,7 @@
 																		</div>
 																		<!--end::Scroll-->
 																	</div>
+																</div>
 																<!--end::Modal body-->
 																<!--begin::Modal footer-->
 																<div class="modal-footer flex-center">
@@ -579,8 +580,8 @@
 																	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 																	<!--end::Button-->
 																	<!--begin::Button-->
-																	<button type="submit" id="modadRegistraUsuarios_submit" class="btn btn-primary">
-																		<span class="indicator-label">Registrar</span>
+																	<button type="submit" id="modadModificarUsuarios_submit" class="btn btn-primary">
+																		<span class="indicator-label">Modificar</span>
 																		<span class="indicator-progress">Please wait...
 																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 																	</button>
