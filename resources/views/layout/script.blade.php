@@ -60,6 +60,8 @@
 <script src="{{ asset('assets/js/usuario/tabla.js') }}"></script>
 <script src="{{ asset('assets/js/usuario/estado.js') }}"></script>
 <script src="{{ asset('assets/js/proyectos/almacen/tablaalmacen.js') }}"></script>
+<script src="{{ asset('assets/js/proyectos/almacen/filtraUrbanizacion.js') }}"></script>
+
 
   
 

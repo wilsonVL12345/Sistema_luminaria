@@ -39,15 +39,23 @@ class proyectoController extends Controller
      */
     public function create(Request $request)
     {
+        /* dd($request->all()); */
+
+        $listaTipo = '';
+        foreach ($request->selectedStates as $key => $value) {
+            $listaTipo .= $value . ' ';
+        }
+        $sinDetalle = 1;
+        $cero = 0;
+        $espera = 'En espera';
+        dd($request->all());
         /* if se encarga de  verificar si los campos estan llenos y si no  notifica y se sale  */
         if (!empty($request->campocod) || !empty($request->camponombre) || !empty($request->campocomponentes)) {
             try {
-                $sinDetalle = 1;
-                $cero = 0;
-                $espera = 'En espera';
+
 
                 $proy = new proyecto();
-                $proy->Cuce_Cod = $request->txtcods;
+                $proy->Cuce_Cod = $request->txtcod;
                 $proy->Distritos_id = $request->txtdistrito;
                 $proy->Zona = $request->txtzona;
                 $proy->Tipo_Contratacion = $request->txttipo;
@@ -56,17 +64,18 @@ class proyectoController extends Controller
                 $proy->Modalidad = $request->txtmodalidad;
                 $proy->Objeto_Contratacion = $request->txtobjeto;
                 $proy->Subasta = $request->txtsubasta;
-                $proy->Tipo_Componentes = $request->selectedStates;
+                $proy->Tipo_Componentes = $listaTipo;
+                $proy->Proveedor = $request->txtproveedor;
                 $proy->Users_id = session('id');
-                $proy->save();
 
-                $cuceProyecto = proyecto::where('Cuce_Cod', $request->txtcods)->first();
+                $proy->save();
+                $cuceProyecto = proyecto::where('Cuce_Cod', $request->txtcod)->first();
                 $idProyecto = $cuceProyecto->id;
                 /* variables de accesorios */
                 $acceComponentes = $request->campocomponentes;
                 $acceCantidad = $request->campocantidad;
-                $acceObservaciones = $request->campoobservaciones;
-                $acceproveedor = $request->campoproveedo;
+                /* $acceObservaciones = $request->campoobservaciones; */
+                /* $acceproveedor = $request->campoproveedo; */
 
                 if (!empty($acceComponentes)) {
                     foreach ($acceComponentes as $key => $value) {
@@ -74,12 +83,12 @@ class proyectoController extends Controller
                         $nuevoAccesorio->Id_Lista_accesorios = $acceComponentes[$key]['txtcomponentes'];
                         $nuevoAccesorio->Cantidad = $acceCantidad[$key]['txtcantidad'];
                         $nuevoAccesorio->Disponibles = $acceCantidad[$key]['txtcantidad'];
-                        $nuevoAccesorio->Proveedores_id = $acceproveedor[$key]['txtproveedo'];
+                        /* $nuevoAccesorio->Proveedores_id = $acceproveedor[$key]['txtproveedo']; */
                         $nuevoAccesorio->Proyectos_id = $idProyecto;
                         $nuevoAccesorio->Utilizados = $cero;
                         $nuevoAccesorio->Detalles_id = $sinDetalle;
 
-                        $nuevoAccesorio->Observaciones = $acceObservaciones[$key]['txtobservaciones'];
+                        /* $nuevoAccesorio->Observaciones = $acceObservaciones[$key]['txtobservaciones']; */
                         $nuevoAccesorio->save();
                     }
                 }
@@ -87,7 +96,7 @@ class proyectoController extends Controller
                 /* variables de Luminarias Reutilizada */
                 $reuNombre = $request->camponom;
                 $reuCant = $request->campocant;
-                $reuObser = $request->campoobs;
+                /*  $reuObser = $request->campoobs; */
                 if (!empty($reuNombre)) {
                     foreach ($reuNombre as $key => $value) {
 
@@ -95,7 +104,7 @@ class proyectoController extends Controller
                         $nuevoReutilizado->Nombre_Item = $reuNombre[$key]['txtnom'];
                         $nuevoReutilizado->Cantidad = $reuCant[$key]['txtcant'];
                         $nuevoReutilizado->Disponibles = $reuCant[$key]['txtcant'];
-                        $nuevoReutilizado->Observaciones = $reuObser[$key]['txtobs'];
+                        /*  $nuevoReutilizado->Observaciones = $reuObser[$key]['txtobs']; */
                         $nuevoReutilizado->Utilizados = $cero;
                         $nuevoReutilizado->Proyectos_id = $idProyecto;
                         $nuevoReutilizado->save();
@@ -107,7 +116,7 @@ class proyectoController extends Controller
                 $ledpotencia = $request->campopotencia;
                 $ledmarca = $request->campomarca;
                 $ledmodelo = $request->campomodelo;
-                $ledproveedor = $request->campoproveedor;
+                /* $ledproveedor = $request->campoproveedor; */
                 if (!empty($ledcod)) {
                     foreach ($ledcod as $key => $value) {
                         # code...
@@ -116,7 +125,7 @@ class proyectoController extends Controller
                         $nuevoLed->Potencia = $ledpotencia[$key]['txtpotencia'];
                         $nuevoLed->Marca = $ledmarca[$key]['txtmarca'];
                         $nuevoLed->Modelo = $ledmodelo[$key]['txtmodelo'];
-                        $nuevoLed->Proveedores_id = $ledproveedor[$key]['txtproveedor'];
+                        // $nuevoLed->Proveedores_id = $ledproveedor[$key]['txtproveedor'];
                         $nuevoLed->Proyectos_id = $idProyecto;
                         $nuevoLed->Detalles_id = $sinDetalle;
 

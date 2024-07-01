@@ -1,3 +1,16 @@
+// hace aparecer los botones para agregar  datos en accesotios luminarias 
+$(document).ready(function() {
+    $('#selector').select2();
+
+    $('#selector').on('change', function() {
+        let selectedValues = $(this).val();
+
+        $('#btnAccesorio').toggle(selectedValues.includes('Accesorios'));
+        $('#btnReacondicionado').toggle(selectedValues.includes('Lum. Reacondicionadas'));
+        $('#btnLuminaria').toggle(selectedValues.includes('Luminarias LED'));
+    });
+});
+// endhace aparecer los botones para agregar  datos en accesotios luminarias 
 
 //esta parte de codigo es para  proyectos luminaria retiradas---------------------------------------------------------------------
 let luminariasCount = 1;
@@ -57,30 +70,27 @@ let accesoriosCount = 1;
 function agregarAccesorio() {
     const container2 = document.createElement('div');
     container2.innerHTML = `
-    <div class="mb-3">
-            
-            <div class="mb-3">
-            <h3>Accesorio</h3>
-            <label for="txtcomponentes" >Componente</label>
-            <select name="campocomponentes[${accesoriosCount}][txtcomponentes]" id="txtcomponentes" required>
-            <option value="" disabled selected >Seleccione</option>
-            </select>
-            <br>
-            <label for="txtcantidad" class="form-label">Cantidad</label>
-            <input type="number" name="campocantidad[${accesoriosCount}][txtcantidad]" id="txtcantidad" placeholder="Cantidad" required>
-            
-            <br>
-            <label for="txtproveedo" class="form-label">Proveedor</label>
-            <select  id="txtproveedo" name="campoproveedo[${accesoriosCount}][txtproveedo]"  required>
-            <option value="" disabled selected >Seleccione</option>
-            </select>
-            
+            <div class="row mb-5">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="txtdistrito" class="required fs-5 fw-bold mb-2">Componente</label>
+                        <select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Seleccionar Accesorio" name="campocomponentes[${accesoriosCount}][txtcomponentes]" id="txtcomponentes" required>
+                             <option value="" disabled selected >Seleccionar Accesorio</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="txtcod" class="required fs-5 fw-bold mb-2">Cantidad</label>
+                        <input type="number" class="form-control form-control-solid" id="txtcantidad" name="campocantidad[${accesoriosCount}][txtcantidad]" placeholder="Ingresar Cantidad">
+                    </div>
+                    <div class="col-md-3 mb-3  d-flex justify-content-center align-items-center">
+                                     
+                                   <button type="button"  class="btn btn-danger btn-sm"  onclick="eliminarAccesorio(this)">Delete</button>
 
-            <br><label for="txtobservaciones" class="form-label">Observaciones</label>
-            <input type="text" name="campoobservaciones[${accesoriosCount}][txtobservaciones]" id="txtobservaciones" placeholder="Ninguna" >
-            
-			</div>
-            <button type="button"  class="btn btn-danger"  onclick="eliminarAccesorio(this)">Eliminar</button>
+                    </div>
+                </div>
+
+            </div>
+
             `
         ;
     /* document.querySelector('formproyecto').insertBefore(container2, document.querySelector('button[type="submit"]'));
@@ -132,45 +142,48 @@ function agregarAccesorio() {
         });
 }
 function eliminarAccesorio(button) {
-    const container2 = button.parentNode;
+    const container2 = button.closest('.row.mb-5');
     container2.parentNode.removeChild(container2);
 }
-/* para la parte de proyectos almacenar  luminarias----------------------------*/
+/* para la parte de proyectos almacenar  luminarias led----------------------------*/
 let lumCount = 1;
 function agregarluminarialed() {
     const container4 = document.createElement('div');
     container4.innerHTML = `
-    <div class="mb-3">
-            <div class="mb-3">
-            <h3>Luminaria LED</h3>
-            <label for="txtcod">Codigo Led</label>
-			<input type="text" name="campocod[${lumCount}][txtcod]" id="txtcod" required>
-            <br>
-			<label for="txtpontencia">Pontencia</label>
-			
-			<select name="campopotencia[${lumCount}][txtpotencia]" id="txtpotencia" required>
-				<option value="" disabled selected >Seleccione</option>
-				<option value="100W">100W</option>
-				<option value="150W">150W</option>
-				<option value="200W">200W</option>
-				<option value="250W">250W</option>
-			</select>	
-            <br>
-			<label for="txtmarca">Marca</label>
-			<input type="text" name="campomarca[${lumCount}][txtmarca]" id="txtmarca" required>
-            <br>
-			<label for="txtmodelo">Modelo</label>
-			<input type="text" name="campomodelo[${lumCount}][txtmodelo]" id="txtmodelo" required>
+    
+            
             
 
-            <div class="mb-3">
-            <label for="txtproveedor" class="form-label">Proveedor</label>
-            <select type="text" id="txtproveedor" name="campoproveedor[${lumCount}][txtproveedor]"  required>
-            <option value="" disabled selected >Seleccione</option>
-            </select>
+            <div class="from row">
+                    <div class="col-md-2 mb-3">
+                        <label for="txtcod" class="required fs-5 fw-bold mb-2">Codigo Led</label>
+                        <input type="text" class="form-control form-control-solid" id="txtcod" name="campocod[${lumCount}][txtcod]" placeholder="Ingresar Datos">
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="txtpotencia" class="required fs-5 fw-bold mb-2">Potencia</label>
+                        <select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Seleccione..." name="campopotencia[${lumCount}][txtpotencia]" id="txtpotencia" required>
+                            <option value="" disabled selected>Seleccione...</option>
+                            <option value="150 Watts">150 Watts</option>
+                            <option value="200 Watts">200 Watts</option>
+                            <option value="250 Watts">250 Watts</option>
+                          </select>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="txtmarca" class="required fs-5 fw-bold mb-2">Marca</label>
+                        <input type="text" class="form-control form-control-solid" id="txtmarca" name="campomarca[${lumCount}][txtmarca]" placeholder="Ingresar Datos">
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="txtmodelo" class="required fs-5 fw-bold mb-2">Modelo</label>
+                        <input type="text" class="form-control form-control-solid" id="txtmodelo" name="campomodelo[${lumCount}][txtmodelo]" placeholder="Ingresar Datos">
+                    </div>
+                    <div class="col-md-2 mb-3  d-flex justify-content-center align-items-center">
+                                     
+                                   <button type="button"  class="btn btn-danger btn-sm"  onclick="eliminarluminled(this)">Delete</button>
+
+                    </div>
             </div>
 
-            <button type="button"  class="btn btn-danger"  onclick="eliminarlumin(this)">Eliminar</button >
+           
             `
         ;
 
@@ -205,8 +218,8 @@ function agregarluminarialed() {
             console.error('Error al obtener los datos de la empresa:', error);
         });
 }
-function eliminarlumin(button) {
-    const container4 = button.parentNode;
+function eliminarluminled(button) {
+    const container4 = button.closest('.from.row');
     container4.parentNode.removeChild(container4);
 }
 
@@ -215,21 +228,25 @@ let reuCount = 1;
 function agregarReacondicionadas() {
     const container5 = document.createElement('div');
     container5.innerHTML = `
-    <div class="mb-3">
-            <div class="mb-3">
-            <h3>Luminaria Reacondicionadas</h3>
-            <label for="txtnom">Nombre Items</label>
-			<input type="text" name="camponom[${reuCount}][txtnom]" id="txtnom" required>
-            <br>
-            <br>
-			<label for="txtcant">Cantidad</label>
-			<input type="text" name="campocant[${reuCount}][txtcant]" id="txtcant" required>
-            <br>
-			<label for="txtobs">Observacion</label>
-			<input type="text" name="campoobs[${reuCount}][txtobs]" id="txtobs" >
-            <br>
+    
+            <div class="row mb-5">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="txtdistrito" class="required fs-5 fw-bold mb-2">Nombre Item</label>
+                      <input type="text" class="form-control form-control-solid" id="txtnom" name="camponom[${reuCount}][txtnom]" placeholder="Ingresar Luminaria Reacondicionada">
 
-            <button type="button"  class="btn btn-danger"  onclick="eliminarlumin(this)">Eliminar</button >
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="txtcod" class="required fs-5 fw-bold mb-2">Cantidad</label>
+                        <input type="number" class="form-control form-control-solid" id="txtcant" name="campocant[${reuCount}][txtcant]" placeholder="Ingresar Cantidad">
+                    </div>
+                    <div class="col-md-3 mb-3  d-flex justify-content-center align-items-center">
+                                     
+                                   <button type="button"  class="btn btn-danger btn-sm"  onclick="eliminarlumin(this)">Delete</button>
+
+                    </div>
+                </div>
+            </div>
             `
         ;
 
@@ -247,7 +264,7 @@ function agregarReacondicionadas() {
 
 }
 function eliminarlumin(button) {
-    const container5 = button.parentNode;
+    const container5 = button.closest('.row.mb-5');
     container5.parentNode.removeChild(container5);
 }
 

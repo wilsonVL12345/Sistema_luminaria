@@ -20,6 +20,7 @@ class proyecto extends Model
         'Subasta',
         'Modalidad',
         'Objeto_Contratacion',
+
         'Tipo_Componentes',
         'Ejecutado_Por',
         'Fecha_Programada',

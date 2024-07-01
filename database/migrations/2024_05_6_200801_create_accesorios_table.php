@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('Cantidad')->nullable();
             $table->integer('Utilizados')->nullable();
             $table->integer('Disponibles')->nullable();
-            $table->string('Observaciones', 200)->nullable();
 
 
             $table->unsignedBigInteger(column: 'Proyectos_id');

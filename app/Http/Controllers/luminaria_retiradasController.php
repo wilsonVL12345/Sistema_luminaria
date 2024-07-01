@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\distrito;
 use App\Models\lista_accesorio;
 use App\Models\lista_luminarias_retirada;
+use App\Models\urbanizacion;
 
 class luminaria_retiradasController extends Controller
 {
@@ -17,13 +18,9 @@ class luminaria_retiradasController extends Controller
     {
         $datosluminaria = datos_luminaria_retirada::all();
 
-        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
+        $listadistrito = distrito::all();
         /*  $listazona = distrito::select('Zona_Urbanizacion')->distinct()->get(); */
-        $listazona = distrito::select('Zona_Urbanizacion')
-            ->whereNotNull('Zona_Urbanizacion')
-            ->where('Zona_Urbanizacion', '<>', '')
-            ->distinct()
-            ->get();
+        $listazona = urbanizacion::all();
         $listaaccesorios = lista_accesorio::all();
         $listaluminaria = lista_luminarias_retirada::all();
         return view('plantilla.Proyectos.proyectosLumRetiradas', [

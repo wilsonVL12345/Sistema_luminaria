@@ -18,10 +18,8 @@ return new class extends Migration
             $table->string('Tipo_Trabajo', 50);
             $table->text('Foto_Carta')->nullable();
             $table->integer('Puntos')->nullable();
-            $table->datetime('Fecha_Hora_Inicio_Programado');
-            $table->datetime('Fecha_Hora_Fin_Programado');
-            $table->datetime('Fecha_Hora_Inicio')->nullable();
-            $table->datetime('Fecha_Hora_Fin')->nullable();
+            $table->date('Fecha_Programado');
+            $table->date('Fecha_Inicio')->nullable();
             $table->string('Estado', 20)->nullable();
             $table->string('Observaciones')->nullable();
             $table->string('Detalles')->nullable();
