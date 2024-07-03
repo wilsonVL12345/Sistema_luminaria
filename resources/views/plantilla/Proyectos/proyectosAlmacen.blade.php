@@ -5,9 +5,9 @@
 	<div class="toolbar" id="kt_toolbar">
 		<div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
 			<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-				<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Administradores</h1>
+				<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Informacion de Proyectos en Almacen</h1>
 				<span class="h-20px border-gray-300 border-start mx-4"></span>
-				<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
+				{{-- <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
 					<li class="breadcrumb-item text-muted">
 						<a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
 					</li>
@@ -19,7 +19,7 @@
 						<span class="bullet bg-gray-300 w-5px h-2px"></span>
 					</li>
 					<li class="breadcrumb-item text-dark">Security</li>
-				</ul>
+				</ul> --}}
 			</div>
 		</div>
 	</div>
@@ -333,7 +333,7 @@
 											<th class="min-w-100px">Fecha de Adquisicion</th>
 											<th class="min-w-100px">Tipo de Contratacion</th>
 											<th class="min-w-100px">Subasta</th>
-											<th class="text-end min-w-75px">Estado</th>
+											{{-- <th class="text-end min-w-75px">Estado</th> --}}
 											
 											<th class="text-end min-w-75px">Detalles</th>
 											
@@ -363,7 +363,7 @@
 											<td>
 												<a href="#" class="text-gray-600 text-hover-primary mb-1">{{$item->Subasta}}</a>
 											</td>
-											<td class="text-gray-800 text-hover-primary mb-1">{{$item->Estado}}</td>
+											{{-- <td class="text-gray-800 text-hover-primary mb-1">{{$item->Estado}}</td> --}}
 											<td>
 												<a href="{{url('/detallesAccesorios/almacen/'.$item->id) }}" class="text-gray-600 text-hover-primary mb-1"><i class="fa-regular fa-eye"></i>
 												{{-- <a href="#" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalMostrarImagen{{$item->id}}"><i class="fa-solid fa-image"></i></a> --}}
@@ -389,7 +389,10 @@
 												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
 													data-kt-menu="true">
 													<!--begin::Menu item-->
-													
+													<div class="menu-item px-3">
+														<a href="{{url('/datos/ejecutar/'.$item->id)}}" 
+															class="menu-link px-3">Instalar</a>
+													</div>
 													<div class="menu-item px-3">
 														<a href="#" data-bs-toggle="modal" data-bs-target="#moraModificarUsuario{{$item->id}}"
 															class="menu-link px-3">Editar</a>

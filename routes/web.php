@@ -117,6 +117,9 @@ Route::get('/datos/ejecutar/{id}', [proyectoController::class, 'ejecutarProyecto
 Route::post('/registrar/trabajoEjecutado/{id}', [proyectoController::class, 'registrarTrabajo'])->name('registrar.trabajoejecutado');
 
 Route::get('/proyectos/ObrasEjecutadas', [proyectoController::class, 'datosObras'])->name('proyectos.ObrasEjecutadas');
+//proyecto luminarias retiradas
+Route::get('/detalles/luminarias/retiradas/{id}', [luminaria_retiradasController::class, 'retiradaDetalle'])->name('detalles.luminarias.retiradas');
+
 
 
 //para lo que es proveedores---------------------------------------------------------------------------------------------------------

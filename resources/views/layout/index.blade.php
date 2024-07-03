@@ -119,10 +119,23 @@
 							<a href="../../demo1/dist/index.html" class="d-lg-none">
 								<img alt="Logo gamea" src="{{asset('assets/media/logos/gamea.svg')}}" class="h-40px" />
 							</a>
+							<style>
+								.custom-h1 {
+									font-size: 2rem; /* Tamaño de la fuente */
+									font-weight: bold; /* Peso de la fuente */
+									line-height: 1.2; /* Altura de línea para reducir el espacio */
+									text-align: start; /* Centrar el texto */
+									color: #131325; /* Color del texto */
+									margin-bottom: 0.5rem; /* Margen inferior */
+								}
+							</style>
 							<div>
-								<H3>	DIRECCION DE ALUMBRADO PUBLICO</H3>
-								<br>
-								<h4>UNIDAD OPERATIVA DE ALUMBRADO PUBLICO</h4>
+								<h1></h1>
+								<h1 class="custom-h1 ">
+									DIRECCION DE ALUMBRADO PUBLICO         
+								</h1><h1 class="custom-h1 ">
+									UNIDAD OPERATIVA DE ALUMBRADO PUBLICO
+								</h1>
 							</div>
 						</div>
 						<!--end::Mobile logo-->

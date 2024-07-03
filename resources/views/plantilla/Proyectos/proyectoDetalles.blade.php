@@ -134,7 +134,7 @@
                          @if (!$reutilizada->isEmpty())
 						 <h3>luminarias Reutilizadas</h3>
 							<div class="table-responsive">
-								<table class="table table-bordered">
+								<table class="table table-bordered" >
 									<thead>
 										<tr class="fw-bold fs-6 text-gray-800">
 											<th style="font-weight: bold; text-transform: uppercase; ">Nombre Item</th>
@@ -165,22 +165,7 @@
 									@if (!$accesorios->isEmpty())
 									<h3>Accesorios</h3>
 
-									{{-- <table >
-										<tr>
-											<th>Nombre Item</th>
-											<th>Cantidad</th>
-											<th>Utilizados</th>
-											<th>Disponibles</th>
-										</tr>
-										@foreach ($accesorios as $itemacc)
-										<tr>
-											<td>{{$itemacc->Lista_accesorio->Nombre_Item}}</td>
-											<td>{{$itemacc->Cantidad}}</td>
-											<td>{{$itemacc->Utilizados}}</td>
-											<td>{{$itemacc->Disponibles}}</td>
-										</tr>
-										@endforeach
-									</table> --}}
+									
 									<div class="table-responsive">
 										<table class="table table-bordered">
 											<thead>
@@ -211,24 +196,7 @@
 									@if (!$luminaria->isEmpty())
 									<h3>Luminarias LED</h3>
 
-									{{-- <table >
-										<tr>
-											<th>Nro</th>
-											<th>Cod_Luminaria Item</th>
-											<th>Modelo</th>
-											<th>Marca</th>
-											<th>Potencia</th>
-										
-										</tr>
-										@foreach ($luminaria as $itemlum)
-										<tr>
-											<td>{{$itemlum->Cod_Luminaria}}</td>
-											<td>{{$itemlum->Marca}}</td>
-											<td>{{$itemlum->Modelo}}</td>
-											<td>{{$itemlum->Potencia}}</td>
-										</tr>
-										@endforeach
-									</table> --}}
+									
 									<div class="table-responsive">
 										<table class="table table-bordered">
 											<thead>

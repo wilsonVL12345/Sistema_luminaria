@@ -61,24 +61,34 @@
                             
                             <form action="{{route('registrar.trabajoejecutado',$ejecProyecto->id)}}" id="formEjecutarProy" method="POST" >
                                 @csrf
-                                <label for="txtcod">Cod Proyecto</label>
-                                <input type="text" name="txtcods" id="txtcod" value="{{$ejecProyecto->Cuce_Cod}}" readonly> 
-                                <label for="txtzona">zona</label>
-                                <input type="text" name="txtzona" id="txtzona" value="{{$ejecProyecto->Zona}}" readonly >
-                                <label for="txtejec">Ejecutado Por</label>
-                                <select name="txtejec" id="txtejec" required>
-                                    <option value="" disabled selected >Seleccione...</option>
-                                    <option value="GAMEA">GAMEA</option>
-                                    <option value="Externo">Externo</option>
-                                </select>
-
-                                <br>
-                               <br>
-                                <label for="txtcomponentes">Tipo de Componentes</label>
-                                <input type="text" name="txtcomponentes" id="txtcomponentes" size="30" value="{{$ejecProyecto->Tipo_Componentes}}" readonly >
-                                <br>
-                                <label for="txtfecha">Fecha de Instalacion</label>
-                                <input type="date" name="txtfecha" id="txtfecha" required >
+                                <div class="from row">
+                                    <div class="col-md-3 mb-3">   
+                                        <label for="txtcod" class=" fs-5 fw-bold mb-2">Cod Proyecto</label>
+                                        <input type="text" class="form-control form-control-solid " name="txtcods" id="txtcod" value="{{$ejecProyecto->Cuce_Cod}}" readonly> 
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="txtzona" class=" fs-5 fw-bold mb-2">Urbanizacion</label>
+                                        <input type="text" class="form-control form-control-solid " name="txtzona"  value="{{$ejecProyecto->Zona}}" readonly> 
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="txtejec" class=" fs-5 fw-bold mb-2">Ejecutado Por</label>
+                                        <select name="txtejec" class="form-control form-select-solid" id="txtejec" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." required>
+                                            <option value="" disabled selected >Seleccione...</option>
+                                            <option value="GAMEA">GAMEA</option>
+                                            <option value="Externo">Externo</option>
+                                        </select>
+                                    </div>
+                                 </div>
+                                 <div class="from row">
+                                    <div class="col-md-8 mb-3">
+                                        <label for="txtcomponentes" class=" fs-5 fw-bold mb-2">Tipo de Componentes</label>
+                                        <input type="text" name="txtcomponentes" id="txtcomponentes" class="form-control form-control-solid " value="{{$ejecProyecto->Tipo_Componentes}}" readonly >
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label for="txtfechaInst" class=" fs-5 fw-bold mb-2">Fecha de Instalacion</label>
+                                        <input type="date" name="txtfechaInst" id="txtfechaInst" class="form-control form-control-solid " required >
+                                    </div>
+                                </div>
                             {{-- </form> --}}
 								
 							<h1>luminarias Reacondicionadas</h1>
@@ -87,7 +97,7 @@
 							?>
                          
                          @if (!$ejecReutilizados->isEmpty())
-							<table >
+							<table  >
 								<tr>
 									<th>Nro</th>
 									<th>Nombre</th>
@@ -114,7 +124,7 @@
                                 </table>
                                 
                             @else
-                                <h5>No hay luminarias Reutilizadas</h5>
+                                <h5 class="badge badge-light-danger">No hay luminarias Reutilizadas</h5>
                             @endif
                                
 							<h3>Detalles de Accesorios</h3>
@@ -122,25 +132,25 @@
 							$cond=1;
 							?>
                              @if (!$ejecAccesorios->isEmpty())
-                            <table >
+                            <table border="1">
                                 <tr>
-                                    <th>Nro</th>
-                                    <th>Nombre Item</th>
-                                    <th>Cantidad</th>
-                                    <th>Utilizados</th>
-                                    <th>Disponibles</th>
-                                    <th>Observaciones</th>
-                                    <th>Usar</th>
+                                    <th style="border: 1px solid black;" >Nro</th>
+                                    <th style="border: 1px solid black;">Nombre Item</th>
+                                    <th style="border: 1px solid black;">Cantidad</th>
+                                    <th style="border: 1px solid black;">Utilizados</th>
+                                    <th style="border: 1px solid black;">Disponibles</th>
+                                    <th style="border: 1px solid black;">Observaciones</th>
+                                    <th style="border: 1px solid black;">Usar</th>
 
                                 </tr>
                                 @foreach ($ejecAccesorios as $itemacc)
                                 <tr>
-                                    <td><?php echo $cond;?></td>
-                                    <td>{{$itemacc->Lista_accesorio->Nombre_Item}}</td>
-                                    <td>{{$itemacc->Cantidad}}</td>
-                                    <td>{{$itemacc->Utilizados}}</td>
-                                    <td>{{$itemacc->Disponibles}}</td>
-                                    <td>{{$itemacc->Observaciones}}</td>
+                                    <td style="border: 1px solid black;"><?php echo $cond;?></td>
+                                    <td style="border: 1px solid black;">{{$itemacc->Lista_accesorio->Nombre_Item}}</td>
+                                    <td style="border: 1px solid black;">{{$itemacc->Cantidad}}</td>
+                                    <td style="border: 1px solid black;">{{$itemacc->Utilizados}}</td>
+                                    <td style="border: 1px solid black;">{{$itemacc->Disponibles}}</td>
+                                    <td style="border: 1px solid black;">{{$itemacc->Observaciones}}</td>
                                     <td>
                                         <input type="number" name="utilizadoacc[{{$itemacc->id}}]" id="" placeholder=0>
                                     </td>
@@ -151,7 +161,7 @@
                             </table>
                             
                             @else
-                            <h5>No hay Accesorios en este Proyecto</h5>
+                            <h5 class="badge badge-light-danger">No hay Accesorios en este Proyecto</h5>
                         @endif
                             <h3>Detalles de Luminarias LED</h3>
                             <?php
@@ -165,7 +175,7 @@
                                     <th>Modelo</th>
                                     <th>Marca</th>
                                     <th>Potencia</th>
-                                    <th>Lugar a Instalar</th>
+                                    <th>Instalado?</th>
 
                                 </tr>
                                 @foreach ($ejecLuminarias as $itemlum)
@@ -178,9 +188,9 @@
                                     <td>
                                         <select name="lugarlum[$itemlum->id]" id="txtlugar">
                                             <option value="" disabled selected >Seleccione...</option>
-                                            @foreach ($calleAv as $itemlum)
-                                            <option value="{{$itemlum->Calle_Avenida}}">{{$itemlum->Calle_Avenida}}</option>
-                                            @endforeach
+                                            <option value=""  >Si</option>
+                                            <option value=""  >No</option>
+                                           
                                         </select>
                                     </td>
                                 </tr>
@@ -189,7 +199,7 @@
                             </table>
                                    
                             @else
-                            <h5>No hay luminarias LED en este Proyecto</h5>
+                            <h5 class="badge badge-light-danger">No hay luminarias LED en este Proyecto</h5>
                         @endif
                             <div class="modal-footer">
                                {{--  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button> --}}

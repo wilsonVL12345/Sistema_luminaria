@@ -28,6 +28,13 @@ class luminaria_retiradasController extends Controller
             'listadistritos' => $listadistrito, 'accesorios' => $listaaccesorios, 'datosluminaria' => $datosluminaria
         ]);
     }
+    public function retiradaDetalle(String $id)
+    {
+        $datosLum = datos_luminaria_retirada::find($id);
+        $listalum = lista_luminarias_retirada::where('datos_luminaria_id', $id)->get();
+
+        return view('plantilla.Proyectos.proyectosRetiradasDetalles', compact('datosLum', 'listalum'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -49,7 +56,7 @@ class luminaria_retiradasController extends Controller
         $nombre_item = $request->campoitem;
         $reutilizables = $request->camporeutilizables;
         $noreutilizables = $request->camponoreutilizables;
-        $observaciones = $request->campoobservaciones;
+        // $observaciones = $request->campoobservaciones;
 
         $datosrecuperado = datos_luminaria_retirada::where('Nro_sisco', $request->txtnrosisco)->first();
 
@@ -60,7 +67,7 @@ class luminaria_retiradasController extends Controller
                 $nombre =  $nombre_item[$i]['txtitem'];
                 $reutilizable = $reutilizables[$i]['txtreutilizables'];
                 $noreutilizable = $noreutilizables[$i]['txtnoreutilizables'];
-                $observacion = $observaciones[$i]['txtobservaciones'];
+                // $observacion = $observaciones[$i]['txtobservaciones'];
                 $cantidad = $reutilizable + $noreutilizable;
 
                 //validacion decampos vacios
@@ -73,10 +80,11 @@ class luminaria_retiradasController extends Controller
                     $listaretirados->Cantidad = $cantidad;
                     $listaretirados->Reutilizables = $reutilizable;
                     $listaretirados->NoReutilizables = $noreutilizable;
-                    $listaretirados->Observaciones = $observacion;
+                    // $listaretirados->Observaciones = $observacion;
                     $listaretirados->datos_luminaria_id = $datosrecuperad;
                     $listaretirados->save();
                 }
+                /* dd($request->all()); */
             }
             $sql = true;
         } catch (\Throwable $th) {

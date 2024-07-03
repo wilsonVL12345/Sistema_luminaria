@@ -13,34 +13,53 @@ $(document).ready(function() {
 // endhace aparecer los botones para agregar  datos en accesotios luminarias 
 
 //esta parte de codigo es para  proyectos luminaria retiradas---------------------------------------------------------------------
-let luminariasCount = 1;
+let luminariasCount = 0;
 function agregarLuminaria() {
     const container = document.createElement('div');
     container.innerHTML = `
-    <div class="mb-3">
-    <label for="txtitem" class="form-label">Nombre Item</label>
-            <select type="text" id="txtitem" name="campoitem[${luminariasCount}][txtitem]" class="form-select" required>
-            <option value="" disabled selected >Seleccione</option>
-            </select>
-            </div>
-            <div class="mb-3">
-				<label for="txtreutilizables" class="form-label">Reutilizables</label>
-				<input type="number" id="txtreutilizables" name="camporeutilizables[${luminariasCount}][txtreutilizables]" required>
-			</div>
-			<div class="mb-3">
-			<label for="txtnoreutilizables" class="form-label">No Reutilizables</label>
-			<input type="number" id="txtnoreutilizables" name="camponoreutilizables[${luminariasCount}][txtnoreutilizables]" required>
-			</div>
-			<div class="mb-3">
-			<label for="txtobservaciones" class="form-label">Observaciones</label>
-			<input type="text" id="txtobservaciones" name="campoobservaciones[${luminariasCount}][txtobservaciones]" placeholder="ninguna" >
-			</div>
-            <button type="button" onclick="eliminarLuminaria(this)">Eliminar</button>
+    <div class="from row">
+            <div class="from row">
+	    		<div class="col-md-6 mb-3">
+	    			<label for="txtitem" class="required fs-5 fw-bold mb-2">Nombre Item</label>
+	    			<select type="text" id="txtitem" name="campoitem[${luminariasCount}][txtitem]" class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." required>
+	    				<option value=""  >Selecione...</option>
+	    				@foreach ($accesorios as $itemlistacc)
+	    				<option value="{{$itemlistacc->Nombre_Item}}">{{$itemlistacc->Nombre_Item}}</option>
+	    				@endforeach	
+	    			</select>														
+	    		</div>
+	    		<div class="col-md-2 mb-3">
+	    			<label for="txtreutilizables" class="required fs-5 fw-bold mb-2">Reutilizables</label>
+	    			<input type="number" class="form-control form-control-solid" id="txtreutilizables" name="camporeutilizables[${luminariasCount}][txtreutilizables]" required >
+    
+	    		</div>
+	    		<div class="col-md-2 mb-3">
+	    			<label for="txtnoreutilizables" class="required fs-5 fw-bold mb-2">No Reutilizables</label>
+	    			<input type="number" class="form-control form-control-solid" id="txtnoreutilizables" name="camponoreutilizables[${luminariasCount}][txtnoreutilizables]" required >
+	    		</div>
+    
+    
+	    		<div class="col-md-2 mb-3  d-flex justify-content-center align-items-center">
+	    			<button type="button"  class="btn btn-danger btn-sm"  onclick="eliminarLuminaria(this)">Delete</button>
+	    		</div>
+    
+	    	</div>
+	</div>
+
             `;
-    /* document.querySelector('form').insertBefore(container, document.querySelector('button[type="submit"]'));
+
+    /* document.getElementById('form1').insertBefore(container, document.querySelector('#form1 button[type="submit"]'));
     luminariasCount++; */
-    document.getElementById('form1').insertBefore(container, document.querySelector('#form1 button[type="submit"]'));
-    luminariasCount++;
+
+     const form = document.getElementById('form1');
+     const submitbutton = form.querySelector('#form1[type="submit"]');
+     if (form.container, submitbutton) {
+         form.insertBefore(container, submitbutton);
+     } else {
+         form.appendChild(container);
+     }
+ 
+     lumCount++;
 
     /* la falla que tubimos es que en la ruta tienes que agregar /api para  que se valla a la ruta de la api */
     fetch('/api/lista/accesorios')
@@ -59,9 +78,12 @@ function agregarLuminaria() {
         .catch(error => {
             console.error('Error al obtener los datos de los accesorios:', error);
         });
+
+     
+       
 }
 function eliminarLuminaria(button) {
-    const container = button.parentNode;
+    const container = button.closest('.from.row');
     container.parentNode.removeChild(container);
 }
 
@@ -151,9 +173,6 @@ function agregarluminarialed() {
     const container4 = document.createElement('div');
     container4.innerHTML = `
     
-            
-            
-
             <div class="from row">
                     <div class="col-md-2 mb-3">
                         <label for="txtcod" class="required fs-5 fw-bold mb-2">Codigo Led</label>
@@ -187,9 +206,6 @@ function agregarluminarialed() {
             `
         ;
 
-    /* document.querySelector('form').insertBefore(container4, document.querySelector('button[type="submit"]'));
-    luminariasCount++; */
-    /*  document.getElementById('formproyecto').insertBefore(container4, document.querySelector('#formproyecto button[type="submit"]')); */
     const form = document.getElementById('formproyecto');
     const submitbutton = form.querySelector('#formproyecto[type="submit"]');
     if (form.container4, submitbutton) {
@@ -250,10 +266,7 @@ function agregarReacondicionadas() {
             `
         ;
 
-    /* document.querySelector('form').insertBefore(container5, document.querySelector('button[type="submit"]'));
-    luminariasCount++; */
-    /*  document.getElementById('formproyecto').insertBefore(container5, document.querySelector('#formproyecto button[type="submit"]')); */
-    const form = document.getElementById('formproyecto');
+   const form = document.getElementById('formproyecto');
     const submitbutton = form.querySelector('#formproyecto[type="submit"]');
     if (form.container5, submitbutton) {
         form.insertBefore(container5, submitbutton);
@@ -267,43 +280,4 @@ function eliminarlumin(button) {
     const container5 = button.closest('.row.mb-5');
     container5.parentNode.removeChild(container5);
 }
-
-/* para la seleccion de zonas o urbanizaciones  actualizacion de datos -------------------------------------------------------------------------*/
-
-/* document.addEventListener('DOMContentLoaded', function () {
-    const distritoSelect = document.getElementById('txtdistrito');
-    const zonaUrbanizacionSelect = document.getElementById('txtzona');
-    /* la falla que tubimos es que en la ruta tienes que agregar /api para  que se valla a la ruta de la api */
-/* fetch('/api/distritos')
-    .then(Response => Response.json())
-    .then(data => {
-
-        // Obtener el último select creado dentro del nuevo contenedor
-
-        function actualizarZonasUrbanizaciones() {
-            const distritoSeleccionado = distritoSelect.value;
-
-            zonaUrbanizacionSelect.innerHTML = '<option value="" disabled selected>Elegir</option>';
-
-            data.forEach(distrito => {
-                if (distrito.id == distritoSeleccionado) {
-                    const option = document.createElement('option');
-                    option.value = distrito.Zona_Urbanizacion;
-                    option.text = distrito.Zona_Urbanizacion;
-                    zonaUrbanizacionSelect.add(option);
-                }
-                console.log(distrito.id);
-            });
-        }
-        /*  console.log(data); */
-/* distritoSelect.addEventListener('change', actualizarZonasUrbanizaciones);
-actualizarZonasUrbanizaciones();
-})
-
-.catch(error => {
-console.error('Error al obtener los datos de los accesorios:', error);
-});
-
-
-}); */
 

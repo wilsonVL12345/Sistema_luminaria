@@ -61,6 +61,10 @@
 <script src="{{ asset('assets/js/usuario/estado.js') }}"></script>
 <script src="{{ asset('assets/js/proyectos/almacen/tablaalmacen.js') }}"></script>
 <script src="{{ asset('assets/js/proyectos/almacen/filtraUrbanizacion.js') }}"></script>
+<script src="{{ asset('assets/js/proyectos/lumRetirada/filtraurb.js') }}"></script>
+<script src="{{ asset('assets/js/proyectos/lumRetirada/datetable.js') }}"></script>
+<script src="{{ asset('assets/js/proyectos/almacenejecutada/datetablefinal.js') }}"></script>
+
 
 
   

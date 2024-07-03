@@ -197,7 +197,7 @@ class proyectoController extends Controller
         $ejecLuminarias = luminaria::where('Proyectos_id', $id)->get();
 
         $zonaUrbSelecionada = $ejecProyecto->Zona;
-        $calleAv = distrito::where('Zona_Urbanizacion', $zonaUrbSelecionada)->get();
+        $calleAv = urbanizacion::where('nombre_urbanizacion', $zonaUrbSelecionada)->get();
 
         return view('plantilla.Proyectos.almacenEjecutarProyecto', compact('ejecProyecto', 'ejecAccesorios', 'ejecReutilizados', 'ejecLuminarias', 'calleAv'));
     }
@@ -208,7 +208,7 @@ class proyectoController extends Controller
 
         $regisProyectoEjec = proyecto::find($idp);
         $regisProyectoEjec->Ejecutado_Por = $request->txtejec . ' ' . session('paterno') . ' ' . session('nombres');
-        $regisProyectoEjec->Fecha_Ejecutada = $request->txtfecha;
+        $regisProyectoEjec->Fecha_Ejecutada = $request->txtfechaInst;
         $regisProyectoEjec->Estado = $fin;
         $regisProyectoEjec->save();
         try {
@@ -268,8 +268,8 @@ class proyectoController extends Controller
         $reutilizadas = luminarias_reutilizada::all();
         $accesorio = accesorio::all();
         $luminaria = luminaria::all();
-        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
-        $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
+        $listadistrito = distrito::all();
+        $listazonaurb = urbanizacion::all();
         return view('plantilla.Proyectos.proyectosObrasEjecutadas', [
             'proyectoObras' => $proyectoObras,
             'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb,
