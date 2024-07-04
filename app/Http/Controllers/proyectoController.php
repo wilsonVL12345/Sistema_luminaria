@@ -48,7 +48,7 @@ class proyectoController extends Controller
         $sinDetalle = 1;
         $cero = 0;
         $espera = 'En espera';
-        dd($request->all());
+        /*  dd($request->all()); */
         /* if se encarga de  verificar si los campos estan llenos y si no  notifica y se sale  */
         if (!empty($request->campocod) || !empty($request->camponombre) || !empty($request->campocomponentes)) {
             try {
@@ -254,9 +254,9 @@ class proyectoController extends Controller
             $sql = false;
         }
         if ($sql == true) {
-            return redirect(route('proyectos.ObrasEjecutadas'))->with("correcto", "Datos registrados Correctamente");
+            return redirect(route('proyectos.ObrasEjecutadas'))->with("correcto", "Trabajo Finalizado con Exito");
         } else {
-            return back()->with("incorrecto", "Error al registrar Datos invalidos");
+            return back()->with("incorrecto", "Trabajo Fallido datos Incoerentes");
         }
     }
     //proyecto obras ejecutadas  funciones---------------------------------------------------------------------------------------------------------
@@ -270,6 +270,7 @@ class proyectoController extends Controller
         $luminaria = luminaria::all();
         $listadistrito = distrito::all();
         $listazonaurb = urbanizacion::all();
+
         return view('plantilla.Proyectos.proyectosObrasEjecutadas', [
             'proyectoObras' => $proyectoObras,
             'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb,

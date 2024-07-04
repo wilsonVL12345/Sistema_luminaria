@@ -1,4 +1,4 @@
-
+/* 
 
 let selectedStatesArray = [];
 
@@ -61,3 +61,4 @@ function updateButtons() {
     document.getElementById('btnReacondicionado').style.display = selectedStatesArray.includes('Lum. Reacondicionadas') ? 'inline-block' : 'none';
     document.getElementById('btnLuminaria').style.display = selectedStatesArray.includes('Luminarias LED') ? 'inline-block' : 'none';
 }
+ */

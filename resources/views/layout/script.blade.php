@@ -56,7 +56,16 @@
 <script src="{{ asset('assets/js/selectorMultiple.js') }}"></script>
 <script src="{{ asset('assets/js/distrito/actualizacionzona.js') }}"></script>
 <script src="{{ asset('assets/js/detallesGenerales/ejecutarApoyo.js') }}"></script>
+
 <script src="{{ asset('assets/js/agendar/formulario.js') }}"></script>
+<script src="{{ asset('assets/js/agendar/filtraUrb.js') }}"></script>
+<script src="{{ asset('assets/js/agendar/apoyocarro.js') }}"></script>
+
+<script src="{{ asset('assets/js/realizarTrabajo/datetableRealizar.js') }}"></script>
+
+<script src="{{ asset('assets/js/ejecutarTrabajo/insertarComponentes.js') }}"></script>
+
+
 <script src="{{ asset('assets/js/usuario/tabla.js') }}"></script>
 <script src="{{ asset('assets/js/usuario/estado.js') }}"></script>
 <script src="{{ asset('assets/js/proyectos/almacen/tablaalmacen.js') }}"></script>
@@ -64,6 +73,9 @@
 <script src="{{ asset('assets/js/proyectos/lumRetirada/filtraurb.js') }}"></script>
 <script src="{{ asset('assets/js/proyectos/lumRetirada/datetable.js') }}"></script>
 <script src="{{ asset('assets/js/proyectos/almacenejecutada/datetablefinal.js') }}"></script>
+<script src="{{ asset('assets/js/distrito/datetable.js') }}"></script>
+<script src="{{ asset('assets/js/distrito/loading.js') }}"></script>
+
 
 
 

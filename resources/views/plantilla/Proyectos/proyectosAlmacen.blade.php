@@ -94,8 +94,6 @@
 																			@foreach ($listadistrito as $item)
 																			<option value="{{$item->id}}">{{$item->Distrito}}</option>
 																			@endforeach
-
-																			
 																		</div>
 																		</select>																		</div>
 																		{{-- <div class="col-md-4 mb-3">
@@ -185,15 +183,9 @@
 																	<div class="from row">
 																		<div class="col-md-8 mb-3"> <!-- Ocupa el doble del tamaño -->
 																			<label for="input1" class="required fs-5 fw-bold mb-2">Tipos de Componentes</label>
-																			{{-- <select class="form-control form-select-lg form-select-solid" data-control="select2" name="selectedStates" data-placeholder="Seleccione..." data-allow-clear="true" multiple="multiple">
-																				<option></option>
-																				<option value="Accesorios">Accesorios</option>
-																				<option value="Luminarias LED">Luminarias LED</option>
-																				<option value="Luminarias Reacondicionadas" onclick="selectOption('Luminarias Reacondicionadas')">Luminarias Reacondicionadas</option>
-																			</select> --}}
+																			
 																			
 																			<select class="form-control form-select-lg form-select-solid" data-control="select2" name="selectedStates[]" id="selector" data-placeholder="Seleccione..." data-allow-clear="true" multiple="multiple" required>
-																				
 																				<option value="Accesorios">Accesorios</option>
 																				<option value="Lum. Reacondicionadas">Lum. Reacondicionadas</option>
 																				<option value="Luminarias LED">Luminarias LED</option>
@@ -206,10 +198,7 @@
 																				<option value="" >Seleccione...</option>
 																				<option value="Bienes">Bienes</option>
 																				<option value="Servicios">Servicios</option>
-																		{{-- <li onclick="selectOption('Luminarias LED')" >Luminarias LED</li> --}}
-
-																				
-																		</select>
+																			</select>
 																		</div>
 																	</div>
 																	
@@ -263,7 +252,14 @@
 							<div class="card-title">
 								<!--begin::Search-->
 								<div class="d-flex align-items-center position-relative my-1">
-									<span class="svg-icon fs-1 position-absolute ms-4">...</span>
+									<span class="svg-icon fs-1 position-absolute ms-4">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" {...$$props}>
+													<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9">
+														<path d="m11.25 11.25l3 3" />
+														<circle cx="7.5" cy="7.5" r="4.75" />
+													</g>
+												</svg>
+											</span>
 									<input type="text" data-kt-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search Report" />
 								</div>
 								<!--end::Search-->
@@ -333,6 +329,7 @@
 											<th class="min-w-100px">Fecha de Adquisicion</th>
 											<th class="min-w-100px">Tipo de Contratacion</th>
 											<th class="min-w-100px">Subasta</th>
+											<th class="min-w-100px">Proveedor</th>
 											{{-- <th class="text-end min-w-75px">Estado</th> --}}
 											
 											<th class="text-end min-w-75px">Detalles</th>
@@ -362,6 +359,9 @@
 											</td>
 											<td>
 												<a href="#" class="text-gray-600 text-hover-primary mb-1">{{$item->Subasta}}</a>
+											</td>
+											<td>
+												<a href="#" class="text-gray-600 text-hover-primary mb-1">{{$item->Proveedor}}</a>
 											</td>
 											{{-- <td class="text-gray-800 text-hover-primary mb-1">{{$item->Estado}}</td> --}}
 											<td>

@@ -6,15 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\distrito;
 use App\Models\urbanizacion;
 use function PHPUnit\Framework\returnSelf;
+use Yajra\DataTables\Facades\DataTables;
 
 class distritoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    /*  public function index()
     {
-        /* $distritos = Distrito::orderBy('id', 'desc')->get(); */
         $todoUrban = urbanizacion::orderBy('id', 'desc')
             ->where('nombre_urbanizacion', '<>', '')
             ->get();
@@ -27,7 +27,38 @@ class distritoController extends Controller
             'listadistrito' => $listadistrito,
             'distrito' => $distritos
         ]);
+    } */
+    public function index(Request $request)
+    {
+        // Verifica si la solicitud es Ajax
+        if ($request->ajax()) {
+            try {
+                // Consulta directa a la tabla personas
+                $todoUrban = urbanizacion::select('id as idurb', 'Nrodistrito', 'nombre_urbanizacion', 'lng', 'lat');
+
+                // Devolver los datos en formato JSON para DataTables
+                return DataTables::of($todoUrban)->make(true);
+            } catch (\Exception $e) {
+                // Manejar errores de consulta a la base de datos
+                return response()->json(['error' => 'Error al recuperar los datos de personas'], 500);
+            }
+        }
+
+        // Consultas para las vistas
+        $todoUrban = urbanizacion::orderBy('id', 'desc')
+            ->where('nombre_urbanizacion', '<>', '')
+            ->get();
+        $distritos = distrito::all();
+        $listadistrito = urbanizacion::distinct()->get(['nombre_urbanizacion']);
+
+        // Renderizar la vista con los datos
+        return view('plantilla.DetallesDistritos.Distritos', [
+            'todoUrban' => $todoUrban,
+            'listadistrito' => $listadistrito,
+            'distrito' => $distritos
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.

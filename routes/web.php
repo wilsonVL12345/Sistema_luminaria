@@ -69,8 +69,6 @@ Route::post('/registro/usuario', [UserController::class, 'create'])->name('regis
 //ruta para editar usuario
 Route::post('/editar/usuario', [UserController::class, 'edit'])->name('editar.usuario');
 
-//rutas para consultas----------------------------------------------------------------------------------------------------
-Route::get('/consultas/atencion', [detalleController::class, 'datosatencion'])->name('consultas.atencion');
 
 
 //ruta para ver detalles distritos----------------------------------------------------------------------
@@ -121,11 +119,6 @@ Route::get('/proyectos/ObrasEjecutadas', [proyectoController::class, 'datosObras
 Route::get('/detalles/luminarias/retiradas/{id}', [luminaria_retiradasController::class, 'retiradaDetalle'])->name('detalles.luminarias.retiradas');
 
 
-
-//para lo que es proveedores---------------------------------------------------------------------------------------------------------
-Route::get('/proyectos/proveedores', [proveedorController::class, 'index'])->name('proyectos.proveedores');
-Route::post('/registro/proveedor', [proveedorController::class, 'create'])->name('registro.proveedor');
-Route::post('/editar/proveedor', [proveedorController::class, 'edit'])->name('editar.proveedor');
 
 //rutar para agendar trabajos---------------------------------------------------------------------------------------------------------
 Route::get('/agendar', [detalleController::class, 'agendar'])->name('agendar');

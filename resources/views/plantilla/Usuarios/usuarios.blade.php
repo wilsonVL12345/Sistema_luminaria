@@ -65,7 +65,14 @@
 								<div class="card-title">
 									<!--begin::Search-->
 									<div class="d-flex align-items-center position-relative my-1">
-										<span class="svg-icon fs-1 position-absolute ms-4">...</span>
+										<span class="svg-icon fs-1 position-absolute ms-4">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" {...$$props}>
+													<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9">
+														<path d="m11.25 11.25l3 3" />
+														<circle cx="7.5" cy="7.5" r="4.75" />
+													</g>
+												</svg>
+											</span>
 										<input type="text" data-kt-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Buscar Usuarios" />
 									</div>
 									<!--end::Search-->

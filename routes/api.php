@@ -35,7 +35,6 @@ Route::get('/inspeccion/realizado', [apiinspeccionController::class, 'realizado'
 
 Route::get('/lista/accesorios', [apilistaAccesoriosController::class, 'index']);
 
-Route::get('/lista/proveedor', [apiProveedorController::class, 'index']);
 //ruta para apis de proyecto
 Route::get('/datosreutilizados/proyecto/{proyecto}', [apiProyectoController::class, 'reu']);
 Route::get('/datosluminaria/proyecto', [apiProyectoController::class, 'lum']);

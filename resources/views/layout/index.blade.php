@@ -130,13 +130,12 @@
 								}
 							</style>
 							<div>
-								<h1></h1>
-								<h1 class="custom-h1 ">
-									DIRECCION DE ALUMBRADO PUBLICO         
-								</h1><h1 class="custom-h1 ">
-									UNIDAD OPERATIVA DE ALUMBRADO PUBLICO
-								</h1>
+								
+								  <div class="card-body" style="font-family: 'Times New Roman', Times, serif;">
+									<h1><strong>DIRECCION DE ALUMBRADO PUBLICO</strong></h1>
+									<h1><strong> UNIDAD OPERATIVA DE ALUMBRADO PUBLICO</strong></h1>
 							</div>
+						</div>
 						</div>
 						<!--end::Mobile logo-->
 						<!--begin::Wrapper-->
@@ -3074,7 +3073,12 @@ $cargo=session('cargo');
 	<!--end::Scrolltop-->
 	
 	@include('layout.script')
-	
+	<!--begin::Page loading(append to body)-->
+<div class="page-loader flex-column bg-dark bg-opacity-25">
+    <span class="spinner-border text-primary" role="status"></span>
+    <span class="text-gray-800 fs-6 fw-semibold mt-5">Loading...</span>
+</div>
+<!--end::Page loading-->
 </body>
 <!--end::Body-->
 

@@ -6,7 +6,9 @@ use App\Models\accesorio;
 use Illuminate\Http\Request;
 use App\Models\detalle;
 use App\Models\distrito;
+use App\Models\lista_accesorio;
 use App\Models\proyecto;
+use App\Models\urbanizacion;
 use Illuminate\Foundation\Console\ViewMakeCommand;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,8 +19,9 @@ class detalleController extends Controller
     {
 
         $detalles = detalle::where('Estado', 'En Espera')->get();
-        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
-        $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
+        $listadistrito = distrito::all();
+        $listazonaurb = urbanizacion::all();
+
         return view('plantilla.DetallesGenerales.Espera', compact('detalles', 'listadistrito', 'listazonaurb'));
     }
     public function realizados()
@@ -28,16 +31,18 @@ class detalleController extends Controller
     }
     public function ejecutar($id)
     {
-        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
+        $listadistrito = distrito::all();
         $trabajo = detalle::find($id);
-        return view('plantilla.DetallesGenerales.EjecutarTrabajo', compact('listadistrito', 'trabajo'));
+        $listacom = lista_accesorio::all();
+        return view('plantilla.DetallesGenerales.EjecutarTrabajo', compact('listadistrito', 'trabajo', 'listacom'));
     }
     public function agendar()
     {
-        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
-        $listazonaurb = distrito::select('Zona_Urbanizacion')->distinct()->get();
+        $listadistrito = distrito::all();
+        $listazonaurb = urbanizacion::all();
         return view('plantilla.Agendar.agendar', compact('listadistrito', 'listazonaurb'));
     }
+    // en esta parte muestra la vista trabajos donde esta detallados todos los trabajos a realizar pendiente
     public function pendiente()
     {
         $detall = detalle::where('Estado', 'En Espera')->get();
@@ -46,13 +51,22 @@ class detalleController extends Controller
     // para agregar  mantenimiento en espera
     public function create(Request $request)
     {
+        /* dd($request->all()); */
         //se a creado un acceso directo para que pueda acceder a esa carpeta
         $espera = 'En Espera';
+        $tipTrabajo = '';
+        $apoyo = '';
         $notificar = '';
         $dir = $request->file('imgcarta')->store('public/fileagendar');
         $url = Storage::url($dir);
-        if ($request->rnotificar == 'on') {
+        if ($request->rnotificar == 1) {
             $notificar = 'NOTIFICADO!!!';
+        }
+        foreach ($request->selectedStates as $tip) {
+            $tipTrabajo = $tipTrabajo . ' ' . $tip;
+        }
+        if ($request->txtapoyo) {
+            $apoyo = ' ' . 'Asistencia' . ' ' . $request->txtapoyo;
         }
         try {
             $request->validate([
@@ -63,12 +77,10 @@ class detalleController extends Controller
             $detalles->Distritos_id = $request->txtdistirto;
             $detalles->Zona = $request->txtzonaurb;
             $detalles->Nro_Sisco = $request->txtnrosisco;
-            $detalles->Fecha_Hora_Inicio_Programado = $request->txtfechainiciop;
-            $detalles->Fecha_Hora_Fin_Programado = $request->txtfechafinp;
-            $detalles->Tipo_Trabajo = $request->selectedStates;
+            $detalles->Fecha_Programado = $request->txtfechaprogramada;
+            $detalles->Tipo_Trabajo = $tipTrabajo . ' ' . $apoyo;
             $detalles->Foto_Carta = $url;
             $detalles->Observaciones = $notificar;
-            $detalles->Observaciones = $notificar . ' ' . $request->txtobservacion;
             $detalles->Estado = $espera;
             $detalles->Users_id = session('id');
             $detalles->save();

@@ -88,6 +88,8 @@ function eliminarLuminaria(button) {
 }
 
 // para la parte de proyectos almacen -------------------------------------------------------------------------------------------------
+//la parte de accesorios agregar
+
 let accesoriosCount = 1;
 function agregarAccesorio() {
     const container2 = document.createElement('div');
@@ -126,23 +128,7 @@ function agregarAccesorio() {
     }
     accesoriosCount++;
 
-    fetch('/api/lista/proveedor')
-        .then(Response => Response.json())
-        .then(data => {
-            // Obtener el último select creado dentro del nuevo contenedor
-            const selec = container2.querySelector(`select[name="campoproveedo[${accesoriosCount - 1}][txtproveedo]"]`);
-            data.forEach(proveedor => {
-                var option = document.createElement('option');
-                option.value = proveedor.id;
-                option.textContent = proveedor.Nombre_de_Empresa;
-                selec.appendChild(option);
-            });
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos de la empresa:', error);
-        });
-
+    
     /* la falla que tubimos es que en la ruta tienes que agregar /api para  que se valla a la ruta de la api */
     fetch('/api/lista/accesorios')
         .then(Response => Response.json())
@@ -216,23 +202,7 @@ function agregarluminarialed() {
 
     lumCount++;
 
-    /* la falla que tubimos es que en la ruta tienes que agregar /api para  que se valla a la ruta de la api */
-    fetch('/api/lista/proveedor')
-        .then(Response => Response.json())
-        .then(data => {
-            // Obtener el último select creado dentro del nuevo contenedor
-            const selec = container4.querySelector(`select[name="campoproveedor[${lumCount - 1}][txtproveedor]"]`);
-            data.forEach(proveedor => {
-                var option = document.createElement('option');
-                option.value = proveedor.id;
-                option.textContent = proveedor.Nombre_de_Empresa;
-                selec.appendChild(option);
-            });
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos de la empresa:', error);
-        });
+    
 }
 function eliminarluminled(button) {
     const container4 = button.closest('.from.row');

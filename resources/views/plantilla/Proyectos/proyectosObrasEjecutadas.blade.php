@@ -76,12 +76,20 @@
 						
 						</div> --}}
 						<div class="margin">
+							@include('layout.notificacioncrud')
 							<div class="card card-p-0 card-flush">
 								<div class="card-header align-items-center py-5 gap-2 gap-md-5">
 									<div class="card-title">
 										<!--begin::Search-->
 										<div class="d-flex align-items-center position-relative my-1">
-											<span class="svg-icon fs-1 position-absolute ms-4">...</span>
+											<span class="svg-icon fs-1 position-absolute ms-4">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" {...$$props}>
+													<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9">
+														<path d="m11.25 11.25l3 3" />
+														<circle cx="7.5" cy="7.5" r="4.75" />
+													</g>
+												</svg>
+											</span>
 											<input type="text" data-kt-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search Report" />
 										</div>
 										<!--end::Search-->
@@ -171,8 +179,10 @@
 												</td>
 												<td>
 													<div class="text-gray-900 text-hover-primary">{{$item->Ejecutado_Por}}</div>
-												</td><td>
-													<a href="#" class="text-gray-900 text-hover-primary"><i class="fa-regular fa-eye"></i></a>
+												</td>
+												
+												<td>
+													<a href="{{url('/detallesAccesorios/almacen/'.$item->id) }}" class="text-gray-900 text-hover-primary"><i class="fa-regular fa-eye"></i></a>
 												</td>
 												<!--begin::Action=-->
 											<td class="text-end">
@@ -193,10 +203,58 @@
 												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
 													data-kt-menu="true">
 													<!--begin::Menu item-->
+													<?php
+													$cant=0;
+													$totalcant=0;
+													$cantlum=0;
+													$totallum=0;
+													$cantreu=0;
+													$totalreu=0;
+													$total=0;
+													?>									
+													@foreach ($accesorio as $acce)
+													
+															@if($item->id==$acce->Proyectos_id)
+																@if ($acce->Disponibles>0)
+																<?php
+																$cant=$cant+$acce->Disponibles;
+																$totalcant=$totalcant+$acce->Cantidad;
+																?>	
+																
+																@endif
+															@endif
+													@endforeach
+													@foreach ($luminaria as $lum)
+													
+															@if($item->id==$lum->Proyectos_id)
+																
+																<?php
+																$cantlum++;
+																$totallum++;
+																?>	
+															@endif
+													@endforeach
+													@foreach ($reutilizada as $reu)
+													
+															@if($item->id==$reu->Proyectos_id)
+																@if ($reu->Disponibles>0)
+																<?php
+																$cantreu=$cantreu+$reu->Disponibles;
+																$totalreu=$totalreu+$reu->Cantidad;
+																?>	
+																@endif
+															@endif
+													@endforeach
+													<?php
+													$total=$totalcant+$totallum+$totalreu
+													?>
+													@if ($cant>0 || $cantreu>0 || $cantlum>0 )
 													<div class="menu-item px-3">
+														
 														<a href="{{url('/datos/ejecutar/'.$item->id)}}" 
-															class="menu-link px-3">Instalar</a>
+															class="menu-link px-3">Terminar Inst </a>
 													</div>
+													@endif
 													<div class="menu-item px-3">
 														<a href="#" data-bs-toggle="modal" data-bs-target="#moraModificarUsuario{{$item->id}}"
 															class="menu-link px-3">Editar</a>
