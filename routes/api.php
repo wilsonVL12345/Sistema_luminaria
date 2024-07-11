@@ -41,3 +41,4 @@ Route::get('/datosluminaria/proyecto', [apiProyectoController::class, 'lum']);
 Route::get('/datosaccesorios/proyecto', [apiProyectoController::class, 'acces']);
 
 Route::get('/atencion/apidetall', [apiDetalleController::class, 'infoatencion']);
+Route::get('/lista/urbanizacion', [apiDetalleController::class, 'listUbanizacion']);

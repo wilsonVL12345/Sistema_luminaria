@@ -1,22 +1,13 @@
 {{-- estaba comentado  --}}
  <!-- jQuery -->
-<cript src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!-- Select2 JS -->        
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
- <script>
-    $(document).ready(function() {
-    $('.select-team-member').select2();    
-    });
-</script> 
-<script>
-    $(document).ready(function() {
-    $('select[name="country"]').select2({
-        dropdownParent: $('#kt_modal_add_customer')
-    });
-});
-</script>
+
+
 {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> --}}
 
 
@@ -55,17 +46,19 @@
 <script src="{{ asset('assets/js/proyectos/selecMultiplebotones.js') }}"></script>
 <script src="{{ asset('assets/js/selectorMultiple.js') }}"></script>
 <script src="{{ asset('assets/js/distrito/actualizacionzona.js') }}"></script>
-<script src="{{ asset('assets/js/detallesGenerales/ejecutarApoyo.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/detallesGenerales/ejecutarApoyo.js') }}"></script> --}}
 
 <script src="{{ asset('assets/js/agendar/formulario.js') }}"></script>
 <script src="{{ asset('assets/js/agendar/filtraUrb.js') }}"></script>
 <script src="{{ asset('assets/js/agendar/apoyocarro.js') }}"></script>
 
 <script src="{{ asset('assets/js/realizarTrabajo/datetableRealizar.js') }}"></script>
-
 <script src="{{ asset('assets/js/ejecutarTrabajo/insertarComponentes.js') }}"></script>
 
+<script src="{{ asset('assets/js/detallesGenerales/espera/filtraUrbmodif.js') }}"></script>
 
+<script src="{{ asset('assets/js/inspeccion/realizado/tablareali.js') }}"></script>
+<script src="{{ asset('assets/js/inspeccion/enEspera/tabaespe.js') }}"></script>
 <script src="{{ asset('assets/js/usuario/tabla.js') }}"></script>
 <script src="{{ asset('assets/js/usuario/estado.js') }}"></script>
 <script src="{{ asset('assets/js/proyectos/almacen/tablaalmacen.js') }}"></script>
@@ -75,9 +68,36 @@
 <script src="{{ asset('assets/js/proyectos/almacenejecutada/datetablefinal.js') }}"></script>
 <script src="{{ asset('assets/js/distrito/datetable.js') }}"></script>
 <script src="{{ asset('assets/js/distrito/loading.js') }}"></script>
+<script src="{{ asset('assets/js/detallesGenerales/espera/carroapoyo.js') }}"></script>
+<script>
+    $(document).ready(function() {
+    $('.select-team-member').select2();    
+    });
+</script> 
+<script>
 
+    $(document).ready(function() {
+    $('select[name="country"]').select2({
+        dropdownParent: $('#kt_modal_add_customer')
+    });
+});
 
-
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    if (typeof jQuery != 'undefined' && typeof $.fn.select2 != 'undefined') {
+      $('.select-team-member').select2();
+      
+      $('select[name="country"]').select2({
+        dropdownParent: $('#kt_modal_add_customer')
+      });
+    } else {
+      console.error('jQuery o Select2 no están cargados correctamente');
+    }
+  }, 100); // Retraso de 100ms
+});
+</script>
 
   
 

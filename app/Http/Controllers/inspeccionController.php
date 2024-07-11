@@ -18,7 +18,9 @@ class inspeccionController extends Controller
     public function index()
     {
         /* $inspeccion = inspeccion::all(); */
-        $inspeccion = inspeccion::where('Inspeccion', 'En espera')->get();
+        $inspeccion = inspeccion::where('Inspeccion', 'En espera')
+            ->orderBy('created_at', 'desc')
+            ->get();
         $listadistrito = distrito::all();
         $listazonaurb = urbanizacion::all();
 
@@ -30,19 +32,23 @@ class inspeccionController extends Controller
      */
     public function create(Request $request)
     {
-
+        $url = '';
         /* dd($request->all()); */
-        try {
+        if ($request->imgcarta) {
+
+            $dir = $request->file('imgcarta')->store('public/fileinspecciones');
+            $url = Storage::url($dir);
             $request->validate([
-                'imgcarta' => 'required|image|max:8048'
+                'imgcarta' => 'image|max:8048' //required|
             ]);
+        }
+        try {
 
             //aqui poner el id del que va a agregar el trabajo
             $fk = session('id');
             $espera = 'En espera';
             //se a creado un acceso directo para que pueda acceder a esa carpeta
-            $dir = $request->file('imgcarta')->store('public/fileinspecciones');
-            $url = Storage::url($dir);
+
             $inspeccion = new inspeccion();
 
             $inspeccion->Nro_Sisco = $request->txtnrosisco;
@@ -122,15 +128,31 @@ class inspeccionController extends Controller
                 $urll = Storage::url($dir);
                 $inspe = inspeccion::find($request->txtid);
 
-                /*   $inspe->Distritos_id = $request->txtdistrito;
-                $inspe->ZonaUrbanizacion = $request->txtzurbanizacion;
-                $inspe->Nro_Sisco = $request->txtsisco; */
+
                 $inspe->Fecha_Inspeccion = $request->txtfecha;
                 $inspe->users_id = session('id');
                 $inspe->Foto_Carta = $urll;
                 $inspe->save();
                 $sql = true;
             }
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Datos Modificado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Modificar");
+        }
+    }
+    public function editRealizada(Request $request, $id)
+    {
+        try {
+            $editInspec = inspeccion::find($id);
+
+            $editInspec->Tipo_Inspeccion = $request->txttipo;
+            $editInspec->Estado = $request->txtestado;
+            $editInspec->save();
+            $sql = true;
         } catch (\Throwable $th) {
             $sql = false;
         }

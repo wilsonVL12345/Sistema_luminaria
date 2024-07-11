@@ -241,8 +241,10 @@ class proyectoController extends Controller
             if ($request->lugarlum) {
                 foreach ($request->input('lugarlum') as $id => $lugarlum) {
                     $regisled = luminaria::find($id);
+                    dd($regisled);
                     if ($regisled) {
                         if ($lugarlum) {
+
                             $regisled->Lugar_Instalado = $lugarlum;
                             $regisled->save();
                         }

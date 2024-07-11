@@ -27,7 +27,7 @@ let KTDatatablesExample = function () {
 
     // Hook export buttons
     let exportButtons = () => {
-        const documentTitle = 'Lista de Usuarios';
+        const documentTitle = 'Lista de Inspecciones en Espera';
         let buttons = new $.fn.dataTable.Buttons(table, {
             buttons: [
                 {
@@ -47,10 +47,10 @@ let KTDatatablesExample = function () {
                     title: documentTitle
                 }
             ]
-        }).container().appendTo($('#tablausuariosexport'));
+        }).container().appendTo($('#kt_datatable_example_buttons'));
 
         // Hook dropdown menu click event to datatable export buttons
-        const exportButtons = document.querySelectorAll('#tablaUsuarios_export_menu [data-kt-export]');
+        const exportButtons = document.querySelectorAll('#kt_datatable_example_export_menu [data-kt-export]');
         exportButtons.forEach(exportButton => {
             exportButton.addEventListener('click', e => {
                 e.preventDefault();
@@ -76,7 +76,7 @@ let KTDatatablesExample = function () {
     // Public methods
     return {
         init: function () {
-            table = document.querySelector('#tablaUsuarios');
+            table = document.querySelector('#kt_datatable_example');
 
             if ( !table ) {
                 return;
@@ -92,5 +92,4 @@ let KTDatatablesExample = function () {
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
     KTDatatablesExample.init();
-}); 
-
+});

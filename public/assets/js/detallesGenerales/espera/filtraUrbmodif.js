@@ -1,20 +1,21 @@
 $(document).ready(function () {
-    const $distritoSelect = $('#txtdistirto');
-    const $zonaUrbanizacionSelect = $('#txtzonaurb');
+    const $distritoSelect = $('#sldistesper');
+    const $zonaUrbanizacionSelect = $('#slturbanizacion');
 
     $.ajax({
         url: '/api/lista/urbanizacion',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
+            console.log(data)
             function actualizarZonasUrbanizaciones() {
                 const distritoSeleccionado = $distritoSelect.val();
                 $zonaUrbanizacionSelect.empty().append('<option value="">Seleccione...</option>');
 
-                const zonasUrbanizaciones = data.filter(item => item.Nrodistrito == distritoSeleccionado);
+                const zonasUrbanizaciones = data.filter(items => items.Nrodistrito == distritoSeleccionado);
 
-                $.each(zonasUrbanizaciones, function (index, item) {
-                    $zonaUrbanizacionSelect.append(`<option value="${item.nombre_urbanizacion}">${item.nombre_urbanizacion}</option>`);
+                $.each(zonasUrbanizaciones, function (index, items) {
+                    $zonaUrbanizacionSelect.append(`<option value="${items.nombre_urbanizacion}">${items.nombre_urbanizacion}</option>`);
                 });
 
                 // Actualizar select2 después de modificar las opciones

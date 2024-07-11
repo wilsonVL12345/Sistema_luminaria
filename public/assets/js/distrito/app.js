@@ -1,4 +1,4 @@
-// Usar jQuery para manejar cambios en un select de Select2
+/* // Usar jQuery para manejar cambios en un select de Select2
 $('.form-select').select2();
 $('.form-select').on('change', function (e) {
     manejarCambioTipoUbicacion(); // Llamada a tu función existente
@@ -25,42 +25,6 @@ const tipoUbicacionSelect = document.getElementById('txtagregar');
 
 // Agregar el event listener al cambio de selección
 tipoUbicacionSelect.addEventListener('change', manejarCambioTipoUbicacion);
-
-//script para que  sea obligatorio llenar los campo en la vista distrito
-/* document.getElementById('txtagregar').addEventListener('change', function () {
-    var option = this.value;
-    let txtdistrit = document.getElementById('txtdistrit');
-    let txtzonaUrbx = document.getElementById('txtzonaUrbx');
-    let txtzonaUr = document.getElementById('txtzonaUr');
-    let txtdistrito = document.getElementById('txtdistrito');
-    let txtzonaUrbanizacion = document.getElementById('txtzonaUrbanizacion');
-    let txtavenidacalle = document.getElementById('txtavenidacalle');
-    let txtavc = document.getElementById('txtavc');
-
-    // Habilitar o deshabilitar los campos requeridos según la opción seleccionada
-    if (option === 'txtzonaUr') {
-        txtdistrit.required = true;
-        txtzonaUrbx.required = true;
-        txtzonaUr.required = true;
-
-    } else {
-        txtdistrit.required = false;
-        txtzonaUrbx.required = false;
-        txtzonaUr.required = false;
-    }
-    if (option === 'street') {
-        txtdistrito.required = true;
-        txtzonaUrbanizacion.required = true;
-        txtavenidacalle.required = true;
-        txtavc.required = true;
-    } else {
-        txtdistrito.required = false;
-        txtzonaUrbanizacion.required = false;
-        txtavenidacalle.required = false;
-        txtavc.required = false;
-    }
-}); */
-
 
 $('#txtagregar').on('change', function () {
     var option = $(this).val();
@@ -95,4 +59,4 @@ $('#txtagregar').on('change', function () {
         txtavenidacalle.prop('required', false);
         txtavc.prop('required', false);
     }
-});
+}); */

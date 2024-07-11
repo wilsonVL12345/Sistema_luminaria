@@ -166,10 +166,10 @@
 							<table id="tablaaccesorios" class="table">
 								<thead class="">
 
-									<tr>
+									<tr style=" background-color: #f2f2f2;" >
 										<th scope="col" >Nro</th>
 										<th scope="col" >Nombre Accesorio</th>
-										<th scope="col" >Action</th>
+										<th scope="col" style="width: 15%;" >Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -315,13 +315,24 @@
 											<!--end::Modal dialog-->
 										</div>
 									</tr>
+									
 									@endforeach
 								</tbody>
 							</table>
 							
 						</div>
 						
-					
+						<style>
+										
+							/* Estilos para filas pares */
+							tr:nth-child(even) {
+								background-color: #f2f2f2;
+							}
+							/* Estilos para filas impares */
+							tr:nth-child(odd) {
+								background-color: #ffffff;
+							}
+						</style>
 				</div>
 			</div>
 			<div class="card mb-5 mb-xl-10">

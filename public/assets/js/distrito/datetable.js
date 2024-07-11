@@ -27,7 +27,7 @@ let tabladistrito = function () {
 
     // Hook export buttons
     let exportButtons = () => {
-        const documentTitle = 'Customer Orders Report';
+        const documentTitle = 'Lista de Urbanizaciones';
         let buttons = new $.fn.dataTable.Buttons(table, {
             buttons: [
                 {

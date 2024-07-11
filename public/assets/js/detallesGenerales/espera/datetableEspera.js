@@ -1,3 +1,5 @@
+
+
 "use strict";
 
 // Class definition
@@ -27,7 +29,7 @@ let KTDatatablesExample = function () {
 
     // Hook export buttons
     let exportButtons = () => {
-        const documentTitle = 'Customer Orders Report';
+        const documentTitle = 'Detalles de Trabajos en Espera';
         let buttons = new $.fn.dataTable.Buttons(table, {
             buttons: [
                 {
@@ -76,7 +78,7 @@ let KTDatatablesExample = function () {
     // Public methods
     return {
         init: function () {
-            table = document.querySelector('#tablaDetallesEspera');
+            table = document.querySelector('#kt_datatable_example');
 
             if ( !table ) {
                 return;

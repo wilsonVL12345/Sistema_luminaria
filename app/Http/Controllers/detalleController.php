@@ -42,12 +42,22 @@ class detalleController extends Controller
         $listazonaurb = urbanizacion::all();
         return view('plantilla.Agendar.agendar', compact('listadistrito', 'listazonaurb'));
     }
-    // en esta parte muestra la vista trabajos donde esta detallados todos los trabajos a realizar pendiente
+    // en esta parte muestra la vista Realizar trabajos donde esta detallados todos los trabajos a realizar pendiente
     public function pendiente()
     {
         $detall = detalle::where('Estado', 'En Espera')->get();
         return view('plantilla.RealizarTrabajo.trabajos', compact('detall'));
     }
+
+    public function detallesEspera()
+    {
+        $detall = detalle::where('Estado', 'En Espera')->get();
+        return view('plantilla.RealizarTrabajo.trabajos', compact('detall'));
+    }
+
+
+
+
     // para agregar  mantenimiento en espera
     public function create(Request $request)
     {
@@ -56,9 +66,13 @@ class detalleController extends Controller
         $espera = 'En Espera';
         $tipTrabajo = '';
         $apoyo = '';
+        $url = '';
         $notificar = '';
-        $dir = $request->file('imgcarta')->store('public/fileagendar');
-        $url = Storage::url($dir);
+        if ($request->imgcarta) {
+            $dir = $request->file('imgcarta')->store('public/fileagendar');
+            $url = Storage::url($dir);
+        }
+
         if ($request->rnotificar == 1) {
             $notificar = 'NOTIFICADO!!!';
         }
@@ -68,10 +82,10 @@ class detalleController extends Controller
         if ($request->txtapoyo) {
             $apoyo = ' ' . 'Asistencia' . ' ' . $request->txtapoyo;
         }
+        $request->validate([
+            'imgcarta' => 'image|max:8048'   // estas son las reglas que tiene que cumplir para poder subir la imagen required| lo quitamos
+        ]);
         try {
-            $request->validate([
-                'imgcarta' => 'required|image|max:8048'
-            ]);
 
             $detalles = new detalle();
             $detalles->Distritos_id = $request->txtdistirto;
@@ -79,7 +93,10 @@ class detalleController extends Controller
             $detalles->Nro_Sisco = $request->txtnrosisco;
             $detalles->Fecha_Programado = $request->txtfechaprogramada;
             $detalles->Tipo_Trabajo = $tipTrabajo . ' ' . $apoyo;
-            $detalles->Foto_Carta = $url;
+            if ($url) {
+                $detalles->Foto_Carta = $url;
+            }
+            /* dd($request->all()); */
             $detalles->Observaciones = $notificar;
             $detalles->Estado = $espera;
             $detalles->Users_id = session('id');

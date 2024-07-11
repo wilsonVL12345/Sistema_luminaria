@@ -70,3 +70,11 @@ td {
 thead {
     background-color: #f2f2f2;
 } */
+
+/* .select2-search--dropdown {
+    display: none !important;
+    
+} */
+/* select[data-search="false"] + .select2-container .select2-search--dropdown {
+    display: none !important;
+  } */

@@ -1,4 +1,4 @@
-var res = function () {
-    var not = confirm("Estas seguro de Eliminar?")
+let res = function () {
+    let not = confirm("Estas seguro de Eliminar?")
     return not;
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\detalle;
+use App\Models\urbanizacion;
+use PhpParser\Node\Expr\FuncCall;
 
 class apiDetalleController extends Controller
 {
@@ -22,6 +24,12 @@ class apiDetalleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    public function listUbanizacion()
+    {
+        $listaUrb = urbanizacion::select('Nrodistrito', 'nombre_urbanizacion')->get();
+        return response()->json($listaUrb);
+    }
+
     public function store(Request $request)
     {
         //

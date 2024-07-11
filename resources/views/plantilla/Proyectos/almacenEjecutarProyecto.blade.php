@@ -70,6 +70,13 @@
                                         <label for="txtzona" class=" fs-5 fw-bold mb-2">Urbanizacion</label>
                                         <input type="text" class="form-control form-control-solid " name="txtzona"  value="{{$ejecProyecto->Zona}}" readonly> 
                                     </div>
+
+                                    @if ($ejecProyecto->Ejecutado_Por)
+                                    <div class="col-md-3 mb-3">
+                                        <label for="txtejec" class=" fs-5 fw-bold mb-2">Ejecutado Por</label>
+                                        <input type="text" class="form-control form-control-solid " value="{{$ejecProyecto->Ejecutado_Por}}">
+                                    </div>
+                                        @else   
                                     <div class="col-md-3 mb-3">
                                         <label for="txtejec" class=" fs-5 fw-bold mb-2">Ejecutado Por</label>
                                         <select name="txtejec" class="form-control form-select-solid" id="txtejec" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." required>
@@ -78,16 +85,26 @@
                                             <option value="Externo">Externo</option>
                                         </select>
                                     </div>
+                                    @endif
+
                                  </div>
                                  <div class="from row">
                                     <div class="col-md-8 mb-3">
                                         <label for="txtcomponentes" class=" fs-5 fw-bold mb-2">Tipo de Componentes</label>
                                         <input type="text" name="txtcomponentes" id="txtcomponentes" class="form-control form-control-solid " value="{{$ejecProyecto->Tipo_Componentes}}" readonly >
                                     </div>
+                                    @if ($ejecProyecto->Fecha_Ejecutada)
+                                    <div class="col-md-3 mb-3">
+                                        <label for="txtfechaInst" class=" fs-5 fw-bold mb-2">Fecha de Instalacion</label>
+                                        <input type="date" name="txtfechaInst" id="txtfechaInst" class="form-control form-control-solid " value="{{$ejecProyecto->Fecha_Ejecutada}}" readonly >
+                                    </div>
+                                    @else
+                                        
                                     <div class="col-md-3 mb-3">
                                         <label for="txtfechaInst" class=" fs-5 fw-bold mb-2">Fecha de Instalacion</label>
                                         <input type="date" name="txtfechaInst" id="txtfechaInst" class="form-control form-control-solid " required >
                                     </div>
+                                    @endif
                                 </div>
                             {{-- </form> --}}
 								
@@ -102,8 +119,9 @@
 									<th>Nro</th>
 									<th>Nombre</th>
 									<th>Cantidad</th>
-									<th>Disponibles</th>
 									<th>Utilizados</th>
+									<th>Disponibles</th>
+									<th>Utilizar</th>
 									
 								</tr>
                                     @foreach ($ejecReutilizados as $itemr)
@@ -111,11 +129,21 @@
 										<td><?php echo $con;?></td>
 										<td>{{$itemr->Nombre_Item}}</td>
 										<td>{{$itemr->Cantidad}}</td>
+										<td>{{$itemr->Utilizados}}</td>
 										<td>{{$itemr->Disponibles}}</td>
+                                        @if (!$itemr->Disponibles<=0)
+                                            
 										<td>
                                             <input type="number" name="utilizadosreu[{{$itemr->id}}]" id="">
                                             
                                         </td>
+                                        @else
+                                        <td>
+                                            <input type="text" value="No hay Disponible" readonly>
+                                            
+                                        </td>
+                                        @endif
+                                      
 										
                                         
 									</tr>
@@ -139,8 +167,7 @@
                                     <th style="border: 1px solid black;">Cantidad</th>
                                     <th style="border: 1px solid black;">Utilizados</th>
                                     <th style="border: 1px solid black;">Disponibles</th>
-                                    <th style="border: 1px solid black;">Observaciones</th>
-                                    <th style="border: 1px solid black;">Usar</th>
+                                    <th style="border: 1px solid black;">Utilizar</th>
 
                                 </tr>
                                 @foreach ($ejecAccesorios as $itemacc)
@@ -150,10 +177,21 @@
                                     <td style="border: 1px solid black;">{{$itemacc->Cantidad}}</td>
                                     <td style="border: 1px solid black;">{{$itemacc->Utilizados}}</td>
                                     <td style="border: 1px solid black;">{{$itemacc->Disponibles}}</td>
-                                    <td style="border: 1px solid black;">{{$itemacc->Observaciones}}</td>
-                                    <td>
+                                    {{-- <td>
                                         <input type="number" name="utilizadoacc[{{$itemacc->id}}]" id="" placeholder=0>
+                                    </td> --}}
+                                    @if (!$itemacc->Disponibles<=0)
+                                            
+                                    <td>
+                                        <input type="number" name="utilizadoacc[{{$itemacc->id}}]" id="">
+                                        
                                     </td>
+                                    @else
+                                    <td>
+                                        <input type="text" value="No hay Disponibles" readonly>
+                                        
+                                    </td>
+                                    @endif
 
                                 </tr>
                                 <?php $cond++;?>
@@ -185,15 +223,19 @@
                                     <td>{{$itemlum->Marca}}</td>
                                     <td>{{$itemlum->Modelo}}</td>
                                     <td>{{$itemlum->Potencia}}</td>
+                                    @if ($itemlum->Lugar_Instalado=='Si')
+                                    <td>{{$itemlum->Lugar_Instalado}}</td>
+                                        
+                                    @else
                                     <td>
                                         <select name="lugarlum[$itemlum->id]" id="txtlugar">
                                             <option value="" disabled selected >Seleccione...</option>
-                                            <option value=""  >Si</option>
-                                            <option value=""  >No</option>
-                                           
+                                            <option value="Si"  >Si</option>
+                                            <option value="No"  >No</option>
                                         </select>
                                     </td>
                                 </tr>
+                                    @endif
                                 <?php $cond++;?>
                                 @endforeach
                             </table>

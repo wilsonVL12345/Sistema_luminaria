@@ -216,10 +216,10 @@
 														<a href="/ejecutar/trabajo/{{$itemtrab->id}}"
 															class="menu-link px-3">Empezar</a>
 													</div>
-													<div class="menu-item px-3">
+													{{-- <div class="menu-item px-3">
 														<a href="#" data-bs-toggle="modal" data-bs-target="#moraModificarUsuario{{$itemtrab->id}}"
 															class="menu-link px-3">Editar</a>
-													</div>
+													</div> --}}
 													<!--end::Menu item-->
 													<!--begin::Menu item-->
 													<div class="menu-item px-3">
