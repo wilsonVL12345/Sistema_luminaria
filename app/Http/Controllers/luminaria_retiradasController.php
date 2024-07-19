@@ -41,50 +41,49 @@ class luminaria_retiradasController extends Controller
      */
     public function create(Request $request)
     {
-        $datosretirados = new datos_luminaria_retirada();
 
-
-        $datosretirados->zona = $request->txtzona;
-        $datosretirados->Nro_sisco = $request->txtnrosisco;
-        $datosretirados->Fecha = $request->txtfechamante;
-        $datosretirados->Proyecto = $request->txtproyecto;
-        $datosretirados->Direccion = $request->txtdireccion;
-        $datosretirados->User_id = session('id');
-        $datosretirados->Distritos_id = $request->txtdistrito;
-        $datosretirados->save();
-
-        $nombre_item = $request->campoitem;
-        $reutilizables = $request->camporeutilizables;
-        $noreutilizables = $request->camponoreutilizables;
-        // $observaciones = $request->campoobservaciones;
-
-        $datosrecuperado = datos_luminaria_retirada::where('Nro_sisco', $request->txtnrosisco)->first();
-
-        $datosrecuperad = $datosrecuperado->id;
-        /*  var_dump($request->all()); */
+        // dd($request->all());
         try {
-            for ($i = 0; $i < count($nombre_item); $i++) {
-                $nombre =  $nombre_item[$i]['txtitem'];
-                $reutilizable = $reutilizables[$i]['txtreutilizables'];
-                $noreutilizable = $noreutilizables[$i]['txtnoreutilizables'];
-                // $observacion = $observaciones[$i]['txtobservaciones'];
+            $datosretirados = new datos_luminaria_retirada();
+
+            $datosretirados->zona = $request->txtzona;
+            $datosretirados->Nro_sisco = $request->txtnrosisco;
+            $datosretirados->Fecha = $request->txtfechamante;
+            $datosretirados->Proyecto = $request->txtproyecto;
+            $datosretirados->Direccion = $request->txtdireccion;
+            $datosretirados->User_id = session('id');
+            $datosretirados->Distritos_id = $request->txtdistrito;
+            $datosretirados->save();
+
+            $nombre_item = $request->campoitem;
+            $reutilizables = $request->camporeutilizables;
+            $noreutilizables = $request->camponoreutilizables;
+            // $observaciones = $request->campoobservaciones;
+
+            $datosrecuperado = datos_luminaria_retirada::where('Nro_sisco', $request->txtnrosisco)->first();
+
+            $datosrecuperad = $datosrecuperado->id;
+
+            // dd(count($nombre_item));
+            for ($i = 1; $i <= count($nombre_item); $i++) {
+                $nombre = $nombre_item[$i]['txtitem'] ?? null;
+                $reutilizable = $reutilizables[$i]['txtreutilizables'] ?? null;
+                $noreutilizable = $noreutilizables[$i]['txtnoreutilizables'] ?? null;
+
+                // Validación de campos vacíos
+                if (empty($nombre) || $reutilizable === null || $noreutilizable === null) {
+                    continue;
+                }
+
                 $cantidad = $reutilizable + $noreutilizable;
 
-                //validacion decampos vacios
-                if (empty($nombre) || empty($reutilizable) || empty($noreutilizable)) {
-                    continue;
-                } else {
-                    $listaretirados = new lista_luminarias_retirada();
-
-                    $listaretirados->Nombre = $nombre;
-                    $listaretirados->Cantidad = $cantidad;
-                    $listaretirados->Reutilizables = $reutilizable;
-                    $listaretirados->NoReutilizables = $noreutilizable;
-                    // $listaretirados->Observaciones = $observacion;
-                    $listaretirados->datos_luminaria_id = $datosrecuperad;
-                    $listaretirados->save();
-                }
-                /* dd($request->all()); */
+                $listaretirados = new lista_luminarias_retirada();
+                $listaretirados->Nombre = $nombre;
+                $listaretirados->Cantidad = $cantidad;
+                $listaretirados->Reutilizables = $reutilizable;
+                $listaretirados->NoReutilizables = $noreutilizable;
+                $listaretirados->datos_luminaria_id = $datosrecuperad;
+                $listaretirados->save();
             }
             $sql = true;
         } catch (\Throwable $th) {

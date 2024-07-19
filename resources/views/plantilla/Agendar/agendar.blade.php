@@ -158,14 +158,14 @@
 										</div>
 										<div class="col-md-3 mb-3">
 											<label for="txtnrosisco" class="required fs-5 fw-bold mb-2">Nro Sisco</label>
-											<input type="text" class="form-control form-control-solid " id="txtnrosisco" name="txtnrosisco" >
+											<input type="text" class="form-control form-control-solid " id="txtnrosisco" name="txtnrosisco" required >
 										</div>
 										<div class="col-md-6 mb-3">
 											<label for="txtzonaurb" class="required fs-5 fw-bold mb-2">Urbanizacion</label>
 											<select  aria-label="Select a Country"
 											data-control="select2"
 											data-placeholder="Seleccionar Urbanizacion"
-											class="form-control form-select-solid fw-bolder" name="txtzonaurb" id="txtzonaurb">
+											class="form-control form-select-solid fw-bolder" name="txtzonaurb" id="txtzonaurb" required>
 											<option value="">Seleccion...</option>
 											</select>
 										</div>
@@ -229,7 +229,7 @@
 													<!--end::Svg Icon-->
 													<!--end::Icon-->
 													<!--begin::Datepicker-->
-													<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramada"   />
+													<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramada"  required />
 													<!--end::Datepicker-->
 												</div>
 												<!--end::Input-->

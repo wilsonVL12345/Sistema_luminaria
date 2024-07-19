@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#selectorr').on('change', function() {
+    $('#sselectedStatess').on('change', function() {
         if ($(this).val().includes('Apoyo Carro Canasta')) {
             $('#apoyo--distrito').show();
             $('#txt-apoyo').attr('required', 'required');

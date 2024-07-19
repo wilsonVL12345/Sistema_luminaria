@@ -173,10 +173,13 @@
 														</div>
 														<!--end::Modal footer-->
 																		{{-- la parte de la lista de componentes  --}}
-																	<button type="button" class="btn btn-primary btn-sm" onclick="agregarLuminaria()">Agregar Componentes Retirados</button> <br>
-
+																	{{-- <button type="button" class="btn btn-primary btn-sm" onclick="agregarLuminaria()">Agregar Componentes Retirados</button> <br> --}}
+																	<button type="button" class="btn btn-primary btn-sm" id="agregaComponentess">Agregar Componentes Retirados</button> <br>
+																	
 																		<h1>Componentes Retirados</h1>
+																	<div id="listacomp">
 
+																	</div>
 																	{{-- <div class="from row">
 																		<div class="col-md-6 mb-3">
 																			<label for="txtitem" class="required fs-5 fw-bold mb-2">Nombre Item</label>

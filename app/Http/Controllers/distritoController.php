@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\distrito;
 use App\Models\urbanizacion;
+use GuzzleHttp\Promise\Create;
+
 use function PHPUnit\Framework\returnSelf;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -34,7 +36,7 @@ class distritoController extends Controller
         if ($request->ajax()) {
             try {
                 // Consulta directa a la tabla personas
-                $todoUrban = urbanizacion::select('id as idurb', 'Nrodistrito', 'nombre_urbanizacion', 'lng', 'lat');
+                $todoUrban = urbanizacion::select('id as idurb', 'Nrodistrito', 'nombre_urbanizacion');
 
                 // Devolver los datos en formato JSON para DataTables
                 return DataTables::of($todoUrban)->make(true);
@@ -65,13 +67,15 @@ class distritoController extends Controller
      */
     public function create(Request $request)
     {
-        // dd($request->all());
-        /* dd($request->all()); */
+
         try {
-            $newUrb = new urbanizacion();
-            $newUrb->Nrodistrito = $request->txtdistrit;
-            $newUrb->nombre_urbanizacion = $request->txtzonaUrba;
+            $newUrb = urbanizacion::Create($request->all());
+            /* $newUrb->Nrodistrito = $request->txtdistrit;
+            $newUrb->nombre_urbanizacion = $request->txtzonaUrba; */
+            dd($newUrb);
+
             $newUrb->save();
+
             $sql = true;
         } catch (\Throwable $th) {
             $sql = false;

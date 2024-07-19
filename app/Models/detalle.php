@@ -23,6 +23,7 @@ class detalle extends Model
         'Estado',
         'Observaciones',
         'Detalles',
+        'EjecutadoPor',
         'Users_id',
         'Distritos_id'
     ];

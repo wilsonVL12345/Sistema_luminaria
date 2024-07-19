@@ -205,11 +205,13 @@
 																	
 																</div>
 																<!--end::Scroll-->
-															</div>
-															<div class="mb-3">
-															<button  type="button" class="btn btn-dark" id="btnAccesorio" onclick="agregarAccesorio()"  style="display: none;">Accesorios</button>
-															<button type="button"  class="btn btn-dark" id="btnReacondicionado" onclick="agregarReacondicionadas()" style="display: none; " >Lum. Reacondicionadas</button>
-															<button type="button"  class="btn btn-dark" id="btnLuminaria" onclick="agregarluminarialed()" style="display: none;">Luminaria LED</button>
+																<div class="mb-3">
+																<button  type="button" class="btn btn-dark" id="btnAccesorio"   style="display: none;">Accesorios</button>
+																<button type="button"  class="btn btn-dark" id="btnReacondicionado"  style="display: none; " >Lum. Reacondicionadas</button>
+																<button type="button"  class="btn btn-dark" id="btnLuminaria"  style="display: none;">Luminaria LED</button>
+																<div id="listaproy">
+																</div>
+																</div>
 															</div>
 															<!--end::Modal body-->
 															<!--begin::Modal footer-->

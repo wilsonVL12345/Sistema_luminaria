@@ -56,7 +56,7 @@
 							
 								<label class="form-label fs-6 fw-bolder text-dark">Usuario</label>
 								
-								<input class="form-control form-control-lg form-control-solid" type="text" name="txtusuario" autocomplete="off" required />
+								<input class="form-control form-control-lg form-control-solid" type="email" name="txtusuario" autocomplete="off" required />
 							
 							</div>
 							
@@ -83,19 +83,7 @@
 							</div>
 							<!--end::Actions-->
 						</form>
-						<!--end::Form-->
-
-						{{-- <form action="{{route('inicia-sesion')}}" method="POST">
-							@csrf
-						<label for="txtusuario">usuario</label>
-						<input type="text" name="txtusuario" id="txtusuario">
-							<br>
-						<label for="txtcontrase">contraseña</label>
-						<input type="password" name="txtcontrase" id="txtcontrase">		
 						
-						
-						<button type="submit"  name="btnemviar">emviar</button>
-						</form> --}}
 					</div>
 					<!--end::Wrapper-->
 				</div>
@@ -114,15 +102,13 @@
 			</div>
 			<!--end::Authentication - Sign-in-->
 		</div>
-		<!--end::Root-->
-		<!--end::Main-->
+		
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Global Javascript Bundle(used by all pages)-->
 		<script src="../assets/plugins/global/plugins.bundle.js"></script>
 		<script src="../assets/js/scripts.bundle.js"></script>
-		<!--end::Global Javascript Bundle-->
-		<!--begin::Page Custom Javascript(used by this page)-->
+	
 		<script src="../assets/js/custom/authentication/sign-in/general.js"></script>
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->

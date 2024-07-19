@@ -54,7 +54,7 @@
 								<div class="from row">
 									<div class="col-md-6 mb-3">
 										<label for="txtcomponentes" class=" fs-5 fw-bold mb-2">Tipos de Componentes</label>
-										<input type="text" class="form-control form-control-solid " id="txtcomponentes" name="txtcomponentes" value="{{$proyec->Tipo_Componentes}}" readonly>
+										<input type="text" class="form-control form-control-solid " id="txtcomponentess" name="txtcomponentes" value="{{$proyec->Tipo_Componentes}}" readonly>
 									</div>
 									<div class="col-md-3 mb-3">
 										<label for="txtcontratacion" class=" fs-5 fw-bold mb-2">Tipo de Contratacion</label>

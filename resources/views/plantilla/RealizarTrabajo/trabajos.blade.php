@@ -15,29 +15,7 @@
 				<span class="h-20px border-gray-300 border-start mx-4"></span>
 				<!--end::Separator-->
 				<!--begin::Breadcrumb-->
-				{{-- <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">
-						<a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-300 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Account</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-300 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-dark">Security</li>
-					<!--end::Item-->
-				</ul> --}}
+				
 				<!--end::Breadcrumb-->
 			</div>
 			<!--end::Page title-->
@@ -61,39 +39,7 @@
                         <?php 
                          $num=1;
                         ?>
-                        {{-- <table>
-                            <tr>
-                                <th>Nro</th>
-                                <th>Distrito</th>
-                                <th>Zona</th>
-                                <th>Nro Sisco</th>
-                                <th>Tipo de Trabajo</th>
-                                <th>Fecha de Atencion</th>
-                                <th>Carta</th>
-                                <th>Observaciones</th>
-                                <th>Trabajo</th>
-                            </tr>
-                            @foreach ($detall as $itemtrab)
-                               <tr>
-                                <th><?php echo $num;?></th>
-                                <td>{{$itemtrab->distrito->Distrito}}</td>
-                                <td>{{$itemtrab->Zona}}</td>
-                                <td>{{$itemtrab->Nro_Sisco}}</td>
-                                <td>{{$itemtrab->Tipo_Trabajo}}</td>
-                                <td>{{ \Carbon\Carbon::parse($itemtrab->Fecha_Hora_Inicio_Programado)->format('Y-m-d') }}</td>
-                                <td>
-                                    <a href="" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#Modaleditarlistaaccesorios"><i class="fa-solid fa-image"></i></a>
-                                </td>
-                                <td>{{$itemtrab->Observaciones}}</td>
-                                <td>
-                                    <a href="/ejecutar/trabajo/{{$itemtrab->id}}" class="btn btn-warning btn-sm" ><i class="fa-solid fa-paper-plane"></i></a>
-                                    
-
-                                </td>
-                               </tr>
-                               <?php  $num++;?>
-                            @endforeach
-                        </table> --}}
+                        
 						<div class="card card-p-0 card-flush">
 							<div class="card-header align-items-center py-5 gap-2 gap-md-5">
 								<div class="card-title">

@@ -19,22 +19,16 @@ use App\Models\proveedor;
 use Illuminate\Routing\RouteRegistrar;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+/* Route::post('/login', function () {
+    return view('auth.loginn');
+}); */
 
-/* Route::view('/usuario/administrador', "plantilla.Usuarios.Administrador")->name('usuario.administrador');
-Route::view('/usuario/jefatura', "plantilla.Usuarios.Especialista")->name('usuario.jefatura');
-Route::view('/usuario/especialista', "plantilla.Usuarios.Jefatura")->name('usuario.especialista'); */
+// Auth::routes();
 
 Route::view('/login', "plantilla.login")->name('login');
+
+// Route::view('/login', "auth.loginn")->name('login');
+
 
 Route::post('/inicia-sesion', [logincontroller::class, 'login'])->name('inicia-sesion');
 Route::get('/logout', [logincontroller::class, 'logout'])->name('logout');
@@ -54,15 +48,6 @@ Route::get('/usuario/usuarios', [UserController::class, 'users'])->name('usuario
 Route::get('/usuario/bloquear/{id}', [UserController::class, 'bloquear'])->name('usuario.bloquear');
 Route::get('/usuario/desbloquear/{id}', [UserController::class, 'desbloquear'])->name('usuario.bloquear');
 
-/* Route::get('/usuario/jefatura', function () {
-     return view('plantilla.Usuarios.Jefatura');}); */
-
-/* Route::get('/usuario/jefatura', [UserController::class, 'jefatura'])->name('usuario.jefatura'); */
-
-/* Route::get('/usuario/especialista', function () {
-    return view('plantilla.Usuarios.Especialista');
-}); */
-/* Route::get('/usuario/especialista', [UserController::class, 'especialista'])->name('usuario.especialista'); */
 
 //ruta para agregar un nuevo usuario
 Route::post('/registro/usuario', [UserController::class, 'create'])->name('registro.usuario');
@@ -135,3 +120,7 @@ Route::get('/ejecutar/trabajo/{id}', [detalleController::class, 'ejecutar'])->na
 Route::get('/pendiente/trabajo', [detalleController::class, 'pendiente'])->name('pendiente.trabajo');
 Route::post('/store/trabajo/{id}', [detalleController::class, 'storeTrabajo'])->name('store.trabajo');
 Route::post('/edit/espera', [detalleController::class, 'edit'])->name('edit.espera');
+
+/* Auth::routes(); */
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

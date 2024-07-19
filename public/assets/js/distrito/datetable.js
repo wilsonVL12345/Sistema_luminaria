@@ -1,21 +1,18 @@
 "use strict";
 
 // Class definition
-let tabladistrito = function () {
+let urbanizacions = function () {
     // Shared variables
     let table;
     let datatable;
 
     // Private functions
     let initDatatable = function () {
-        // Set date data order
+        // Set date data order (assuming date is in the third column, adjust index accordingly)
         const tableRows = table.querySelectorAll('tbody tr');
-
-        tableRows.forEach(row => {
-            const dateRow = row.querySelectorAll('td');
-            const realDate = moment(dateRow[3].innerHTML, "DD MMM YYYY, LT").format(); // select date from 4th column in table
-            dateRow[3].setAttribute('data-order', realDate);
-        });
+        
+        // If you need to process dates in the third column, you can adjust this block
+        // Since your table doesn't seem to use dates in the current setup, we'll skip this part
 
         // Init datatable --- more info on datatables: https://datatables.net/manual/
         datatable = $(table).DataTable({
@@ -27,7 +24,7 @@ let tabladistrito = function () {
 
     // Hook export buttons
     let exportButtons = () => {
-        const documentTitle = 'Lista de Urbanizaciones';
+        const documentTitle = 'Customer Orders Report';
         let buttons = new $.fn.dataTable.Buttons(table, {
             buttons: [
                 {
@@ -60,12 +57,14 @@ let tabladistrito = function () {
                 const target = document.querySelector('.dt-buttons .buttons-' + exportValue);
 
                 // Trigger click event on hidden datatable export buttons
-                target.click();
+                if (target) {
+                    target.click();
+                }
             });
         });
     }
 
-    // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
+    // Search Datatable --- official docs reference: https://datatables.net/reference/api/search/
     let handleSearchDatatable = () => {
         const filterSearch = document.querySelector('[data-kt-filter="search"]');
         filterSearch.addEventListener('keyup', function (e) {
@@ -76,9 +75,11 @@ let tabladistrito = function () {
     // Public methods
     return {
         init: function () {
-            table = document.querySelector('#kt_datatable_example');
+            table = document.querySelector('#distritotables');
+            console.log('table:', table); // Debugging statement
 
-            if ( !table ) {
+            if (!table) {
+                console.warn('Table not found!');
                 return;
             }
 
@@ -91,5 +92,5 @@ let tabladistrito = function () {
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-    tabladistrito.init();
+    urbanizacions.init();
 });

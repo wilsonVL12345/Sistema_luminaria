@@ -90,13 +90,12 @@ class detalleController extends Controller
             $detalles = new detalle();
             $detalles->Distritos_id = $request->txtdistirto;
             $detalles->Zona = $request->txtzonaurb;
-            $detalles->Nro_Sisco = $request->txtnrosisco;
+            $detalles->Nro_Sisco = strval($request->txtnrosisco);
             $detalles->Fecha_Programado = $request->txtfechaprogramada;
             $detalles->Tipo_Trabajo = $tipTrabajo . ' ' . $apoyo;
             if ($url) {
                 $detalles->Foto_Carta = $url;
             }
-            /* dd($request->all()); */
             $detalles->Observaciones = $notificar;
             $detalles->Estado = $espera;
             $detalles->Users_id = session('id');
@@ -116,33 +115,43 @@ class detalleController extends Controller
     {
         $tipoLuminaria = 'Tipo: ';
         $fin = 'Finalizado';
+        $tipLum = '';
+        if ($request->tipolum) {
+            foreach ($request->tipolum as $valor) {
+                $tipLum = $tipLum . ' ' . $valor;
+            }
+        }
+
+
         $prov = 1;
         $proy = 1;
         try {
             $storetrabajo = detalle::find($id);
             $storetrabajo->Puntos = $request->txtcantidadlum;
-            $storetrabajo->Fecha_Hora_Inicio = $request->txtfechainicioej;
-            $storetrabajo->Fecha_Hora_Fin = $request->txttechafinej;
-            $storetrabajo->Detalles = $tipoLuminaria . $request->selectedStates . '. ' . $request->txtdetalles;
+            $storetrabajo->Fecha_Inicio = $request->txtfechaejecut;
+            $storetrabajo->Detalles = $tipoLuminaria . $tipLum . '. ' . $request->txtdetalles;
             $storetrabajo->Estado = $fin;
-            $storetrabajo->Users_id = session('id');
+            $storetrabajo->EjecutadoPor = session('paterno') . ' ' . session('nombres');
             $storetrabajo->save();
 
             $acccampoitem = $request->campoitem;
-            $Cantidad = $request->camponoreutilizables;
-            $acccampoobser = $request->campoobservaciones;
+            $Cantidad = $request->campocantidad;
+
+
+
 
             if (!empty($acccampoitem)) {
-                foreach ($acccampoitem as $key => $value) {
-                    $accesoriosmal = new accesorio();
-                    $accesoriosmal->Id_Lista_accesorios = $acccampoitem[$key]['txtitem'];
-                    $accesoriosmal->Cantidad = $Cantidad[$key]['txtnoreutilizables'];
-                    $accesoriosmal->Observaciones = $acccampoobser[$key]['txtobservaciones'];
+                foreach ($acccampoitem as $item) {
+                    foreach ($Cantidad as $cantid) {
+                        # code...
+                        $accesoriosmal = new accesorio();
+                        $accesoriosmal->Id_Lista_accesorios = $item;
+                        $accesoriosmal->Cantidad = $cantid;
 
-                    $accesoriosmal->Proyectos_id = $proy;
-                    $accesoriosmal->Proveedores_id = $prov;
-                    $accesoriosmal->Detalles_id = $id;
-                    $accesoriosmal->save();
+                        $accesoriosmal->Proyectos_id = $proy;
+                        $accesoriosmal->Detalles_id = $id;
+                        $accesoriosmal->save();
+                    }
                 }
             }
             $sql = true;

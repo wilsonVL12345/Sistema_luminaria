@@ -25,20 +25,19 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
+        $lash = '@gmail.com';
         if ($request->txtestado) {
             $estado = 'Activo';
         } else {
             $estado = 'Bloqueado';
         }
-
-
         try {
             $user = new User();
             $primera = strtolower(substr($request->txtnombre, 0, 1));
             $apellido = strtolower($request->txtpaterno);
             $usuario = $primera . $apellido;
-            $contrase = $apellido . $request->txtci;
-
+            $contrase =  $request->txtci;
+            // $apellido .
 
             $user->Nombres = $request->txtnombre;
             $user->Paterno = $request->txtpaterno;
@@ -50,8 +49,8 @@ class UserController extends Controller
             $user->Cargo = $request->txtcargo;
             $user->Lugar_Designado = $request->txtlugarDesignado;
             $user->Estado = $estado;
-            $user->Usuario = $usuario;
-            $user->Password = $contrase;
+            $user->Usuario = $usuario . $lash;
+            $user->Password = Hash::make($contrase);
             $user->save();
 
             $sql = true;
@@ -87,9 +86,7 @@ class UserController extends Controller
         return back()->with("correcto", "Usuario Desbloqueado Correctamente");
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Request $request)
     {
 

@@ -83,12 +83,10 @@ class proyectoController extends Controller
                         $nuevoAccesorio->Id_Lista_accesorios = $acceComponentes[$key]['txtcomponentes'];
                         $nuevoAccesorio->Cantidad = $acceCantidad[$key]['txtcantidad'];
                         $nuevoAccesorio->Disponibles = $acceCantidad[$key]['txtcantidad'];
-                        /* $nuevoAccesorio->Proveedores_id = $acceproveedor[$key]['txtproveedo']; */
                         $nuevoAccesorio->Proyectos_id = $idProyecto;
                         $nuevoAccesorio->Utilizados = $cero;
                         $nuevoAccesorio->Detalles_id = $sinDetalle;
 
-                        /* $nuevoAccesorio->Observaciones = $acceObservaciones[$key]['txtobservaciones']; */
                         $nuevoAccesorio->save();
                     }
                 }
@@ -104,7 +102,6 @@ class proyectoController extends Controller
                         $nuevoReutilizado->Nombre_Item = $reuNombre[$key]['txtnom'];
                         $nuevoReutilizado->Cantidad = $reuCant[$key]['txtcant'];
                         $nuevoReutilizado->Disponibles = $reuCant[$key]['txtcant'];
-                        /*  $nuevoReutilizado->Observaciones = $reuObser[$key]['txtobs']; */
                         $nuevoReutilizado->Utilizados = $cero;
                         $nuevoReutilizado->Proyectos_id = $idProyecto;
                         $nuevoReutilizado->save();
@@ -116,7 +113,6 @@ class proyectoController extends Controller
                 $ledpotencia = $request->campopotencia;
                 $ledmarca = $request->campomarca;
                 $ledmodelo = $request->campomodelo;
-                /* $ledproveedor = $request->campoproveedor; */
                 if (!empty($ledcod)) {
                     foreach ($ledcod as $key => $value) {
                         # code...
@@ -125,7 +121,6 @@ class proyectoController extends Controller
                         $nuevoLed->Potencia = $ledpotencia[$key]['txtpotencia'];
                         $nuevoLed->Marca = $ledmarca[$key]['txtmarca'];
                         $nuevoLed->Modelo = $ledmodelo[$key]['txtmodelo'];
-                        // $nuevoLed->Proveedores_id = $ledproveedor[$key]['txtproveedor'];
                         $nuevoLed->Proyectos_id = $idProyecto;
                         $nuevoLed->Detalles_id = $sinDetalle;
 
@@ -214,8 +209,8 @@ class proyectoController extends Controller
         try {
             if ($request->utilizadosreu) {
                 # code...
-                foreach ($request->input('utilizadosreu') as $id => $utilizadosreu) {
-                    $regisrea = luminarias_reutilizada::find($id);
+                foreach ($request->input('utilizadosreu') as $idreu => $utilizadosreu) {
+                    $regisrea = luminarias_reutilizada::find($idreu);
                     if ($regisrea) {
                         if ($utilizadosreu <= $regisrea->Disponibles && $utilizadosreu > 0) {
                             $regisrea->Utilizados = $regisrea->Utilizados + $utilizadosreu;
@@ -226,8 +221,8 @@ class proyectoController extends Controller
                 }
             }
             if ($request->utilizadoacc) {
-                foreach ($request->input('utilizadoacc') as $id => $utilizadoacc) {
-                    $regisaccesorio = accesorio::find($id);
+                foreach ($request->input('utilizadoacc') as $idacc => $utilizadoacc) {
+                    $regisaccesorio = accesorio::find($idacc);
                     if ($regisaccesorio) {
                         if ($utilizadoacc <= $regisaccesorio->Disponibles && $utilizadoacc > 0) {
 
@@ -239,9 +234,8 @@ class proyectoController extends Controller
                 }
             }
             if ($request->lugarlum) {
-                foreach ($request->input('lugarlum') as $id => $lugarlum) {
-                    $regisled = luminaria::find($id);
-                    dd($regisled);
+                foreach ($request->input('lugarlum') as $idled => $lugarlum) {
+                    $regisled = luminaria::find($idled);
                     if ($regisled) {
                         if ($lugarlum) {
 

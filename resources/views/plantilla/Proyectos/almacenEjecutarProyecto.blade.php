@@ -91,7 +91,7 @@
                                  <div class="from row">
                                     <div class="col-md-8 mb-3">
                                         <label for="txtcomponentes" class=" fs-5 fw-bold mb-2">Tipo de Componentes</label>
-                                        <input type="text" name="txtcomponentes" id="txtcomponentes" class="form-control form-control-solid " value="{{$ejecProyecto->Tipo_Componentes}}" readonly >
+                                        <input type="text" name="txtcomponentes" id="txttcomponentes" class="form-control form-control-solid " value="{{$ejecProyecto->Tipo_Componentes}}" readonly >
                                     </div>
                                     @if ($ejecProyecto->Fecha_Ejecutada)
                                     <div class="col-md-3 mb-3">
@@ -228,7 +228,7 @@
                                         
                                     @else
                                     <td>
-                                        <select name="lugarlum[$itemlum->id]" id="txtlugar">
+                                        <select name="lugarlum[{{$itemlum->id}}]" id="txtlugar">
                                             <option value="" disabled selected >Seleccione...</option>
                                             <option value="Si"  >Si</option>
                                             <option value="No"  >No</option>

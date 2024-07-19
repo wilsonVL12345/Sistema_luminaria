@@ -18,36 +18,23 @@ class logincontroller extends Controller
 
     public function login(Request $request)
     {
+        /* $credentials = $request->only('txtusuario', 'txtcontrase');
 
-        /*  session_start();
-        if (!empty($request->txtusuario) && !empty($request->txtcontrase)) {
-            $usuario = $request->txtusuario;
-            $contraseña = $request->txtcontrase;
-            $user = User::where('Usuario', $usuario)
-                ->where('Password', $contraseña)
-                ->first();
-            if ($user) {
-                $_SESSION["id"] = $user->id;
-                $_SESSION["nombre"] = $user->Nombres;
-                $_SESSION["paterno"] = $user->Paterno;
-                $_SESSION["lugarDesignado"] = $user->Lugar_Designado;
-                $_SESSION["cargo"] = $user->Cargo;
-
-
-                return redirect(route('index'));
-            } else {
-                return back()->with("incorrecto", "Acceso denegado");
-            }
+        if (Auth::attempt(['Usuario' => $credentials['txtusuario'], 'password' => $credentials['txtcontrase']])) {
+            // Authentication passed...
+            return redirect()->intended('dashboard');
         } else {
-            return back()->with("incorrecto", "Campos vacios Ingrese sus Credenciales");
+            return back()->withErrors(['message' => 'Usuario o contraseña incorrectos']);
         } */
 
+
         if (!empty($request->txtusuario) && !empty($request->txtcontrase)) {
             $usuario = $request->txtusuario;
             $contraseña = $request->txtcontrase;
             $user = User::where('Usuario', $usuario)
                 ->where('Password', $contraseña)
                 ->first();
+
             if ($user) {
                 session(['id' => $user->id]);
                 session(['nombres' => $user->Nombres]);

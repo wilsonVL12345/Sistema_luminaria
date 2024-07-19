@@ -16,5 +16,5 @@ class urbanizacion extends Model
         'lng',
         'lat'
     ];
-    protected $primarykey = 'id';
+    protected $primaryKey = 'id';
 }

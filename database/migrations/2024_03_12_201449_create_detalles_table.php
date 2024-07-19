@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('Estado', 20)->nullable();
             $table->string('Observaciones')->nullable();
             $table->string('Detalles')->nullable();
+            $table->string('EjecutadoPor')->nullable();
 
             $table->unsignedBigInteger(column: 'Users_id');
             $table->foreign(columns: 'Users_id')->references(columns: 'id')

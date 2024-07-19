@@ -1,7 +1,7 @@
 "use strict";
 
 // Class definition
-let KTDatatablesExample = function () {
+let insperealizado = function () {
     // Shared letiables
     let table;
     let datatable;
@@ -92,5 +92,5 @@ let KTDatatablesExample = function () {
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-    KTDatatablesExample.init();
+    insperealizado.init();
 });

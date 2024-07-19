@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/* $(document).ready(function () {
     const $distritoSelect = $('#sldistesper');
     const $zonaUrbanizacionSelect = $('#slturbanizacion');
 
@@ -29,4 +29,4 @@ $(document).ready(function () {
             console.error('Error al obtener los datos de los distritos:', error);
         }
     });
-});
+}); */

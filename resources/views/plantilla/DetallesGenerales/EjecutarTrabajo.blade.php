@@ -111,7 +111,7 @@
 							<button type="submit">Emviar</button>
 										
 						</form> --}}
-						<form action="{{route('agendar.trabajo')}}" id="formagendar" method="POST" enctype="multipart/form-data">
+						<form action="{{route('store.trabajo',$trabajo->id)}}" id="formEjecutar" method="POST" >
 							@csrf
 
 							<div class="from row">
@@ -133,7 +133,7 @@
 							<div class="from row">
 								<div class="col-md-6 mb-3">
 									<label for="selectedStates" class="required fs-5 fw-bold mb-2">Tipo de Luminarias</label>
-									<select class="form-control form-select-lg form-select-solid" data-control="select2" name="selectedStates[]" id="selector" data-placeholder="Seleccione..." data-allow-clear="true" multiple="multiple" required>
+									<select class="form-control form-select-lg form-select-solid" data-control="select2" name="tipolum[]" id="tipolum" data-placeholder="Seleccione..." data-allow-clear="true" multiple="multiple" required>
 										<option value="Luminarias LED">Luminarias LED</option>
 										<option value="Luminarias de Sodio">Luminarias de Sodio</option>
 									</select>										
@@ -159,7 +159,7 @@
 										<!--end::Svg Icon-->
 										<!--end::Icon-->
 										<!--begin::Datepicker-->
-										<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaejecut" id="txtfechaejecut"   />
+										<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaejecut" id="txtfechaejecut"  required />
 										<!--end::Datepicker-->
 									</div>
 									<!--end::Input-->
@@ -172,7 +172,26 @@
 								</div>
 							</div>
 							<div id="listacomponentes">
-
+								<div class="row mb-5">
+									<div class="row" id="formcomMalEstado">
+										<div class="col-md-6 mb-3">
+											<label for="componente" class="required fs-5 fw-bold mb-2">Componente</label>
+													<select class="form-control form-select-solid" data-control="select2" data-search="false" data-hide-search="true" data-placeholder="Selecione..." name="campoitem[0]" id="campoitem" required >
+													<option value="" >Seleccione...</option>
+													@foreach ($listacom as $itema)
+													<option value="{{$itema->id}}">{{$itema->Nombre_Item}}</option>
+													@endforeach
+													</select>
+										</div>
+										<div class="col-md-3 mb-3">
+											<label for="txtcod" class="required fs-5 fw-bold mb-2">Cantidad</label>
+											<input type="number" class="form-control form-control-solid" id="campocantidad" name="campocantidad[0]" placeholder="Ingresar Cantidad" required>
+										</div>
+										<div class="col-md-3 mb-3 d-flex justify-content-center align-items-center">
+											<button type="button" class="btn btn-danger btn-sm" onclick="eliminarAccesorio(this)">Delete</button>
+										</div>
+									</div>
+								</div>
 							</div>
 
 
@@ -180,7 +199,7 @@
 							<div class="from row">
 										<div class="col-md-8 mb-3">
 												<label class="fs-6 fw-bold mb-2">Detalles de Trabajo</label>
-												<textarea class="form-control form-control-solid" rows="3" name="Ingrese una breve descripcion del Trabajo" placeholder="Type Target Details"></textarea>
+												<textarea class="form-control form-control-solid" rows="3" name="txtdetalles" placeholder="Ingrese una breve descripcion del Trabajo" required></textarea >
 										</div>
 							</div>
 							

@@ -1,70 +1,59 @@
-/* $accesoriosCount=0;
-$(document).ready(function(){
-    $('#insertarComponentes').click(function(){
-        $('#listacomponentes').append(`
+$(document).ready(function() {
+    let componenteCount = 1;
+
+    // Cargar opciones del selector al inicio
+    cargarOpcionesSelector();
+
+    $("#insertarComponentes").click(function() {
+        componenteCount++;
+        let nuevoComponente = `
             <div class="row mb-5">
-                <div class="row">
+                <div class="row" id="formcomMalEstado${componenteCount}">
                     <div class="col-md-6 mb-3">
-                        <label for="txtdistrito" class="required fs-5 fw-bold mb-2">Componente</label>
-                        @foreach ($listacom as $item)
-								<option value="{{$item->Nombre_Item}}">{{$item->Nombre_Item}}</option>
-								@endforeach
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="txtcod" class="required fs-5 fw-bold mb-2">Cantidad</label>
-                        <input type="number" class="form-control form-control-solid" id="txtcantidad" name="campocantidad[accesoriosCount]" placeholder="Ingresar Cantidad">
-                    </div>
-                    <div class="col-md-3 mb-3  d-flex justify-content-center align-items-center">
-                                     
-                                   <button type="button"  class="btn btn-danger btn-sm"  onclick="eliminarAccesorio(this)">Delete</button>
-
-                    </div>
-                </div>
-
-            </div>
-        `);
-         $accesoriosCount++;
-
-        
-    });
-    
-}); */
-
-$(document).ready(function(){
-    let accesoriosCount = 0;
-
-    $('#insertarComponentes').click(function(){
-        $('#listacomponentes').append(`
-            <div class="row mb-5">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="txtdistrito" class="required fs-5 fw-bold mb-2">Componente</label>
-                        <select class="form-select" name="componente[${accesoriosCount}]">
-                          @foreach ($listacom as $item)
-								<option value="{{$item->Nombre_Item}}">{{$item->Nombre_Item}}</option>
-								@endforeach
+                        <label for="componente${componenteCount}" class="required fs-5 fw-bold mb-2">Componente</label>
+                        <select class="form-control form-select-solid" data-control="select2" data-search="false" data-hide-search="true" data-placeholder="Selecione..." name="campoitem[${componenteCount}]" id="campoitem${componenteCount}" required>
+                            <option value="">Seleccione...</option>
                         </select>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="txtcod" class="required fs-5 fw-bold mb-2">Cantidad</label>
-                        <input type="number" class="form-control form-control-solid" id="txtcantidad" name="campocantidad[${accesoriosCount}]" placeholder="Ingresar Cantidad">
+                        <label for="txtcod${componenteCount}" class="required fs-5 fw-bold mb-2">Cantidad</label>
+                        <input type="number" class="form-control form-control-solid" id="campocantidad${componenteCount}" name="campocantidad[${componenteCount}]" placeholder="Ingresar Cantidad" required>
                     </div>
                     <div class="col-md-3 mb-3 d-flex justify-content-center align-items-center">
                         <button type="button" class="btn btn-danger btn-sm" onclick="eliminarAccesorio(this)">Delete</button>
                     </div>
                 </div>
             </div>
-        `);
-        accesoriosCount++;
-
-        // Populate the select options here, e.g., using AJAX to fetch data from the server
+        `;
+        
+        $("#listacomponentes").append(nuevoComponente);
+        
+        // Cargar opciones para el nuevo selector
+        cargarOpcionesSelector(`#campoitem${componenteCount}`);
+        
+        // Inicializar Select2 para el nuevo selector
+        $(`#campoitem${componenteCount}`).select2();
     });
 });
 
 function eliminarAccesorio(button) {
-    const container2 = button.closest('.row.mb-5');
-    container2.parentNode.removeChild(container2);
-} 
-  
+    $(button).closest('.row.mb-5').remove();
+}
 
-
+function cargarOpcionesSelector(selector = '#campoitem') {
+    $.ajax({
+        url: '/api/lista/accesorios',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            let options = '<option value="">Seleccione...</option>';
+            data.forEach(function(item) {
+                options += `<option value="${item.id}">${item.Nombre_Item}</option>`;
+            });
+            $(selector).html(options);
+        },
+        error: function(error) {
+            console.error('Error al cargar los accesorios:', error);
+        }
+    });
+}
