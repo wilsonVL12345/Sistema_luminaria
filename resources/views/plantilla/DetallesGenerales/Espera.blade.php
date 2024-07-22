@@ -231,7 +231,7 @@
 													<div class="modal-dialog modal-lg">
 														<div class="modal-content">
 															<div class="modal-header">
-																<h3 class="modal-title">Modal title</h3>
+																<h3 class="modal-title">Modificar Datos de Trabajo a Realizar</h3>
 												
 																<!--begin::Close-->
 																<div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
@@ -239,24 +239,20 @@
 																</div>
 																<!--end::Close-->
 															</div>
-												
 															<div class="modal-body">
 																<form action="{{route('agendar.trabajo')}}" id="formagendar" method="POST" enctype="multipart/form-data">
 																	@csrf
 									
 																	<div class="from row">
 																		<div class="col-md-3 mb-3">
-																			<label for="sldistrimodi" class="required fs-5 fw-bold mb-2">Distrito</label>
-																					<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Selecione..." name="sldistrimodi" id="sldistrimodi" required >
+																					<label for="sldistrimodi" class="required fs-5 fw-bold mb-2">Distrito</label>
+																					<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Selecione..." name="sldistrimodi"  required >
 																					<option value="" >Seleccione...</option>
 																					@foreach ($listadistrito as $item)
-																					<option value="{{$item->id}}">{{$item->Distrito}}</option>
+																					<option value="{{$item->id}}" {{$itemEspera->Distritos_id==$item->Distrito ? 'selected':''}}>{{$item->Distrito}}</option>
 																					@endforeach
 																					</select>
-																						
 																		</div>
-																		
-																		
 																		<div class="col-md-3 mb-3">
 																			<label for="txtnrosisco" class="required fs-5 fw-bold mb-2">Nro Sisco</label>
 																			<input type="text" class="form-control form-control-solid " id="txtnrosisco" name="txtnrosisco" required >

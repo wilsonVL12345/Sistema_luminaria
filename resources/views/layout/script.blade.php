@@ -81,7 +81,8 @@
 <script src="{{ asset('assets/js/distrito/loading.js') }}" defer></script>
 <script src="{{ asset('assets/js/equipos/equipamiento/tablaequipos.js') }}" defer></script>
 <script src="{{ asset('assets/js/equipos/accesorios/tablaAccesorios.js') }}" defer></script>
-
+<script src="{{ asset('assets/js/detallesGenerales/realizado/filtraurbreal.js') }}" defer></script>
+<script src="{{ asset('assets/js/detallesGenerales/realizado/apoyoreal.js') }}" defer></script>
 <script>
     $(document).ready(function() {
     $('.select-team-member').select2();    

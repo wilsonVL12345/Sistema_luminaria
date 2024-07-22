@@ -1,4 +1,4 @@
-/* $(document).ready(function () {
+$(document).ready(function () {
     const $distritoSelect = $('[data-id="slDisR"]');
     const $zonaUrbanizacionSelect = $('[data-id="slurbr"]');
     const $zonaSeleccionada = "{{ $itemtrab->Zona }}"; 
@@ -30,4 +30,3 @@
         }
     });
     }); 
- */

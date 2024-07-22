@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/* $(document).ready(function() {
     $('#sselectedStatess').on('change', function() {
         if ($(this).val().includes('Apoyo Carro Canasta')) {
             $('#apoyo--distrito').show();
@@ -11,4 +11,4 @@ $(document).ready(function() {
 
     // Inicializar Select2
     $('[data-control="select2"]').select2();
-});
+}); */

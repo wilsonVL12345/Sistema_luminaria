@@ -56,7 +56,7 @@ Route::post('/editar/usuario', [UserController::class, 'edit'])->name('editar.us
 
 
 
-//ruta para ver detalles distritos----------------------------------------------------------------------
+//ruta para ver  distritos----------------------------------------------------------------------
 Route::get('/detallesDistritos', [distritoController::class, 'index'])->name('detalles.Distritos');
 Route::post('/registro/distrito', [distritoController::class, 'create'])->name('registro.distrito');
 Route::post('/editar/distrito', [distritoController::class, 'edit'])->name('editar.distrito');
@@ -120,6 +120,8 @@ Route::get('/ejecutar/trabajo/{id}', [detalleController::class, 'ejecutar'])->na
 Route::get('/pendiente/trabajo', [detalleController::class, 'pendiente'])->name('pendiente.trabajo');
 Route::post('/store/trabajo/{id}', [detalleController::class, 'storeTrabajo'])->name('store.trabajo');
 Route::post('/edit/espera', [detalleController::class, 'edit'])->name('edit.espera');
+Route::post('/edit/realizado', [detalleController::class, 'editRealizado'])->name('edit.realizado');
+
 
 /* Auth::routes(); */
 

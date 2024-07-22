@@ -105,7 +105,7 @@
 											<th class="min-w-100px">Puntos</th>
 											<th class="min-w-100px">Fecha de Atencion</th>
 											<th class="min-w-100px">Carta</th>
-											<th class="min-w-100px">Observaciones</th>
+											<th class="text-end min-w-100px pe-5">Observaciones</th>
 											<th class="min-w-100px">Actividades</th>
 										</tr>
 										<!--end::Table row-->
@@ -135,8 +135,12 @@
 											<td>
 												<a href="#" class="text-gray-900 text-hover-primary" data-bs-toggle="modal" data-bs-target="#modalMostrarImagen{{$itemtrab->id}}"><i class="fa-solid fa-image"></i></a>
 											</td>
-											<td>
-												<a href="#" class="text-gray-900 text-hover-primary">{{$itemtrab->Observaciones}}</a>
+											<td> 
+												<div class="badge badge-light-danger">
+													{{$itemtrab->Observaciones}}
+
+												</div>
+
 											</td>
 											<!--begin::Action=-->
 											<td class="text-end">
@@ -162,14 +166,14 @@
 															class="menu-link px-3">Instalar</a>
 													</div> --}}
 													<div class="menu-item px-3">
-														<a href="#" data-bs-toggle="modal" data-bs-target="#moraModificarUsuario"
+														<a href="#" data-bs-toggle="modal" data-bs-target="#modalModificarRealizado{{$itemtrab->id}}"
 															class="menu-link px-3">Editar</a>
 													</div>
 													<!--end::Menu item-->
 													<!--begin::Menu item-->
 													<div class="menu-item px-3">
 														
-														{{-- <a href="{{url('/usuario/bloquear/'.$item->id) }}" class="menu-link px-3" --}}
+														<a href="{{-- {{url('/usuario/bloquear/'.$item->id) }} --}}" class="menu-link px-3"
 															data-kt-customer-table-filter="delete_row">Eliminar</a>
 														
 													</div>
@@ -226,6 +230,170 @@
 												<!--end::Modal dialog-->
 											</div>
 											<!--end::Modal - imagen carta-->
+											{{-- modal para modificar trabajos realizados --}}
+											<div class="modal fade" id="modalModificarRealizado{{$itemtrab->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+												<!--begin::Modal dialog-->
+												<div class="modal-dialog mw-1000px">
+													<!--begin::Modal content-->
+													<div class="modal-content">
+														<!--begin::Modal header-->
+														<div class="modal-header">
+															<!--begin::Title-->
+															<h2>Modificar Trabajos Realizados</h2>
+															<!--end::Title-->
+															<!--begin::Close-->
+															<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+																<span class="svg-icon svg-icon-1">
+																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																		<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+																		<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+																	</svg>
+																</span>
+															</div>
+															<!--end::Close-->
+														</div>
+														<!--end::Modal header-->
+														<!--begin::Modal body-->
+														<div class="modal-body scroll-y m-5">
+															<form class="form" action="{{route('edit.realizado')}}" id="formaModRealizado" method="POST" enctype="multipart/form-data">
+																@csrf
+																<div class="modal-body py-10 px-lg-17">
+																	<div class="scroll-y me-n7 pe-7" id="modadRegistraUsuarios_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#modadRegistraUsuarios_header" data-kt-scroll-wrappers="#modadRegistraUsuarios_scroll" data-kt-scroll-offset="300px">
+																		
+																		<!-- Primera fila -->
+																		<div class="form row">
+																			<div class="col-md-3 mb-3">
+																				<label for="slDisR" class="required fs-5 fw-bold mb-2">Distrito</label>
+																				<!-- Opciones -->
+																				<select class="form-control form-select-solid" data-control="select2" name="slDisR" data-id="slDisR" required>
+																					@foreach ($listdistritos as $dis)
+																					<option value="{{$dis->id}}" {{$itemtrab->Distritos_id==$dis->id ? 'selected':''}}>{{$dis->Distrito}}</option>
+																					@endforeach
+																				</select>
+																			</div>
+																			<div class="col-md-3 mb-3">
+																				<label for="tenror" class="required fs-5 fw-bold mb-2">Nro Sisco</label>
+																				<input type="text" class="form-control form-control-solid" id="tenror" name="tenror" placeholder="Ingresar Datos" value="{{$itemtrab->Nro_Sisco}}" required>
+																			</div>
+																			<div class="col-md-6 mb-3">
+																				<label for="slurbr" class="required fs-5 fw-bold mb-2">Urbanizacion</label>
+																				<select class="form-control form-select-solid" data-control="select2" data-dropdown-parent="#modalModificarRealizado{{$itemtrab->id}}" name="slurbr" data-id="slurbr" required>
+																					<option value="{{$itemtrab->Zona}}"  >{{$itemtrab->Zona}}</option>
+																				</select>
+																			</div>
+																			
+																		</div>
+																		
+											
+																		<!-- Segunda fila -->
+																		<div class="form row">
+																			<div class="col-md-8 mb-3">
+																				
+																					@php
+																						$texto = strtolower($itemtrab->Tipo_Trabajo);
+																						$opcionesSeleccionadas = [
+																							'Mantenimiento' => strpos($texto, 'mantenimiento') !== false,
+																							'Instalacion' => strpos($texto, 'instalacion') !== false,
+																							'Apoyo Carro Canasta' => strpos($texto, 'apoyo') !== false && strpos($texto, 'carro') !== false && strpos($texto, 'canasta') !== false
+																						];
+																					@endphp
+
+																					<label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo</label>
+																					<select class="form-control form-select-lg form-select-solid" data-control="select2" name="tetipTrabr[]" data-id="tetipTrabr" data-placeholder="{{$itemtrab->Tipo_Trabajo}}" data-allow-clear="true" multiple="multiple" required>
+																						<option value="Mantenimiento" {{ $opcionesSeleccionadas['Mantenimiento'] ? 'selected' : '' }}>Mantenimiento</option>
+																						<option value="Instalacion" {{ $opcionesSeleccionadas['Instalacion'] ? 'selected' : '' }}>Instalacion</option>
+																						<option value="Apoyo Carro Canasta" {{ $opcionesSeleccionadas['Apoyo Carro Canasta'] ? 'selected' : '' }}>Apoyo Carro Canasta</option>
+																					</select>								
+																				
+																			</div>
+																			<div class="col-md-3 mb-3" id="apoyoDistR"  style="display: none;" >
+																				@php
+																						// Extraer el número del campo de tipo de trabajo
+																						preg_match('/D-(\d+)/', $itemtrab->Tipo_Trabajo, $matches);
+																						$numeroDistrito = isset($matches[1]) ? (int)$matches[1] : null;
+																					@endphp
+
+																					<label for="txtcontratacion" class="required fs-5 fw-bold mb-2">Apoyo a Distrito</label>
+																					<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="apoyoDistRe" data-id="apoyoDistRe">
+																						<option value="">Seleccione...</option>
+																						@foreach ($listdistritos as $item)
+																							@php
+																								// Extraer el número del distrito actual
+																								preg_match('/D-(\d+)/', $item->Distrito, $itemMatches);
+																								$itemNumero = isset($itemMatches[1]) ? (int)$itemMatches[1] : null;
+																							@endphp
+																							<option value="{{ $item->Distrito }}" {{ $numeroDistrito === $itemNumero ? 'selected' : '' }}>
+																								{{ $item->Distrito }}
+																							</option>
+																						@endforeach
+																					</select>
+																			</div>
+
+
+																			{{-- <div class="col-md-3 mb-3" id="apoyoDistRContainer" style="display: none;">
+																				@php
+																					// Extraer el número del campo de tipo de trabajo
+																					preg_match('/D-(\d+)/', $itemtrab->Tipo_Trabajo, $matches);
+																					$numeroDistrito = isset($matches[1]) ? (int)$matches[1] : null;
+																				@endphp
+																			
+																				<label for="apoyoDistR" class="required fs-5 fw-bold mb-2">Apoyo a Distrito</label>
+																				<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="apoyoDistRe" data-id="apoyoDistRe">
+																					<option value="">Seleccione...</option>
+																					@foreach ($listdistritos as $item)
+																						@php
+																							// Extraer el número del distrito actual
+																							preg_match('/D-(\d+)/', $item->Distrito, $itemMatches);
+																							$itemNumero = isset($itemMatches[1]) ? (int)$itemMatches[1] : null;
+																						@endphp
+																						<option value="{{ $item->Distrito }}" {{ $numeroDistrito === $itemNumero ? 'selected' : '' }}>
+																							{{ $item->Distrito }}
+																						</option>
+																					@endforeach
+																				</select>
+																			</div> --}}
+																			
+																		</div>
+											
+																		<!-- Tercera fila -->
+																		<div class="form row">
+																			<div class="col-md-3 mb-3">
+																				<label for="file1" class="required fs-5 fw-bold mb-2">Subir Carta</label>
+																				<input type="file" class="form-control form-control-solid" id="file1" name="file1" required>
+																			</div>
+																			<div class="col-md-3 mb-3">
+																				<label for="text4" class="required fs-5 fw-bold mb-2">Obserbacion</label>
+																				<input type="text" class="form-control form-control-solid" id="text4" name="text4" placeholder="Ingresar Datos" required>
+																			</div>
+																			<div class="col-md-3 mb-3">
+																				<label for="text5" class="required fs-5 fw-bold mb-2">Puntos</label>
+																				<input type="text" class="form-control form-control-solid" id="text5" name="text5" placeholder="Ingresar Datos" required>
+																			</div>
+																			<div class="col-md-3 mb-3">
+																				<label for="dtFechaAtenr" class="required fs-5 fw-bold mb-2">Fecha de Atencion</label>
+																				<input type="date" class="form-control form-control-solid" id="dtFechaAtenr" name="dtFechaAtenr" required>
+																			</div>
+																		</div>
+																	</div>
+											
+																	<div class="mb-3">
+																		<div id="listaproy"></div>
+																	</div>
+																</div>
+																<div class="modal-footer justify-content-end">
+																	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+																	<button type="submit" id="modadRegistraUsuarios_submit" class="btn btn-primary">
+																		<span class="indicator-label">Registrar</span>
+																		<span class="indicator-progress">Please wait...
+																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+																	</button>
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
+											{{-- endmodal para modificar trabajos realizados --}}
 										</tr>
 											@endforeach
 											

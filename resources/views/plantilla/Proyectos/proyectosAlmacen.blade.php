@@ -96,10 +96,7 @@
 																			@endforeach
 																		</div>
 																		</select>																		</div>
-																		{{-- <div class="col-md-4 mb-3">
-																			<label for="dtfecha"  class="required fs-5 fw-bold mb-2">Fecha de Adquisicion</label>
-																			<input type="text" class="form-control form-control-solid" id="dtfecha" name="dtfecha" placeholder="Ingresar Datos">
-																		</div> --}}
+																	
 																		<!--begin::Col-->
 																		<div class="col-md-4 mb-3">
 																			<label class="required fs-6 fw-bold mb-2">Fecha de Adquisicion</label>
@@ -147,9 +144,6 @@
 																		</div>
 																	</div>
 																	
-																	
-																	<!--begin::Input group-->
-																	
 																	<div class="row mb-5">
 																		<!--begin::Col-->
 																		<div class="col-md-6 fv-row">
@@ -161,15 +155,11 @@
 																			<!--end::Input-->
 																		</div> 
 																		<!--end::Col-->
-																		<!--begin::Col-->
-																		
 																			<div class="col-md-6 fv-row">
 																				<label class="required fs-6 fw-bold mb-2">Objeto de Contratacion</label>
 																				<input type="text" class="form-control form-control-solid" placeholder="Ingresar Datos" name="txtobjeto" id="txtobjeto" required  />
 
 																			</div>
-																		
-																		<!--end::Col-->
 																	</div>
 																	<div class="d-flex flex-column mb-5 fv-row">
 																		<!--begin::Label-->
@@ -179,18 +169,14 @@
 																		<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del Proveedor" name="txtproveedor" id="txtproveedor" required  />
 																		<!--end::Input-->
 																	</div> 
-
 																	<div class="from row">
 																		<div class="col-md-8 mb-3"> <!-- Ocupa el doble del tamaño -->
 																			<label for="input1" class="required fs-5 fw-bold mb-2">Tipos de Componentes</label>
-																			
-																			
 																			<select class="form-control form-select-lg form-select-solid" data-control="select2" name="selectedStates[]" id="selector" data-placeholder="Seleccione..." data-allow-clear="true" multiple="multiple" required>
 																				<option value="Accesorios">Accesorios</option>
 																				<option value="Lum. Reacondicionadas">Lum. Reacondicionadas</option>
 																				<option value="Luminarias LED">Luminarias LED</option>
 																			</select>
-
 																		</div>
 																		<div class="col-md-4 mb-3"> <!-- Ocupa el tamaño original -->
 																			<label for="txtsubasta" class="required fs-5 fw-bold mb-2">Tipo de Contratacion</label>
@@ -201,8 +187,6 @@
 																			</select>
 																		</div>
 																	</div>
-																	
-																	
 																</div>
 																<!--end::Scroll-->
 																<div class="mb-3">
@@ -242,14 +226,9 @@
 									</div>
 								<!--end::Modal - Registro Almacen-->
 								<!-- Modal registro  proyecto -->
-
-							
 							<h1>Proyectos Pendintes Almacen</h1>
 							@include('layout.notificacioncrud')
-							
-							
 							<br>
-							
 							<div class="card-header align-items-center py-5 gap-2 gap-md-5">
 							<div class="card-title">
 								<!--begin::Search-->

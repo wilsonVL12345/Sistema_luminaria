@@ -27,7 +27,9 @@ class detalleController extends Controller
     public function realizados()
     {
         $detallesrealizados = detalle::where('Estado', 'Finalizado')->get();
-        return view('plantilla.DetallesGenerales.Realizados', compact('detallesrealizados'));
+        $listdistritos = distrito::all();
+        $listurb = urbanizacion::all();
+        return view('plantilla.DetallesGenerales.Realizados', compact('detallesrealizados', 'listurb', 'listdistritos'));
     }
     public function ejecutar($id)
     {
@@ -217,6 +219,9 @@ class detalleController extends Controller
         } else {
             return back()->with("incorrecto", "Error al Modificar los datos");
         }
+    }
+    public function editRealizado()
+    {
     }
 
     /**
