@@ -200,7 +200,7 @@
 																	Export Report
 																</button>
 																<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-												data-bs-target="#modalRegistroUrbanizacion">Agregar Nuevo</button>
+																data-bs-target="#modalRegistroUrbanizacion">Agregar Nuevo</button>
 																<!--begin::Menu-->
 																<div id="kt_datatable_example_export_menu" class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-200px py-4" data-kt-menu="true">
 																	<!--begin::Menu item-->
@@ -281,7 +281,7 @@
 																				<!--begin::Menu item-->
 																				
 																				<div class="menu-item px-3">
-																					<a href="#" data-bs-toggle="modal" data-bs-target="#moraModificarUsuario{{$itemurb->id}}"
+																					<a href="#" data-bs-toggle="modal" data-bs-target="#ModalModificarUrba{{$itemurb->id}}"
 																						class="menu-link px-3">Editar</a>
 																				</div>
 																				<!--end::Menu item-->
@@ -302,6 +302,99 @@
 																	@endforeach
 																</tbody>
 															</table>
+																		<!--begin::Modal -MODIficar urbanizacion-->
+																		<div class="modal fade" id="ModalModificarUrba{{$itemurb->id}}" tabindex="-1" aria-hidden="true">
+																			<!--begin::Modal dialog-->
+																			<div class="modal-dialog modal-dialog-centered mw-650px">
+																				<!--begin::Modal content-->
+																				<div class="modal-content">
+																					<!--begin::Form-->
+																					<form class="form" action="{{route('registro.distrito')}}" id="formregistroUrbanizacion" method="POST">
+																						@csrf
+																						<!--begin::Modal header-->
+																						<div class="modal-header" id="kt_modal_new_address_header">
+																							<!--begin::Modal title-->
+																							<h2>Registrar Nueva Urbanizacion</h2>
+																							<!--end::Modal title-->
+																							<!--begin::Close-->
+																							<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+																								<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+																								<span class="svg-icon svg-icon-1">
+																									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																										<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+																										<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+																									</svg>
+																								</span>
+																								<!--end::Svg Icon-->
+																							</div>
+																							<!--end::Close-->
+																						</div>
+																						<!--end::Modal header-->
+																						<!--begin::Modal body-->
+																						<div class="modal-body py-10 px-lg-17">
+																							<!--begin::Scroll-->
+																							<div class="scroll-y me-n7 pe-7" id="kt_modal_new_address_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_new_address_header" data-kt-scroll-wrappers="#kt_modal_new_address_scroll" data-kt-scroll-offset="300px">
+																								<!--begin::Notice-->
+																								<!--begin::Notice-->
+																								
+																								<!--end::Notice-->
+																								<!--end::Notice-->
+																								<!--begin::Input group-->
+																								<div class="row mb-5">
+																									<!--begin::Col-->
+																									<div class="col-md-6 fv-row">
+																										<label class="required fs-6 fw-bold mb-2">Distrito</label>
+																										<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Seleccione..." name="txtdistrit" id="txtdistrit" required>
+																													<option value="">Seleccione...</option>
+																													@foreach ($distrito as $itemd)
+																													<option value="{{$itemd->id}}" {{$itemurb->Nrodistrito==$itemd->id?'selected':''}}>{{$itemd->Distrito}}</option>
+																														
+																													@endforeach
+																										</select>
+																									</div>
+																									<!--end::Col-->
+																									
+																								</div>
+																								<!--end::Input group-->
+																							
+																								<!--begin::Input group-->
+																								<div class="d-flex flex-column mb-5 fv-row">
+																									<!--begin::Label-->
+																									<label class="required fs-5 fw-bold mb-2">Urbanizacion</label>
+																									<!--end::Label-->
+																									<!--begin::Input-->
+																									<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de la Urbanizacion" name="txtzonaUrba" id="txtzonaUrba" required/>
+																									<!--end::Input-->
+																								</div>
+																								<!--end::Input group-->
+																								
+																								
+																								
+																							
+																							</div>
+																							<!--end::Scroll-->
+																						</div>
+																						<!--end::Modal body-->
+																						<!--begin::Modal footer-->
+																						<div class="modal-footer flex-center">
+																							<!--begin::Button-->
+																							<button type="button" i class="btn btn-light me-3" data-bs-dismiss="modal" >Cerrar</button>
+																							<!--end::Button-->
+																							<!--begin::Button-->
+																							<button type="submit" id="kt_modal_new_address_submit" class="btn btn-primary">
+																								<span class="indicator-label">Registrar</span>
+																								<span class="indicator-progress">Please wait...
+																								<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+																							</button>
+																							<!--end::Button-->
+																						</div>
+																						<!--end::Modal footer-->
+																					</form>
+																					<!--end::Form-->
+																				</div>
+																			</div>
+																		</div>
+																		<!--end::Modal -MODIficar urbanizacion-->
 														</div>
 													</div>
 													<!--begin::Modals-->

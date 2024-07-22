@@ -11,6 +11,7 @@ class distrito extends Model
     use HasFactory;
     protected $table = 'distritos';
     protected $filable = [
+        'id',
 
         'Distrito',
 

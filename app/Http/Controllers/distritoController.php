@@ -69,10 +69,10 @@ class distritoController extends Controller
     {
 
         try {
-            $newUrb = urbanizacion::Create($request->all());
-            /* $newUrb->Nrodistrito = $request->txtdistrit;
-            $newUrb->nombre_urbanizacion = $request->txtzonaUrba; */
-            dd($newUrb);
+            $newUrb = new urbanizacion();
+            $newUrb->Nrodistrito = $request->txtdistrit;
+            $newUrb->nombre_urbanizacion = $request->txtzonaUrba;
+            /*  dd($newUrb); */
 
             $newUrb->save();
 

@@ -14,19 +14,15 @@ class detalleseeder extends Seeder
     public function run(): void
     {
         $detall = new detalle();
-        $detall->Nro_Sisco = "";
-        $detall->Zona = "";
-        $detall->Tipo_Trabajo = "";
-        $detall->Foto_Carta = "";
-        $detall->Puntos = "";
-        $detall->Fecha_Programado = "";
-        $detall->Fecha_Inicio = "";
-        $detall->Estado = "";
-        $detall->Observaciones = "";
-        $detall->Detalles = "";
-        $detall->EjecutadoPor = "";
-        $detall->Users_id = "";
-        $detall->Distritos_id = "";
+        $detall->Nro_Sisco = "0000";
+        $detall->Zona = "ninguno";
+        $detall->Tipo_Trabajo = "ninguno";
+        $detall->Foto_Carta = "ninguno";
+        $detall->Fecha_Programado = "2024-07-04";
+        $detall->Estado = "ninguno";
+
+        $detall->Users_id = 1;
+        $detall->Distritos_id = 15;
         $detall->save();
     }
 }

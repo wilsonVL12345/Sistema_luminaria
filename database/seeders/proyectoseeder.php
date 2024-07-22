@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\detalle;
+use App\Models\proyecto;
 
 class proyectoseeder extends Seeder
 {
@@ -13,8 +13,8 @@ class proyectoseeder extends Seeder
      */
     public function run(): void
     {
-        $detall = new detalle();
-        $detall->Cuce_Cod = "0000000";
+        $detall = new proyecto();
+        $detall->Cuce_Cod = "0000";
         $detall->Zona = "proyecFake";
         $detall->Tipo_Contratacion = "proyecFake";
         $detall->Estado = "proyecFake";
@@ -23,12 +23,11 @@ class proyectoseeder extends Seeder
         $detall->Objeto_Contratacion = "proyecFake";
         $detall->Tipo_Componentes = "proyecFake";
         $detall->Ejecutado_Por = "proyecFake";
-        $detall->Fecha_Programada = "2024-07-04";
-        $detall->Fecha_Ejecutada = "2024-07-04";
+
         $detall->Observaciones = "proyecFake";
         $detall->Proveedor = "proyecFake";
-        $detall->Users_id = "1";
-        $detall->Distritos_id = "1";
+        $detall->Users_id = 1;
+        $detall->Distritos_id = 15;
         $detall->save();
     }
 }

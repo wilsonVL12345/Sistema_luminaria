@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(class: distritoseeder::class);
         $this->call(class: detalleseeder::class);
         $this->call(class: proyectoseeder::class);
+        $this->call(class: urbanizacionseeder::class);
     }
 }

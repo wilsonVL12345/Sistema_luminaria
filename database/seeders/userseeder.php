@@ -27,5 +27,20 @@ class userseeder extends Seeder
       $user->Usuario = "userprueba";
       $user->Password = "userprueba";
       $user->save();
+
+      $user = new User();
+      $user->Nombres = "admin";
+      $user->Paterno = "admin";
+      $user->Materno = "admin";
+      $user->Ci = "000000";
+      $user->Expedido = "userprueba";
+      $user->Celular = "000000";
+      $user->Genero = "userprueba";
+      $user->Cargo = "userprueba";
+      $user->Lugar_Designado = "userprueba";
+      $user->Estado = "userprueba";
+      $user->Usuario = "admin@gob.bo";
+      $user->Password = "admin";
+      $user->save();
    }
 }

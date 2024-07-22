@@ -9,8 +9,9 @@ class urbanizacion extends Model
 {
 
     use HasFactory;
-    protected $table = "urbanizacion";
+    protected $table = "urbanizacions";
     protected $fillable = [
+        'id',
         'Nrodistrito',
         'nombre_urbanizacion',
         'lng',
