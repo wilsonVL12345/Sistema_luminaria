@@ -106,6 +106,7 @@
 											<th class="min-w-100px">Fecha de Atencion</th>
 											<th class="min-w-100px">Carta</th>
 											<th class="text-end min-w-100px pe-5">Observaciones</th>
+											<th class="text-end min-w-100px pe-5">Detalles</th>
 											<th class="min-w-100px">Actividades</th>
 										</tr>
 										<!--end::Table row-->
@@ -132,14 +133,25 @@
 												<div class="text-gray-900 text-hover-primary">{{$itemtrab->Fecha_Inicio}}</div>
 											</td>
 											
+											@if ($itemtrab->Foto_Carta)
 											<td>
 												<a href="#" class="text-gray-900 text-hover-primary" data-bs-toggle="modal" data-bs-target="#modalMostrarImagen{{$itemtrab->id}}"><i class="fa-solid fa-image"></i></a>
 											</td>
+											@else
+											<td data-filter="mastercard">
+												<a href="#" ></a>
+											</td>
+											@endif
 											<td> 
 												<div class="badge badge-light-danger">
 													{{$itemtrab->Observaciones}}
 
 												</div>
+
+											</td>
+											<td>
+												<a href="{{url('detalle/realizados/informacion/'.$itemtrab->id) }}" class="text-gray-600 text-hover-primary mb-1"><i class="fa-regular fa-eye"></i>
+												{{-- <a href="#" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalMostrarImagen{{$item->id}}"><i class="fa-solid fa-image"></i></a> --}}
 
 											</td>
 											<!--begin::Action=-->
@@ -284,7 +296,6 @@
 																			
 																		</div>
 																		
-											
 																		<!-- Segunda fila -->
 																		<div class="form row">
 																			<div class="col-md-8 mb-3">
@@ -297,14 +308,12 @@
 																							'Apoyo Carro Canasta' => strpos($texto, 'apoyo') !== false && strpos($texto, 'carro') !== false && strpos($texto, 'canasta') !== false
 																						];
 																					@endphp
-
 																					<label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo</label>
 																					<select class="form-control form-select-lg form-select-solid" data-control="select2" name="tetipTrabr[]" data-id="tetipTrabr" data-placeholder="{{$itemtrab->Tipo_Trabajo}}" data-allow-clear="true" multiple="multiple" required>
 																						<option value="Mantenimiento" {{ $opcionesSeleccionadas['Mantenimiento'] ? 'selected' : '' }}>Mantenimiento</option>
 																						<option value="Instalacion" {{ $opcionesSeleccionadas['Instalacion'] ? 'selected' : '' }}>Instalacion</option>
 																						<option value="Apoyo Carro Canasta" {{ $opcionesSeleccionadas['Apoyo Carro Canasta'] ? 'selected' : '' }}>Apoyo Carro Canasta</option>
 																					</select>								
-																				
 																			</div>
 																			<div class="col-md-3 mb-3" id="apoyoDistR"  style="display: none;" >
 																				@php
@@ -329,30 +338,6 @@
 																					</select>
 																			</div>
 
-
-																			{{-- <div class="col-md-3 mb-3" id="apoyoDistRContainer" style="display: none;">
-																				@php
-																					// Extraer el número del campo de tipo de trabajo
-																					preg_match('/D-(\d+)/', $itemtrab->Tipo_Trabajo, $matches);
-																					$numeroDistrito = isset($matches[1]) ? (int)$matches[1] : null;
-																				@endphp
-																			
-																				<label for="apoyoDistR" class="required fs-5 fw-bold mb-2">Apoyo a Distrito</label>
-																				<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="apoyoDistRe" data-id="apoyoDistRe">
-																					<option value="">Seleccione...</option>
-																					@foreach ($listdistritos as $item)
-																						@php
-																							// Extraer el número del distrito actual
-																							preg_match('/D-(\d+)/', $item->Distrito, $itemMatches);
-																							$itemNumero = isset($itemMatches[1]) ? (int)$itemMatches[1] : null;
-																						@endphp
-																						<option value="{{ $item->Distrito }}" {{ $numeroDistrito === $itemNumero ? 'selected' : '' }}>
-																							{{ $item->Distrito }}
-																						</option>
-																					@endforeach
-																				</select>
-																			</div> --}}
-																			
 																		</div>
 											
 																		<!-- Tercera fila -->
@@ -362,7 +347,7 @@
 																				<input type="file" class="form-control form-control-solid" id="file1" name="file1" required>
 																			</div>
 																			<div class="col-md-3 mb-3">
-																				<label for="text4" class="required fs-5 fw-bold mb-2">Obserbacion</label>
+																				<label for="text4" class="required fs-5 fw-bold mb-2">Observacion</label>
 																				<input type="text" class="form-control form-control-solid" id="text4" name="text4" placeholder="Ingresar Datos" required>
 																			</div>
 																			<div class="col-md-3 mb-3">

@@ -281,9 +281,10 @@
 																				<!--begin::Menu item-->
 																				
 																				<div class="menu-item px-3">
-																					<a href="#" data-bs-toggle="modal" data-bs-target="#ModalModificarUrba{{$itemurb->id}}"
-																						class="menu-link px-3">Editar</a>
+																					<a href="{{url('/editar/urbanizacion/'.$itemurb->id) }}" 
+																						class="menu-link px-3 "  >Editar</a>
 																				</div>
+																				
 																				<!--end::Menu item-->
 																				<!--begin::Menu item-->
 																				<div class="menu-item px-3">
@@ -329,17 +330,10 @@
 																							</div>
 																							<!--end::Close-->
 																						</div>
-																						<!--end::Modal header-->
-																						<!--begin::Modal body-->
 																						<div class="modal-body py-10 px-lg-17">
 																							<!--begin::Scroll-->
 																							<div class="scroll-y me-n7 pe-7" id="kt_modal_new_address_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_new_address_header" data-kt-scroll-wrappers="#kt_modal_new_address_scroll" data-kt-scroll-offset="300px">
-																								<!--begin::Notice-->
-																								<!--begin::Notice-->
-																								
-																								<!--end::Notice-->
-																								<!--end::Notice-->
-																								<!--begin::Input group-->
+																							
 																								<div class="row mb-5">
 																									<!--begin::Col-->
 																									<div class="col-md-6 fv-row">
@@ -348,12 +342,10 @@
 																													<option value="">Seleccione...</option>
 																													@foreach ($distrito as $itemd)
 																													<option value="{{$itemd->id}}" {{$itemurb->Nrodistrito==$itemd->id?'selected':''}}>{{$itemd->Distrito}}</option>
-																														
 																													@endforeach
 																										</select>
 																									</div>
 																									<!--end::Col-->
-																									
 																								</div>
 																								<!--end::Input group-->
 																							
@@ -366,16 +358,10 @@
 																									<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de la Urbanizacion" name="txtzonaUrba" id="txtzonaUrba" required/>
 																									<!--end::Input-->
 																								</div>
-																								<!--end::Input group-->
-																								
-																								
-																								
-																							
 																							</div>
 																							<!--end::Scroll-->
 																						</div>
-																						<!--end::Modal body-->
-																						<!--begin::Modal footer-->
+																						
 																						<div class="modal-footer flex-center">
 																							<!--begin::Button-->
 																							<button type="button" i class="btn btn-light me-3" data-bs-dismiss="modal" >Cerrar</button>

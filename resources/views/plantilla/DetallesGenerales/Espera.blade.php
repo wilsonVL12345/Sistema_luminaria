@@ -127,10 +127,18 @@
 											<td>
 												<a href="#" class="text-gray-900 text-hover-primary">{{$itemEspera->Fecha_Programado}}</a>
 											</td>
+
+											@if ($itemEspera->Foto_Carta)
 											<td style="text-align: center; vertical-align: middle;">
 												<a href="#" class="text-gray-900 text-hover-primary" data-bs-toggle="modal" data-bs-target="#modalMostrarImagen{{$itemEspera->id}}"><i class="fa-solid fa-image"></i></a>
 											</td>
-											
+											@else
+											<td data-filter="mastercard">
+												<a href="#" ></a>
+											</td>
+											@endif
+
+
 											<td> 
 												<div class="badge badge-light-danger">
 													{{$itemEspera->Observaciones}}

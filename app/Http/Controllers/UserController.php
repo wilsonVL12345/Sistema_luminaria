@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        $lash = '@gmail.com';
+        $lash = '@gob.bo';
         if ($request->txtestado) {
             $estado = 'Activo';
         } else {
@@ -116,9 +116,10 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function perfil(Request $request,  $id)
     {
-        //
+        $perfiluser = User::find($id);
+        return view('plantilla.Usuarios.perfil', compact('perfiluser'));
     }
 
     /**

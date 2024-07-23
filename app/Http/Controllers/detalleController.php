@@ -26,7 +26,7 @@ class detalleController extends Controller
     }
     public function realizados()
     {
-        $detallesrealizados = detalle::where('Estado', 'Finalizado')->get();
+        $detallesrealizados = detalle::where('Estado', 'Finalizado')->orderBy('id', 'desc')->get();
         $listdistritos = distrito::all();
         $listurb = urbanizacion::all();
         return view('plantilla.DetallesGenerales.Realizados', compact('detallesrealizados', 'listurb', 'listdistritos'));
@@ -53,7 +53,7 @@ class detalleController extends Controller
 
     public function detallesEspera()
     {
-        $detall = detalle::where('Estado', 'En Espera')->get();
+        $detall = detalle::where('Estado', 'En Espera')->orderBy('id', 'desc')->get();
         return view('plantilla.RealizarTrabajo.trabajos', compact('detall'));
     }
 
@@ -128,6 +128,7 @@ class detalleController extends Controller
         $prov = 1;
         $proy = 1;
         try {
+
             $storetrabajo = detalle::find($id);
             $storetrabajo->Puntos = $request->txtcantidadlum;
             $storetrabajo->Fecha_Inicio = $request->txtfechaejecut;
@@ -139,21 +140,14 @@ class detalleController extends Controller
             $acccampoitem = $request->campoitem;
             $Cantidad = $request->campocantidad;
 
-
-
-
-            if (!empty($acccampoitem)) {
-                foreach ($acccampoitem as $item) {
-                    foreach ($Cantidad as $cantid) {
-                        # code...
-                        $accesoriosmal = new accesorio();
-                        $accesoriosmal->Id_Lista_accesorios = $item;
-                        $accesoriosmal->Cantidad = $cantid;
-
-                        $accesoriosmal->Proyectos_id = $proy;
-                        $accesoriosmal->Detalles_id = $id;
-                        $accesoriosmal->save();
-                    }
+            if (!empty($acccampoitem) && count($acccampoitem) === count($Cantidad)) {
+                foreach ($acccampoitem as $index => $item) {
+                    $accesoriosmal = new accesorio();
+                    $accesoriosmal->Id_Lista_accesorios = $item;
+                    $accesoriosmal->Cantidad = $Cantidad[$index];
+                    $accesoriosmal->Proyectos_id = $proy;
+                    $accesoriosmal->Detalles_id = $id;
+                    $accesoriosmal->save();
                 }
             }
             $sql = true;
@@ -227,9 +221,11 @@ class detalleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function DetallesRealizado(Request $request,  $id)
     {
-        //
+        $trabajo = detalle::find($id);
+        $listacc = accesorio::where('Detalles_id', $id)->get();
+        return view('plantilla.DetallesGenerales.DetalleRealizado', compact('trabajo', 'listacc'));
     }
 
     /**

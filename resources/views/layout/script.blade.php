@@ -78,6 +78,7 @@
 
 
 <script src="{{ asset('assets/js/distrito/datetable.js') }}" defer></script>
+
 <script src="{{ asset('assets/js/distrito/loading.js') }}" defer></script>
 <script src="{{ asset('assets/js/equipos/equipamiento/tablaequipos.js') }}" defer></script>
 <script src="{{ asset('assets/js/equipos/accesorios/tablaAccesorios.js') }}" defer></script>

@@ -47,6 +47,7 @@ Route::view('/index', 'layout.index')->name('index');
 Route::get('/usuario/usuarios', [UserController::class, 'users'])->name('usuario.usuarios');
 Route::get('/usuario/bloquear/{id}', [UserController::class, 'bloquear'])->name('usuario.bloquear');
 Route::get('/usuario/desbloquear/{id}', [UserController::class, 'desbloquear'])->name('usuario.bloquear');
+Route::get('/usuario/perfil/{id}', [UserController::class, 'perfil'])->name('usuario.perfil');
 
 
 //ruta para agregar un nuevo usuario
@@ -59,7 +60,9 @@ Route::post('/editar/usuario', [UserController::class, 'edit'])->name('editar.us
 //ruta para ver  distritos----------------------------------------------------------------------
 Route::get('/detallesDistritos', [distritoController::class, 'index'])->name('detalles.Distritos');
 Route::post('/registro/distrito', [distritoController::class, 'create'])->name('registro.distrito');
-Route::post('/editar/distrito', [distritoController::class, 'edit'])->name('editar.distrito');
+Route::post('/editar/distrito/{id}', [distritoController::class, 'edit'])->name('editar.distrito');
+Route::get('/editar/urbanizacion/{id}', [distritoController::class, 'datosEdit'])->name('editar.urbanizacion');
+
 
 //ruta para inspecciones----------------------------------------------------------------------------------------------------
 Route::get('/inspecciones/espera', [inspeccionController::class, 'index'])->name('inspecciones.espera');
@@ -113,6 +116,7 @@ Route::post('/agendar/trabajo', [detalleController::class, 'create'])->name('age
 //ruta para ver los detalles generales de los trabajos------------------------------------------------------------------------------------------
 Route::get('/detalles/espera', [detalleController::class, 'index'])->name('detalles.espera');
 Route::get('/detalles/realizados', [detalleController::class, 'realizados'])->name('detalles.realizados');
+Route::get('detalle/realizados/informacion/{id}', [detalleController::class, 'DetallesRealizado'])->name('detalle.realizados.informacion');
 
 
 //rutas  para  detalles en espera,realizar trabajo------------------------------------------------------------------------------------------

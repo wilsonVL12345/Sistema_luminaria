@@ -99,28 +99,31 @@ class distritoController extends Controller
      * Display the specified resource.
      */
 
-
+    public function datosEdit($id)
+    {
+        $urbEdit = urbanizacion::find($id);
+        $distEdit = distrito::all();
+        return view('plantilla.DetallesDistritos.editDistrito', compact('urbEdit', 'distEdit'));
+    }
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
         try {
-            $urba = urbanizacion::find($request->txtid);
+            $urba = urbanizacion::find($id);
 
             $urba->Nrodistrito = $request->txtdistritom;
             $urba->nombre_urbanizacion = $request->txtzonaUrbanizacionm;
-
             $urba->save();
-
             $sql = true;
         } catch (\Throwable $th) {
             $sql = false;
         }
         if ($sql == true) {
-            return back()->with("correcto", "Datos Modificado Correctamente");
+            return redirect('/detallesDistritos')->with("correcto", "Urbanizacion Modificado Correctamente");
         } else {
-            return back()->with("incorrecto", "Error al Modificar");
+            return back('/detallesDistritos')->with("incorrecto", "Error al Modificar");
         }
     }
 
