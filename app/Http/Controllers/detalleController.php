@@ -134,7 +134,7 @@ class detalleController extends Controller
             $storetrabajo->Fecha_Inicio = $request->txtfechaejecut;
             $storetrabajo->Detalles = $tipoLuminaria . $tipLum . '. ' . $request->txtdetalles;
             $storetrabajo->Estado = $fin;
-            $storetrabajo->EjecutadoPor = session('paterno') . ' ' . session('nombres');
+            $storetrabajo->EjecutadoPor = session('id');
             $storetrabajo->save();
 
             $acccampoitem = $request->campoitem;

@@ -41,6 +41,7 @@ class logincontroller extends Controller
                 session(['paterno' => $user->Paterno]);
                 session(['lugarDesignado' => $user->Lugar_Designado]);
                 session(['cargo' => $user->Cargo]);
+                session(['perfil' => $user->perfil]);
                 $request->session()->regenerate();
                 return redirect(route('index'));
             } else {

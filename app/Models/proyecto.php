@@ -26,6 +26,8 @@ class proyecto extends Model
         'Fecha_Programada',
         'Fecha_Ejecutada',
         'Observaciones',
+        'Realizado_Por',
+
         'Proveedor',
         'Users_id',
         'Distritos_id'

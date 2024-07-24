@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('Cargo', 20);
             $table->string('Lugar_Designado', 25);
             $table->string('Estado', 20);
+            $table->string('perfil')->nullable();
             $table->string('Usuario');
             $table->string('Password');
 

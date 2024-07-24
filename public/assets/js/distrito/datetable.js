@@ -3,19 +3,19 @@
 // Class definition
 let urbanizacions = function () {
     // Shared variables
-    let table;
+    let tableDist;
     let datatable;
 
     // Private functions
     let initDatatable = function () {
         // Set date data order (assuming date is in the third column, adjust index accordingly)
-        const tableRows = table.querySelectorAll('tbody tr');
+        const tableRows = tableDist.querySelectorAll('tbody tr');
         
         // If you need to process dates in the third column, you can adjust this block
         // Since your table doesn't seem to use dates in the current setup, we'll skip this part
 
         // Init datatable --- more info on datatables: https://datatables.net/manual/
-        datatable = $(table).DataTable({
+        datatable = $(tableDist).DataTable({
             "info": false,
             'order': [],
             'pageLength': 10,
@@ -25,7 +25,7 @@ let urbanizacions = function () {
     // Hook export buttons
     let exportButtons = () => {
         const documentTitle = 'Customer Orders Report';
-        let buttons = new $.fn.dataTable.Buttons(table, {
+        let buttons = new $.fn.dataTable.Buttons(tableDist, {
             buttons: [
                 {
                     extend: 'copyHtml5',
@@ -75,10 +75,10 @@ let urbanizacions = function () {
     // Public methods
     return {
         init: function () {
-            table = document.querySelector('#distritotables');
-            console.log('table:', table); // Debugging statement
+            tableDist = document.querySelector('#distritotables');
+            console.log('table:', tableDist); // Debugging statement
 
-            if (!table) {
+            if (!tableDist) {
                 console.warn('Table not found!');
                 return;
             }

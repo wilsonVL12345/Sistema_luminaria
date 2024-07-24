@@ -69,9 +69,10 @@
 											<!--begin: Pic-->
 											<div class="me-7 mb-4">
 												<div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-													<img src="assets/media/avatars/300-1.jpg" alt="image" />
+													<img src="{{$perfiluser->perfil}}" alt="perfil usuario" />
 													<div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px"></div>
 												</div>
+												
 											</div>
 											<!--end::Pic-->
 											<!--begin::Info-->
@@ -82,7 +83,7 @@
 													<div class="d-flex flex-column">
 														<!--begin::Name-->
 														<div class="d-flex align-items-center mb-2">
-															<a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">Max Smith</a>
+															<a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{$perfiluser->Nombres}} {{$perfiluser->Paterno}}</a>
 															<a href="#">
 																<!--begin::Svg Icon | path: icons/duotune/general/gen026.svg-->
 																<span class="svg-icon svg-icon-1 svg-icon-primary">
@@ -93,7 +94,7 @@
 																</span>
 																<!--end::Svg Icon-->
 															</a>
-															<a href="#" class="btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Upgrade to Pro</a>
+															<a href="#" class="btn btn-sm btn-light-success fw-bolder ms-2 fs-8 py-1 px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan">Pro</a>
 														</div>
 														<!--end::Name-->
 														<!--begin::Info-->
@@ -106,7 +107,7 @@
 																	<path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z" fill="currentColor" />
 																</svg>
 															</span>
-															<!--end::Svg Icon-->Developer</a>
+															<!--end::Svg Icon-->{{$perfiluser->Cargo}}</a>
 															<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
 															<!--begin::Svg Icon | path: icons/duotune/general/gen018.svg-->
 															<span class="svg-icon svg-icon-4 me-1">
@@ -115,7 +116,7 @@
 																	<path d="M12.0624 13.0453C13.7193 13.0453 15.0624 11.7022 15.0624 10.0453C15.0624 8.38849 13.7193 7.04535 12.0624 7.04535C10.4056 7.04535 9.06241 8.38849 9.06241 10.0453C9.06241 11.7022 10.4056 13.0453 12.0624 13.0453Z" fill="currentColor" />
 																</svg>
 															</span>
-															<!--end::Svg Icon-->SF, Bay Area</a>
+															<!--end::Svg Icon-->{{$perfiluser->Lugar_Designado}}</a>
 															<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
 															<!--begin::Svg Icon | path: icons/duotune/communication/com011.svg-->
 															<span class="svg-icon svg-icon-4 me-1">
@@ -124,7 +125,7 @@
 																	<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z" fill="currentColor" />
 																</svg>
 															</span>
-															<!--end::Svg Icon-->max@kt.com</a>
+															<!--end::Svg Icon-->{{$perfiluser->Estado}}</a>
 														</div>
 														<!--end::Info-->
 													</div>
@@ -152,11 +153,11 @@
 																		</svg>
 																	</span>
 																	<!--end::Svg Icon-->
-																	<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="4500" data-kt-countup-prefix="$">0</div>
+																	<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$manteDetalleCount}}" data-kt-countup-prefix="">0</div>
 																</div>
 																<!--end::Number-->
 																<!--begin::Label-->
-																<div class="fw-bold fs-6 text-gray-400">Earnings</div>
+																<div class="fw-bold fs-6 text-gray-400">Mantenimientos</div>
 																<!--end::Label-->
 															</div>
 															<!--end::Stat-->
@@ -165,18 +166,18 @@
 																<!--begin::Number-->
 																<div class="d-flex align-items-center">
 																	<!--begin::Svg Icon | path: icons/duotune/arrows/arr065.svg-->
-																	<span class="svg-icon svg-icon-3 svg-icon-danger me-2">
+																	<span class="svg-icon svg-icon-3 svg-icon-success me-2">
 																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																			<rect opacity="0.5" x="11" y="18" width="13" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor" />
-																			<path d="M11.4343 15.4343L7.25 11.25C6.83579 10.8358 6.16421 10.8358 5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75L11.2929 18.2929C11.6834 18.6834 12.3166 18.6834 12.7071 18.2929L18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25C17.8358 10.8358 17.1642 10.8358 16.75 11.25L12.5657 15.4343C12.2533 15.7467 11.7467 15.7467 11.4343 15.4343Z" fill="currentColor" />
+																			<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="currentColor" />
+																			<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="currentColor" />
 																		</svg>
 																	</span>
 																	<!--end::Svg Icon-->
-																	<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="75">0</div>
+																	<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$manteProyectoCount}}">0</div>
 																</div>
 																<!--end::Number-->
 																<!--begin::Label-->
-																<div class="fw-bold fs-6 text-gray-400">Projects</div>
+																<div class="fw-bold fs-6 text-gray-400">Proyectos</div>
 																<!--end::Label-->
 															</div>
 															<!--end::Stat-->
@@ -192,11 +193,11 @@
 																		</svg>
 																	</span>
 																	<!--end::Svg Icon-->
-																	<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="60" data-kt-countup-prefix="%">0</div>
+																	<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="{{$manteInspeccionCount}}" data-kt-countup-prefix="">0</div>
 																</div>
 																<!--end::Number-->
 																<!--begin::Label-->
-																<div class="fw-bold fs-6 text-gray-400">Success Rate</div>
+																<div class="fw-bold fs-6 text-gray-400">Inspecciones</div>
 																<!--end::Label-->
 															</div>
 															<!--end::Stat-->
@@ -205,15 +206,15 @@
 													</div>
 													<!--end::Wrapper-->
 													<!--begin::Progress-->
-													<div class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
+													{{-- <div class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
 														<div class="d-flex justify-content-between w-100 mt-auto mb-2">
-															<span class="fw-bold fs-6 text-gray-400">Profile Compleation</span>
-															<span class="fw-bolder fs-6">90%</span>
+															<span class="fw-bold fs-6 text-gray-400">Trabajos Finalizados</span>
+															<span class="fw-bolder fs-6">{{$porTotal}}%</span>
 														</div>
 														<div class="h-5px mx-3 w-100 bg-light mb-3">
-															<div class="bg-success rounded h-5px" role="progressbar" style="width: 90%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+															<div class="bg-success rounded h-5px" role="progressbar" style="width: {{$porTotal}}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 														</div>
-													</div>
+													</div> --}}
 													<!--end::Progress-->
 												</div>
 												<!--end::Stats-->
@@ -222,7 +223,7 @@
 										</div>
 										<!--end::Details-->
 										<!--begin::Navs-->
-										{{-- <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
+									{{-- 	<ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
 											<!--begin::Nav item-->
 											<li class="nav-item mt-2">
 												<a class="nav-link text-active-primary ms-0 me-10 py-5 active" href="../../demo1/dist/account/overview.html">Overview</a>
@@ -285,11 +286,11 @@
 										<!--begin::Row-->
 										<div class="row mb-7">
 											<!--begin::Label-->
-											<label class="col-lg-4 fw-bold text-muted">Full Name</label>
+											<label class="col-lg-4 fw-bold text-muted">Nombres</label>
 											<!--end::Label-->
 											<!--begin::Col-->
 											<div class="col-lg-8">
-												<span class="fw-bolder fs-6 text-gray-800">Max Smith</span>
+												<span class="fw-bolder fs-6 text-gray-800">{{$perfiluser->Nombres}}</span>
 											</div>
 											<!--end::Col-->
 										</div>
@@ -297,11 +298,21 @@
 										<!--begin::Input group-->
 										<div class="row mb-7">
 											<!--begin::Label-->
-											<label class="col-lg-4 fw-bold text-muted">Company</label>
+											<label class="col-lg-4 fw-bold text-muted">Paterno</label>
 											<!--end::Label-->
 											<!--begin::Col-->
 											<div class="col-lg-8 fv-row">
-												<span class="fw-bold text-gray-800 fs-6">Keenthemes</span>
+												<span class="fw-bold text-gray-800 fs-6">{{$perfiluser->Paterno}}</span>
+											</div>
+											<!--end::Col-->
+										</div>
+										<div class="row mb-7">
+											<!--begin::Label-->
+											<label class="col-lg-4 fw-bold text-muted">Materno</label>
+											<!--end::Label-->
+											<!--begin::Col-->
+											<div class="col-lg-8 fv-row">
+												<span class="fw-bold text-gray-800 fs-6">{{$perfiluser->Materno}}</span>
 											</div>
 											<!--end::Col-->
 										</div>
@@ -309,12 +320,12 @@
 										<!--begin::Input group-->
 										<div class="row mb-7">
 											<!--begin::Label-->
-											<label class="col-lg-4 fw-bold text-muted">Contact Phone
-											<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Phone number must be active"></i></label>
+											<label class="col-lg-4 fw-bold text-muted">Estado
+											<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Usuario esta verificado"></i></label>
 											<!--end::Label-->
 											<!--begin::Col-->
 											<div class="col-lg-8 d-flex align-items-center">
-												<span class="fw-bolder fs-6 text-gray-800 me-2">044 3276 454 935</span>
+												<span class="fw-bolder fs-6 text-gray-800 me-2">{{$perfiluser->Estado}}</span>
 												<span class="badge badge-success">Verified</span>
 											</div>
 											<!--end::Col-->
@@ -323,11 +334,31 @@
 										<!--begin::Input group-->
 										<div class="row mb-7">
 											<!--begin::Label-->
-											<label class="col-lg-4 fw-bold text-muted">Company Site</label>
+											<label class="col-lg-4 fw-bold text-muted">Cedula de Identidad</label>
 											<!--end::Label-->
 											<!--begin::Col-->
 											<div class="col-lg-8">
-												<a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary">keenthemes.com</a>
+												<a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary">{{$perfiluser->Ci}}</a>
+											</div>
+											<!--end::Col-->
+										</div>
+										<div class="row mb-7">
+											<!--begin::Label-->
+											<label class="col-lg-4 fw-bold text-muted">Expedido</label>
+											<!--end::Label-->
+											<!--begin::Col-->
+											<div class="col-lg-8">
+												<a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary">{{$perfiluser->Expedido}}</a>
+											</div>
+											<!--end::Col-->
+										</div>
+										<div class="row mb-7">
+											<!--begin::Label-->
+											<label class="col-lg-4 fw-bold text-muted">Numero de Celular</label>
+											<!--end::Label-->
+											<!--begin::Col-->
+											<div class="col-lg-8">
+												<a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary">{{$perfiluser->Celular}}</a>
 											</div>
 											<!--end::Col-->
 										</div>
@@ -335,12 +366,12 @@
 										<!--begin::Input group-->
 										<div class="row mb-7">
 											<!--begin::Label-->
-											<label class="col-lg-4 fw-bold text-muted">Country
+											<label class="col-lg-4 fw-bold text-muted">Cargo
 											<i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Country of origination"></i></label>
 											<!--end::Label-->
 											<!--begin::Col-->
 											<div class="col-lg-8">
-												<span class="fw-bolder fs-6 text-gray-800">Germany</span>
+												<span class="fw-bolder fs-6 text-gray-800">{{$perfiluser->Cargo}}</span>
 											</div>
 											<!--end::Col-->
 										</div>
@@ -348,29 +379,20 @@
 										<!--begin::Input group-->
 										<div class="row mb-7">
 											<!--begin::Label-->
-											<label class="col-lg-4 fw-bold text-muted">Communication</label>
+											<label class="col-lg-4 fw-bold text-muted">Responsable de</label>
 											<!--end::Label-->
 											<!--begin::Col-->
 											<div class="col-lg-8">
-												<span class="fw-bolder fs-6 text-gray-800">Email, Phone</span>
+												<span class="fw-bolder fs-6 text-gray-800">{{$perfiluser->Lugar_Designado}}</span>
 											</div>
 											<!--end::Col-->
 										</div>
 										<!--end::Input group-->
 										<!--begin::Input group-->
-										<div class="row mb-10">
-											<!--begin::Label-->
-											<label class="col-lg-4 fw-bold text-muted">Allow Changes</label>
-											<!--begin::Label-->
-											<!--begin::Label-->
-											<div class="col-lg-8">
-												<span class="fw-bold fs-6 text-gray-800">Yes</span>
-											</div>
-											<!--begin::Label-->
-										</div>
-										<!--end::Input group-->
+										
 
 										<!--begin::Notice-->
+										{{-- la notificacion de la parte de  perfil que desabilitamos --}}
 										{{-- <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
 											<!--begin::Icon-->
 											<!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->

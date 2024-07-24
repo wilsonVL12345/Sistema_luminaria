@@ -202,9 +202,10 @@ class proyectoController extends Controller
         $fin = 'Finalizado';
 
         $regisProyectoEjec = proyecto::find($idp);
-        $regisProyectoEjec->Ejecutado_Por = $request->txtejec . ' ' . session('paterno') . ' ' . session('nombres');
+        $regisProyectoEjec->Ejecutado_Por = $request->txtejec;
         $regisProyectoEjec->Fecha_Ejecutada = $request->txtfechaInst;
         $regisProyectoEjec->Estado = $fin;
+        $regisProyectoEjec->Realizado_Por = session('id');
         $regisProyectoEjec->save();
         try {
             if ($request->utilizadosreu) {

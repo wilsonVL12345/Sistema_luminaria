@@ -254,16 +254,16 @@
 																	<div class="from row">
 																		<div class="col-md-3 mb-3">
 																					<label for="sldistrimodi" class="required fs-5 fw-bold mb-2">Distrito</label>
-																					<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Selecione..." name="sldistrimodi"  required >
+																					<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Selecione..." name="sldistrimodi" id="sldistrimodi" required >
 																					<option value="" >Seleccione...</option>
 																					@foreach ($listadistrito as $item)
-																					<option value="{{$item->id}}" {{$itemEspera->Distritos_id==$item->Distrito ? 'selected':''}}>{{$item->Distrito}}</option>
+																					<option value="{{$item->id}}" {{$itemEspera->Distritos_id==$item->id ? 'selected':''}}>{{$item->Distrito}}</option>
 																					@endforeach
 																					</select>
 																		</div>
 																		<div class="col-md-3 mb-3">
 																			<label for="txtnrosisco" class="required fs-5 fw-bold mb-2">Nro Sisco</label>
-																			<input type="text" class="form-control form-control-solid " id="txtnrosisco" name="txtnrosisco" required >
+																			<input type="text" class="form-control form-control-solid " id="txtnrosisco" name="txtnrosisco" value="{{$itemEspera->Nro_Sisco}}" required >
 																		</div>
 																		<div class="col-md-6 mb-3">
 																			<label for="txtzonaurb" class="required fs-5 fw-bold mb-2">Urbanizacion</label>

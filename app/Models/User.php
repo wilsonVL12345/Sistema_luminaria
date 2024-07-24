@@ -33,6 +33,7 @@ class User extends Authenticatable
         'Cargo',
         'Lugar_Designado',
         'Estado',
+        'perfil',
         'Usuario',
         'Password',
     ];

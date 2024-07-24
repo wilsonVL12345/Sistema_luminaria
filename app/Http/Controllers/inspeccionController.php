@@ -46,7 +46,7 @@ class inspeccionController extends Controller
 
             //aqui poner el id del que va a agregar el trabajo
             $fk = session('id');
-            $espera = 'En espera';
+            $espera = 'En Espera';
             //se a creado un acceso directo para que pueda acceder a esa carpeta
 
             $inspeccion = new inspeccion();
@@ -84,7 +84,7 @@ class inspeccionController extends Controller
     public function ready(Request $request)
     {
         try {
-            $inspe = 'Realizado';
+            $inspe = 'Finalizado';
             $emp = inspeccion::find($request->txtid);
 
             $emp->Tipo_Inspeccion = $request->txttipo;
@@ -92,7 +92,7 @@ class inspeccionController extends Controller
             $emp->Estado = $request->txtestado;
             $emp->Fecha_Inspeccion = $request->txtfecha;
             $emp->Inspeccion = $inspe;
-            $emp->Inspector = session('nombres') . " " . session('paterno');
+            $emp->Inspector = session('id');
             $emp->save();
             $sql = true;
         } catch (\Throwable $th) {

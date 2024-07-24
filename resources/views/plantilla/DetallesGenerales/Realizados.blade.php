@@ -309,7 +309,7 @@
 																						];
 																					@endphp
 																					<label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo</label>
-																					<select class="form-control form-select-lg form-select-solid" data-control="select2" name="tetipTrabr[]" data-id="tetipTrabr" data-placeholder="{{$itemtrab->Tipo_Trabajo}}" data-allow-clear="true" multiple="multiple" required>
+																					<select  class="form-control form-select-lg form-select-solid" data-control="select2" name="tetipTrabr[]"  data-placeholder="{{$itemtrab->Tipo_Trabajo}}" data-allow-clear="true" multiple="multiple" required>
 																						<option value="Mantenimiento" {{ $opcionesSeleccionadas['Mantenimiento'] ? 'selected' : '' }}>Mantenimiento</option>
 																						<option value="Instalacion" {{ $opcionesSeleccionadas['Instalacion'] ? 'selected' : '' }}>Instalacion</option>
 																						<option value="Apoyo Carro Canasta" {{ $opcionesSeleccionadas['Apoyo Carro Canasta'] ? 'selected' : '' }}>Apoyo Carro Canasta</option>
