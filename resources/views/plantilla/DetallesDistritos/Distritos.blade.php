@@ -237,7 +237,8 @@
 																			</div>
 																		</div>
 																		<!--end::Modal -MODIficar urbanizacion-->
-														</div>
+														
+																	</div>
 													</div>
 													<!--begin::Modals-->
 														

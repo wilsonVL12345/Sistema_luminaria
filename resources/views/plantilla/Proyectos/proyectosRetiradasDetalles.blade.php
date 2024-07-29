@@ -15,30 +15,7 @@
 				<span class="h-20px border-gray-300 border-start mx-4"></span>
 				<!--end::Separator-->
 				<!--begin::Breadcrumb-->
-				<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">
-						<a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-300 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Account</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-300 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-dark">Security</li>
-					<!--end::Item-->
-				</ul>
-				<!--end::Breadcrumb-->
+				
 			</div>
 			<!--end::Page title-->
 			<!--begin::Actions-->
@@ -77,7 +54,7 @@
 								<div class="from row">
 									<div class="col-md-6 mb-3">
 										<label for="txtcomponentes" class=" fs-5 fw-bold mb-2">Proyecto</label>
-										<input type="text" class="form-control form-control-solid " id="txtcomponentes" name="txtcomponentes" value="{{$datosLum->Proyecto}}" readonly>
+										<input type="text" class="form-control form-control-solid " name="txtcomponentes" value="{{$datosLum->Proyecto}}" readonly>
 									</div>
 									<div class="col-md-3 mb-3">
                                         <label class="required fs-6 fw-bold mb-2">Fecha de Adquisicion</label>

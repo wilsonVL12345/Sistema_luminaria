@@ -3,7 +3,7 @@
 "use strict";
 
 // Class definition
-let KTDatatablesExample = function () {
+let tablaespera = function () {
     // Shared letiables
     let table;
     let datatable;
@@ -78,7 +78,7 @@ let KTDatatablesExample = function () {
     // Public methods
     return {
         init: function () {
-            table = document.querySelector('#kt_datatable_example');
+            table = document.querySelector('#tablaespera');
 
             if ( !table ) {
                 return;
@@ -93,5 +93,5 @@ let KTDatatablesExample = function () {
 
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
-    KTDatatablesExample.init();
+    tablaespera.init();
 });

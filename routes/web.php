@@ -11,25 +11,27 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\equipamiento;
 use Illuminate\Routing\Router;
-// use App\Http\Controllers\logincontroller;
+use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\luminaria_retiradasController;
 use App\Http\Controllers\proveedorController;
 use App\Http\Controllers\proyectoController;
-use App\Http\Controllers\Auth\LoginController;
+// use App\Http\Controllers\Auth\LoginController;
 use App\Models\proveedor;
 use Illuminate\Routing\RouteRegistrar;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use Illuminate\Support\Facades\Auth;
 
-/* Route::get('/login', function () {
+/* Route::get('/', function () {
     return view('auth.login');
 }); */
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [LoginController::class, 'login'])->name('login');
+/* Auth::routes();
 
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */
 // Auth::routes();
 
-/* Route::view('/login', "plantilla.login")->name('login'); */
+Route::view('/login', "plantilla.login")->name('login');
 
 // Route::view('/login', "auth.loginn")->name('login');
 

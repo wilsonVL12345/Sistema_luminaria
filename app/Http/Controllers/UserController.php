@@ -28,6 +28,7 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
+        // dd($request->all());
 
         if ($request->txtgenero == 'M') {
             $perf = '/storage/perfiles/perfilmas.jpg';
@@ -48,7 +49,7 @@ class UserController extends Controller
             $contrase =  $request->txtci;
             // $apellido .
 
-            $user->Nombres = $request->txtnombre;
+            $user->name = $request->txtnombre;
             $user->Paterno = $request->txtpaterno;
             $user->Materno = $request->txtmaterno;
             $user->Ci = $request->txtci;
@@ -59,8 +60,9 @@ class UserController extends Controller
             $user->Lugar_Designado = $request->txtlugarDesignado;
             $user->Estado = $estado;
             $user->perfil = $perf;
-            $user->Usuario = $usuario . $lash;
-            $user->Password = Hash::make($contrase);
+            $user->email = $usuario . $lash;
+            $user->Password = $contrase;
+            // $user->Password = Hash::make($contrase);
             $user->save();
 
             $sql = true;
@@ -102,7 +104,7 @@ class UserController extends Controller
 
         try {
             $userd = User::find($request->txtid);
-            $userd->Nombres = $request->txtnombre;
+            $userd->name = $request->txtnombre;
             $userd->Paterno = $request->txtpaterno;
             $userd->Materno = $request->txtmaterno;
             $userd->Ci = $request->txtci;

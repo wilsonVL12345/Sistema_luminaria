@@ -66,6 +66,7 @@
 <script src="{{ asset('assets/js/detallesGenerales/realizado/tablarealizado.js') }}" defer></script>
 <script src="{{ asset('assets/js/detallesGenerales/espera/carroapoyo.js') }}" defer></script>
 <script src="{{ asset('assets/js/detallesGenerales/espera/filtraUrbmodif.js') }}" defer></script>
+<script src="{{ asset('assets/js/detallesGenerales/espera/datetableEspera.js') }}" defer></script>
 
 {{-- <script src="{{ asset('assets/js/usuario/tabla.js') }}" defer></script> --}}
 {{-- <script src="{{ asset('assets/js/usuario/estado.js') }}" defer></script> --}}

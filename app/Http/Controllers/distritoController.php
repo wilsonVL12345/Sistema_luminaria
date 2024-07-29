@@ -30,6 +30,7 @@ class distritoController extends Controller
             'distrito' => $distritos
         ]);
     } */
+
     public function index(Request $request)
     {
         // Verifica si la solicitud es Ajax

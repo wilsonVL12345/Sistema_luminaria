@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class userseeder extends Seeder
 {
@@ -13,8 +14,8 @@ class userseeder extends Seeder
     */
    public function run(): void
    {
-      $user = new User();
-      $user->Nombres = "userprueba";
+      /*  $user = new User();
+      $user->name = "userprueba";
       $user->Paterno = "userprueba";
       $user->Materno = "userprueba";
       $user->Ci = "000000";
@@ -24,12 +25,12 @@ class userseeder extends Seeder
       $user->Cargo = "userprueba";
       $user->Lugar_Designado = "userprueba";
       $user->Estado = "userprueba";
-      $user->Usuario = "userprueba";
-      $user->Password = "userprueba";
-      $user->save();
+      $user->email = 'userprueba@gob.bo';
+      $user->Password = bcrypt('userprueba');
+      $user->save(); */
 
       $user = new User();
-      $user->Nombres = "admin";
+      $user->name = "admin";
       $user->Paterno = "admin";
       $user->Materno = "admin";
       $user->Ci = "000000";
@@ -39,8 +40,9 @@ class userseeder extends Seeder
       $user->Cargo = "userprueba";
       $user->Lugar_Designado = "userprueba";
       $user->Estado = "userprueba";
-      $user->Usuario = "admin@gob.bo";
-      $user->Password = "admin";
+      $user->email = "admin@gob.bo";
+      // $user->Password = Hash::make('adminadmin');
+      $user->Password = "adminadmin";
       $user->save();
    }
 }

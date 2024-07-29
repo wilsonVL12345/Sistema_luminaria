@@ -432,10 +432,10 @@
 																	<!--begin::Input group-->
 																	<div class="d-flex flex-column mb-5 fv-row">
 																		<!--begin::Label-->
-																		<label class="required fs-5 fw-bold mb-2">Nombres</label>
+																		<label class="required fs-5 fw-bold mb-2">name</label>
 																		<!--end::Label-->
 																		<!--begin::Input-->
-																		<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtnombre" required value="{{$item->Nombres}}" />
+																		<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtnombre" required value="{{$item->name}}" />
 																		<!--end::Input-->
 																	</div> 
 																	<div class="row mb-5">

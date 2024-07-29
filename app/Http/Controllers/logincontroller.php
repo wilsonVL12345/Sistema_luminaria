@@ -31,13 +31,13 @@ class logincontroller extends Controller
         if (!empty($request->txtusuario) && !empty($request->txtcontrase)) {
             $usuario = $request->txtusuario;
             $contraseña = $request->txtcontrase;
-            $user = User::where('Usuario', $usuario)
+            $user = User::where('email', $usuario)
                 ->where('Password', $contraseña)
                 ->first();
 
             if ($user) {
                 session(['id' => $user->id]);
-                session(['nombres' => $user->Nombres]);
+                session(['name' => $user->name]);
                 session(['paterno' => $user->Paterno]);
                 session(['lugarDesignado' => $user->Lugar_Designado]);
                 session(['cargo' => $user->Cargo]);

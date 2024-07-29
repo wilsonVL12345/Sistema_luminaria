@@ -11,9 +11,7 @@ let urbanizacions = function () {
         // Set date data order (assuming date is in the third column, adjust index accordingly)
         const tableRows = tableDist.querySelectorAll('tbody tr');
         
-        // If you need to process dates in the third column, you can adjust this block
-        // Since your table doesn't seem to use dates in the current setup, we'll skip this part
-
+      
         // Init datatable --- more info on datatables: https://datatables.net/manual/
         datatable = $(tableDist).DataTable({
             "info": false,
@@ -94,3 +92,5 @@ let urbanizacions = function () {
 KTUtil.onDOMContentLoaded(function () {
     urbanizacions.init();
 });
+
+

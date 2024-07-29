@@ -175,7 +175,7 @@
 												<!--end::Avatar-->
 												<!--begin::Username-->
 												<div class="d-flex flex-column">
-													<div class="fw-bolder d-flex align-items-center fs-5">{{session('nombres')}} {{session('paterno')}}
+													<div class="fw-bolder d-flex align-items-center fs-5">{{session('name')}} {{session('paterno')}}
 														<span
 															class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Activo</span>
 													</div>
@@ -276,14 +276,14 @@
 								<div class="d-flex align-items-center flex-shrink-0 user-info">
 									<?php
 									$id = session('id');
-									$nombres = session('nombres');
+									$name = session('name');
 									$paterno = session('paterno');
 									$lugarDesignado = session('lugarDesignado')/*  */;
 									$cargo = session('cargo');
 									?>
 									
 									 <div class="d-flex flex-column">
-										<span class="fw-bold text-dark capitalize">&nbsp; {{$nombres}} {{$paterno}}</span>
+										<span class="fw-bold text-dark capitalize">&nbsp; {{$name}} {{$paterno}}</span>
 										<small class="text-muted capitalize">&nbsp;
 											<i class="fas fa-map-marker-alt me-1"></i>{{$lugarDesignado}}
 										</small>

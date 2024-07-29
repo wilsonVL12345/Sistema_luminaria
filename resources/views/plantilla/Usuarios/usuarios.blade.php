@@ -339,7 +339,7 @@
 								<table class="table align-middle border rounded table-row-dashed fs-6 g-5" id="tablaUsuarios">
 									<thead>
 										<tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase">
-											<th class="min-w-100px">Nombres</th>
+											<th class="min-w-100px">name</th>
 											<th class="min-w-100px">Paterno</th>
 											<th class="min-w-100px">Materno</th>
 											<th class="min-w-100px">Status</th>
@@ -358,7 +358,7 @@
 											
 										<tr class="text-start text-gray-500 fw-bold fs-7 {{-- text-uppercase --}}">
 											<td>
-												<a href="#" class="text-gray-600 text-hover-primary mb-1">{{$itemus->Nombres}}</a>
+												<a href="#" class="text-gray-600 text-hover-primary mb-1">{{$itemus->name}}</a>
 											</td>
 											<td>
 												<a href="#" class="text-gray-600 text-hover-primary mb-1">{{$itemus->Paterno}}</a>
@@ -461,10 +461,10 @@
 																		<div class="d-flex flex-column mb-5 fv-row">
 																			<!--begin::Label-->
 																			<input type="" name="txtid" id="txtid" value="{{$itemus->id}}"  style="display: none;">
-																			<label class="required fs-5 fw-bold mb-2">Nombres</label>
+																			<label class="required fs-5 fw-bold mb-2">name</label>
 																			<!--end::Label-->
 																			<!--begin::Input-->
-																			<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtnombre" required value="{{$itemus->Nombres}}" />
+																			<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtnombre" required value="{{$itemus->name}}" />
 																			<!--end::Input-->
 																		</div> 
 																		<div class="row mb-5">

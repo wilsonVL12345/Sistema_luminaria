@@ -21,9 +21,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    protected $primarykey = 'id';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'Nombres',
+        'name',
         'Paterno',
         'Materno',
         'Ci',
@@ -34,7 +34,7 @@ class User extends Authenticatable
         'Lugar_Designado',
         'Estado',
         'perfil',
-        'Usuario',
+        'email',
         'Password',
     ];
 

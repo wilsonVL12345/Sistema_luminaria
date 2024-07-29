@@ -200,12 +200,11 @@ class proyectoController extends Controller
     public function registrarTrabajo(Request $request, $idp)
     {
         $fin = 'Finalizado';
-
         $regisProyectoEjec = proyecto::find($idp);
         $regisProyectoEjec->Ejecutado_Por = $request->txtejec;
-        $regisProyectoEjec->Fecha_Ejecutada = $request->txtfechaInst;
         $regisProyectoEjec->Estado = $fin;
         $regisProyectoEjec->Realizado_Por = session('id');
+        $regisProyectoEjec->Fecha_Ejecutada = $request->txtfechaInst;
         $regisProyectoEjec->save();
         try {
             if ($request->utilizadosreu) {
