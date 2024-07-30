@@ -21,7 +21,7 @@ class inspeccionController extends Controller
         $inspeccion = inspeccion::where('Inspeccion', 'En espera')
             ->orderBy('created_at', 'desc')
             ->get();
-        $listadistrito = distrito::all();
+        $listadistrito = Distrito::where('id', '<>', 15)->get();
         $listazonaurb = urbanizacion::all();
 
         return view('plantilla.Inspecciones.Espera', ['inspeccion' => $inspeccion, 'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb]);

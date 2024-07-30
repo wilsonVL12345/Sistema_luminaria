@@ -20,7 +20,7 @@ class distritoController extends Controller
         $todoUrban = urbanizacion::orderBy('id', 'desc')
             ->where('nombre_urbanizacion', '<>', '')
             ->get();
-        $distritos = distrito::all();
+        $distritos = Distrito::where('id', '<>', 15)->get();
         $listadistrito = urbanizacion::distinct()->get(['nombre_urbanizacion']);
 
 
@@ -51,7 +51,7 @@ class distritoController extends Controller
         $todoUrban = urbanizacion::orderBy('id', 'desc')
             ->where('nombre_urbanizacion', '<>', '')
             ->get();
-        $distritos = distrito::all();
+        $distritos = Distrito::where('id', '<>', 15)->get();
         $listadistrito = urbanizacion::distinct()->get(['nombre_urbanizacion']);
 
         // Renderizar la vista con los datos
@@ -103,7 +103,7 @@ class distritoController extends Controller
     public function datosEdit($id)
     {
         $urbEdit = urbanizacion::find($id);
-        $distEdit = distrito::all();
+        $distEdit = Distrito::where('id', '<>', 15)->get();
         return view('plantilla.DetallesDistritos.editDistrito', compact('urbEdit', 'distEdit'));
     }
     /**

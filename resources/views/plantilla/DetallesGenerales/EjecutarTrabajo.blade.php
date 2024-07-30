@@ -9,7 +9,7 @@
 			<!--begin::Page title-->
 			<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
 				<!--begin::Title-->
-				<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Administradores</h1>
+				<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">Empezar con el trabajo de Mantenimiento</h1>
 				<!--end::Title-->
 				<!--begin::Separator-->
 				<span class="h-20px border-gray-300 border-start mx-4"></span>
@@ -160,7 +160,6 @@
 										<!--end::Icon-->
 										<!--begin::Datepicker-->
 										<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaejecut" id="txtfechaejecut"  required />
-										<!--end::Datepicker-->
 									</div>
 									<!--end::Input-->
 							</div>
@@ -199,7 +198,7 @@
 							<div class="from row">
 										<div class="col-md-8 mb-3">
 												<label class="fs-6 fw-bold mb-2">Detalles de Trabajo</label>
-												<textarea class="form-control form-control-solid" rows="3" name="txtdetalles" placeholder="Ingrese una breve descripcion del Trabajo" required></textarea >
+												<textarea class="form-control form-control-solid" rows="3" name="txtdetalles" placeholder="Ingrese una breve descripcion del Trabajo" ></textarea >
 										</div>
 							</div>
 							

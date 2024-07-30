@@ -18,7 +18,7 @@ class luminaria_retiradasController extends Controller
     {
         $datosluminaria = datos_luminaria_retirada::all();
 
-        $listadistrito = distrito::all();
+        $listadistrito = Distrito::where('id', '<>', 15)->get();
         /*  $listazona = distrito::select('Zona_Urbanizacion')->distinct()->get(); */
         $listazona = urbanizacion::all();
         $listaaccesorios = lista_accesorio::all();

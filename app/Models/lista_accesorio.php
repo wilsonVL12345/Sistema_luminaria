@@ -12,9 +12,10 @@ class lista_accesorio extends Model
     protected $table = 'lista_accesorios';
     protected $fillable =
     [
+        'id',
         'Nombre_Item'
     ];
-    protected $primarykey = 'id';
+    protected $primaryKey = 'id';
 
     public function accesorios(): HasMany
     {

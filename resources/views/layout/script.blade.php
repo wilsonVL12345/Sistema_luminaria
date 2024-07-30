@@ -85,6 +85,8 @@
 <script src="{{ asset('assets/js/equipos/accesorios/tablaAccesorios.js') }}" defer></script>
 <script src="{{ asset('assets/js/detallesGenerales/realizado/filtraurbreal.js') }}" defer></script>
 <script src="{{ asset('assets/js/detallesGenerales/realizado/apoyoreal.js') }}" defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     $(document).ready(function() {
     $('.select-team-member').select2();    
@@ -124,6 +126,7 @@
       });
   });
 </script>
+
   
 
 

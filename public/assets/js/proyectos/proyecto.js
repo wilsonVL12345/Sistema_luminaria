@@ -229,6 +229,7 @@ $(document).ready(function() {
                                  <label for="txtpotencia" class="required fs-5 fw-bold mb-2">Potencia</label>
                                 <select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Seleccione..." name="campopotencia[${lumCount}][txtpotencia]" id="txtpotencia" required>
                                     <option value="">Seleccione...</option>
+                                    <option value="75 Watts">75 Watts</option>
                                     <option value="150 Watts">150 Watts</option>
                                     <option value="200 Watts">200 Watts</option>
                                     <option value="250 Watts">250 Watts</option>

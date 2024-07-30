@@ -218,6 +218,7 @@
 													<th style="font-weight: bold; text-transform: uppercase; ">Modelo</th>
 													<th style="font-weight: bold; text-transform: uppercase; ">Marca</th>
 													<th style="font-weight: bold; text-transform: uppercase; ">Potencia</th>
+													<th style="font-weight: bold; text-transform: uppercase; ">Instalado</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -227,6 +228,13 @@
 											<td>{{$itemlum->Marca}}</td>
 											<td>{{$itemlum->Modelo}}</td>
 											<td>{{$itemlum->Potencia}}</td>
+											@if ($itemlum->Lugar_Instalado)
+											<td>{{$itemlum->Lugar_Instalado}}</td>
+												
+											@else
+											<td>No</td>
+												
+											@endif
 										</tr>
 										@endforeach
 											</tbody>
@@ -237,6 +245,11 @@
 								@endif
 							
 						</div>
+						<div class="modal-footer flex-end">
+
+							<a href="/proyectos/almacen" type="button" i class="btn btn-danger me-3">Cerrar</a>
+						</div>
+
 					</div>
 				</div>
 			</div>

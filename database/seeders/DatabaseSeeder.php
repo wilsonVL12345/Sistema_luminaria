@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\lista_accesorio;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,5 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call(class: detalleseeder::class);
         $this->call(class: proyectoseeder::class);
         $this->call(class: urbanizacionseeder::class);
+        $this->call(class: listaAccesoriosseeder::class);
     }
 }

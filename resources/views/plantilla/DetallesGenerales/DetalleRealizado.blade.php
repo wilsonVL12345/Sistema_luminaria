@@ -97,14 +97,14 @@
 									
                                         <div class="col-md-6 mb-3">
                                             <label for="txtestado" class=" fs-5 fw-bold mb-2">Ejecutado Por</label>
-                                            <input type="text" class="form-control form-control-solid " id="txtestado" name="txtestado" value="{{$trabajo->EjecutadoPor}}" readonly>
+                                            <input type="text" class="form-control form-control-solid " id="txtestado" name="txtestado" value="{{$ejecutador->name.' '.$ejecutador->Paterno}}" readonly>
                                         </div>
                        
 								</div>
 								
 							</form>
 								
-							<h1 style="font-weight: bold; text-transform: uppercase;">Componentes Obserbados, con fallas</h1>
+							<h1 style="font-weight: bold; text-transform: uppercase;">Componentes Observados, con fallas</h1>
                             
                             <h3>Componentes Observados</h3>
 							<div class="table-responsive">

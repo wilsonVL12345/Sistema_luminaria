@@ -304,7 +304,7 @@
 									<thead>
 										
 										<tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase">
-											<th class="min-w-100px">Cuce-Proyecto</th>
+											<th class="min-w-100px">Cuce-Cod Proyecto</th>
 											<th class="min-w-100px">Distrito</th>
 											<th class="min-w-100px">Urbanizacion</th>
 											<th class="min-w-100px">Fecha de Adquisicion</th>

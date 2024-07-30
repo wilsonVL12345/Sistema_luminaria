@@ -9,6 +9,8 @@ use App\Models\distrito;
 use App\Models\lista_accesorio;
 use App\Models\proyecto;
 use App\Models\urbanizacion;
+use App\Models\User;
+
 use Illuminate\Foundation\Console\ViewMakeCommand;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,7 +21,7 @@ class detalleController extends Controller
     {
 
         $detalles = detalle::where('Estado', 'En Espera')->get();
-        $listadistrito = distrito::all();
+        $listadistrito = Distrito::where('id', '<>', 15)->get();
         $listazonaurb = urbanizacion::all();
 
         return view('plantilla.DetallesGenerales.Espera', compact('detalles', 'listadistrito', 'listazonaurb'));
@@ -27,27 +29,28 @@ class detalleController extends Controller
     public function realizados()
     {
         $detallesrealizados = detalle::where('Estado', 'Finalizado')->orderBy('id', 'desc')->get();
-        $listdistritos = distrito::all();
+        $listdistritos = Distrito::where('id', '<>', 15)->get();
         $listurb = urbanizacion::all();
         return view('plantilla.DetallesGenerales.Realizados', compact('detallesrealizados', 'listurb', 'listdistritos'));
     }
     public function ejecutar($id)
     {
-        $listadistrito = distrito::all();
+        $listadistrito = Distrito::where('id', '<>', 15)->get();
         $trabajo = detalle::find($id);
         $listacom = lista_accesorio::all();
         return view('plantilla.DetallesGenerales.EjecutarTrabajo', compact('listadistrito', 'trabajo', 'listacom'));
     }
     public function agendar()
     {
-        $listadistrito = distrito::all();
+        $listadistrito = Distrito::where('id', '<>', 15)->get();
         $listazonaurb = urbanizacion::all();
         return view('plantilla.Agendar.agendar', compact('listadistrito', 'listazonaurb'));
     }
     // en esta parte muestra la vista Realizar trabajos donde esta detallados todos los trabajos a realizar pendiente
     public function pendiente()
     {
-        $detall = detalle::where('Estado', 'En Espera')->get();
+        $detall = detalle::where('Estado', 'En Espera')->orderBy('id', 'desc')->get();
+
         return view('plantilla.RealizarTrabajo.trabajos', compact('detall'));
     }
 
@@ -224,8 +227,10 @@ class detalleController extends Controller
     public function DetallesRealizado(Request $request,  $id)
     {
         $trabajo = detalle::find($id);
+        $trab = $trabajo->EjecutadoPor;
+        $ejecutador = User::find($trab);
         $listacc = accesorio::where('Detalles_id', $id)->get();
-        return view('plantilla.DetallesGenerales.DetalleRealizado', compact('trabajo', 'listacc'));
+        return view('plantilla.DetallesGenerales.DetalleRealizado', compact('trabajo', 'listacc', 'ejecutador'));
     }
 
     /**

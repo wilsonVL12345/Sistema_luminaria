@@ -26,28 +26,74 @@ let tablaRealizarTrabajo = function () {
     }
 
     // Hook export buttons
-    let exportButtons = () => {
+    /* let exportButtons = () => {
         const documentTitle = 'Lista Trabajar a Realizar';
         let buttons = new $.fn.dataTable.Buttons(table, {
             buttons: [
-                {
-                    extend: 'copyHtml5',
-                    title: documentTitle
-                },
-                {
-                    extend: 'excelHtml5',
-                    title: documentTitle
-                },
-                {
-                    extend: 'csvHtml5',
-                    title: documentTitle
-                },
-                {
-                    extend: 'pdfHtml5',
-                    title: documentTitle
-                }
+                 {
+                        extend: 'copyHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    }
             ]
-        }).container().appendTo($('#kt_datatable_example_buttons'));
+        }).container().appendTo($('#kt_datatable_example_buttons')); */
+        let exportButtons = () => {
+            const documentTitle = 'Lista Trabajar a Realizar';
+            let buttons = new $.fn.dataTable.Buttons(table, {
+                buttons: [
+                    {
+                        extend: 'copyHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    }
+                ]
+            }).container().appendTo($('#kt_datatable_example_buttons'));
 
         // Hook dropdown menu click event to datatable export buttons
         const exportButtons = document.querySelectorAll('#kt_datatable_example_export_menu [data-kt-export]');

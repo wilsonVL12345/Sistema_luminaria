@@ -269,30 +269,68 @@
 																			<label for="txtzonaurb" class="required fs-5 fw-bold mb-2">Urbanizacion</label>
 																			<select  aria-label="Select a Country"
 																			data-control="select2"
-																			data-placeholder="Seleccionar Urbanizacion"
+																			data-placeholder="{{$itemEspera->Zona}}"
+																			data-dropdown-parent="#modalModificarDetalleEspera"
 																			class="form-control form-select-solid fw-bolder" name="txtzonaurb" id="txtzonaurb" required>
-																			<option value="">Seleccion...</option>
+																			<option value="{{$itemEspera->Zona}}"  >{{$itemEspera->Zona}}</option>
+
 																			</select>
 																		</div>
 																	</div>
 																	<div class="from row">
 																		<div class="col-md-6 mb-3">
-																			<label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo a realizar</label>
+																			{{-- <label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo a realizar</label>
 																			<select class="form-control form-select-lg form-select-solid" data-control="select2" name="selectedStates[]"  data-placeholder="Seleccione..." data-allow-clear="true" multiple="multiple" required>
 																				<option value="Mantenimiento">Mantenimiento</option>
 																				<option value="Instalacion">Instalacion</option>
 																				<option value="Apoyo Carro Canasta">Apoyo Carro Canasta</option>
-																			</select>										
+																			</select> --}}	
+																			
+																			@php
+																						$texto = strtolower($itemEspera->Tipo_Trabajo);
+																						$opcionesSeleccionadas = [
+																							'Mantenimiento' => strpos($texto, 'mantenimiento') !== false,
+																							'Instalacion' => strpos($texto, 'instalacion') !== false,
+																							'Apoyo Carro Canasta' => strpos($texto, 'apoyo') !== false && strpos($texto, 'carro') !== false && strpos($texto, 'canasta') !== false
+																						];
+																			@endphp
+																					<label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo</label>
+																					<select  class="form-control form-select-lg form-select-solid" data-control="select2" name="selectedStates[]"  data-placeholder="{{$itemEspera->Tipo_Trabajo}}" data-allow-clear="true" multiple="multiple" required>
+																						<option value="Mantenimiento" {{ $opcionesSeleccionadas['Mantenimiento'] ? 'selected' : '' }}>Mantenimiento</option>
+																						<option value="Instalacion" {{ $opcionesSeleccionadas['Instalacion'] ? 'selected' : '' }}>Instalacion</option>
+																						<option value="Apoyo Carro Canasta" {{ $opcionesSeleccionadas['Apoyo Carro Canasta'] ? 'selected' : '' }}>Apoyo Carro Canasta</option>
+																					</select>
 																		</div>
 																		{{-- esta parte  no tiene que estar visible asta que se seleccione carro canasta --}}
-																		<div class="col-md-3 mb-3" id="apoyo-distrito" style="display: none;">
-																			<label for="txtcontratacion" class="required fs-5 fw-bold mb-2">Apoyo a Distrito</label>
+																		<div class="col-md-3 mb-3" id="apoyo-distrito"  >
+																			{{-- <label for="txtcontratacion" class="required fs-5 fw-bold mb-2">Apoyo a Distrito</label>
 																			<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="txtapoyo" id="txtapoyo"  >
 																				<option value="" >Seleccione...</option>
 																				@foreach ($listadistrito as $item)
 																				<option value="{{$item->Distrito}}">{{$item->Distrito}}</option>
 																				@endforeach
-																				</select>
+																				</select> --}}
+
+																				@php
+																						// Extraer el número del campo de tipo de trabajo
+																						preg_match('/D-(\d+)/', $itemEspera->Tipo_Trabajo, $matches);
+																						$numeroDistrito = isset($matches[1]) ? (int)$matches[1] : null;
+																					@endphp
+
+																					<label for="txtcontratacion" class="required fs-5 fw-bold mb-2">Apoyo a Distrito</label>
+																					<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="apoyoDistRe" data-id="apoyoDistRe">
+																						<option value="">Seleccione...</option>
+																						@foreach ($listadistrito as $item)
+																							@php
+																								// Extraer el número del distrito actual
+																								preg_match('/D-(\d+)/', $item->Distrito, $itemMatches);
+																								$itemNumero = isset($itemMatches[1]) ? (int)$itemMatches[1] : null;
+																							@endphp
+																							<option value="{{ $item->Distrito }}" {{ $numeroDistrito === $itemNumero ? 'selected' : '' }}>
+																								{{ $item->Distrito }}
+																							</option>
+																						@endforeach
+																					</select>
 																		</div>
 																		
 																	</div>
@@ -309,13 +347,18 @@
 																		<div class="col-md-3 mb-3">
 																			<label for="rnotificar"  class=" fs-5 fw-bold mb-2">Notificar?</label>
 																			<label class="form-check form-switch form-check-custom form-check-solid">
-																				<!--begin::Input-->
-																				<input class="form-check-input" name="rnotificar"  id="rnotificar" type="checkbox" value="1"    />
-																				<!--end::Input-->
-																				<!--begin::Label-->
+																			
+																			@if ($itemEspera->Observaciones)
+																				<input class="form-check-input" name="rnotificar"  id="rnotificar" type="checkbox" checked value="1"    />
 																				<span class="form-check-label fw-bold text-muted">Si</span>
-																				<!--end::Label-->
+																			
+																			</label>	
+																			@else
+																				<input class="form-check-input" name="rnotificar"  id="rnotificar" type="checkbox"  value="1"    />
+																				<span class="form-check-label fw-bold text-muted">Si</span>
 																			</label>
+																			@endif
+
 																		</div>
 																		
 																		<div class="col-md-3 mb-3">
@@ -334,7 +377,7 @@
 																					<!--end::Svg Icon-->
 																					<!--end::Icon-->
 																					<!--begin::Datepicker-->
-																					<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramada"  required />
+																					<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramada" value="{{$itemEspera->Fecha_Programado}}"  required />
 																					<!--end::Datepicker-->
 																				</div>
 																				<!--end::Input-->
@@ -349,7 +392,7 @@
 																			
 																		</div>
 																	</div> --}}
-																	<div class="modal-footer flex-end">
+																	{{-- <div class="modal-footer flex-end">
 																		<!--begin::Button-->
 																		<!--end::Button-->
 																		<!--begin::Button-->
@@ -359,14 +402,14 @@
 																			<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 																		</button>
 																		<!--end::Button-->
+																	</div> --}}
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+																		<button type="button" class="btn btn-primary">Modificar</button>
 																	</div>
 																</form>
 															</div>
 												
-															<div class="modal-footer">
-																<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-																<button type="button" class="btn btn-primary">Save changes</button>
-															</div>
 														</div>
 													</div>
 												</div>

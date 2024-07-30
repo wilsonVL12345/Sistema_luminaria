@@ -39,6 +39,7 @@ class userseeder extends Seeder
       $user->Genero = "userprueba";
       $user->Cargo = "userprueba";
       $user->Lugar_Designado = "userprueba";
+      $user->perfil = "/storage/perfiles/perfilmas.jpg";
       $user->Estado = "userprueba";
       $user->email = "admin@gob.bo";
       // $user->Password = Hash::make('adminadmin');

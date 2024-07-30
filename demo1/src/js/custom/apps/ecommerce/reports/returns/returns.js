@@ -56,22 +56,34 @@ var KTAppEcommerceReportReturns = function () {
         const documentTitle = 'Returns Report';
         var buttons = new $.fn.dataTable.Buttons(table, {
             buttons: [
-                {
-                    extend: 'copyHtml5',
-                    title: documentTitle
-                },
-                {
-                    extend: 'excelHtml5',
-                    title: documentTitle
-                },
-                {
-                    extend: 'csvHtml5',
-                    title: documentTitle
-                },
-                {
-                    extend: 'pdfHtml5',
-                    title: documentTitle
-                }
+                 {
+                        extend: 'copyHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        title: documentTitle,
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    }
             ]
         }).container().appendTo($('#kt_ecommerce_report_returns_export'));
 

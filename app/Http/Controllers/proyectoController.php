@@ -24,7 +24,7 @@ class proyectoController extends Controller
         $reutilizadas = luminarias_reutilizada::all();
         $accesorio = accesorio::all();
         $luminaria = luminaria::all();
-        $listadistrito = distrito::all();
+        $listadistrito = Distrito::where('id', '<>', 15)->get();
         $listazonaurb = urbanizacion::all();
         return view('plantilla.Proyectos.proyectosAlmacen', [
             'proyecto' => $proyecto,
@@ -264,7 +264,7 @@ class proyectoController extends Controller
         $reutilizadas = luminarias_reutilizada::all();
         $accesorio = accesorio::all();
         $luminaria = luminaria::all();
-        $listadistrito = distrito::all();
+        $listadistrito = Distrito::where('id', '<>', 15)->get();
         $listazonaurb = urbanizacion::all();
 
         return view('plantilla.Proyectos.proyectosObrasEjecutadas', [

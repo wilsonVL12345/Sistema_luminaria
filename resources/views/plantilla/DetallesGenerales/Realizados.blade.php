@@ -343,20 +343,20 @@
 																		<!-- Tercera fila -->
 																		<div class="form row">
 																			<div class="col-md-3 mb-3">
-																				<label for="file1" class="required fs-5 fw-bold mb-2">Subir Carta</label>
+																				<label for="file1" class=" fs-5 fw-bold mb-2">Subir Carta</label>
 																				<input type="file" class="form-control form-control-solid" id="file1" name="file1" required>
 																			</div>
 																			<div class="col-md-3 mb-3">
 																				<label for="text4" class="required fs-5 fw-bold mb-2">Observacion</label>
-																				<input type="text" class="form-control form-control-solid" id="text4" name="text4" placeholder="Ingresar Datos" required>
+																				<input type="text" class="form-control form-control-solid" id="text4" name="text4" value="{{$itemtrab->Observaciones}}" placeholder="Ingresar Datos" required>
 																			</div>
 																			<div class="col-md-3 mb-3">
 																				<label for="text5" class="required fs-5 fw-bold mb-2">Puntos</label>
-																				<input type="text" class="form-control form-control-solid" id="text5" name="text5" placeholder="Ingresar Datos" required>
+																				<input type="text" class="form-control form-control-solid" id="text5" name="text5" value="{{$itemtrab->Puntos}}" placeholder="Ingresar Datos" required>
 																			</div>
 																			<div class="col-md-3 mb-3">
 																				<label for="dtFechaAtenr" class="required fs-5 fw-bold mb-2">Fecha de Atencion</label>
-																				<input type="date" class="form-control form-control-solid" id="dtFechaAtenr" name="dtFechaAtenr" required>
+																				<input type="date" class="form-control form-control-solid" id="dtFechaAtenr" name="dtFechaAtenr" value="{{$itemtrab->Fecha_Inicio}}" required>
 																			</div>
 																		</div>
 																	</div>
