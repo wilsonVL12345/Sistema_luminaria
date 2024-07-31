@@ -167,7 +167,7 @@
 														<!--begin::Menu item-->
 														
 														<div class="menu-item px-3">
-															<a href="#" data-bs-toggle="modal" data-bs-target="#modalModificarDetalleEspera"
+															<a href="#" data-bs-toggle="modal" data-bs-target="#modalModificarDetalleEspera{{$itemEspera->id}}"
 																class="menu-link px-3">Editar</a>
 																
 														</div>
@@ -235,7 +235,7 @@
 											</div>
 											<!--end::Modal - imagen carta-->
 												<!--begin::Modal - editar detalle espera-->
-												<div class="modal fade" tabindex="-1" id="modalModificarDetalleEspera">
+												<div class="modal fade" tabindex="-1" id="modalModificarDetalleEspera{{$itemEspera->id}}">
 													<div class="modal-dialog modal-lg">
 														<div class="modal-content">
 															<div class="modal-header">
@@ -254,7 +254,7 @@
 																	<div class="from row">
 																		<div class="col-md-3 mb-3">
 																					<label for="sldistrimodi" class="required fs-5 fw-bold mb-2">Distrito</label>
-																					<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Selecione..." name="sldistrimodi" id="sldistrimodi" required >
+																					<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Selecione..." name="sldistrimodi" data-id="sldistrimodi" required >
 																					<option value="" >Seleccione...</option>
 																					@foreach ($listadistrito as $item)
 																					<option value="{{$item->id}}" {{$itemEspera->Distritos_id==$item->id ? 'selected':''}}>{{$item->Distrito}}</option>
@@ -270,7 +270,7 @@
 																			<select  aria-label="Select a Country"
 																			data-control="select2"
 																			data-placeholder="{{$itemEspera->Zona}}"
-																			data-dropdown-parent="#modalModificarDetalleEspera"
+																			data-dropdown-parent="#modalModificarDetalleEspera{{$itemEspera->id}}"
 																			class="form-control form-select-solid fw-bolder" name="txtzonaurb" id="txtzonaurb" required>
 																			<option value="{{$itemEspera->Zona}}"  >{{$itemEspera->Zona}}</option>
 
@@ -278,14 +278,7 @@
 																		</div>
 																	</div>
 																	<div class="from row">
-																		<div class="col-md-6 mb-3">
-																			{{-- <label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo a realizar</label>
-																			<select class="form-control form-select-lg form-select-solid" data-control="select2" name="selectedStates[]"  data-placeholder="Seleccione..." data-allow-clear="true" multiple="multiple" required>
-																				<option value="Mantenimiento">Mantenimiento</option>
-																				<option value="Instalacion">Instalacion</option>
-																				<option value="Apoyo Carro Canasta">Apoyo Carro Canasta</option>
-																			</select> --}}	
-																			
+																		<div class="col-md-8 mb-3">
 																			@php
 																						$texto = strtolower($itemEspera->Tipo_Trabajo);
 																						$opcionesSeleccionadas = [
@@ -293,25 +286,23 @@
 																							'Instalacion' => strpos($texto, 'instalacion') !== false,
 																							'Apoyo Carro Canasta' => strpos($texto, 'apoyo') !== false && strpos($texto, 'carro') !== false && strpos($texto, 'canasta') !== false
 																						];
-																			@endphp
+																					@endphp
 																					<label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo</label>
-																					<select  class="form-control form-select-lg form-select-solid" data-control="select2" name="selectedStates[]"  data-placeholder="{{$itemEspera->Tipo_Trabajo}}" data-allow-clear="true" multiple="multiple" required>
+																					<select  class="form-control form-select-lg form-select-solid" data-control="select2" name="tetipTrabres[]" data-placeholder="{{$itemEspera->Tipo_Trabajo}}"   data-allow-clear="true" multiple="multiple" data-id="tipoTrabajoSelect" required>
+
 																						<option value="Mantenimiento" {{ $opcionesSeleccionadas['Mantenimiento'] ? 'selected' : '' }}>Mantenimiento</option>
 																						<option value="Instalacion" {{ $opcionesSeleccionadas['Instalacion'] ? 'selected' : '' }}>Instalacion</option>
 																						<option value="Apoyo Carro Canasta" {{ $opcionesSeleccionadas['Apoyo Carro Canasta'] ? 'selected' : '' }}>Apoyo Carro Canasta</option>
-																					</select>
+																					</select>	
+																			
+																			
 																		</div>
+																		
 																		{{-- esta parte  no tiene que estar visible asta que se seleccione carro canasta --}}
-																		<div class="col-md-3 mb-3" id="apoyo-distrito"  >
-																			{{-- <label for="txtcontratacion" class="required fs-5 fw-bold mb-2">Apoyo a Distrito</label>
-																			<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="txtapoyo" id="txtapoyo"  >
-																				<option value="" >Seleccione...</option>
-																				@foreach ($listadistrito as $item)
-																				<option value="{{$item->Distrito}}">{{$item->Distrito}}</option>
-																				@endforeach
-																				</select> --}}
+																		<div class="col-md-3 mb-3" id="apoyo-distritoEspera" style="display: none;" >
+																			
 
-																				@php
+																					@php
 																						// Extraer el número del campo de tipo de trabajo
 																						preg_match('/D-(\d+)/', $itemEspera->Tipo_Trabajo, $matches);
 																						$numeroDistrito = isset($matches[1]) ? (int)$matches[1] : null;
@@ -337,7 +328,7 @@
 																	<div class="from row">
 																		<div class="col-md-6 mb-3">
 																			<label for="imgcarta" class=" fs-5 fw-bold mb-2">Carta</label>
-																			<input type="file" id="imgcarta"  name="imgcarta" accept="image/*" class="form-control">
+																			<input type="file" id="imgcarta"  name="imgcarta" accept="image/*" class="form-control" >
 																				@error('imgcarta')
 																					<small class="text-danger">{{$message}}</small>
 																				@enderror
@@ -345,21 +336,20 @@
 																		
 																			
 																		<div class="col-md-3 mb-3">
-																			<label for="rnotificar"  class=" fs-5 fw-bold mb-2">Notificar?</label>
-																			<label class="form-check form-switch form-check-custom form-check-solid">
-																			
+																			<label for="rnotificar" class="fs-5 fw-bold mb-2">Notificar?</label>
 																			@if ($itemEspera->Observaciones)
-																				<input class="form-check-input" name="rnotificar"  id="rnotificar" type="checkbox" checked value="1"    />
-																				<span class="form-check-label fw-bold text-muted">Si</span>
-																			
-																			</label>	
+																				<label class="form-check form-switch form-check-custom form-check-solid">
+																					<input class="form-check-input" name="rnotificar" id="rnotificar" type="checkbox" checked value="1" />
+																					<span class="form-check-label fw-bold text-muted">Si</span>
+																				</label>
 																			@else
-																				<input class="form-check-input" name="rnotificar"  id="rnotificar" type="checkbox"  value="1"    />
-																				<span class="form-check-label fw-bold text-muted">Si</span>
-																			</label>
+																				<label class="form-check form-switch form-check-custom form-check-solid">
+																					<input class="form-check-input" name="rnotificar" id="rnotificar" type="checkbox" value="1" />
+																					<span class="form-check-label fw-bold text-muted">Si</span>
+																				</label>
 																			@endif
-
 																		</div>
+																		
 																		
 																		<div class="col-md-3 mb-3">
 																				<label class="required fs-6 fw-bold mb-2">Fecha Programada</label>

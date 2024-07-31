@@ -300,7 +300,7 @@
 																		<div class="form row">
 																			<div class="col-md-8 mb-3">
 																				
-																					@php
+																				{{-- 	@php
 																						$texto = strtolower($itemtrab->Tipo_Trabajo);
 																						$opcionesSeleccionadas = [
 																							'Mantenimiento' => strpos($texto, 'mantenimiento') !== false,
@@ -313,17 +313,35 @@
 																						<option value="Mantenimiento" {{ $opcionesSeleccionadas['Mantenimiento'] ? 'selected' : '' }}>Mantenimiento</option>
 																						<option value="Instalacion" {{ $opcionesSeleccionadas['Instalacion'] ? 'selected' : '' }}>Instalacion</option>
 																						<option value="Apoyo Carro Canasta" {{ $opcionesSeleccionadas['Apoyo Carro Canasta'] ? 'selected' : '' }}>Apoyo Carro Canasta</option>
-																					</select>								
+																					</select>	 --}}		
+																					@php
+																						$texto = strtolower($itemtrab->Tipo_Trabajo);
+																						$opcionesSeleccionadas = [
+																							'Mantenimiento' => strpos($texto, 'mantenimiento') !== false,
+																							'Instalacion' => strpos($texto, 'instalacion') !== false,
+																							'Apoyo Carro Canasta' => strpos($texto, 'apoyo') !== false && strpos($texto, 'carro') !== false && strpos($texto, 'canasta') !== false
+																						];
+																					@endphp
+																					<label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo</label>
+																					<select  class="form-control form-select-lg form-select-solid" data-control="select2" name="tetipTrabrrea[]" data-placeholder="{{$itemtrab->Tipo_Trabajo}}"   data-allow-clear="true" multiple="multiple" data-id="tipoTrabajoSelectrea" required>
+
+																						<option value="Mantenimiento" {{ $opcionesSeleccionadas['Mantenimiento'] ? 'selected' : '' }}>Mantenimiento</option>
+																						<option value="Instalacion" {{ $opcionesSeleccionadas['Instalacion'] ? 'selected' : '' }}>Instalacion</option>
+																						<option value="Apoyo Carro Canasta" {{ $opcionesSeleccionadas['Apoyo Carro Canasta'] ? 'selected' : '' }}>Apoyo Carro Canasta</option>
+																					</select>	
+																			
+																								
 																			</div>
 																			<div class="col-md-3 mb-3" id="apoyoDistR"  style="display: none;" >
-																				@php
+																				
+																					@php
 																						// Extraer el número del campo de tipo de trabajo
 																						preg_match('/D-(\d+)/', $itemtrab->Tipo_Trabajo, $matches);
 																						$numeroDistrito = isset($matches[1]) ? (int)$matches[1] : null;
 																					@endphp
 
 																					<label for="txtcontratacion" class="required fs-5 fw-bold mb-2">Apoyo a Distrito</label>
-																					<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="apoyoDistRe" data-id="apoyoDistRe">
+																					<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="apoyoDistRealizado" data-id="apoyoDistRealizado">
 																						<option value="">Seleccione...</option>
 																						@foreach ($listdistritos as $item)
 																							@php
@@ -347,8 +365,18 @@
 																				<input type="file" class="form-control form-control-solid" id="file1" name="file1" required>
 																			</div>
 																			<div class="col-md-3 mb-3">
-																				<label for="text4" class="required fs-5 fw-bold mb-2">Observacion</label>
-																				<input type="text" class="form-control form-control-solid" id="text4" name="text4" value="{{$itemtrab->Observaciones}}" placeholder="Ingresar Datos" required>
+																					<label for="rnotificar" class="fs-5 fw-bold mb-2">Notificar?</label>
+																					@if ($itemtrab->Observaciones)
+																						<label class="form-check form-switch form-check-custom form-check-solid">
+																							<input class="form-check-input" name="rnotificar" id="rnotificar" type="checkbox" checked value="1" />
+																							<span class="form-check-label fw-bold text-muted">Si</span>
+																						</label>
+																					@else
+																						<label class="form-check form-switch form-check-custom form-check-solid">
+																							<input class="form-check-input" name="rnotificar" id="rnotificar" type="checkbox" value="1" />
+																							<span class="form-check-label fw-bold text-muted">Si</span>
+																						</label>
+																					@endif
 																			</div>
 																			<div class="col-md-3 mb-3">
 																				<label for="text5" class="required fs-5 fw-bold mb-2">Puntos</label>

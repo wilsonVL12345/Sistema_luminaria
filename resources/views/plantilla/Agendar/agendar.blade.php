@@ -119,7 +119,7 @@
 													<!--end::Svg Icon-->
 													<!--end::Icon-->
 													<!--begin::Datepicker-->
-													<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramada"  required />
+													<input type="text" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramada"  required />
 													<!--end::Datepicker-->
 												</div>
 												<!--end::Input-->

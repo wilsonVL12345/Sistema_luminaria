@@ -133,9 +133,16 @@
 											<td>
 												<a href="#" class="text-gray-900 text-hover-primary">{{$itemtrab->Fecha_Programado}}</a>
 											</td>
+											
+											@if ($itemtrab->Foto_Carta)
 											<td>
 												<a href="#" class="text-gray-900 text-hover-primary" data-bs-toggle="modal" data-bs-target="#modalMostrarImagenTrabajos{{$itemtrab->id}}"><i class="fa-solid fa-image"></i></a>
 											</td>
+											@else
+											<td data-filter="mastercard">
+												<a href="#" ></a>
+											</td>
+											@endif
 											<td>
 												<div class="badge badge-light-danger">{{$itemtrab->Observaciones}}</div>
 											</td>

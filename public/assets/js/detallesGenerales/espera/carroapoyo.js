@@ -1,14 +1,30 @@
-/* $(document).ready(function() {
-    $('#sselectedStatess').on('change', function() {
-        if ($(this).val().includes('Apoyo Carro Canasta')) {
-            $('#apoyo--distrito').show();
-            $('#txt-apoyo').attr('required', 'required');
-        } else {
-            $('#apoyo--distrito').hide();
-            $('#txt-apoyo').removeAttr('required');
-        }
+$(document).ready(function() {
+    // Función para verificar y mostrar/ocultar el div para una fila específica
+    function checkApoyoCarroCanasta($row) {
+        let $select = $row.find('select[name="tetipTrabres[]"]');
+        let apoyoSelected = $select.find('option[value="Apoyo Carro Canasta"]').is(':selected');
+        $row.find('#apoyo-distritoEspera').toggle(apoyoSelected);
+    }
+
+    // Función para inicializar todos los selects
+    function initializeAllSelects() {
+        $('.row').each(function() {
+            checkApoyoCarroCanasta($(this));
+        });
+    }
+
+    // Inicializar al cargar la página
+    initializeAllSelects();
+
+    // Event listener para cambios en cualquier select
+    $(document).on('change', 'select[name="tetipTrabres[]"]', function() {
+        checkApoyoCarroCanasta($(this).closest('.row'));
     });
 
-    // Inicializar Select2
-    $('[data-control="select2"]').select2();
-}); */
+    // Reinicializar después de cualquier cambio en el DOM (por si se agregan nuevas filas dinámicamente)
+    $(document).on('DOMNodeInserted', function(e) {
+        if ($(e.target).find('select[name="tetipTrabres[]"]').length > 0) {
+            initializeAllSelects();
+        }
+    });
+});

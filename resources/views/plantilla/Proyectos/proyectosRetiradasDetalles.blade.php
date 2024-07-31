@@ -106,7 +106,7 @@
 											</thead>
 											<tbody>
 												@foreach ($listalum as $item)
-												<tr>
+												<tr class="fw-bold fs-6 text-gray-800" >
 												<td style="border: 1px solid black;">{{$item->Nombre}}</td>
 												<td style="border: 1px solid black;">{{$item->Cantidad}}</td>
 												<td style="border: 1px solid black;">{{$item->Reutilizables}}</td>

@@ -30,6 +30,9 @@
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     
+    {{-- <link rel="stylesheet" href="/public/assets/css/flatpickr/flatpickr.min.css">
+    <script src="/public/assets/css/flatpickr/flatpickr.min.js"></script>
+    <script src="/public/assets/css/flatpickr/src/l10n/es.js"></script> --}}
 
 {{--     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-37564768-1"></script> --}}
     {{-- es para la parte de los simbolos --}}
@@ -39,7 +42,6 @@
   
   <!--begin::Page Vendor Stylesheets(used by this page)-->
   <link href="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   {{-- <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" /> --}}
 
 

@@ -32,7 +32,7 @@
     }); 
  */
     $(document).ready(function () {
-        const $distritoSelect = $('#sldistrimodi');
+        const $distritoSelect = $('[data-id="sldistrimodi"]');
         const $zonaUrbanizacionSelect = $('#txtzonaurb');
         const $zonaSeleccionada = "{{ $itemEspera->Zona }}"; 
          $.ajax({

@@ -114,14 +114,14 @@
 							?>
                          
                          @if (!$ejecReutilizados->isEmpty())
-							<table  >
-								<tr>
-									<th>Nro</th>
-									<th>Nombre</th>
-									<th>Cantidad</th>
-									<th>Utilizados</th>
-									<th>Disponibles</th>
-									<th>Utilizar</th>
+							<table class="table table-bordered" >
+								<tr class="fw-bold fs-6 text-gray-800">
+									<th style="font-weight: bold; text-transform: uppercase; ">Nro</th>
+									<th style="font-weight: bold; text-transform: uppercase; ">Nombre</th>
+									<th style="font-weight: bold; text-transform: uppercase; ">Cantidad</th>
+									<th style="font-weight: bold; text-transform: uppercase; ">Utilizados</th>
+									<th style="font-weight: bold; text-transform: uppercase; ">Disponibles</th>
+									<th style="font-weight: bold; text-transform: uppercase; ">Utilizar</th>
 									
 								</tr>
                                     @foreach ($ejecReutilizados as $itemr)
@@ -134,7 +134,7 @@
                                         @if (!$itemr->Disponibles<=0)
                                             
 										<td>
-                                            <input type="number" name="utilizadosreu[{{$itemr->id}}]" id="">
+                                            <input type="number" name="utilizadosreu[{{$itemr->id}}]" id="" class="form-control form-control-solid ">
                                             
                                         </td>
                                         @else
@@ -160,30 +160,30 @@
 							$cond=1;
 							?>
                              @if (!$ejecAccesorios->isEmpty())
-                            <table border="1">
-                                <tr>
-                                    <th style="border: 1px solid black;" >Nro</th>
-                                    <th style="border: 1px solid black;">Nombre Item</th>
-                                    <th style="border: 1px solid black;">Cantidad</th>
-                                    <th style="border: 1px solid black;">Utilizados</th>
-                                    <th style="border: 1px solid black;">Disponibles</th>
-                                    <th style="border: 1px solid black;">Utilizar</th>
+                            <table class="table table-bordered">
+                                <tr class="fw-bold fs-6 text-gray-800">
+                                    <th style="font-weight: bold; text-transform: uppercase; " >Nro</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Nombre Item</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Cantidad</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Utilizados</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Disponibles</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Utilizar</th>
 
                                 </tr>
                                 @foreach ($ejecAccesorios as $itemacc)
                                 <tr>
-                                    <td style="border: 1px solid black;"><?php echo $cond;?></td>
-                                    <td style="border: 1px solid black;">{{$itemacc->Lista_accesorio->Nombre_Item}}</td>
-                                    <td style="border: 1px solid black;">{{$itemacc->Cantidad}}</td>
-                                    <td style="border: 1px solid black;">{{$itemacc->Utilizados}}</td>
-                                    <td style="border: 1px solid black;">{{$itemacc->Disponibles}}</td>
+                                    <td ><?php echo $cond;?></td>
+                                    <td >{{$itemacc->Lista_accesorio->Nombre_Item}}</td>
+                                    <td >{{$itemacc->Cantidad}}</td>
+                                    <td >{{$itemacc->Utilizados}}</td>
+                                    <td >{{$itemacc->Disponibles}}</td>
                                     {{-- <td>
                                         <input type="number" name="utilizadoacc[{{$itemacc->id}}]" id="" placeholder=0>
                                     </td> --}}
                                     @if (!$itemacc->Disponibles<=0)
                                             
                                     <td>
-                                        <input type="number" name="utilizadoacc[{{$itemacc->id}}]" id="">
+                                        <input type="number" name="utilizadoacc[{{$itemacc->id}}]" id="" class="form-control form-control-solid ">
                                         
                                     </td>
                                     @else
@@ -206,14 +206,14 @@
 							$cond=1;
 							?>
                              @if (!$ejecLuminarias->isEmpty())
-                            <table >
-                                <tr>
-                                    <th>Nro</th>
-                                    <th>Cod_Luminaria Item</th>
-                                    <th>Modelo</th>
-                                    <th>Marca</th>
-                                    <th>Potencia</th>
-                                    <th>Instalado?</th>
+                            <table class="table table-bordered" >
+                                <tr class="fw-bold fs-6 text-gray-800">
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Nro</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Cod_Luminaria Item</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Modelo</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Marca</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Potencia</th>
+                                    <th style="font-weight: bold; text-transform: uppercase; ">Instalado?</th>
 
                                 </tr>
                                 @foreach ($ejecLuminarias as $itemlum)
@@ -228,7 +228,7 @@
                                         
                                     @else
                                     <td>
-                                        <select name="lugarlum[{{$itemlum->id}}]" id="txtlugar">
+                                        <select name="lugarlum[{{$itemlum->id}}]" id="txtlugar" class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione...">
                                             <option value="" disabled selected >Seleccione...</option>
                                             <option value="Si"  >Si</option>
                                             <option value="No"  >No</option>
