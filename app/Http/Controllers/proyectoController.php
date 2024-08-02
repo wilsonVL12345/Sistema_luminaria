@@ -140,6 +140,9 @@ class proyectoController extends Controller
             return back()->with("incorrecto", "Error al registrar no agregaste componentes");
         }
     }
+    function editEsperaAlmacen()
+    {
+    }
 
 
 
@@ -274,9 +277,22 @@ class proyectoController extends Controller
 
         ]);
     }
+    function editObrasEjecutadas()
+    {
+    }
 
     public function destroy(string $id)
     {
         //
+    }
+    public function dashproy()
+    {
+        $dash = proyecto::all();
+        return view('plantilla.Dashboards.dashProyectos', compact('dash'));
+    }
+    public function dashdetall()
+    {
+        $dashdetalles = proyecto::all();
+        return view('plantilla.Dashboards.dashdetalles', compact('dashdetalles'));
     }
 }

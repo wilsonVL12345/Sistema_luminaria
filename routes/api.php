@@ -39,6 +39,11 @@ Route::get('/lista/accesorios', [apilistaAccesoriosController::class, 'index']);
 Route::get('/datosreutilizados/proyecto/{proyecto}', [apiProyectoController::class, 'reu']);
 Route::get('/datosluminaria/proyecto', [apiProyectoController::class, 'lum']);
 Route::get('/datosaccesorios/proyecto', [apiProyectoController::class, 'acces']);
+Route::get('/retiradas/proyecto', [apiProyectoController::class, 'proyectosEspera']);
+Route::get('/retiradasFin/proyecto', [apiProyectoController::class, 'proyectosFinalizados']);
+
+Route::get('/espera/detalles', [apiDetalleController::class, 'detallesEspera']);
+Route::get('/finalizado/detalles', [apiDetalleController::class, 'detallesFinalizados']);
 
 Route::get('/atencion/apidetall', [apiDetalleController::class, 'infoatencion']);
 Route::get('/lista/urbanizacion', [apiDetalleController::class, 'listUbanizacion']);

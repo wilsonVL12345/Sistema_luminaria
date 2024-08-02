@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\detalle;
 use App\Models\urbanizacion;
 use PhpParser\Node\Expr\FuncCall;
+use Carbon\Carbon;
 
 class apiDetalleController extends Controller
 {
@@ -29,6 +30,33 @@ class apiDetalleController extends Controller
         $listaUrb = urbanizacion::select('Nrodistrito', 'nombre_urbanizacion')->get();
         return response()->json($listaUrb);
     }
+    function detallesEspera()
+    {
+
+        $currentMonth = Carbon::now()->month;
+        for ($i = 1; $i <= 14; $i++) {
+            $responseData["d" . $i] = detalle::where('Distritos_id', $i)
+                ->where('Estado', 'En espera')
+                ->whereMonth('Fecha_Programado', $currentMonth)
+                ->count();
+        }
+
+        return response()->json($responseData);
+    }
+
+    function detallesFinalizados()
+    {
+        $currentMonth = Carbon::now()->month;
+        for ($i = 1; $i <= 14; $i++) {
+            $responseDatas["d" . $i] = detalle::where('Distritos_id', $i)
+                ->where('Estado', 'Finalizado')
+                ->whereMonth('Fecha_Inicio', $currentMonth)
+                ->count();
+        }
+
+        return response()->json($responseDatas);
+    }
+
 
     public function store(Request $request)
     {

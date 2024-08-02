@@ -29,7 +29,9 @@
     
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-    
+
+    {{-- para la parte de dshdetalles tortas --}}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     {{-- <link rel="stylesheet" href="/public/assets/css/flatpickr/flatpickr.min.css">
     <script src="/public/assets/css/flatpickr/flatpickr.min.js"></script>
     <script src="/public/assets/css/flatpickr/src/l10n/es.js"></script> --}}

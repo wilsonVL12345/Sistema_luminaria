@@ -73,7 +73,9 @@
 
 <script src="{{ asset('assets/js/proyectos/almacen/tablaalmacen.js') }}" defer></script>
 <script src="{{ asset('assets/js/proyectos/almacen/filtraUrbanizacion.js') }}" defer></script>
+<script src="{{ asset('assets/js/proyectos/almacen/filtUrbaEdit.js') }}" defer></script>
 <script src="{{ asset('assets/js/proyectos/lumRetirada/filtraurb.js') }}" defer></script>
+<script src="{{ asset('assets/js/proyectos/almacenejecutada/filtrarUrbaEjecutadas.js') }}" defer></script>
 <script src="{{ asset('assets/js/proyectos/lumRetirada/datetable.js') }}" defer></script>
 <script src="{{ asset('assets/js/proyectos/almacenejecutada/datetablefinal.js') }}" defer></script>
 
@@ -86,7 +88,8 @@
 <script src="{{ asset('assets/js/detallesGenerales/realizado/filtraurbreal.js') }}" defer></script>
 <script src="{{ asset('assets/js/detallesGenerales/realizado/apoyoreal.js') }}" defer></script>
 <script src="{{ asset('assets/js/dashboards/dashProyecto/chartgenerales.js') }}" defer></script>
-
+<script src="{{ asset('assets/js/dashboards/dashdetalle/chatdetalles.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashtorta.js') }}" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     $(document).ready(function() {

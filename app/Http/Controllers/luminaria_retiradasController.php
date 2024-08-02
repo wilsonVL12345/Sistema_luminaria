@@ -96,6 +96,9 @@ class luminaria_retiradasController extends Controller
         }
     }
 
+    function editretirada(Request $request, $id)
+    {
+    }
     /**
      * Store a newly created resource in storage.
      */

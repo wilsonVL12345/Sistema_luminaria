@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\luminaria;
 use App\Models\accesorio;
 use App\Models\luminarias_reutilizada;
+use App\Models\proyecto;
+use Carbon\Carbon;
 
 class apiProyectoController extends Controller
 {
@@ -28,6 +30,32 @@ class apiProyectoController extends Controller
 
         $reutilizada = luminarias_reutilizada::where('Proyectos_id', $id)->get();
         return response()->json($reutilizada);
+    }
+    function proyectosEspera()
+    {
+
+        $currentMonth = Carbon::now()->month;
+        for ($i = 1; $i <= 14; $i++) {
+            $responseData["d" . $i] = proyecto::where('Distritos_id', $i)
+                ->where('Estado', 'En espera')
+                ->whereMonth('Fecha_Programada', $currentMonth)
+                ->count();
+        }
+
+        return response()->json($responseData);
+    }
+
+    function proyectosFinalizados()
+    {
+        $currentMonth = Carbon::now()->month;
+        for ($i = 1; $i <= 14; $i++) {
+            $responseDatas["d" . $i] = proyecto::where('Distritos_id', $i)
+                ->where('Estado', 'Finalizado')
+                ->whereMonth('Fecha_Programada', $currentMonth)
+                ->count();
+        }
+
+        return response()->json($responseDatas);
     }
 
     /**

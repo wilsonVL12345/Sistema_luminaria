@@ -43,7 +43,7 @@ class logincontroller extends Controller
                 session(['cargo' => $user->Cargo]);
                 session(['perfil' => $user->perfil]);
                 $request->session()->regenerate();
-                return redirect(route('index'));
+                return redirect(route('dashproyectos'));
             } else {
                 return back()->with("incorrecto", "Acceso denegado");
             }

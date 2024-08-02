@@ -99,19 +99,28 @@ Route::post('/editar/equipamiento', [equipamientoController::class, 'edit'])->na
 //rutas para luminarias retiradas
 Route::get('/proyectos/luminariasRetiradas', [luminaria_retiradasController::class, 'index'])->name('proyectos.luminariasretiradas');
 Route::post('/registro/retirados', [luminaria_retiradasController::class, 'create'])->name('registro.retirados');
+Route::get('/detalles/luminarias/retiradas/{id}', [luminaria_retiradasController::class, 'retiradaDetalle'])->name('detalles.luminarias.retiradas');
+Route::post('/modificar/retirados/{id}', [luminaria_retiradasController::class, 'editretirada'])->name('modificar.retirados');
 
 //rutas proyectos  ---------------------------------------------------------------------------------------------------------
 // para lo que es almacen
 Route::get('/proyectos/almacen', [proyectoController::class, 'index'])->name('proyectos.almacen');
 Route::post('/registro/almacen', [proyectoController::class, 'create'])->name('registro.almacen');
+Route::post('/modificar/almacen', [proyectoController::class, 'editEsperaAlmacen'])->name('modificar.almacen');
+Route::post('/modificar/ObrasEjecuatas', [proyectoController::class, 'editObrasEjecutadas'])->name('modificar.ObrasEjecuatas');
+
+
 Route::get('/detallesAccesorios/almacen/{id}', [proyectoController::class, 'reu'])->name('detallesAccesorios.almacen');
 Route::get('/detallesAccesorios/almacen', [proyectoController::class, 'reu'])->name('detallesAccesorios.almacendatos');
 Route::get('/datos/ejecutar/{id}', [proyectoController::class, 'ejecutarProyectodatos'])->name('datos.ejecutar');
 Route::post('/registrar/trabajoEjecutado/{id}', [proyectoController::class, 'registrarTrabajo'])->name('registrar.trabajoejecutado');
 
 Route::get('/proyectos/ObrasEjecutadas', [proyectoController::class, 'datosObras'])->name('proyectos.ObrasEjecutadas');
-//proyecto luminarias retiradas
-Route::get('/detalles/luminarias/retiradas/{id}', [luminaria_retiradasController::class, 'retiradaDetalle'])->name('detalles.luminarias.retiradas');
+
+Route::get('/dashproyectos', [proyectoController::class, 'dashproy'])->name('dashproyectos');
+Route::get('/dashdetalles', [proyectoController::class, 'dashdetall'])->name('dashdetalles');
+
+
 
 
 

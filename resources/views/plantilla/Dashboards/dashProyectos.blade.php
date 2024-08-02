@@ -31,12 +31,14 @@
 										<div class="card mb-5 mb-xl-10">
 											<div class="card-body pt-9 pb-0">
 												<div class="margin">
-													
-													<div class="card card-bordered">
+
+												<div class="card card-bordered">
 														<div class="card-body">
-															<div id="kt_apexcharts_1" style="height: 350px;"></div>
+															<div id="graficos" style="height: 350px;"></div>
 														</div>
-													</div>  
+													</div> 
+													
+													
                                                 </div>
 															<!--end::Container-->
 											</div>

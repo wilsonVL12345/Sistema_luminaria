@@ -34,7 +34,7 @@
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                        
                         <div class="menu-item">
-                            <a class="menu-link" href="/index">
+                            <a class="menu-link" href="/dashproyectos">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -42,7 +42,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="../dashDetalles">
+                            <a class="menu-link" href="/dashdetalles">
                                
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
