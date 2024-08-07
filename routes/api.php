@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\apiDashboardController;
 use App\Http\Controllers\API\apiDetalleController;
 use App\Http\Controllers\API\apiDistritoController;
 use App\Http\Controllers\API\apiEquipamientoController;
@@ -47,3 +48,5 @@ Route::get('/finalizado/detalles', [apiDetalleController::class, 'detallesFinali
 
 Route::get('/atencion/apidetall', [apiDetalleController::class, 'infoatencion']);
 Route::get('/lista/urbanizacion', [apiDetalleController::class, 'listUbanizacion']);
+
+Route::get('/dashboardGenerales', [apiDashboardController::class, 'dashdis1']);

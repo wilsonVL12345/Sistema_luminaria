@@ -5,13 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let element = document.getElementById('graficosdetalles');
     
     if (!element) {
-        console.error("Elemento del gráfico no encontrado: graficos");
         console.log("Elementos disponibles con ID:", 
             Array.from(document.querySelectorAll('[id]')).map(el => el.id).join(', '));
         return;
     }
     
-    console.log("Elemento del gráfico encontrado, configurando opciones");
 
     let options = {
         series: [{
@@ -60,15 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    console.log("Creando instancia de ApexCharts");
     let chart = new ApexCharts(element, options);
     
-    console.log("Renderizando gráfico");
     chart.render().then(() => {
-        console.log("Gráfico renderizado exitosamente");
         fetchData();
     }).catch((error) => {
-        console.error("Error al renderizar el gráfico:", error);
     });
 
     function fetchData() {

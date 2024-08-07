@@ -57,7 +57,9 @@
 
 
 <script src="{{ asset('assets/js/inspeccion/enEspera/tabaespe.js') }}" defer></script>
+<script src="{{ asset('assets/js/inspeccion/enEspera/filtraUrbInspEsp.js') }}" defer></script>
 <script src="{{ asset('assets/js/inspeccion/realizado/tablareali.js') }}" defer></script>
+<script src="{{ asset('assets/js/inspeccion/realizado/filtraUrbInspRea.js') }}" defer></script>
 
 <script src="{{ asset('assets/js/realizarTrabajo/datetableRealizar.js') }}" defer></script>
 <script src="{{ asset('assets/js/ejecutarTrabajo/insertarComponentes.js') }}" defer></script>
@@ -75,6 +77,7 @@
 <script src="{{ asset('assets/js/proyectos/almacen/filtraUrbanizacion.js') }}" defer></script>
 <script src="{{ asset('assets/js/proyectos/almacen/filtUrbaEdit.js') }}" defer></script>
 <script src="{{ asset('assets/js/proyectos/lumRetirada/filtraurb.js') }}" defer></script>
+<script src="{{ asset('assets/js/proyectos/lumRetirada/filtraurbEdit.js') }}" defer></script>
 <script src="{{ asset('assets/js/proyectos/almacenejecutada/filtrarUrbaEjecutadas.js') }}" defer></script>
 <script src="{{ asset('assets/js/proyectos/lumRetirada/datetable.js') }}" defer></script>
 <script src="{{ asset('assets/js/proyectos/almacenejecutada/datetablefinal.js') }}" defer></script>
@@ -89,7 +92,27 @@
 <script src="{{ asset('assets/js/detallesGenerales/realizado/apoyoreal.js') }}" defer></script>
 <script src="{{ asset('assets/js/dashboards/dashProyecto/chartgenerales.js') }}" defer></script>
 <script src="{{ asset('assets/js/dashboards/dashdetalle/chatdetalles.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashtorta.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis1.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis2.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis3.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis4.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis5.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis6.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis7.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis8.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis9.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis10.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis11.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis12.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis13.js') }}" defer></script>
+<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis14.js') }}" defer></script>
+
+
+
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     $(document).ready(function() {

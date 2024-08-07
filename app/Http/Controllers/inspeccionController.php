@@ -116,9 +116,9 @@ class inspeccionController extends Controller
             if (!$request->imgcartaa) {
                 $inspe = inspeccion::find($request->txtid);
 
-                /*  $inspe->Distritos_id = $request->txtdistrito;
-                $inspe->ZonaUrbanizacion = $request->txtzurbanizacion;
-                $inspe->Nro_Sisco = $request->txtsisco; */
+                $inspe->Distritos_id = $request->sldistInspEsp;
+                $inspe->ZonaUrbanizacion = $request->slurbInspEsp;
+                $inspe->Nro_Sisco = $request->txtsisco;
                 $inspe->Fecha_Inspeccion = $request->txtfecha;
                 $inspe->users_id = session('id');
                 $inspe->save();
@@ -127,7 +127,9 @@ class inspeccionController extends Controller
                 $dir = $request->file('imgcartaa')->store('public/fileinspecciones');
                 $urll = Storage::url($dir);
                 $inspe = inspeccion::find($request->txtid);
-
+                $inspe->Distritos_id = $request->sldistInspEsp;
+                $inspe->ZonaUrbanizacion = $request->slurbInspEsp;
+                $inspe->Nro_Sisco = $request->txtsisco;
 
                 $inspe->Fecha_Inspeccion = $request->txtfecha;
                 $inspe->users_id = session('id');
@@ -150,6 +152,10 @@ class inspeccionController extends Controller
             $editInspec = inspeccion::find($id);
 
             $editInspec->Tipo_Inspeccion = $request->txttipo;
+            $editInspec->Nro_Sisco = $request->txtsisco;
+            $editInspec->ZonaUrbanizacion = $request->slurbInspRea;
+            $editInspec->Distritos_id = $request->sldistInspRea;
+
             $editInspec->Estado = $request->txtestado;
             $editInspec->save();
             $sql = true;
@@ -165,8 +171,8 @@ class inspeccionController extends Controller
 
     public function realizadas(Request $request)
     {
-        $inspeccion = inspeccion::where('Inspeccion', 'Realizado')->get();
-        $listadistrito = distrito::whereBetween('id', [1000, 1013])->get();
+        $inspeccion = inspeccion::where('Inspeccion', 'Finalizado')->get();
+        $listadistrito = Distrito::where('id', '<>', 15)->get();
         $listazonaurb = urbanizacion::all();
         return view('plantilla.Inspecciones.Realizadas', ['inspeccion' => $inspeccion, 'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb]);
     }

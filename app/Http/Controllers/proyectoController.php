@@ -140,12 +140,31 @@ class proyectoController extends Controller
             return back()->with("incorrecto", "Error al registrar no agregaste componentes");
         }
     }
-    function editEsperaAlmacen()
+    function editEsperaAlmacen(Request $request, $id)
     {
+        try {
+            $editProy = proyecto::find($id);
+
+            $editProy->Cuce_Cod = $request->txtcodProyEsp;
+            $editProy->Distritos_id = $request->sldisProyEsp;
+            $editProy->Zona = $request->slUrbproyEsp;
+            $editProy->Tipo_Contratacion = $request->sltipContraProyEsp;
+            $editProy->Subasta = $request->slsubproEsp;
+            $editProy->Modalidad = $request->txtmodProyEsp;
+            $editProy->Fecha_Programada = $request->txtfechaEsp;
+            $editProy->Objeto_Contratacion = $request->txtobjetoEsp;
+            $editProy->Proveedor = $request->txtprovProyEsp;
+            $editProy->save();
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Datos Modificados Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Modificar Datos invalidos");
+        }
     }
-
-
-
 
     /**
      * Display the specified resource.
@@ -277,8 +296,31 @@ class proyectoController extends Controller
 
         ]);
     }
-    function editObrasEjecutadas()
+    function editObrasEjecutadas(Request $request, $id)
     {
+        try {
+            $editRea = proyecto::find($id);
+            $editRea->Cuce_Cod = $request->txtcodProyObras;
+            $editRea->Distritos_id = $request->sldisProyObras;
+            $editRea->Zona = $request->slUrbproyObras;
+            $editRea->Tipo_Contratacion = $request->sltipContraProyObras;
+            $editRea->Modalidad = $request->txtmodProyObras;
+            $editRea->Ejecutado_Por = $request->slejecut;
+            $editRea->Fecha_Ejecutada = $request->txtfechaObras;
+            $editRea->Subasta = $request->slsubproObras;
+            $editRea->Objeto_Contratacion = $request->txtobjetoObras;
+            $editRea->Proveedor = $request->txtprovProyObras;
+            $editRea->save();
+
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return redirect(route('proyectos.ObrasEjecutadas'))->with("correcto", "Modificardo Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Modificar");
+        }
     }
 
     public function destroy(string $id)

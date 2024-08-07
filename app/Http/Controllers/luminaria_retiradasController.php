@@ -98,6 +98,27 @@ class luminaria_retiradasController extends Controller
 
     function editretirada(Request $request, $id)
     {
+        try {
+            $modRetirada = datos_luminaria_retirada::find($id);
+
+            $modRetirada->Nro_sisco = $request->txtnrosiscoMod;
+            $modRetirada->Distritos_id = $request->txtdistritoMod;
+            $modRetirada->zona = $request->txtzonaMod;
+            $modRetirada->Proyecto = $request->txtproyectoMod;
+            $modRetirada->Fecha = $request->txtfechamanteMod;
+            $modRetirada->Direccion = $request->txtdireccionMod;
+            $modRetirada->User_id = session('id');
+            $modRetirada->save();
+
+            $sql = true;
+        } catch (\Throwable $th) {
+            $sql = false;
+        }
+        if ($sql == true) {
+            return back()->with("correcto", "Luminarias Retiradas  Modificado Correctamente");
+        } else {
+            return back()->with("incorrecto", "Error al Modificar Luminarias Retiradas");
+        }
     }
     /**
      * Store a newly created resource in storage.

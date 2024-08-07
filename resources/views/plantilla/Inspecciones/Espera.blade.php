@@ -15,29 +15,7 @@
 				<span class="h-20px border-gray-300 border-start mx-4"></span>
 				<!--end::Separator-->
 				<!--begin::Breadcrumb-->
-				{{-- <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">
-						<a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-300 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Account</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-300 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-dark">Security</li>
-					<!--end::Item-->
-				</ul> --}}
+				
 				<!--end::Breadcrumb-->
 			</div>
 			<!--end::Page title-->
@@ -310,7 +288,7 @@
 																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
 																		</label>
 																		<!--end::Label-->
-																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" value="{{$item->Nro_Sisco}}" readonly/>
+																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" value="{{$item->Nro_Sisco}}" required/>
 																	</div>
 																	<!--end::Input group-->
 																	<!--begin::Input group-->
@@ -322,7 +300,12 @@
 																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
 																			</label>
 																			<!--end::Label-->
-																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtdistrito" value="{{$item->distrito->Distrito}}" readonly/>
+																			<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Selecione..." name="sldistInspEsp" data-id="sldistInspEsp" required >
+																				<option value="" >Seleccione...</option>
+																				@foreach ($listadistrito as $items)
+																				<option value="{{$items->id}}" {{$item->Distritos_id==$items->id ? 'selected':''}}>{{$items->Distrito}}</option>
+																				@endforeach
+																				</select>
 																		</div>
 																		
 																		<div class="col-md-6 fv-row">
@@ -332,7 +315,14 @@
 																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
 																			</label>
 																			<!--end::Label-->
-																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtzurbanizacion" value="{{$item->ZonaUrbanizacion}}" readonly/>
+																			<select  aria-label="Select a Country"
+																			data-control="select2"
+																			data-placeholder="{{$item->Zona}}"
+																			data-dropdown-parent="#modalModificarInspeccion{{$item->id}}"
+																			class="form-control form-select-solid fw-bolder" name="slurbInspEsp" data-id="slurbInspEsp" required>
+																			<option value="{{$item->ZonaUrbanizacion}}"  >{{$item->ZonaUrbanizacion}}</option>
+
+																			</select>
 																		</div>
 						
 																		<!--end::Col-->

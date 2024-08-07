@@ -199,7 +199,7 @@
 														<!--begin::Menu item-->
 														
 														<div class="menu-item px-3">
-															<a href="#" data-bs-toggle="modal" data-bs-target="#modalModificarInspeccion{{$item->id}}"
+															<a href="#" data-bs-toggle="modal" data-bs-target="#modalModificarInspeccionRea{{$item->id}}"
 																class="menu-link px-3">Editar</a>
 														</div>
 														<!--end::Menu item-->
@@ -262,7 +262,7 @@
 												</div>
 												<!--end::Modal - imagen carta-->
 												<!--begin::Modal - Modal para  modificar inspecciones en espera-->
-												<div class="modal fade" id="modalModificarInspeccion{{$item->id}}" tabindex="-1" aria-hidden="true">
+												<div class="modal fade" id="modalModificarInspeccionRea{{$item->id}}" tabindex="-1" aria-hidden="true">
 													<!--begin::Modal dialog-->
 													<div class="modal-dialog modal-dialog-centered mw-650px">
 														<!--begin::Modal content-->
@@ -305,13 +305,17 @@
 																		<div class="row">
 																		  <div class="col-md-4">
 																			<label for="" class="d-flex align-items-center fs-6 fw-bold mb-2">Nro Sisco</label>
-																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" value="{{$item->Nro_Sisco}}" readonly/>
+																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" value="{{$item->Nro_Sisco}}" required/>
 																			
 																		  </div>
 																		  <div class="col-md-4">
 																			<label class="required fs-6 fw-bold mb-2">Distrito</label>
-																			<input type="text" class="form-control form-control-solid" value="{{$item->distrito->Distrito}}" readonly>
-
+																			<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Selecione..." name="sldistInspRea" data-id="sldistInspRea" required >
+																				<option value="" >Seleccione...</option>
+																				@foreach ($listadistrito as $items)
+																				<option value="{{$items->id}}" {{$item->Distritos_id==$items->id ? 'selected':''}}>{{$items->Distrito}}</option>
+																				@endforeach
+																				</select>
 																		</div>
 																		  <div class="col-md-4">
 																			<label class="required fs-6 fw-bold mb-2">Fecha de Inspeccion</label>
@@ -329,7 +333,7 @@
 																				<!--end::Svg Icon-->
 																				<!--end::Icon-->
 																				<!--begin::Datepicker-->
-																				<input id="txtfecha"  class="form-control form-control-solid ps-12"  name="txtfecha" value="{{$item->Fecha_Inspeccion}}"  readonly/>
+																				<input id="txtfecha"  class="form-control form-control-solid ps-12"  name="txtfecha" value="{{$item->Fecha_Inspeccion}}"  required/>
 																				<!--end::Datepicker-->
 																			</div>
 																			<!--end::Input-->
@@ -343,7 +347,14 @@
 																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
 																		</label>
 																		<!--end::Label-->
-																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" value="{{$item->ZonaUrbanizacion}}" readonly/>
+																		<select  aria-label="Select a Country"
+																			data-control="select2"
+																			data-placeholder="{{$item->ZonaUrbanizacion}}"
+																			data-dropdown-parent="#modalModificarInspeccionRea{{$item->id}}"
+																			class="form-control form-select-solid fw-bolder" name="slurbInspRea" data-id="slurbInspRea" required>
+																			<option value="{{$item->ZonaUrbanizacion}}"  >{{$item->ZonaUrbanizacion}}</option>
+
+																			</select>
 																	</div>
 																	<!--end::Input group-->
 																	<!--begin::Input group-->

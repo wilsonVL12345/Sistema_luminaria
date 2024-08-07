@@ -262,7 +262,7 @@
 																<!--begin::Modal content-->
 													<div class="modal-content">
 														<!--begin::Form-->
-														<form action="{{route('modificar.ObrasEjecuatas')}}" id="formproyecto" method="POST" >
+														<form action="{{route('modificar.ObrasEjecuatas',$items->id)}}" id="formproyecto" method="POST" >
 															@csrf
 							
 															<div class="from row">
@@ -340,8 +340,8 @@
 																		<!--end::Input-->
 																</div>
 																<div class="col-md-3 mb-3">
-																	<label for="slsubproObras" class=" fs-5 fw-bold mb-2">Ejecuatado Por</label>
-																	<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="slsubproObras" required >
+																	<label for="slejecut" class=" fs-5 fw-bold mb-2">Ejecuatado Por</label>
+																	<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="slejecut" required >
 																		<option value="" >Seleccione...</option>
 																		<option value="GAMEA" {{$items->Ejecutado_Por=='GAMEA'?'selected':''}} >GAMEA</option>
 																		<option value="Externo" {{$items->Ejecutado_Por=='Externo'?'selected':''}}>Externo</option>

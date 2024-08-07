@@ -106,8 +106,8 @@ Route::post('/modificar/retirados/{id}', [luminaria_retiradasController::class, 
 // para lo que es almacen
 Route::get('/proyectos/almacen', [proyectoController::class, 'index'])->name('proyectos.almacen');
 Route::post('/registro/almacen', [proyectoController::class, 'create'])->name('registro.almacen');
-Route::post('/modificar/almacen', [proyectoController::class, 'editEsperaAlmacen'])->name('modificar.almacen');
-Route::post('/modificar/ObrasEjecuatas', [proyectoController::class, 'editObrasEjecutadas'])->name('modificar.ObrasEjecuatas');
+Route::post('/modificar/almacen/{id}', [proyectoController::class, 'editEsperaAlmacen'])->name('modificar.almacen');
+Route::post('/modificar/ObrasEjecuatas/{id}', [proyectoController::class, 'editObrasEjecutadas'])->name('modificar.ObrasEjecuatas');
 
 
 Route::get('/detallesAccesorios/almacen/{id}', [proyectoController::class, 'reu'])->name('detallesAccesorios.almacen');
@@ -138,8 +138,9 @@ Route::get('detalle/realizados/informacion/{id}', [detalleController::class, 'De
 Route::get('/ejecutar/trabajo/{id}', [detalleController::class, 'ejecutar'])->name('ejecutar.trabajo');
 Route::get('/pendiente/trabajo', [detalleController::class, 'pendiente'])->name('pendiente.trabajo');
 Route::post('/store/trabajo/{id}', [detalleController::class, 'storeTrabajo'])->name('store.trabajo');
-Route::post('/edit/espera', [detalleController::class, 'edit'])->name('edit.espera');
-Route::post('/edit/realizado', [detalleController::class, 'editRealizado'])->name('edit.realizado');
+
+Route::post('/edit/espera/{id}', [detalleController::class, 'edit'])->name('edit.espera');
+Route::post('/edit/realizado/{id}', [detalleController::class, 'editRealizado'])->name('edit.realizado');
 
 
 /* Auth::routes(); */

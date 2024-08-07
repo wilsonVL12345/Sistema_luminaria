@@ -426,7 +426,7 @@
 																<!--begin::Modal content-->
 													<div class="modal-content">
 														<!--begin::Form-->
-														<form action="{{route('modificar.almacen')}}" id="formproyecto" method="POST" >
+														<form action="{{route('modificar.almacen',$item->id)}}" id="formproyecto" method="POST" >
 															@csrf
 							
 															<div class="from row">
@@ -445,7 +445,7 @@
 																<div class="col-md-6 mb-3">
 																	<label for="slUrbproyEsp" class=" fs-5 fw-bold mb-2">Urbanizacion</label>
 																	<select class="form-control form-select-solid" data-control="select2" data-dropdown-parent="#modalModificarProyAlmacen{{$item->id}}" name="slUrbproyEsp" data-id="slUrbproyEsp" required>
-																		<option value="{{$item->Zona}}"  >{{$item->Zona}}</option>
+																		<option value="{{$item->Zona}}">{{$item->Zona}}</option>
 																	</select>
 																</div>
 															</div>

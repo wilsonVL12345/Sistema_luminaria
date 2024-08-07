@@ -17,7 +17,6 @@
 				
 			</div>
 			<!--end::Page title-->
-			<!--begin::Actions-->
 		
 		</div>
 		<!--end::Container-->
@@ -267,7 +266,7 @@
 														<!--end::Modal header-->
 														<!--begin::Modal body-->
 														<div class="modal-body scroll-y m-5">
-															<form class="form" action="{{route('edit.realizado')}}" id="formaModRealizado" method="POST" enctype="multipart/form-data">
+															<form class="form" action="{{route('edit.realizado',$itemtrab->id)}}" id="formaModRealizado" method="POST" enctype="multipart/form-data">
 																@csrf
 																<div class="modal-body py-10 px-lg-17">
 																	<div class="scroll-y me-n7 pe-7" id="modadRegistraUsuarios_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#modadRegistraUsuarios_header" data-kt-scroll-wrappers="#modadRegistraUsuarios_scroll" data-kt-scroll-offset="300px">
@@ -300,20 +299,7 @@
 																		<div class="form row">
 																			<div class="col-md-8 mb-3">
 																				
-																				{{-- 	@php
-																						$texto = strtolower($itemtrab->Tipo_Trabajo);
-																						$opcionesSeleccionadas = [
-																							'Mantenimiento' => strpos($texto, 'mantenimiento') !== false,
-																							'Instalacion' => strpos($texto, 'instalacion') !== false,
-																							'Apoyo Carro Canasta' => strpos($texto, 'apoyo') !== false && strpos($texto, 'carro') !== false && strpos($texto, 'canasta') !== false
-																						];
-																					@endphp
-																					<label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo</label>
-																					<select  class="form-control form-select-lg form-select-solid" data-control="select2" name="tetipTrabr[]"  data-placeholder="{{$itemtrab->Tipo_Trabajo}}" data-allow-clear="true" multiple="multiple" required>
-																						<option value="Mantenimiento" {{ $opcionesSeleccionadas['Mantenimiento'] ? 'selected' : '' }}>Mantenimiento</option>
-																						<option value="Instalacion" {{ $opcionesSeleccionadas['Instalacion'] ? 'selected' : '' }}>Instalacion</option>
-																						<option value="Apoyo Carro Canasta" {{ $opcionesSeleccionadas['Apoyo Carro Canasta'] ? 'selected' : '' }}>Apoyo Carro Canasta</option>
-																					</select>	 --}}		
+																					
 																					@php
 																						$texto = strtolower($itemtrab->Tipo_Trabajo);
 																						$opcionesSeleccionadas = [
@@ -362,7 +348,7 @@
 																		<div class="form row">
 																			<div class="col-md-3 mb-3">
 																				<label for="file1" class=" fs-5 fw-bold mb-2">Subir Carta</label>
-																				<input type="file" class="form-control form-control-solid" id="file1" name="file1" required>
+																				<input type="file" class="form-control form-control-solid" id="file1" name="file1" accept="image/*" >
 																			</div>
 																			<div class="col-md-3 mb-3">
 																					<label for="rnotificar" class="fs-5 fw-bold mb-2">Notificar?</label>
@@ -396,7 +382,7 @@
 																<div class="modal-footer justify-content-end">
 																	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 																	<button type="submit" id="modadRegistraUsuarios_submit" class="btn btn-primary">
-																		<span class="indicator-label">Registrar</span>
+																		<span class="indicator-label">Modificar</span>
 																		<span class="indicator-progress">Please wait...
 																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 																	</button>

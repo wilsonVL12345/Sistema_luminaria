@@ -140,10 +140,16 @@
 
 
 											<td> 
-												<div class="badge badge-light-danger">
-													{{$itemEspera->Observaciones}}
+												@if ($itemEspera->Observaciones)
+													<div class="badge badge-light-danger">
+														{{$itemEspera->Observaciones}}
+
+													</div>
+												@else
+												<div class="badge ">
 
 												</div>
+												@endif
 
 											</td>
 											<!--begin::Action=-->
@@ -248,7 +254,7 @@
 																<!--end::Close-->
 															</div>
 															<div class="modal-body">
-																<form action="{{route('agendar.trabajo')}}" id="formagendar" method="POST" enctype="multipart/form-data">
+																<form action="{{route('edit.espera',$itemEspera->id)}}" id="formagendar" method="POST" enctype="multipart/form-data">
 																	@csrf
 									
 																	<div class="from row">
@@ -271,7 +277,7 @@
 																			data-control="select2"
 																			data-placeholder="{{$itemEspera->Zona}}"
 																			data-dropdown-parent="#modalModificarDetalleEspera{{$itemEspera->id}}"
-																			class="form-control form-select-solid fw-bolder" name="txtzonaurb" id="txtzonaurb" required>
+																			class="form-control form-select-solid fw-bolder" name="txtzonaurb" data-id="txtzonaurb" required>
 																			<option value="{{$itemEspera->Zona}}"  >{{$itemEspera->Zona}}</option>
 
 																			</select>
@@ -279,21 +285,29 @@
 																	</div>
 																	<div class="from row">
 																		<div class="col-md-8 mb-3">
-																			@php
+																			{{-- @php
 																						$texto = strtolower($itemEspera->Tipo_Trabajo);
 																						$opcionesSeleccionadas = [
 																							'Mantenimiento' => strpos($texto, 'mantenimiento') !== false,
 																							'Instalacion' => strpos($texto, 'instalacion') !== false,
 																							'Apoyo Carro Canasta' => strpos($texto, 'apoyo') !== false && strpos($texto, 'carro') !== false && strpos($texto, 'canasta') !== false
 																						];
-																					@endphp
+																					@endphp --}}
+																					@php
+																							$texto = strtolower($itemEspera->Tipo_Trabajo);
+																							$opcionesSeleccionadas = [
+																								'Mantenimiento' => str_contains($texto, 'mantenimiento'),
+																								'Instalacion' => str_contains($texto, 'instalacion'),
+																								'Apoyo Carro Canasta' => str_contains($texto, 'apoyo carro canasta')
+																							];
+																						@endphp
 																					<label for="txtcomponentes" class="required fs-5 fw-bold mb-2">Tipo de Trabajo</label>
 																					<select  class="form-control form-select-lg form-select-solid" data-control="select2" name="tetipTrabres[]" data-placeholder="{{$itemEspera->Tipo_Trabajo}}"   data-allow-clear="true" multiple="multiple" data-id="tipoTrabajoSelect" required>
 
 																						<option value="Mantenimiento" {{ $opcionesSeleccionadas['Mantenimiento'] ? 'selected' : '' }}>Mantenimiento</option>
 																						<option value="Instalacion" {{ $opcionesSeleccionadas['Instalacion'] ? 'selected' : '' }}>Instalacion</option>
 																						<option value="Apoyo Carro Canasta" {{ $opcionesSeleccionadas['Apoyo Carro Canasta'] ? 'selected' : '' }}>Apoyo Carro Canasta</option>
-																					</select>	
+																														</select>	
 																			
 																			
 																		</div>
@@ -309,7 +323,7 @@
 																					@endphp
 
 																					<label for="txtcontratacion" class="required fs-5 fw-bold mb-2">Apoyo a Distrito</label>
-																					<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="apoyoDistRe" data-id="apoyoDistRe">
+																					<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="apoyoDistRe" data-id="apoyoDistRe" required>
 																						<option value="">Seleccione...</option>
 																						@foreach ($listadistrito as $item)
 																							@php
@@ -395,7 +409,7 @@
 																	</div> --}}
 																	<div class="modal-footer">
 																		<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-																		<button type="button" class="btn btn-primary">Modificar</button>
+																		<button type="submit" class="btn btn-primary">Modificar</button>
 																	</div>
 																</form>
 															</div>

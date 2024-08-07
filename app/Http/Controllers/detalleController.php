@@ -10,9 +10,9 @@ use App\Models\lista_accesorio;
 use App\Models\proyecto;
 use App\Models\urbanizacion;
 use App\Models\User;
-
 use Illuminate\Foundation\Console\ViewMakeCommand;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class detalleController extends Controller
 {
@@ -59,9 +59,6 @@ class detalleController extends Controller
         $detall = detalle::where('Estado', 'En Espera')->orderBy('id', 'desc')->get();
         return view('plantilla.RealizarTrabajo.trabajos', compact('detall'));
     }
-
-
-
 
     // para agregar  mantenimiento en espera
     public function create(Request $request)
@@ -180,32 +177,49 @@ class detalleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request)
+    /* public function edit(Request $request, $id)
     {
-        $mnotificar = '';
-
-        if ($request->mrnotificar == 'on') {
-            $mnotificar = 'NOTIFICADO!!!';
+        $tipTrabajoe = '';
+        $apoyoe = '';
+        $urle = '';
+        if ($request->imgcarta) {
+            $dire = $request->file('imgcarta')->store('public/fileagendar');
+            $urle = Storage::url($dire);
         }
-        try {
-            $editdetall = detalle::find($request->txtid);
 
-            $editdetall->Distritos_id = $request->mtxtdistirto;
-            $editdetall->Zona = $request->mtxtzonaurb;
-            $editdetall->Nro_Sisco = $request->mtxtnrosisco;
-            $editdetall->Fecha_Hora_Inicio_Programado = $request->mtxtfechainiciop;
-            $editdetall->Fecha_Hora_Fin_Programado = $request->mtxtfechafinp;
-            if ($request->mselectedStates) {
-                $editdetall->Tipo_Trabajo = $request->mselectedStates;
+
+        foreach ($request->tetipTrabres as $tips) {
+            $tipTrabajoe = $tipTrabajoe . ' ' . $tips;
+        }
+
+        if ($request->apoyoDistRe) {
+            $apoyoe = ' ' . 'Asistencia' . ' ' . $request->apoyoDistRe;
+        }
+
+
+        $request->validate([
+            'imgcarta' => 'image|max:8048'   // estas son las reglas que tiene que cumplir para poder subir la imagen required| lo quitamos
+        ]);
+
+
+
+        try {
+            $editdetall = detalle::find($id);
+
+            $editdetall->Distritos_id = $request->sldistrimodi;
+            $editdetall->Zona = $request->txtzonaurb;
+            $editdetall->Nro_Sisco = $request->txtnrosisco;
+            $editdetall->Tipo_Trabajo = $tipTrabajoe . ' ' . $apoyoe;
+            if ($urle) {
+                $editdetall->Foto_Carta = $urle;
             }
-            if ($request->mimgcarta) {
-                $dirr = $request->file('mimgcarta')->store('public/fileagendar');
-                $murl = Storage::url($dirr);
-                $editdetall->Foto_Carta = $request->$murl;
+            if ($request->rnotificar == 1) {
+                $editdetall->Observaciones = 'NOTIFICADO!!!';
+            } else {
+                $editdetall->Observaciones = '';
             }
-            if ($request->mrnotificar || $request->mtxtobservacion) {
-                $editdetall->Observaciones = $request->mrnotificar . ' ' . $request->mtxtobservacion;
-            }
+
+            $editdetall->Fecha_Programado = $request->txtfechaprogramada;
             $editdetall->save();
             $sql = true;
         } catch (\Throwable $th) {
@@ -216,9 +230,126 @@ class detalleController extends Controller
         } else {
             return back()->with("incorrecto", "Error al Modificar los datos");
         }
-    }
-    public function editRealizado()
+    } */
+    public function edit(Request $request, $id)
     {
+
+        try {
+            $request->validate([
+                'imgcarta' => 'image|max:8048'
+            ]);
+            $editdetall = detalle::find($id);
+
+            // Manejo de la imagen
+            if ($request->hasFile('imgcarta')) {
+                $dire = $request->file('imgcarta')->store('public/fileagendar');
+                $editdetall->Foto_Carta = Storage::url($dire);
+            }
+
+            // Tipo de trabajo
+            $tiposTrabajo = $request->tetipTrabres;
+            $editdetall->Tipo_Trabajo = implode(', ', $tiposTrabajo);
+
+            // Apoyo a Distrito
+            if (in_array('Apoyo Carro Canasta', $tiposTrabajo) && $request->filled('apoyoDistRe')) {
+                $editdetall->Tipo_Trabajo .= ', Asistencia ' . $request->apoyoDistRe;
+            }
+
+            // Otros campos
+            $editdetall->Distritos_id = $request->sldistrimodi;
+            $editdetall->Zona = $request->txtzonaurb;
+            $editdetall->Nro_Sisco = $request->txtnrosisco;
+            $editdetall->Observaciones = $request->rnotificar == 1 ? 'NOTIFICADO!!!' : '';
+            $editdetall->Fecha_Programado = $request->txtfechaprogramada;
+
+            $editdetall->save();
+
+            return back()->with("correcto", "Dato Modificado Correctamente");
+        } catch (\Throwable $th) {
+            return back()->with("incorrecto", "Error al Modificar los datos");
+        }
+    }
+    /* public function editRealizado(Request $request, $id)
+    {
+        $request->validate([
+            'file1' => 'required|file|mimes:jpg,jpeg,png|max:8192'
+        ]);
+
+
+        try {
+            $editdetallRealizado = detalle::find($id);
+
+            // Manejo de la imagen
+            if ($request->hasFile('file1')) {
+                $dire = $request->file('file1')->store('public/fileagendar');
+                $editdetallRealizado->Foto_Carta = Storage::url($dire);
+            }
+
+            // Tipo de trabajo
+            $tiposTrabajo = $request->tetipTrabrrea;
+            $editdetallRealizado->Tipo_Trabajo = implode(', ', $tiposTrabajo);
+
+            // Apoyo a Distrito
+            if (in_array('Apoyo Carro Canasta', $tiposTrabajo) && $request->filled('apoyoDistRealizado')) {
+                $editdetallRealizado->Tipo_Trabajo .= ', Asistencia ' . $request->apoyoDistRealizado;
+            }
+
+            // Otros campos
+            $editdetallRealizado->Distritos_id = $request->slDisR;
+            $editdetallRealizado->Zona = $request->slurbr;
+            $editdetallRealizado->Nro_Sisco = $request->tenror;
+            $editdetallRealizado->Observaciones = $request->rnotificar == 1 ? 'NOTIFICADO!!!' : '';
+            $editdetallRealizado->Puntos = $request->text5;
+            $editdetallRealizado->Fecha_Inicio = $request->dtFechaAtenr;
+
+            $editdetallRealizado->save();
+
+            return back()->with("correcto", "Dato Modificado Correctamente");
+        } catch (\Throwable $th) {
+            return back()->with("incorrecto", "Error al Modificar los datos");
+        }
+    }
+ */
+    public function editRealizado(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'file1' => 'image|max:8048'
+            ]);
+
+
+
+            $editdetallRealizado = detalle::findOrFail($id);
+
+            // Manejo de la imagen
+            if ($request->hasFile('file1')) {
+                $dire = $request->file('file1')->store('public/fileagendar');
+                $editdetallRealizado->Foto_Carta = Storage::url($dire);
+            }
+
+            // Tipo de trabajo
+            $tiposTrabajo = $request->tetipTrabrrea;
+            $editdetallRealizado->Tipo_Trabajo = implode(', ', $tiposTrabajo);
+
+            // Apoyo a Distrito
+            if (in_array('Apoyo Carro Canasta', $tiposTrabajo) && $request->filled('apoyoDistRealizado')) {
+                $editdetallRealizado->Tipo_Trabajo .= ', Asistencia ' . $request->apoyoDistRealizado;
+            }
+
+            // Otros campos
+            $editdetallRealizado->Distritos_id = $request->slDisR;
+            $editdetallRealizado->Zona = $request->slurbr;
+            $editdetallRealizado->Nro_Sisco = $request->tenror;
+            $editdetallRealizado->Observaciones = $request->rnotificar == 1 ? 'NOTIFICADO!!!' : '';
+            $editdetallRealizado->Puntos = $request->text5;
+            $editdetallRealizado->Fecha_Inicio = $request->dtFechaAtenr;
+
+            $editdetallRealizado->save();
+
+            return back()->with("correcto", "Dato Modificado Correctamente");
+        } catch (\Throwable $th) {
+            return back()->with("incorrecto", "Error al Modificar los datos: " . $th->getMessage());
+        }
     }
 
     /**

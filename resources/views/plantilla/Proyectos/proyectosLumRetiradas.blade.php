@@ -438,10 +438,10 @@
 																													<!--begin::Input-->
 																													<select  aria-label="Select a Country"
 																														data-control="select2"
-																														data-placeholder="Selec Urb"
+																														{{-- data-placeholder="Selec Urb" --}}
 																														data-dropdown-parent="#modalModificarLumRetiradas{{$item->id}}"
-																														class="form-control form-select-solid fw-bolder" name="txtzonaMod" id="txtzonaMod">
-																														<option value="">Seleccion...</option>
+																														class="form-control form-select-solid fw-bolder" name="txtzonaMod" data-id="txtzonaMod">
+																														<option value="{{$item->zona}}">{{$item->zona}}</option>
 																														
 																														
 																													</select>

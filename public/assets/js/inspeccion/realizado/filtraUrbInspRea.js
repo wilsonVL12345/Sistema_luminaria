@@ -1,14 +1,15 @@
+
 $(document).ready(function () {
-    const $distritoSelect = $('[data-id="sldisProyEsp"]');
-    const $zonaUrbanizacionSelect = $('[data-id="slUrbproyEsp"]');
+    const $distritoSelect = $('[data-id="sldistInspRea"]');
+    const $zonaUrbanizacionSelect = $('[data-id="slurbInspRea"]');
      $.ajax({
         url: '/api/lista/urbanizacion',
         type: 'GET',
         dataType: 'json',
         success: function (data) {
+            console.log(data,'se encontro')
             function actualizarZonasUrbanizaciones() {
                 const distritoSeleccionado = $distritoSelect.val();
-                // $zonaUrbanizacionSelect.empty().append('<option value="" disabled selected>Seleccione...</option>');
 
                 const zonasUrbanizaciones = data.filter(items => items.Nrodistrito == distritoSeleccionado);
 
