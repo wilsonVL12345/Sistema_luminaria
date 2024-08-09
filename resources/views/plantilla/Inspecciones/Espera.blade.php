@@ -285,10 +285,11 @@
 																		<!--begin::Label-->
 																		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
 																			<span class="required">Nro Sisco</span>
-																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números y - en este formato ejem 252353-2024  "></i>
+
 																		</label>
 																		<!--end::Label-->
-																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" value="{{$item->Nro_Sisco}}" required/>
+																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" pattern="^[0-9]{5,6}-[0-9]{4}$" value="{{$item->Nro_Sisco}}" required/>
 																	</div>
 																	<!--end::Input group-->
 																	<!--begin::Input group-->
@@ -297,7 +298,6 @@
 																		<div class="col-md-6 fv-row">
 																			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
 																				<span class="required">Distrito</span>
-																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
 																			</label>
 																			<!--end::Label-->
 																			<select class="form-select form-select-solid" data-control="select2"  data-placeholder="Selecione..." name="sldistInspEsp" data-id="sldistInspEsp" required >
@@ -312,7 +312,6 @@
 																			<!--begin::Label-->
 																			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
 																				<span class="required">Urbanizacion</span>
-																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" ></i>
 																			</label>
 																			<!--end::Label-->
 																			<select  aria-label="Select a Country"
@@ -332,7 +331,7 @@
 																	<div class="row g-9 mb-8">
 																		<!--begin::Col-->
 																		<div class="col-md-6 fv-row">
-																			<label class="required fs-6 fw-bold mb-2">Foto de la Carta</label>
+																			<label class=" fs-6 fw-bold mb-2">Foto de la Carta</label>
 																			<input type="file" id="imgcartaa"  name="imgcartaa" accept="image/*" class="form-control">
 																			@error('imgcarta')
 																				<small class="text-danger">{{$message}}</small>
@@ -357,7 +356,7 @@
 																				<!--end::Svg Icon-->
 																				<!--end::Icon-->
 																				<!--begin::Datepicker-->
-																				<input id="txtfecha"  type="date" class="form-control form-control-solid ps-12" placeholder="Seleccionar Fecha" name="txtfecha" value="{{$item->Fecha_Inspeccion}}"  required/>
+																				<input id="txtfechainpec"  type="date" class="form-control form-control-solid ps-12" placeholder="Seleccionar Fecha" name="txtfecha"  value="{{$item->Fecha_Inspeccion}}"  required/>
 																				<!--end::Datepicker-->
 																			</div>
 																			<!--end::Input-->
@@ -431,10 +430,11 @@
 																			<!--begin::Label-->
 																			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
 																				<span class="required">Nro Sisco</span>
-																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números y - en este formato ejem 252353-2024  "></i>
+																				
 																			</label>
 																			<!--end::Label-->
-																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" value="{{$item->Nro_Sisco}}" readonly />
+																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" pattern="^[0-9]{5,6}-[0-9]{4}$" value="{{$item->Nro_Sisco}}" readonly />
 																		</div>
 																		<!--end::Col-->
 																		<!--begin::Col-->
@@ -442,7 +442,7 @@
 																			<!--begin::Label-->
 																			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
 																				<span class="required">Distrito</span>
-																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
+																				
 																			</label>
 																			<!--end::Label-->
 																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtdistrito" value="{{$item->distrito->Distrito}}" readonly/>
@@ -452,7 +452,7 @@
 																	<div class="row g-9 mb-8">
 																		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
 																			<span class="required">Urbanizacion</span>
-																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
+																			
 																		</label>
 																		<!--end::Label-->
 																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtzurb" value="{{$item->ZonaUrbanizacion}}" readonly/>
@@ -493,7 +493,7 @@
 																				<!--end::Svg Icon-->
 																				<!--end::Icon-->
 																				<!--begin::Datepicker-->
-																				<input class="form-control form-control-solid ps-12" type="date" placeholder="Select a date" name="txtfecha" required/>
+																				<input class="form-control form-control-solid ps-12" type="date" placeholder="Select a date" id="dateinspecEmpezar" name="txtfecha" required/>
 																				<!--end::Datepicker-->
 																			</div>
 																			<!--end::Input-->
@@ -528,7 +528,8 @@
 																	
 																	<!--begin::Actions-->
 																	<div class="text-center">
-																		<button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">Cancelar</button>
+																		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
 																		<button type="submit" id="kt_modal_new_target_submit" class="btn btn-primary">
 																			<span class="indicator-label">Finalizar</span>
 																			<span class="indicator-progress">Please wait...
@@ -596,10 +597,11 @@
 													<!--begin::Label-->
 													<label class="d-flex align-items-center fs-6 fw-bold mb-2">
 														<span class="required">Nro Sisco</span>
-														<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
+														<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números y - en este formato ejem 252353-2024  "></i>
+
 													</label>
 													<!--end::Label-->
-													<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtnrosisco" />
+													<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtnrosisco" pattern="^[0-9]{5,6}-[0-9]{4}$" />
 												</div>
 												<!--end::Input group-->
 												<!--begin::Input group-->
@@ -617,9 +619,7 @@
 													<div class="col-md-6 fv-row">
 														<label class="fs-6 fw-bold mb-2">
 															<span class="required">Urbanizacion</span>
-															<i class="fas fa-exclamation-circle ms-1 fs-7"
-																data-bs-toggle="tooltip"
-																title="Country of origination"></i>
+															
 														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
@@ -642,7 +642,7 @@
 												<div class="row g-9 mb-8">
 													<!--begin::Col-->
 													<div class="col-md-6 fv-row">
-														<label class="required fs-6 fw-bold mb-2">Foto de la Carta</label>
+														<label class=" fs-6 fw-bold mb-2">Foto de la Carta</label>
 														<input type="file" id="imgcarta"  name="imgcarta" accept="image/*" class="form-control">
 														@error('imgcarta')
 															<small class="text-danger">{{$message}}</small>
@@ -667,7 +667,7 @@
 															<!--end::Svg Icon-->
 															<!--end::Icon-->
 															<!--begin::Datepicker-->
-															<input id="txtfecha"  type="date" class="form-control form-control-solid ps-12" placeholder="Seleccionar Fecha" name="txtfecha" />
+															<input id="txtfechainpeccregis"  type="date" class="form-control form-control-solid ps-12" placeholder="Seleccionar Fecha" name="txtfecha" />
 															<!--end::Datepicker-->
 														</div>
 														<!--end::Input-->

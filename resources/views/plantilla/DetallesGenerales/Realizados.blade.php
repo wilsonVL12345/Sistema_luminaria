@@ -283,8 +283,11 @@
 																				</select>
 																			</div>
 																			<div class="col-md-3 mb-3">
-																				<label for="tenror" class="required fs-5 fw-bold mb-2">Nro Sisco</label>
-																				<input type="text" class="form-control form-control-solid" id="tenror" name="tenror" placeholder="Ingresar Datos" value="{{$itemtrab->Nro_Sisco}}" required>
+																				<label for="tenror" class="required fs-5 fw-bold mb-2">Nro Sisco
+																					<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números y - en este formato ejem 252353-2024  "></i>
+
+																				</label>
+																				<input type="text" class="form-control form-control-solid" id="tenror" name="tenror" placeholder="Ingresar Datos" value="{{$itemtrab->Nro_Sisco}}" pattern="^[0-9]{5,6}-[0-9]{4}$" required>
 																			</div>
 																			<div class="col-md-6 mb-3">
 																				<label for="slurbr" class="required fs-5 fw-bold mb-2">Urbanizacion</label>
@@ -365,11 +368,17 @@
 																					@endif
 																			</div>
 																			<div class="col-md-3 mb-3">
-																				<label for="text5" class="required fs-5 fw-bold mb-2">Puntos</label>
-																				<input type="text" class="form-control form-control-solid" id="text5" name="text5" value="{{$itemtrab->Puntos}}" placeholder="Ingresar Datos" required>
+																				<label for="text5" class="required fs-5 fw-bold mb-2">Puntos
+																					<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números positivos asta max 500"></i>
+
+																				</label>
+																				<input type="text" class="form-control form-control-solid" id="text5" name="text5" value="{{$itemtrab->Puntos}}" placeholder="Ingresar Datos" pattern="^([1-9][0-9]{0,2}|500)$" required>
 																			</div>
 																			<div class="col-md-3 mb-3">
-																				<label for="dtFechaAtenr" class="required fs-5 fw-bold mb-2">Fecha de Atencion</label>
+																				<label for="dtFechaAtenr" class="required fs-5 fw-bold mb-2">Fecha de Atencion
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permite fechas entre la semana"></i>
+
+																				</label>
 																				<input type="date" class="form-control form-control-solid" id="dtFechaAtenr" name="dtFechaAtenr" value="{{$itemtrab->Fecha_Inicio}}" required>
 																			</div>
 																		</div>

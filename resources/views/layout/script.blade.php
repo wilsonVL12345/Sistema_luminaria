@@ -51,7 +51,7 @@
 <script src="{{ asset('assets/js/usuario/tabla.js') }}" defer></script>
 <script src="{{ asset('assets/js/usuario/estado.js') }}" defer></script>
 
-<script src="{{ asset('assets/js/agendar/formulario.js') }}" defer></script>
+<script src="{{ asset('assets/js/agendar/flatpickrAge.js') }}" defer></script>
 <script src="{{ asset('assets/js/agendar/filtraUrb.js') }}" defer></script>
 <script src="{{ asset('assets/js/agendar/apoyocarro.js') }}" defer></script>
 
@@ -93,20 +93,6 @@
 <script src="{{ asset('assets/js/dashboards/dashProyecto/chartgenerales.js') }}" defer></script>
 <script src="{{ asset('assets/js/dashboards/dashdetalle/chatdetalles.js') }}" defer></script>
 <script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis1.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis2.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis3.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis4.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis5.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis6.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis7.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis8.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis9.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis10.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis11.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis12.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis13.js') }}" defer></script>
-<script src="{{ asset('assets/js/dashboards/dashdetalle/dashDis14.js') }}" defer></script>
-
 
 
 

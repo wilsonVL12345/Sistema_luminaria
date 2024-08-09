@@ -10,6 +10,7 @@ use App\Models\luminarias_reutilizada;
 use App\Models\luminaria;
 use App\Models\urbanizacion;
 use Illuminate\Foundation\Console\ViewMakeCommand;
+use App\Models\User;
 
 class proyectoController extends Controller
 {
@@ -176,7 +177,6 @@ class proyectoController extends Controller
         $detReutilizada = luminarias_reutilizada::where('Proyectos_id', $id)->get();
         $detAccesorio = accesorio::where('Proyectos_id', $id)->get();
         $detLuminarias = luminaria::where('Proyectos_id', $id)->get();
-
         return view('plantilla.Proyectos.proyectosAlmacen', compact('detItem', 'detReutilizada', 'detAccesorio', 'detLuminarias'));
     }
 
@@ -194,8 +194,9 @@ class proyectoController extends Controller
         $reutilizada = luminarias_reutilizada::where('Proyectos_id', $id)->get();
         $accesorios = accesorio::where('Proyectos_id', $id)->get();
         $luminaria = luminaria::where('Proyectos_id', $id)->get();
+        $ejecutador = user::find($proyec->Realizado_Por);
 
-        return view('plantilla.Proyectos.proyectoDetalles', compact('luminaria', 'accesorios', 'reutilizada', 'proyec'));
+        return view('plantilla.Proyectos.proyectoDetalles', compact('luminaria', 'accesorios', 'reutilizada', 'proyec', 'ejecutador'));
     }
 
     /**

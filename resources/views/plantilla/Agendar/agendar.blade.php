@@ -47,8 +47,11 @@
 													</select>
 										</div>
 										<div class="col-md-3 mb-3">
-											<label for="txtnrosisco" class="required fs-5 fw-bold mb-2">Nro Sisco</label>
-											<input type="text" class="form-control form-control-solid " id="txtnrosisco" name="txtnrosisco" required >
+											<label for="txtnrosisco" class="required fs-5 fw-bold mb-2">Nro Sisco
+												<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números y - en este formato ejem 252353-2024  "></i>
+
+											</label>
+											<input type="text" class="form-control form-control-solid " id="txtnrosisco" name="txtnrosisco" pattern="^[0-9]{5,6}-[0-9]{4}$" required >
 										</div>
 										<div class="col-md-6 mb-3">
 											<label for="txtzonaurb" class="required fs-5 fw-bold mb-2">Urbanizacion</label>
@@ -104,7 +107,10 @@
 										</div>
 										
 										<div class="col-md-3 mb-3">
-												<label class="required fs-6 fw-bold mb-2">Fecha Programada</label>
+												<label class="required fs-6 fw-bold mb-2">Fecha Programada
+													<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permite fechas actuales"></i>
+
+												</label>
 												<!--begin::Input-->
 												<div class="position-relative d-flex align-items-center">
 													<!--begin::Icon-->
@@ -119,7 +125,7 @@
 													<!--end::Svg Icon-->
 													<!--end::Icon-->
 													<!--begin::Datepicker-->
-													<input type="text" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramada"  required />
+													<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramada"    required />
 													<!--end::Datepicker-->
 												</div>
 												<!--end::Input-->

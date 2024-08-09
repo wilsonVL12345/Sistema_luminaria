@@ -71,10 +71,13 @@
 													<!--begin::Input group-->
 													<div class="mb-5 fv-row">
 														<!--begin::Label-->
-														<label class="required fs-5 fw-bold mb-2">Registrar Nuevo Accesorio</label>
+														<label class="required fs-5 fw-bold mb-2">Registrar Nuevo Accesorio
+															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+														</label>
 														<!--end::Label-->
 														<!--begin::Input-->
-														<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del componente" name="txtnombre" />
+														<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del componente" name="txtnombre" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" />
 														<!--end::Input-->
 													</div>
 													<!--end::Input group-->
@@ -258,10 +261,13 @@
 																			<!--begin::Label-->
 																			<input type="text" name="txtid" id="txtid" value="{{$item->id}}" style="display: none;">
 		
-																			<label class="required fs-5 fw-bold mb-2">Accesorio</label>
+																			<label class="required fs-5 fw-bold mb-2">Accesorio
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+																			</label>
 																			<!--end::Label-->
 																			<!--begin::Input-->
-																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del componente" name="txtnombre" value="{{$item->Nombre_Item}}"  required/>
+																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del componente" name="txtnombre" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" value="{{$item->Nombre_Item}}"  required/>
 																			<!--end::Input-->
 																		</div>
 																		<!--end::Input group-->

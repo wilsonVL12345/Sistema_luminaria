@@ -58,10 +58,13 @@
                                                                         <div class="row mb-5">
                                                                             <!--begin::Col-->
                                                                             <div class="col-md-6 fv-row">
-                                                                                <label class="required fs-5 fw-bold mb-2">Urbanizacion</label>
+                                                                                <label class="required fs-5 fw-bold mb-2">Urbanizacion
+                                                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+                                                                                </label>
                                                                                 <!--end::Label-->
                                                                                 <!--begin::Input-->
-                                                                                <input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de la Urbanizacion" name="txtzonaUrbanizacionm" id="txtzonaUrbanizacionm" value="{{$urbEdit->nombre_urbanizacion}}" required/>
+                                                                                <input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de la Urbanizacion" name="txtzonaUrbanizacionm" id="txtzonaUrbanizacionm" value="{{$urbEdit->nombre_urbanizacion}}" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" required/>
                                                                                 <!--end::Input-->
                                                                             </div>
                                                                             <!--end::Col-->

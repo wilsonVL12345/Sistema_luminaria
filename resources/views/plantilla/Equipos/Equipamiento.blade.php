@@ -60,10 +60,13 @@
 											<!--begin::Input group-->
 											<div class="fv-row mb-7">
 												<!--begin::Label-->
-												<label class="required fs-6 fw-bold mb-2">Nombre Item</label>
+												<label class="required fs-6 fw-bold mb-2">Nombre Item
+													<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+												</label>
 												<!--end::Label-->
 												<!--begin::Input-->
-												<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de el Equipamiento" name="txtnombre" id="txtnombre"  required />
+												<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de el Equipamiento" name="txtnombre" id="txtnombre" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*"  required />
 												<!--end::Input-->
 											</div>
 											<!--end::Input group-->
@@ -81,7 +84,8 @@
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row">
 													<label class="required fs-6 fw-bold mb-2">Estado</label>
-													<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Seleccione..." name="txtestado" id="txtestado" required>
+													<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="txtestado" required >
+
 														<option value="">Seleccione...</option>
 														<option value="Bueno">Bueno </option>
 														<option value="Regular">Regular </option>
@@ -93,7 +97,8 @@
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row">
 													<label class="required fs-6 fw-bold mb-2">Distrito</label>
-													<select class="form-control  form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Seleccione..." name="txtdistrito" id="txtdistrito" required>
+													<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="txtdistrito" required >
+
 														<option value="">Seleccione...</option>
 														@foreach ($lista as $ite)
 														<option value="{{$ite->id}}">{{$ite->Distrito}}</option>
@@ -279,11 +284,12 @@
 																		<input type="text" class="form-control" id="txtid" aria-describedby="emailHelp" name="txtid" value="{{$itememp->id}}" style="display: none;">
 																		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
 																			<span class="required">Nombre Item</span>
-																			
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
 																		</label>
 																		<!--end::Label-->
 																		<!--begin::Input-->
-																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de el Equipamiento" name="txtnombre" id="txtnombre"  value="{{$itememp->Nombre_Item}}" required />
+																		<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de el Equipamiento" name="txtnombre" id="txtnombre" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*"  value="{{$itememp->Nombre_Item}}" required />
 																		<!--end::Input-->
 																	</div>
 																	<!--end::Input group-->

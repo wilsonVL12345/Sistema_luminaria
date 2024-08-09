@@ -267,8 +267,11 @@
 							
 															<div class="from row">
 																<div class="col-md-3 mb-3">
-																	<label for="txtcodProyObras" class=" fs-5 fw-bold mb-2">Codigo Proyecto</label>
-																	<input type="text" class="form-control form-control-solid " id="txtcodProyObras" name="txtcodProyObras" value="{{$items->Cuce_Cod}}" required>
+																	<label for="txtcodProyObras" class=" fs-5 fw-bold mb-2">Codigo Proyecto
+																		<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permite numeros en  este formato ejemplo 24-2303-00-1465119-1-9"></i>
+
+																	</label>
+																	<input type="text" class="form-control form-control-solid " id="txtcodProyObras" name="txtcodProyObras" pattern="^[0-9]{2}-[0-9]{4}-[0-9]{2}-[0-9]{7}-[0-9]-[0-9]$" value="{{$items->Cuce_Cod}}" required>
 																</div>
 																<div class="col-md-3 mb-3">
 																	<label for="sldisProyObras" class=" fs-5 fw-bold mb-2">Distrito</label>
@@ -313,8 +316,11 @@
 															</div>
 															<div class="from row">
 																<div class="col-md-6 mb-3">
-																	<label for="txtmodProyObras" class=" fs-5 fw-bold mb-2">Modalidad</label>
-																	<input type="text" class="form-control form-control-solid " id="txtmodProyObras" name="txtmodProyObras" value="{{$items->Modalidad}}" required>
+																	<label for="txtmodProyObras" class=" fs-5 fw-bold mb-2">Modalidad
+																		<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten max 4 digitos numeros o letras "></i>
+
+																	</label>
+																	<input type="text" class="form-control form-control-solid " id="txtmodProyObras" name="txtmodProyObras" pattern="[A-Za-z0-9]{1,4}" value="{{$items->Modalidad}}" required>
 																</div>
 																	
 																
@@ -349,12 +355,16 @@
 																</div>		
 																<div class="from row">
 																	<div class="col-md-8 mb-3">
-																		<label for="txtobjetoObras" class=" fs-5 fw-bold mb-2">Objeto de Contratacion</label>
-																		<input type="text" class="form-control form-control-solid " id="txtobjetoObras" name="txtobjetoObras" value="{{$items->Objeto_Contratacion}}" required>
+																		<label for="txtobjetoObras" class=" fs-5 fw-bold mb-2">Objeto de Contratacion
+																						<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+																		</label>
+																		<input type="text" class="form-control form-control-solid " id="txtobjetoObras" name="txtobjetoObras" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" value="{{$items->Objeto_Contratacion}}" required>
 																	</div>
 																	<div class="col-md-4 mb-3">
-																		<label for="txtprovProyObras" class=" fs-5 fw-bold mb-2">Proveedor</label>
-																		<input type="text" class="form-control form-control-solid " id="txtprovProyObras" name="txtprovProyObras" value="{{$items->Proveedor}}" required>
+																		<label for="txtprovProyObras" class=" fs-5 fw-bold mb-2">Proveedor
+																							<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+																		</label>
+																		<input type="text" class="form-control form-control-solid " id="txtprovProyObras" name="txtprovProyObras" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" value="{{$items->Proveedor}}" required>
 																	</div>
 																</div>
 

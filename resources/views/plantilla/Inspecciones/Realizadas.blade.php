@@ -106,7 +106,6 @@
 												<th class="min-w-125px"  >Tipo de Inspeccion</th>
 												<th class="min-w-125px">Estado</th>
 												<th class="min-w-125px" style="min-width: 350px;">Detalles</th>
-												<th class="min-w-125px">Inspector</th>
 												<th class="min-w-125px">Fecha Inspeccionada</th>
 												<th class="text-end min-w-70px">Actividad</th>
 											</tr>
@@ -165,11 +164,7 @@
 													class="text-gray-600 text-hover-primary mb-1" >{{$item->Detalles}}
 													</a>												
 												</td>
-												<td>
-													<a href="#"
-													class="text-gray-600 text-hover-primary mb-1">{{$item->Inspector}}
-													</a>												
-												</td>
+												
 												<!--end::Payment method=-->
 												<!--begin::Date=-->
 												<td>
@@ -304,8 +299,11 @@
 																	
 																		<div class="row">
 																		  <div class="col-md-4">
-																			<label for="" class="d-flex align-items-center fs-6 fw-bold mb-2">Nro Sisco</label>
-																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" value="{{$item->Nro_Sisco}}" required/>
+																			<label for="" class="required d-flex align-items-center fs-6 fw-bold mb-2">Nro Sisco
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números y - en este formato ejem 252353-2024  "></i>
+
+																			</label>
+																			<input type="text" class="form-control form-control-solid" placeholder="Ingrese Numero Sisco" name="txtsisco" id="txtsisco" pattern="^[0-9]{5,6}-[0-9]{4}$" value="{{$item->Nro_Sisco}}" required/>
 																			
 																		  </div>
 																		  <div class="col-md-4">
@@ -333,7 +331,7 @@
 																				<!--end::Svg Icon-->
 																				<!--end::Icon-->
 																				<!--begin::Datepicker-->
-																				<input id="txtfecha"  class="form-control form-control-solid ps-12"  name="txtfecha" value="{{$item->Fecha_Inspeccion}}"  required/>
+																				<input id="daterealiModificar"  class="form-control form-control-solid ps-12"  name="txtfecha" value="{{$item->Fecha_Inspeccion}}"  required/>
 																				<!--end::Datepicker-->
 																			</div>
 																			<!--end::Input-->
@@ -344,7 +342,6 @@
 																		<!--begin::Label-->
 																		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
 																			<span class="required">Urbanizacion</span>
-																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Nro sisco es un numero unico de cada trabajo"></i>
 																		</label>
 																		<!--end::Label-->
 																		<select  aria-label="Select a Country"

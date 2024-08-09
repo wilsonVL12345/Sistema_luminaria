@@ -84,8 +84,12 @@
 																	<!--begin::Input group-->
 																	<div class="from row">
 																		<div class="col-md-4 mb-3">
-																			<label for="txtcod" class="required fs-5 fw-bold mb-2">Codigo Proyecto</label>
-																			<input type="text" class="form-control form-control-solid " id="txtcod" name="txtcod" placeholder="Ingresar Datos" >
+																			<label for="txtcod" class="required fs-5 fw-bold mb-2">Codigo Proyecto
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permite numeros en  este formato ejemplo 24-2303-00-1465119-1-9"></i>
+
+																			</label>
+
+																			<input type="text" class="form-control form-control-solid " id="txtcod" name="txtcod" pattern="^[0-9]{2}-[0-9]{4}-[0-9]{2}-[0-9]{7}-[0-9]-[0-9]$" placeholder="Ingresar Datos" >
 																		</div>
 																		<div class="col-md-4 mb-3">
 																			<label for="txtdistrito" class="required fs-5 fw-bold mb-2">Distrito</label>
@@ -99,7 +103,10 @@
 																	
 																		<!--begin::Col-->
 																		<div class="col-md-4 mb-3">
-																			<label class="required fs-6 fw-bold mb-2">Fecha de Adquisicion</label>
+																			<label class="required fs-6 fw-bold mb-2">Fecha de Adquisicion
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permite fechas actuales o entre la semana"></i>
+
+																			</label>
 																			<!--begin::Input-->
 																			<div class="position-relative d-flex align-items-center">
 																				<!--begin::Icon-->
@@ -148,25 +155,36 @@
 																		<!--begin::Col-->
 																		<div class="col-md-6 fv-row">
 																			<!--begin::Label-->
-																			<label class="required fs-5 fw-bold mb-2">Modalidad</label>
+																			<label class="required fs-5 fw-bold mb-2">Modalidad
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten max 4 digitos numeros o letras "></i>
+
+																			</label>
 																			<!--end::Label-->
 																			<!--begin::Input-->
-																			<input type="text" class="form-control form-control-solid" placeholder="Ingresar Datos" name="txtmodalidad" id="txtmodalidad" required  />
+																			<input type="text" class="form-control form-control-solid" placeholder="Ingresar Datos" name="txtmodalidad" id="txtmodalidad" pattern="[A-Za-z0-9]{1,4}" required  />
 																			<!--end::Input-->
 																		</div> 
 																		<!--end::Col-->
 																			<div class="col-md-6 fv-row">
-																				<label class="required fs-6 fw-bold mb-2">Objeto de Contratacion</label>
-																				<input type="text" class="form-control form-control-solid" placeholder="Ingresar Datos" name="txtobjeto" id="txtobjeto" required  />
+																				<label class="required fs-6 fw-bold mb-2">Proveedor
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+																				</label>
+																				<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del Proveedor" name="txtproveedor" id="txtproveedor" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" required  />
+
 
 																			</div>
 																	</div>
-																	<div class="d-flex flex-column mb-5 fv-row">
+																		<div class="d-flex flex-column mb-5 fv-row">
 																		<!--begin::Label-->
-																		<label class="required fs-5 fw-bold mb-2">Proveedor</label>
+																		<label class="required fs-5 fw-bold mb-2">Objeto de Contratacion
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+																		</label>
+																		<input type="text" class="form-control form-control-solid" placeholder="Ingresar Datos" name="txtobjeto" id="txtobjeto" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" required  />
+
 																		<!--end::Label-->
 																		<!--begin::Input-->
-																		<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del Proveedor" name="txtproveedor" id="txtproveedor" required  />
 																		<!--end::Input-->
 																	</div> 
 																	<div class="from row">
@@ -431,11 +449,14 @@
 							
 															<div class="from row">
 																<div class="col-md-3 mb-3">
-																	<label for="txtcodProyEsp" class=" fs-5 fw-bold mb-2">Codigo Proyecto</label>
-																	<input type="text" class="form-control form-control-solid " id="txtcodProyEsp" name="txtcodProyEsp" value="{{$item->Cuce_Cod}}" required>
+																	<label for="txtcodProyEsp" class="required fs-5 fw-bold mb-2">Codigo Proyecto
+																		<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permite numeros en  este formato ejemplo 24-2303-00-1465119-1-9"></i>
+
+																	</label>
+																	<input type="text" class="form-control form-control-solid " id="txtcodProyEsp" name="txtcodProyEsp" pattern="^[0-9]{2}-[0-9]{4}-[0-9]{2}-[0-9]{7}-[0-9]-[0-9]$" value="{{$item->Cuce_Cod}}" required>
 																</div>
 																<div class="col-md-3 mb-3">
-																	<label for="sldisProyEsp" class=" fs-5 fw-bold mb-2">Distrito</label>
+																	<label for="sldisProyEsp" class="required fs-5 fw-bold mb-2">Distrito</label>
 																	<select class="form-control form-select-solid" data-control="select2" name="sldisProyEsp" data-id="sldisProyEsp" required>
 																		@foreach ($listadistrito as $dis)
 																		<option value="{{$dis->id}}" {{$item->Distritos_id==$dis->id ? 'selected':''}}>{{$dis->Distrito}}</option>
@@ -443,7 +464,7 @@
 																	</select>
 																</div>
 																<div class="col-md-6 mb-3">
-																	<label for="slUrbproyEsp" class=" fs-5 fw-bold mb-2">Urbanizacion</label>
+																	<label for="slUrbproyEsp" class="required fs-5 fw-bold mb-2">Urbanizacion</label>
 																	<select class="form-control form-select-solid" data-control="select2" data-dropdown-parent="#modalModificarProyAlmacen{{$item->id}}" name="slUrbproyEsp" data-id="slUrbproyEsp" required>
 																		<option value="{{$item->Zona}}">{{$item->Zona}}</option>
 																	</select>
@@ -451,14 +472,14 @@
 															</div>
 															<div class="from row">
 																<div class="col-md-6 mb-3">
-																	<label for="sltipProyEsp" class=" fs-5 fw-bold mb-2">Tipos de Componentes</label>
+																	<label for="sltipProyEsp" class="required fs-5 fw-bold mb-2">Tipos de Componentes</label>
 																	<input type="text" class="form-control form-control-solid " id="sltipProyEsp" name="sltipProyEsp" value="{{$item->Tipo_Componentes}}" readonly>
 																	
 																		
 																					
 																</div>
 																<div class="col-md-3 mb-3">
-																	<label for="sltipContraProyEsp" class=" fs-5 fw-bold mb-2">Tipo de Contratacion</label>
+																	<label for="sltipContraProyEsp" class="required fs-5 fw-bold mb-2">Tipo de Contratacion</label>
 																	<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="sltipContraProyEsp" required >
 																		<option value="" >Seleccione...</option>
 																		<option value="Bienes" {{$item->Tipo_Contratacion=='Bienes'?'selected':''}}>Bienes</option>
@@ -466,7 +487,7 @@
 																	</select>
 																</div>
 																<div class="col-md-3 mb-3">
-																	<label for="slsubproEsp" class=" fs-5 fw-bold mb-2">Subasta</label>
+																	<label for="slsubproEsp" class="required fs-5 fw-bold mb-2">Subasta</label>
 																	<select class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." name="slsubproEsp" required >
 																		<option value="" >Seleccione...</option>
 																		<option value="Si" {{$item->Subasta=='Si'?'selected':''}} >Si</option>
@@ -477,8 +498,11 @@
 															</div>
 															<div class="from row">
 																<div class="col-md-6 mb-3">
-																	<label for="txtmodProyEsp" class=" fs-5 fw-bold mb-2">Modalidad</label>
-																	<input type="text" class="form-control form-control-solid " id="txtmodProyEsp" name="txtmodProyEsp" value="{{$item->Modalidad}}" required>
+																	<label for="txtmodProyEsp" class="required fs-5 fw-bold mb-2">Modalidad
+																		<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten max 4 digitos numeros o letras "></i>
+
+																	</label>
+																	<input type="text" class="form-control form-control-solid " id="txtmodProyEsp" name="txtmodProyEsp" pattern="[A-Za-z0-9]{1,4}" value="{{$item->Modalidad}}" required>
 																</div>
 																	
 																
@@ -505,12 +529,18 @@
 																</div>
 																<div class="from row">
 																	<div class="col-md-8 mb-3">
-																		<label for="txtobjetoEsp" class=" fs-5 fw-bold mb-2">Objeto de Contratacion</label>
-																		<input type="text" class="form-control form-control-solid " id="txtobjetoEsp" name="txtobjetoEsp" value="{{$item->Objeto_Contratacion}}" required>
+																		<label for="txtobjetoEsp" class="required fs-5 fw-bold mb-2">Objeto de Contratacion
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+																		</label>
+																		<input type="text" class="form-control form-control-solid " id="txtobjetoEsp" name="txtobjetoEsp" value="{{$item->Objeto_Contratacion}}" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" required>
 																	</div>
 																	<div class="col-md-4 mb-3">
-																		<label for="txtprovProyEsp" class=" fs-5 fw-bold mb-2">Proveedor</label>
-																		<input type="text" class="form-control form-control-solid " id="txtprovProyEsp" name="txtprovProyEsp" value="{{$item->Proveedor}}" required>
+																		<label for="txtprovProyEsp" class="required fs-5 fw-bold mb-2">Proveedor
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+																		</label>
+																		<input type="text" class="form-control form-control-solid " id="txtprovProyEsp" name="txtprovProyEsp"  pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" value="{{$item->Proveedor}}" required>
 																	</div>
 																</div>
 

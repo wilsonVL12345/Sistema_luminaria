@@ -79,8 +79,11 @@
 															<div class="modal-body py-10 px-lg-17">
 																	<div class="from row">
 																				<div class="col-md-3 mb-3">
-																					<label for="txtnrosisco" class="required fs-5 fw-bold mb-2">Nro Sisco</label>
-																					<input type="text" class="form-control form-control-solid" id="txtnrosisco" name="txtnrosisco" >
+																					<label for="txtnrosisco" class="required fs-5 fw-bold mb-2">Nro Sisco
+																						<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números y - en este formato ejem 252353-2024  "></i>
+
+																					</label>
+																					<input type="text" class="form-control form-control-solid" id="txtnrosisco" name="txtnrosisco" pattern="^[0-9]{5,6}-[0-9]{4}$" >
 																				</div>
 																				<div class="col-md-3 mb-3">
 																					<label for="txtdistrito" class="required fs-5 fw-bold mb-2">Distrito</label>
@@ -117,8 +120,11 @@
 																	</div>
 																	<div class="from row">
 																		<div class="col-md-8 mb-3"> <!-- Ocupa el doble del tamaño -->
-																			<label for="txtproyecto" class="required fs-5 fw-bold mb-2">Proyecto</label>
-																			<input type="text" class="form-control form-control-solid" id="txtproyecto" name="txtproyecto" >
+																			<label for="txtproyecto" class="required fs-5 fw-bold mb-2">Proyecto
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+																			</label>
+																			<input type="text" class="form-control form-control-solid" id="txtproyecto" name="txtproyecto" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" >
 
 																		</div>
 																		<!--begin::Col-->
@@ -152,10 +158,13 @@
 																	
 																	<div class="d-flex flex-column mb-5 fv-row">
 																		<!--begin::Label-->
-																		<label class="required fs-5 fw-bold mb-2">Direccion</label>
+																		<label class="required fs-5 fw-bold mb-2">Direccion
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+																		</label>
 																		<!--end::Label-->
 																		<!--begin::Input-->
-																		<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del Proveedor" name="txtdireccion" id="txtdireccion" required  />
+																		<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del Proveedor" name="txtdireccion" id="txtdireccion" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" required  />
 																		<!--end::Input-->
 																	</div>
 																		<!--begin::Modal footer-->
@@ -180,33 +189,6 @@
 																	<div id="listacomp">
 
 																	</div>
-																	{{-- <div class="from row">
-																		<div class="col-md-6 mb-3">
-																			<label for="txtitem" class="required fs-5 fw-bold mb-2">Nombre Item</label>
-																			<select type="text" id="txtitem" name="campoitem[0][txtitem]" class="form-control form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Selecione..." required>
-																				<option value="" disabled selected >Seleccione</option>
-																				@foreach ($accesorios as $itemlistacc)
-																				<option value="{{$itemlistacc->Nombre_Item}}">{{$itemlistacc->Nombre_Item}}</option>
-																				@endforeach	
-																			</select>														
-																		</div>
-																		<div class="col-md-2 mb-3">
-																			<label for="txtreutilizables" class="required fs-5 fw-bold mb-2">Reutilizables</label>
-																			<input type="number" class="form-control form-control-solid" id="txtreutilizables" name="camporeutilizables[0][txtreutilizables]" required >
-																		
-																		</div>
-																		<div class="col-md-2 mb-3">
-																			<label for="txtnoreutilizables" class="required fs-5 fw-bold mb-2">No Reutilizables</label>
-																			<input type="number" class="form-control form-control-solid" id="txtnoreutilizables" name="camponoreutilizables[0][txtnoreutilizables]" required >
-																		</div>
-																		
-																		
-																		<div class="col-md-2 mb-3  d-flex justify-content-center align-items-center">
-																			<button type="button"  class="btn btn-danger btn-sm"  onclick="eliminarluminled(this)">Delete</button>
-																		</div>
-																		
-																	</div> 
-															 --}}
 																	
 																	
 															</div>
@@ -412,7 +394,10 @@
 																						<div class="modal-body py-10 px-lg-17">
 																								<div class="from row">
 																											<div class="col-md-3 mb-3">
-																												<label for="txtnrosiscoMod" class="required fs-5 fw-bold mb-2">Nro Sisco</label>
+																												<label for="txtnrosiscoMod" class="required fs-5 fw-bold mb-2">Nro Sisco
+																													<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números y - en este formato ejem 252353-2024  "></i>
+
+																												</label>
 																												<input type="text" class="form-control form-control-solid" id="txtnrosiscoMod" name="txtnrosiscoMod" value="{{$item->Nro_sisco}}">
 																											</div>
 																											<div class="col-md-3 mb-3">
@@ -451,8 +436,10 @@
 																								</div>
 																								<div class="from row">
 																									<div class="col-md-8 mb-3"> <!-- Ocupa el doble del tamaño -->
-																										<label for="txtproyectoMod" class="required fs-5 fw-bold mb-2">Proyecto</label>
-																										<input type="text" class="form-control form-control-solid" id="txtproyectoMod" name="txtproyectoMod" value="{{$item->Proyecto}}" required >
+																										<label for="txtproyectoMod" class="required fs-5 fw-bold mb-2">Proyecto
+																											<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+																												</label>
+																										<input type="text" class="form-control form-control-solid" id="txtproyectoMod" name="txtproyectoMod" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" value="{{$item->Proyecto}}" required >
 
 																									</div>
 																									<!--begin::Col-->
@@ -486,10 +473,13 @@
 																								
 																								<div class="d-flex flex-column mb-5 fv-row">
 																									<!--begin::Label-->
-																									<label class="required fs-5 fw-bold mb-2">Direccion</label>
+																									<label class="required fs-5 fw-bold mb-2">Direccion
+																										<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+																									</label>
 																									<!--end::Label-->
 																									<!--begin::Input-->
-																									<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del Proveedor" name="txtdireccionMod" id="txtdireccionMod" value="{{$item->Direccion}}" required  />
+																									<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre del Proveedor" name="txtdireccionMod" id="txtdireccionMod" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" value="{{$item->Direccion}}" required  />
 																									<!--end::Input-->
 																								</div>
 																									<!--begin::Modal footer-->

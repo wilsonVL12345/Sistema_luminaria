@@ -139,12 +139,18 @@
 									</select>										
 								</div>
 								<div class="col-md-3 mb-3">
-									<label for="txtcantidadlum" class="required fs-5 fw-bold mb-2">Cantidad de Puntos</label>
-									<input type="text" class="form-control form-control-solid " id="txtcantidadlum" name="txtcantidadlum"  required>
+									<label for="txtcantidadlum" class="required fs-5 fw-bold mb-2">Cantidad de Puntos
+										<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números positivos asta max 500"></i>
+
+									</label>
+									<input type="text" class="form-control form-control-solid " id="txtcantidadlum" name="txtcantidadlum" pattern="^([1-9][0-9]{0,2}|500)$" required>
 
 								</div>
 								<div class="col-md-3 mb-3">
-									<label class="required fs-6 fw-bold mb-2">Fecha Ejecutada</label>
+									<label class="required fs-6 fw-bold mb-2">Fecha Ejecutada
+										<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten actuales no anteriores"></i>
+
+									</label>
 									<!--begin::Input-->
 									<div class="position-relative d-flex align-items-center">
 										<!--begin::Icon-->
@@ -159,7 +165,7 @@
 										<!--end::Svg Icon-->
 										<!--end::Icon-->
 										<!--begin::Datepicker-->
-										<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaejecut" id="txtfechaejecut"  required />
+										<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaejecut" id="txtfechaejecut"   required />
 									</div>
 									<!--end::Input-->
 							</div>
@@ -183,8 +189,11 @@
 													</select>
 										</div>
 										<div class="col-md-3 mb-3">
-											<label for="txtcod" class="required fs-5 fw-bold mb-2">Cantidad</label>
-											<input type="number" class="form-control form-control-solid" id="campocantidad" name="campocantidad[0]" placeholder="Ingresar Cantidad" required>
+											<label for="txtcod" class="required fs-5 fw-bold mb-2">Cantidad
+										<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números positivos asta max 1-500"></i>
+
+											</label>
+											<input type="text" class="form-control form-control-solid" id="campocantidad" name="campocantidad[0]" pattern="^([1-9][0-9]{0,2}|500)$" placeholder="Ingresar Cantidad" required>
 										</div>
 										<div class="col-md-3 mb-3 d-flex justify-content-center align-items-center">
 											<button type="button" class="btn btn-danger btn-sm" onclick="eliminarAccesorio(this)">Delete</button>
@@ -197,7 +206,9 @@
 
 							<div class="from row">
 										<div class="col-md-8 mb-3">
-												<label class="fs-6 fw-bold mb-2">Detalles de Trabajo</label>
+												<label class="fs-6 fw-bold mb-2">Detalles de Trabajo
+
+												</label>
 												<textarea class="form-control form-control-solid" rows="3" name="txtdetalles" placeholder="Ingrese una breve descripcion del Trabajo" ></textarea >
 										</div>
 							</div>

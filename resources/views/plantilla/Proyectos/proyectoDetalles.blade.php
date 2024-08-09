@@ -135,6 +135,10 @@
 										<label for="txtobjeto" class=" fs-5 fw-bold mb-2">Objeto de Contratacion</label>
 										<input type="text" class="form-control form-control-solid " id="txtobjeto" name="txtobjeto" value="{{$proyec->Objeto_Contratacion}}" readonly>
 									</div>
+									<div class="col-md-3 mb-3">
+										<label for="txtestado" class=" fs-5 fw-bold mb-2">Ejecutado</label>
+										<input type="text" class="form-control form-control-solid " id="txtestado" name="txtestado" value="{{$ejecutador->name.' '.$ejecutador->Paterno}}" readonly>
+									</div>
 								</div>
 							</form>
 								

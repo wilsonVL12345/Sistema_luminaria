@@ -167,30 +167,42 @@
 														<!--begin::Input group-->
 														<div class="d-flex flex-column mb-5 fv-row">
 															<!--begin::Label-->
-															<label class="required fs-5 fw-bold mb-2">Nombres</label>
+															<label class="required fs-5 fw-bold mb-2">Nombres
+															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Solo se permiten letras y espacios"></i>
+
+															</label>
 															<!--end::Label-->
 															<!--begin::Input-->
-															<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtnombre" required  />
+															<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtnombre" pattern="[A-Za-z\s]+"  required  />
+															 {{-- @error('txtnombre')
+																<span style="color: red;">{{ $message }}</span>
+															@enderror --}}
 															<!--end::Input-->
 														</div> 
 														<div class="row mb-5">
 															<!--begin::Col-->
 															<div class="col-md-6 fv-row">
 																<!--begin::Label-->
-																<label class="required fs-5 fw-bold mb-2">Paterno</label>
+																<label class="required fs-5 fw-bold mb-2">Paterno
+															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten letras, sin espacios"></i>
+
+																</label>
 																<!--end::Label-->
 																<!--begin::Input-->
-																<input type="text" class="form-control form-control-solid" placeholder="" name="txtpaterno" required  />
+																<input type="text" class="form-control form-control-solid" placeholder="" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜ]+$" name="txtpaterno"  title="Solo se permiten letras y espacios" required  />
 																<!--end::Input-->
 															</div> 
 															<!--end::Col-->
 															<!--begin::Col-->
 															<div class="col-md-6 fv-row">
 																<!--end::Label-->
-																<label class="required fs-5 fw-bold mb-2">Materno</label>
+																<label class="required fs-5 fw-bold mb-2">Materno
+															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten letras, sin espacios"></i>
+
+																</label>
 																<!--end::Label-->
 																<!--end::Input-->
-																<input type="text" class="form-control form-control-solid" placeholder="" name="txtmaterno" required  />
+																<input type="text" class="form-control form-control-solid" placeholder="" name="txtmaterno" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜ]+$" required  />
 																<!--end::Input-->
 															</div> 
 															<!--end::Col-->
@@ -202,10 +214,14 @@
 															<!--begin::Col-->
 															<div class="col-md-6 fv-row">
 																<!--begin::Label-->
-																<label class="required fs-5 fw-bold mb-2">C.I.</label>
+																<label class="required fs-5 fw-bold mb-2">C.I.
+															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Solo se permiten números de 7 a 8 digitos"></i>
+
+																</label>
 																<!--end::Label-->
 																<!--begin::Input-->
-																<input type="text" class="form-control form-control-solid" placeholder="" name="txtci" required  />
+																<input type="text" class="form-control form-control-solid" placeholder="" name="txtci"  pattern="^[0-9]{7,9}$"
+																required  />
 																<!--end::Input-->
 															</div> 
 															<!--end::Col-->
@@ -231,10 +247,13 @@
 														</div>
 														<div class="d-flex flex-column mb-5 fv-row">
 															<!--begin::Label-->
-															<label class="required fs-5 fw-bold mb-2">Celular</label>
+															<label class="required fs-5 fw-bold mb-2">Celular
+															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números"></i>
+
+															</label>
 															<!--end::Label-->
 															<!--begin::Input-->
-															<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtcelular" required  id="txtcelular"  />
+															<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtcelular" required pattern="^[0-9]{7,9}$" id="txtcelular"  />
 															<!--end::I requirednput-->
 														</div>
 														<div class="d-flex flex-column mb-5 fv-row">
@@ -461,30 +480,39 @@
 																		<div class="d-flex flex-column mb-5 fv-row">
 																			<!--begin::Label-->
 																			<input type="" name="txtid" id="txtid" value="{{$itemus->id}}"  style="display: none;">
-																			<label class="required fs-5 fw-bold mb-2">name</label>
+																			<label class="required fs-5 fw-bold mb-2">Nombre
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Solo se permiten letras y espacios"></i>
+
+																			</label>
 																			<!--end::Label-->
 																			<!--begin::Input-->
-																			<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtnombre" required value="{{$itemus->name}}" />
+																			<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtnombre" pattern="[A-Za-z\s]+" required value="{{$itemus->name}}" />
 																			<!--end::Input-->
 																		</div> 
 																		<div class="row mb-5">
 																			<!--begin::Col-->
 																			<div class="col-md-6 fv-row">
 																				<!--begin::Label-->
-																				<label class="required fs-5 fw-bold mb-2">Paterno</label>
+																				<label class="required fs-5 fw-bold mb-2">Paterno
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten letras, sin espacios"></i>
+
+																				</label>
 																				<!--end::Label-->
 																				<!--begin::Input-->
-																				<input type="text" class="form-control form-control-solid" placeholder="" name="txtpaterno" value="{{$itemus->Paterno}}" required  />
+																				<input type="text" class="form-control form-control-solid" placeholder="" name="txtpaterno" value="{{$itemus->Paterno}}" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜ]+$" required  />
 																				<!--end::Input-->
 																			</div> 
 																			<!--end::Col-->
 																			<!--begin::Col-->
 																			<div class="col-md-6 fv-row">
 																				<!--end::Label-->
-																				<label class="required fs-5 fw-bold mb-2">Materno</label>
+																				<label class="required fs-5 fw-bold mb-2">Materno
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten letras, sin espacios"></i>
+
+																				</label>
 																				<!--end::Label-->
 																				<!--end::Input-->
-																				<input type="text" class="form-control form-control-solid" placeholder="" name="txtmaterno" value="{{$itemus->Materno}}" required  />
+																				<input type="text" class="form-control form-control-solid" placeholder="" name="txtmaterno" value="{{$itemus->Materno}}" pattern="^[A-Za-záéíóúüñÁÉÍÓÚÜ]+$" required  />
 																				<!--end::Input-->
 																			</div> 
 																			<!--end::Col-->
@@ -496,10 +524,13 @@
 																			<!--begin::Col-->
 																			<div class="col-md-6 fv-row">
 																				<!--begin::Label-->
-																				<label class="required fs-5 fw-bold mb-2">C.I.</label>
+																				<label class="required fs-5 fw-bold mb-2">C.I.
+															<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Solo se permiten números de 7 a 8 digitos"></i>
+
+																				</label>
 																				<!--end::Label-->
 																				<!--begin::Input-->
-																				<input type="text" class="form-control form-control-solid" placeholder="" name="txtci" value="{{$itemus->Ci}}" required  />
+																				<input type="text" class="form-control form-control-solid" placeholder="" name="txtci" value="{{$itemus->Ci}}" pattern="^[0-9]{7,9}$" required  />
 																				<!--end::Input-->
 																			</div> 
 																			<!--end::Col-->
@@ -524,10 +555,13 @@
 																		</div>
 																		<div class="d-flex flex-column mb-5 fv-row">
 																			<!--begin::Label-->
-																			<label class="required fs-5 fw-bold mb-2">Celular</label>
+																			<label class="required fs-5 fw-bold mb-2">Celular
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números"></i>
+
+																			</label>
 																			<!--end::Label-->
 																			<!--begin::Input-->
-																			<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtcelular"   id="txtcelular" value="{{$itemus->Celular}}"  required />
+																			<input  type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre" name="txtcelular"   id="txtcelular" value="{{$itemus->Celular}}" pattern="^[0-9]{7,9}$" required />
 																			<!--end::I requirednput-->
 																		</div>
 																		<div class="d-flex flex-column mb-5 fv-row">

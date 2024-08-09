@@ -28,3 +28,6 @@ $(document).ready(function() {
         }
     });
 });
+
+ // Configurar flatpickr
+

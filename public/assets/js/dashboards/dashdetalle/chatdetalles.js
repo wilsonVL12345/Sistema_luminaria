@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         yaxis: {
             title: {
-                text: 'Detalles Luminarias'
+                text: 'Mantenimientos Generales'
             }
         },
         fill: {

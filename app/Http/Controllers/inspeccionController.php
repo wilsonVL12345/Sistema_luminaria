@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\inspeccion;
 use App\Models\distrito;
 use App\Models\urbanizacion;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -172,9 +173,10 @@ class inspeccionController extends Controller
     public function realizadas(Request $request)
     {
         $inspeccion = inspeccion::where('Inspeccion', 'Finalizado')->get();
+        $inspector = user::all();
         $listadistrito = Distrito::where('id', '<>', 15)->get();
         $listazonaurb = urbanizacion::all();
-        return view('plantilla.Inspecciones.Realizadas', ['inspeccion' => $inspeccion, 'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb]);
+        return view('plantilla.Inspecciones.Realizadas', ['inspeccion' => $inspeccion, 'listadistrito' => $listadistrito, 'listazonaurb' => $listazonaurb, 'inspector' => $inspector]);
     }
 
     public function update(Request $request, string $id)

@@ -1,12 +1,4 @@
-/* $(document).ready(function() {
-    $('#selector').on('change', function() {
-        if ($(this).val().includes('Apoyo Carro Canasta')) {
-            $('#apoyo-distrito').show();
-        } else {
-            $('#apoyo-distrito').hide();
-        }
-    });
-}); */
+
 $(document).ready(function() {
     $('#selector').on('change', function() {
         if ($(this).val().includes('Apoyo Carro Canasta')) {

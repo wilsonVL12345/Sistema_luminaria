@@ -35,10 +35,52 @@
 				<div class="aside-logo flex-column-auto" id="kt_aside_logo">
 					<!--begin::Logo-->
 						
-							<a href="/index">
-						<img alt="Logo" src="{{ asset('assets/media/logos/trace.svg') }}" class="h-70px logo loguito " />
-							</a>
-					
+						{{-- 	<a href="/dashdetalles">
+							<img alt="Logo" src="{{ asset('assets/media/logos/trace.svg') }}" class="h-70px logo loguito " />
+							</a> --}}
+							{{-- <div class="logo-container">
+								<a href="/dashdetalles">
+									<img alt="Logo" src="{{ asset('assets/media/logos/trace.svg') }}"  class="h-120px logo loguito " />
+								</a>
+							</div> --}}
+							<div class="logo-container">
+								<a href="/dashdetalles" class="d-flex align-items-center">
+									<img alt="Logo" src="{{ asset('assets/media/logos/trace.svg') }}" class="h-50px logo loguito  " />
+									<span class="logo-text logo loguito"> LUMINARIA</span>
+
+								</a>
+
+							</div>
+							<style>
+								.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.logo-container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-container img.logo {
+    height: 120px;
+    width: auto;
+}
+
+.logo-text {
+    
+	font-family: Arial, sans-serif;
+    font-size: 18px; /* Ajusta este tamaño según sea necesario */
+    font-weight: bold;
+    color: #ffffff; /* Asume que el fondo es oscuro, ajusta si es necesario */
+    margin-left: 10px; /* Espacio entre el logo y el texto */ 
+
+}
+							</style>
 					<!--end::Logo-->
 					<!--begin::Aside toggler-->
 					<div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
@@ -97,7 +139,7 @@
 						<!--end::Aside mobile toggle-->
 						<!--begin::Mobile logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-							<a href="../../demo1/dist/index.html" class="d-lg-none">
+							<a href="{{-- ../../demo1/dist/index.html --}}" class="d-lg-none">
 								<img alt="Logo gamea" src="{{asset('assets/media/logos/gamea.svg')}}" class="h-40px" />
 							</a>
 							<style>

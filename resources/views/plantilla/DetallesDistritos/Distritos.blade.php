@@ -208,10 +208,13 @@
 																								<!--begin::Input group-->
 																								<div class="d-flex flex-column mb-5 fv-row">
 																									<!--begin::Label-->
-																									<label class="required fs-5 fw-bold mb-2">Urbanizacion</label>
+																									<label class="required fs-5 fw-bold mb-2">Urbanizacion
+																										<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números letras mayusculas y minusculas - ()"></i>
+
+																									</label>
 																									<!--end::Label-->
 																									<!--begin::Input-->
-																									<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de la Urbanizacion" name="txtzonaUrba" id="txtzonaUrba" required/>
+																									<input type="text" class="form-control form-control-solid" placeholder="Ingrese el Nombre de la Urbanizacion" name="txtzonaUrba" id="txtzonaUrba" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\-\(\)\.]*" required/>
 																									<!--end::Input-->
 																								</div>
 																							</div>

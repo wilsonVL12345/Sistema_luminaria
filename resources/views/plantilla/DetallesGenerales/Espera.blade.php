@@ -268,8 +268,10 @@
 																					</select>
 																		</div>
 																		<div class="col-md-3 mb-3">
-																			<label for="txtnrosisco" class="required fs-5 fw-bold mb-2">Nro Sisco</label>
-																			<input type="text" class="form-control form-control-solid " id="txtnrosisco" name="txtnrosisco" value="{{$itemEspera->Nro_Sisco}}" required >
+																			<label for="txtnrosisco" class="required fs-5 fw-bold mb-2">Nro Sisco
+																			<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permiten números y - en este formato ejem 252353-2024  "></i>
+																			</label>
+																			<input type="text" class="form-control form-control-solid " id="txtnrosisco" name="txtnrosisco" value="{{$itemEspera->Nro_Sisco}}" pattern="^[0-9]{5,6}-[0-9]{4}$" required >
 																		</div>
 																		<div class="col-md-6 mb-3">
 																			<label for="txtzonaurb" class="required fs-5 fw-bold mb-2">Urbanizacion</label>
@@ -285,14 +287,7 @@
 																	</div>
 																	<div class="from row">
 																		<div class="col-md-8 mb-3">
-																			{{-- @php
-																						$texto = strtolower($itemEspera->Tipo_Trabajo);
-																						$opcionesSeleccionadas = [
-																							'Mantenimiento' => strpos($texto, 'mantenimiento') !== false,
-																							'Instalacion' => strpos($texto, 'instalacion') !== false,
-																							'Apoyo Carro Canasta' => strpos($texto, 'apoyo') !== false && strpos($texto, 'carro') !== false && strpos($texto, 'canasta') !== false
-																						];
-																					@endphp --}}
+																			
 																					@php
 																							$texto = strtolower($itemEspera->Tipo_Trabajo);
 																							$opcionesSeleccionadas = [
@@ -366,7 +361,10 @@
 																		
 																		
 																		<div class="col-md-3 mb-3">
-																				<label class="required fs-6 fw-bold mb-2">Fecha Programada</label>
+																				<label class="required fs-6 fw-bold mb-2">Fecha Programada
+																				<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip"  title="Solo se permite fechas entre la semana"></i>
+
+																				</label>
 																				<!--begin::Input-->
 																				<div class="position-relative d-flex align-items-center">
 																					<!--begin::Icon-->
@@ -381,32 +379,14 @@
 																					<!--end::Svg Icon-->
 																					<!--end::Icon-->
 																					<!--begin::Datepicker-->
-																					<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramada" value="{{$itemEspera->Fecha_Programado}}"  required />
+																					<input type="date" class="form-control form-control-solid ps-12" placeholder="Select a date" name="txtfechaprogramada" id="txtfechaprogramadaedit" value="{{$itemEspera->Fecha_Programado}}"  required />
 																					<!--end::Datepicker-->
 																				</div>
 																				<!--end::Input-->
 																		</div>
 																		
 																	</div>
-																	{{-- <div class="from row">
-																		<div class="col-md-8 mb-3">
-																			
-																				<label class="fs-6 fw-bold mb-2">Detalles</label>
-																				<textarea class="form-control form-control-solid" rows="3" name="target_details" placeholder="Type Target Details"></textarea>
-																			
-																		</div>
-																	</div> --}}
-																	{{-- <div class="modal-footer flex-end">
-																		<!--begin::Button-->
-																		<!--end::Button-->
-																		<!--begin::Button-->
-																		<button type="submit" id="agendar-trabajo" class="btn btn-primary">
-																			<span class="indicator-label">Registrar</span>
-																			<span class="indicator-progress">Please wait...
-																			<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-																		</button>
-																		<!--end::Button-->
-																	</div> --}}
+																	
 																	<div class="modal-footer">
 																		<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
 																		<button type="submit" class="btn btn-primary">Modificar</button>
